@@ -9,7 +9,7 @@
     <style>
         /* Navbar Styles */
         .navbar {
-            background-color: #000;
+            background-color: #333;
             overflow: hidden;
             border-radius: 10px;
         }
@@ -23,7 +23,6 @@
             font-size: 18px;
             transition: background-color 0.3s;
         }
-
         .navbar a:hover {
             background-color: #555;
         }
@@ -32,111 +31,114 @@
         section {
             margin-top: 20px;
             padding: 20px;
-            border: 1px solid #ccc;
             border-radius: 10px;
             background-color: #f9f9f9;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         }
 
         section h1 {
             color: #007bff;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<div class="navbar">
-    <a href="#introduction">Introduction</a>
-    <a href="#software-tutorial">Software Tutorial</a>
-    <a href="#simulation">Simulation</a>
-    <a href="#data-analyses">Data Analyses</a>
-    <a href="#code-source-github">Code Source GitHub</a>
-    <!-- Dropdown Menu -->
-    <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li>
-                <a href="index.html">Introduction</a>
-            </li>
-            <li class="active">
-                <a href="about.html">Software tutorial</a>
-            </li>
-            <li>
-                <a href="simu.html">Simulation</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    data analyses
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">KODAMA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-                        <a href="......................">1...........................</a>
-                    </li>
-                    <li>
-                        <a href=".......................">2............................</a>
-                    </li>
-                    <li>
-                        <a href=".....................">3..............................</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="license.html">License</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="https://github.com/tkcaccia/KODAMA">
-                    <span class="fab fa-github"></span>
-
-                    Source code
-                </a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#simulation">Simulation</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Data 1</a>
+                        <a class="dropdown-item" href="#">Data 2</a>
+                        <a class="dropdown-item" href="#">Data 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#code-source-github">Code Source GitHub</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                        <span class="fab fa-github"></span>
+                        Source code
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+</nav>
 
-<!-- KODAMA Section -->
-<section>
-    <h1>KODAMA</h1>
-    <p>
-        An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
-    </p>
+<!-- Introduction Section -->
+<section id="introduction">
+    <div class="container">
+        <h1>Introduction</h1>
+        <p>
+            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
+        </p>
+    </div>
 </section>
 
 <!-- News Section -->
 <section>
-    <h2>News</h2>
-    <p>
-        KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-        This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. 
-        A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries. 
-        The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.
-    </p>
-    <!-- Links to articles -->
+    <div class="container">
+        <h2>News</h2>
+        <p>
+            KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries. The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.
+        </p>
+        <!-- Links to articles -->
+    </div>
 </section>
 
 <!-- Installation Section -->
 <section>
-    <h2>Installation</h2>
-    <p>
-        The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
-    </p>
-    <pre><code>library(devtools)
+    <div class="container">
+        <h2>Installation</h2>
+        <p>
+            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
+        </p>
+        <pre><code>library(devtools)
 install_github("tkcaccia/KODAMA")
-    </code></pre>
+        </code></pre>
+    </div>
 </section>
 
 <!-- Applications Section -->
 <section>
-    <h2>Applications</h2>
-    <ol>
-        <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a></li>
-        <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a></li>
-        <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a></li>
-    </ol>
+    <div class="container">
+        <h2>Applications</h2>
+        <ol>
+            <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a></li>
+            <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a></li>
+            <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a></li>
+        </ol>
+    </div>
 </section>
+
+<!-- Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
