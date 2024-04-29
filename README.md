@@ -9,16 +9,6 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
 
         .dropdown-content {
@@ -27,8 +17,11 @@
             background-color: #f9f9f9;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            border-radius: 8px;
             z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .dropdown-content a {
@@ -40,42 +33,13 @@
 
         .dropdown-content a:hover {
             background-color: #f1f1f1;
-            color: #007bff;
         }
 
         /* Section Styles */
         section {
             margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        section h1 {
-            font-size: 24px;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-
-        section p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        section pre {
-            font-size: 16px;
-            color: #555;
-            background-color: #fff;
             padding: 10px;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-
-        section pre code {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
@@ -96,8 +60,10 @@
 <!-- Introduction Section -->
 <section id="introduction">
     <h1>Introduction</h1>
-    <!-- Include provided script here -->
-    <!-- Script content goes here -->
+    <p>
+        # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
+    </p>
+    <!-- Add more content as needed -->
 </section>
 
 <!-- Software Tutorial Section -->
