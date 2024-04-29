@@ -11,7 +11,6 @@ KODAMA
             overflow: hidden;
             border-radius: 10px;
         }
-
         .navbar a {
             float: left;
             display: block;
