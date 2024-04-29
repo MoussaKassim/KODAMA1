@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KODAMA</title>
     <style>
-        /* Dropdown Menu Styles */
+        /* Navbar Styles */
         .navbar {
-            overflow: hidden;
             background-color: #000;
+            overflow: hidden;
             border-radius: 10px;
         }
 
@@ -17,21 +17,23 @@
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 20px;
+            padding: 14px 16px;
             text-decoration: none;
             font-size: 18px;
+            transition: background-color 0.3s;
         }
 
         .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #555;
         }
 
         /* Section Styles */
         section {
-            margin-bottom: 20px;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 20px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
         }
 
         section h1 {
@@ -41,7 +43,7 @@
 </head>
 <body>
 
-<!-- Dropdown Menu -->
+<!-- Navbar -->
 <div class="navbar">
     <a href="#introduction">Introduction</a>
     <a href="#software-tutorial">Software Tutorial</a>
