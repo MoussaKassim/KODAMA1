@@ -17,7 +17,6 @@ The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA
 [Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.](https://www.pnas.org/doi/abs/10.1073/pnas.1220873111)
 
 
-
 ## Installation
 
 The KODAMA is avialable on https://CRAN.R-project.org/package=KODAMA.
