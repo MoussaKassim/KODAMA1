@@ -6,33 +6,25 @@
     <title>KODAMA</title>
     <style>
         /* Dropdown Menu Styles */
-        .dropdown {
-            position: relative;
-            display: inline-block;
+        .navbar {
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 10px;
         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
+        .navbar a {
+            float: left;
             display: block;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
             text-decoration: none;
-            display: block;
+            font-size: 18px;
         }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
         }
 
         /* Section Styles */
@@ -41,20 +33,21 @@
             padding: 10px;
             border: 1px solid #ccc;
         }
+
+        section h1 {
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
 
 <!-- Dropdown Menu -->
-<div class="dropdown">
-    <span>Menu</span>
-    <div class="dropdown-content">
-        <a href="#introduction">Introduction</a>
-        <a href="#software-tutorial">Software Tutorial</a>
-        <a href="#simulation">Simulation</a>
-        <a href="#data-analyses">Data Analyses</a>
-        <a href="#code-source-github">Code Source GitHub</a>
-    </div>
+<div class="navbar">
+    <a href="#introduction">Introduction</a>
+    <a href="#software-tutorial">Software Tutorial</a>
+    <a href="#simulation">Simulation</a>
+    <a href="#data-analyses">Data Analyses</a>
+    <a href="#code-source-github">Code Source GitHub</a>
 </div>
 
 <!-- Introduction Section -->
