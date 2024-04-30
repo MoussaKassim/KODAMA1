@@ -1,4 +1,4 @@
-<KODAMA Knowledge Discovery by Accuracy Maximization>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -68,13 +68,10 @@
                         Data Analyses
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Metabolomic data</https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md>
-                        <a class="dropdown-item" href="#">Single-cell data</https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md>
-                        <a class="dropdown-item" href="#">KODAMA for Spatial Transcriptomics</https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single-cell data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">KODAMA for Spatial Transcriptomics</a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#code-source-github"></a>
                 </li>
             </ul>
             <ul class="navbar-nav">
