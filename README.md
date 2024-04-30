@@ -60,7 +60,7 @@
             cursor: pointer;
         }
         pre:hover::after {
-            content: "R Script"; /* Text displayed on hover */
+            content: "Copy to clipboard"; /* Text displayed on hover */
             position: absolute;
             top: 5px;
             right: 5px;
@@ -70,6 +70,21 @@
             padding: 5px;
             border-radius: 3px;
             z-index: 1;
+            cursor: pointer;
+        }
+        pre:hover::before {
+            content: "\f0ea"; /* FontAwesome copy icon */
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 12px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 5px;
+            border-radius: 3px;
+            z-index: 1;
+            cursor: pointer;
         }
     </style>
 </head>
