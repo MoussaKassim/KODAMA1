@@ -1,4 +1,4 @@
-<kodama>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,6 +48,28 @@
         }
         .card-body {
             text-align: center;
+        }
+        /* Code Styles */
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+            position: relative;
+            cursor: pointer;
+        }
+        pre:hover::after {
+            content: "R Script"; /* Text displayed on hover */
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 12px;
+            padding: 5px;
+            border-radius: 3px;
+            z-index: 1;
         }
     </style>
 </head>
@@ -122,7 +144,8 @@
         <p>
             The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
-        <pre><code>library(devtools)
+        <pre><code class="r">
+library(devtools)
 install_github("tkcaccia/KODAMA")
         </code></pre>
     </div>
