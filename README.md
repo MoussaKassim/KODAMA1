@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,10 +30,6 @@
             border-radius: 10px;
             background-color: #f9f9f9;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            display: none; /* Hide sections by default */
-        }
-        section.active {
-            display: block; /* Show active section */
         }
         section h1 {
             color: #007bff;
@@ -136,7 +132,7 @@
                         Data Analyses
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#metabolomic-data">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
                         <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
                         <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
                     </div>
@@ -153,7 +149,6 @@
         </div>
     </div>
 </nav>
-
 
 <!-- Introduction Section -->
 <section id="introduction">
@@ -242,67 +237,6 @@ install_github("tkcaccia/KODAMA")
         document.execCommand('copy');
         document.body.removeChild(temp);
         alert('R code copied to clipboard!');
-    });
-
-<!-- Metabolomic Data Section -->
-<section id="metabolomic-data">
-    <div class="container">
-        <h1>Metabolomic data</h1>
-        <p>
-            The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
-        </p>
-        <h2>Tutorial</h2>
-        <pre><code>data(MetRef)
-u=MetRef$data
-u=u[,-which(colSums(u)==0)]
-u=normalization(u)$newXtrain
-u=scaling(u)$newXtrain
-class=as.numeric(as.factor(MetRef$gender))
-class2=as.numeric(as.factor(MetRef$donor))
-res_MDS=cmdscale(dist(u))
-res_tSNE=Rtsne(u)$Y
-res_UMAP = umap(u)$layout
-kk=KODAMA.matrix(u,f.par = 50)
-res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
-res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
-res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")
-par(mfrow = c(2,3))
-plot(res_MDS,pch=21,bg=rainbow(2)[class],main="MDS")
-plot(res_tSNE,pch=21,bg=rainbow(2)[class],main="tSNE")
-plot(res_UMAP,pch=21,bg=rainbow(2)[class],main="UMAP")
-plot(res_KODAMA_MDS,pch=21,bg=rainbow(2)[class],main="KODAMA_MDS",)
-plot(res_KODAMA_tSNE,pch=21,bg=rainbow(2)[class],main="KODAMA_tSNE")
-plot(res_KODAMA_UMAP,pch=21,bg=rainbow(2)[class],main="KODAMA_UMAP")
-</code></pre>
-        <p>
-            <p align="center">
-                <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="hello-light"  />
-            </p>
-        </p>
-        <p>
-            <p align="center">
-                <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.donor.png" alt="hello-light" />
-            </p>
-        </p>
-    </div>
-</section>
-
-<!-- Bootstrap Scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Script to toggle active class on section click -->
-<script>
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default link behavior
-            const targetId = this.getAttribute('href'); // Get target section ID
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active'); // Remove active class from all sections
-            });
-            document.querySelector(targetId).classList.add('active'); // Add active class to target section
-        });
     });
 </script>
 
