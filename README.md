@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,7 +77,7 @@
                         Data Analyses
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="javascript:void(0)" onclick="redirectToMetabolomicData()">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
                         <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
                         <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
                     </div>
@@ -95,12 +95,65 @@
     </div>
 </nav>
 
-<!-- JavaScript to redirect to Metabolomic data page -->
-<script>
-    function redirectToMetabolomicData() {
-        window.location.href = "metabolomic_data_analysis.html";
-    }
-</script>
+<!-- Introduction Section -->
+<section id="introduction">
+    <div class="container">
+        <h1>Introduction</h1>
+        <p>
+            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
+        </p>
+    </div>
+</section>
+
+<!-- News Section -->
+<section>
+    <div class="container">
+        <h2>News</h2>
+        <p>
+            KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries. The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.
+        </p>
+    </div>
+</section>
+
+<!-- Installation Section -->
+<section>
+    <div class="container">
+        <h2>Installation</h2>
+        <p>
+            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
+        </p>
+        <pre><code>library(devtools)
+install_github("tkcaccia/KODAMA")
+        </code></pre>
+    </div>
+</section>
+
+<!-- Applications Section -->
+<section>
+    <div class="container">
+        <h2>Applications</h2>
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Metabolomic data</h5>
+                    <p class="card-text">Explore Metabolomic data</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Single cell RNA seq data</h5>
+                    <p class="card-text">Explore Single cell RNA seq data</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Spatial Transcriptomic data</h5>
+                    <p class="card-text">Explore Spatial Transcriptomic data</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
