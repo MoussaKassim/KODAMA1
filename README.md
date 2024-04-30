@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,26 +9,29 @@
     <style>
         /* Navbar Styles */
         .navbar {
-            background-color: #333;
+            background-color: #007bff;
             border-radius: 10px;
-        }
-        .navbar-nav .nav-link {
-            color: white;
-            transition: color 0.3s;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #007bff;
         }
         .navbar-brand {
             color: white;
             font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #0056b3;
         }
         /* Section Styles */
         section {
             margin-top: 20px;
             padding: 20px;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #f8f9fa;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         }
         section h1 {
@@ -109,7 +112,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="#">KODAMA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -210,8 +213,13 @@ install_github("tkcaccia/KODAMA")
     </div>
 </section>
 
-
-   
+<!-- Code Box for R Script -->
+<div class="container">
+    <div class="copy-box">
+        <pre><code>data(MetRef)
+u=MetRef$data
+u=u[,-which(colSums(u)==0)]</code></pre>
+    </div>
 </div>
 
 <!-- Bootstrap Scripts -->
