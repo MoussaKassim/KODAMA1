@@ -1,4 +1,4 @@
-<KODAMA>
+<KODAMA >
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,12 @@
         /* Navbar Styles */
         .navbar {
             background-color: #333;
-            border-radius: 10px;
+            border-radius: 0;
+            margin-bottom: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         .navbar-nav .nav-link {
             color: white;
@@ -23,9 +28,19 @@
             color: white;
             font-size: 24px;
         }
+        /* Black Band */
+        .black-band {
+            background-color: #000;
+            height: 3px;
+            width: 100%;
+            position: fixed;
+            top: 56px; /* Adjust this value based on your navbar height */
+            left: 0;
+            z-index: 999;
+        }
         /* Section Styles */
         section {
-            margin-top: 20px;
+            margin-top: 75px; /* Adjust this value based on your navbar height */
             padding: 20px;
             border-radius: 10px;
             background-color: #f9f9f9;
@@ -107,6 +122,9 @@
     </style>
 </head>
 <body>
+
+<!-- Black Band -->
+<div class="black-band"></div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
