@@ -1,4 +1,4 @@
-<kodama>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         /* Navbar Styles */
         .navbar {
             background-color: #333;
-            border-radius: 10px;
+            border-radius: 0;
         }
         .navbar-nav .nav-link {
             color: white;
@@ -25,9 +25,8 @@
         }
         /* Section Styles */
         section {
-            margin-top: 20px;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 0;
             background-color: #f9f9f9;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         }
@@ -38,7 +37,7 @@
         /* Card Styles */
         .card {
             border: none;
-            border-radius: 10px;
+            border-radius: 0;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             cursor: pointer;
@@ -55,14 +54,14 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="#">KODAMA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
