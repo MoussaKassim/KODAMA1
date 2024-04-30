@@ -3,90 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metabolomic Data Analysis</title>
+    <title>KODAMA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+        .navbar-nav .nav-link {
+            color: white;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
             color: #007bff;
-            margin-top: 0;
         }
-        h2 {
-            color: #007bff;
-            margin-top: 30px;
+        .navbar-brand {
+            color: white;
+            font-size: 24px;
         }
-        p {
-            line-height: 1.6;
-        }
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            overflow-x: auto;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
+        /* Section Styles */
+        section {
             margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        section h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Metabolomic Data Analysis</h1>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">KODAMA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div>
-        <h2>Data Description</h2>
-        <p>
-            The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided into 450 spectral bins.
-        </p>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#simulation">Simulation</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="javascript:void(0)" onclick="redirectToMetabolomicData()">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                        <span class="fab fa-github"></span>
+                        Source code
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <div>
-        <h2>Tutorial</h2>
-        <pre><code>
-data(MetRef)
-u=MetRef$data
-u=u[,-which(colSums(u)==0)]
-        </code></pre>
-        <p>
-            We apply the Probabilistic Quotient Normalization
-            <code>
-u=normalization(u)$newXtrain
-            </code>
-        </p>
-        <!-- Add other tutorial steps as needed -->
-    </div>
+<!-- JavaScript to redirect to Metabolomic data page -->
+<script>
+    function redirectToMetabolomicData() {
+        window.location.href = "metabolomic_data_analysis.html";
+    }
+</script>
 
-    <div>
-        <h2>Analysis</h2>
-        <!-- Add analysis steps and code snippets here -->
-    </div>
-
-    <div>
-        <h2>Visualizations</h2>
-        <h3>Cluster Analysis by Gender</h3>
-        <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="Cluster Analysis by Gender">
-        <h3>Cluster Analysis by Donor</h3>
-        <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.donor.png" alt="Cluster Analysis by Donor">
-    </div>
-</div>
+<!-- Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
