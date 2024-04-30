@@ -68,9 +68,9 @@
                         Data Analyses
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Data 1</a>
-                        <a class="dropdown-item" href="#">Data 2</a>
-                        <a class="dropdown-item" href="#">Data 3</a>
+                        <a class="dropdown-item" href="#">Metabolomic data</https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md>
+                        <a class="dropdown-item" href="#">Single-cell data</https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md>
+                        <a class="dropdown-item" href="#">KODAMA for Spatial Transcriptomics</https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md>
                     </div>
                 </li>
                 <li class="nav-item">
