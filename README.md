@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,40 +9,23 @@
     <style>
         /* Navbar Styles */
         .navbar {
-            background-color: transparent;
-            border-radius: 0;
-            margin-bottom: 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        .navbar-brand {
-            color: #333;
-            font-size: 24px;
-            margin-left: 20px; /* Align the brand to the left */
+            background-color: #333;
+            border-radius: 10px;
         }
         .navbar-nav .nav-link {
-            color: #333;
+            color: white;
             transition: color 0.3s;
         }
         .navbar-nav .nav-link:hover {
             color: #007bff;
         }
-        /* Black Band */
-        .black-band {
-            background-color: #000;
-            height: 2px;
-            width: 50%;
-            position: fixed;
-            top: 56px; /* Adjust this value based on your navbar height */
-            left: 25%; /* Adjust this value based on your band width */
-            z-index: 999;
-            border-radius: 5px; /* Add some rounded corners */
+        .navbar-brand {
+            color: white;
+            font-size: 24px;
         }
         /* Section Styles */
         section {
-            margin-top: 100px; /* Adjust this value based on your navbar height */
+            margin-top: 80px; /* Adjusted margin-top */
             padding: 20px;
             border-radius: 10px;
             background-color: #f9f9f9;
@@ -66,23 +49,75 @@
         .card-body {
             text-align: center;
         }
+        /* Code Styles */
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+            position: relative;
+            cursor: pointer;
+        }
+        pre:hover::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 255, 0.1); /* Blue color when hovered */
+            border-radius: 5px;
+            z-index: 1;
+        }
+        pre:hover::before {
+            content: "\f0ea"; /* FontAwesome copy icon */
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #007bff;
+            z-index: 2;
+        }
+        .copy-box {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            margin-top: 20px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+        }
+        .copy-box:hover {
+            background-color: #e9ecef;
+        }
+        .copy-box::before {
+            content: "\f0c5"; /* FontAwesome copy icon */
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
 
-<!-- Black Band -->
-<div class="black-band"></div>
-
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Bien</a>
+        <a class="navbar-brand" href="#">KODAMA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
@@ -175,8 +210,6 @@ install_github("tkcaccia/KODAMA")
     </div>
 </section>
 
-
-   
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
