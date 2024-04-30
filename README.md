@@ -165,11 +165,11 @@
     <div class="container">
         <h2>News</h2>
         <p>
-            <span style="color: black; text-decoration: underline;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
+            <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
 This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procudere has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
         </p>
         <p>
-            <span style="color: black; text-decoration: underline;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
+            <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
         </p>
         <p>
             References:
