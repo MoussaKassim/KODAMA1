@@ -104,11 +104,6 @@
             font-size: 18px;
             color: #007bff;
         }
-        /* Shining Links */
-        ul li a:hover {
-            background-color: #ADD8E6; /* Light blue background when hovered */
-            transition: background-color 0.3s ease; /* Smooth transition animation */
-        }
     </style>
 </head>
 <body>
@@ -226,13 +221,24 @@ install_github("tkcaccia/KODAMA")
     </div>
 </section>
 
-
-   
-
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Copy R Code Script -->
+<script>
+    document.getElementById('r-code').addEventListener('click', function() {
+        var rCode = this.textContent.trim();
+        var temp = document.createElement('textarea');
+        temp.value = rCode;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        alert('R code copied to clipboard!');
+    });
+</script>
 
 </body>
 </html>
