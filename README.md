@@ -81,6 +81,29 @@
             color: #007bff;
             z-index: 2;
         }
+        .copy-box {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            margin-top: 20px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+        }
+        .copy-box:hover {
+            background-color: #e9ecef;
+        }
+        .copy-box::before {
+            content: "\f0c5"; /* FontAwesome copy icon */
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
@@ -154,8 +177,7 @@
         <p>
             The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
-        <pre><code class="r">
-library(devtools)
+        <pre><code>library(devtools)
 install_github("tkcaccia/KODAMA")
         </code></pre>
     </div>
@@ -187,6 +209,15 @@ install_github("tkcaccia/KODAMA")
         </div>
     </div>
 </section>
+
+<!-- Code Box for R Script -->
+<div class="container">
+    <div class="copy-box">
+        <pre><code>data(MetRef)
+u=MetRef$data
+u=u[,-which(colSums(u)==0)]</code></pre>
+    </div>
+</div>
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
