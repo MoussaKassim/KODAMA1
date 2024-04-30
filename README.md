@@ -71,38 +71,20 @@
             z-index: 1;
         }
         pre:hover::before {
-            content: "\f0ea"; /* FontAwesome copy icon */
-            font-family: "Font Awesome 5 Free";
+            content: "";
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            color: #007bff;
+            top: 0;
+            right: 0;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            border-radius: 0 0 0 5px;
             z-index: 2;
         }
-        .copy-box {
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            margin-top: 20px;
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-        }
-        .copy-box:hover {
-            background-color: #e9ecef;
-        }
-        .copy-box::before {
-            content: "\f0c5"; /* FontAwesome copy icon */
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #007bff;
+        /* Shining Links */
+        ul li a:hover {
+            background-color: #ADD8E6; /* Light blue background when hovered */
+            transition: background-color 0.3s ease; /* Smooth transition animation */
         }
     </style>
 </head>
@@ -117,7 +99,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
@@ -140,9 +122,9 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
-                        <span class="fab fa-github"></span>
-                        Source code
+                    <a class="nav-link" href="https://CRAN.R-project.org/package=KODAMA">
+                        <span class="fab fa-r-project"></span>
+                        R Code
                     </a>
                 </li>
             </ul>
@@ -166,13 +148,12 @@
         <h2>News</h2>
         <p>
             <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procudere has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
+This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
         </p>
         <p>
             <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
         </p>
         <p>
-            
             <ul>
                 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
                 <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
@@ -182,8 +163,6 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
     </div>
 </section>
 
-
-
 <!-- Installation Section -->
 <section>
     <div class="container">
@@ -191,12 +170,9 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
         <p>
             The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
-        <pre><code>library(devtools)
+        <pre><code id="r-code">library(devtools)
 install_github("tkcaccia/KODAMA")
         </code></pre>
-        <div class="copy-box">
-            <span style="color: #007bff; text-decoration: underline;">Copy code</span>
-        </div>
     </div>
 </section>
 
@@ -231,6 +207,20 @@ install_github("tkcaccia/KODAMA")
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Copy R Code Script -->
+<script>
+    document.getElementById('r-code').addEventListener('click', function() {
+        var rCode = this.textContent.trim();
+        var temp = document.createElement('textarea');
+        temp.value = rCode;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        alert('R code copied to clipboard!');
+    });
+</script>
 
 </body>
 </html>
