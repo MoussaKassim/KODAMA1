@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,10 +43,6 @@
         section h1 {
             color: #007bff;
             margin-bottom: 20px;
-        }
-        /* Introduction Section Styles */
-        #introduction {
-            margin-top: 56px; /* Height of the navbar */
         }
         /* Card Styles */
         .card {
