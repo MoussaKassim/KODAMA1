@@ -1,6 +1,47 @@
-<kodama>
-<html lang="en">
-<head>
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MOUSSA-KASSIM | test mkm</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="MOUSSA-KASSIM">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="test mkm">
+<meta property="og:description" content="test mkm">
+<link rel="canonical" href="https://moussakassim.github.io/MOUSSA-KASSIM/">
+<meta property="og:url" content="https://moussakassim.github.io/MOUSSA-KASSIM/">
+<meta property="og:site_name" content="MOUSSA-KASSIM">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="MOUSSA-KASSIM">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"test mkm","headline":"MOUSSA-KASSIM","name":"MOUSSA-KASSIM","url":"https://moussakassim.github.io/MOUSSA-KASSIM/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="/MOUSSA-KASSIM/assets/css/style.css?v=885af37a420023801ef9f62544702c863be7e71c">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/MOUSSA-KASSIM/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      
+      
+
+      <kodama>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KODAMA</title>
@@ -105,8 +146,8 @@
             color: #007bff;
         }
     </style>
-</head>
-<body>
+
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -163,7 +204,7 @@
 <!-- News Section -->
 <section>
     <div class="container">
-        <h2>News</h2>
+        <h2 id="news">News<a class="anchorjs-link " href="#news" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
         <p>
             KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries. The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.
         </p>
@@ -173,7 +214,7 @@
 <!-- Installation Section -->
 <section>
     <div class="container">
-        <h2>Installation</h2>
+        <h2 id="installation">Installation<a class="anchorjs-link " href="#installation" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
         <p>
             The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
@@ -186,23 +227,23 @@ install_github("tkcaccia/KODAMA")
 <!-- Applications Section -->
 <section>
     <div class="container">
-        <h2>Applications</h2>
+        <h2 id="applications">Applications<a class="anchorjs-link " href="#applications" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
         <div class="card-deck">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Metabolomic data</h5>
+                    <h5 class="card-title" id="metabolomic-data">Metabolomic data<a class="anchorjs-link " href="#metabolomic-data" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
                     <p class="card-text">Explore Metabolomic data</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Single cell RNA seq data</h5>
+                    <h5 class="card-title" id="single-cell-rna-seq-data">Single cell RNA seq data<a class="anchorjs-link " href="#single-cell-rna-seq-data" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
                     <p class="card-text">Explore Single cell RNA seq data</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Spatial Transcriptomic data</h5>
+                    <h5 class="card-title" id="spatial-transcriptomic-data">Spatial Transcriptomic data<a class="anchorjs-link " href="#spatial-transcriptomic-data" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
                     <p class="card-text">Explore Spatial Transcriptomic data</p>
                 </div>
             </div>
@@ -216,5 +257,15 @@ install_github("tkcaccia/KODAMA")
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+
+
+</kodama>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  
+
+</body></html>
