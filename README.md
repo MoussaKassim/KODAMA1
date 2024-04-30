@@ -211,7 +211,7 @@ install_github("tkcaccia/KODAMA")
 </section>
 
 
-    </div>
+   
 </div>
 
 <!-- Bootstrap Scripts -->
