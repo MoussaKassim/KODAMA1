@@ -60,31 +60,26 @@
             cursor: pointer;
         }
         pre:hover::after {
-            content: "Copy to clipboard"; /* Text displayed on hover */
+            content: "";
             position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            font-size: 12px;
-            padding: 5px;
-            border-radius: 3px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
             z-index: 1;
-            cursor: pointer;
         }
         pre:hover::before {
             content: "\f0ea"; /* FontAwesome copy icon */
             font-family: "Font Awesome 5 Free";
             position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 12px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 5px;
-            border-radius: 3px;
-            z-index: 1;
-            cursor: pointer;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #007bff;
+            z-index: 2;
         }
     </style>
 </head>
