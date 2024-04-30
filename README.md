@@ -71,15 +71,38 @@
             z-index: 1;
         }
         pre:hover::before {
-            content: "";
+            content: "\f0ea"; /* FontAwesome copy icon */
+            font-family: "Font Awesome 5 Free";
             position: absolute;
-            top: 0;
-            right: 0;
-            padding: 5px 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #ffffff;
-            border-radius: 0 0 0 5px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #007bff;
             z-index: 2;
+        }
+        .copy-box {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            margin-top: 20px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+        }
+        .copy-box:hover {
+            background-color: #e9ecef;
+        }
+        .copy-box::before {
+            content: "\f0c5"; /* FontAwesome copy icon */
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #007bff;
         }
         /* Shining Links */
         ul li a:hover {
@@ -99,7 +122,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
@@ -122,9 +145,9 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://CRAN.R-project.org/package=KODAMA">
-                        <span class="fab fa-r-project"></span>
-                        R Code
+                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                        <span class="fab fa-github"></span>
+                        Source code
                     </a>
                 </li>
             </ul>
@@ -170,7 +193,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
         <p>
             The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
-        <pre><code id="r-code">library(devtools)
+        <pre><code>library(devtools)
 install_github("tkcaccia/KODAMA")
         </code></pre>
     </div>
@@ -203,24 +226,13 @@ install_github("tkcaccia/KODAMA")
     </div>
 </section>
 
+
+   
+
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Copy R Code Script -->
-<script>
-    document.getElementById('r-code').addEventListener('click', function() {
-        var rCode = this.textContent.trim();
-        var temp = document.createElement('textarea');
-        temp.value = rCode;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        alert('R code copied to clipboard!');
-    });
-</script>
 
 </body>
 </html>
