@@ -40,6 +40,20 @@
             color: #007bff;
             margin-bottom: 20px;
         }
+
+        /* Icon Styles */
+        .icon {
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -93,9 +107,14 @@
 <section id="introduction">
     <div class="container">
         <h1>Introduction</h1>
-        <p>
-            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
-        </p>
+        <div class="d-flex align-items-center mb-4">
+            <div class="icon mr-3">
+                <i class="fas fa-search"></i>
+            </div>
+            <p>
+                # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
+            </p>
+        </div>
     </div>
 </section>
 
