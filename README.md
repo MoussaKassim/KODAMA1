@@ -174,9 +174,9 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
         <p>
             References:
             <ul>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">"Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9."</a></li>
-                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">"Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623."</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">"Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122."</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
             </ul>
         </p>
     </div>
