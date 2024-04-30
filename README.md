@@ -74,7 +74,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#code-source-github">Code Source GitHub</a>
+                    <a class="nav-link" href="#code-source-github"></a>
                 </li>
             </ul>
             <ul class="navbar-nav">
