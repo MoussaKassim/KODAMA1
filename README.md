@@ -1,4 +1,4 @@
-<KODAMA Knowledge Discovery by Accuracy Maximization>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
