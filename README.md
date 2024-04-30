@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,11 @@
     <style>
         /* Navbar Styles */
         .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
             background-color: #333;
             border-radius: 10px;
         }
@@ -22,6 +27,10 @@
         .navbar-brand {
             color: white;
             font-size: 24px;
+        }
+        /* Body padding to compensate for fixed navbar */
+        body {
+            padding-top: 56px; /* Height of the navbar */
         }
         /* Section Styles */
         section {
