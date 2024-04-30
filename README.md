@@ -3,8 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>MOUSSA-KASSIM | test mkm</title>
+
+
 <meta name="generator" content="Jekyll v3.9.5">
 <meta property="og:title" content="MOUSSA-KASSIM">
 <meta property="og:locale" content="en_US">
