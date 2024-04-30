@@ -85,34 +85,9 @@
                         Data Analyses
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Metabolomic data</h5>
-                                            <p class="card-text">Analyzing metabolomic data with KODAMA.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Single cell RNA seq data</h5>
-                                            <p class="card-text">Analyzing single cell RNA sequencing data with KODAMA.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Spatial Transcriptomic data</h5>
-                                            <p class="card-text">Analyzing spatial transcriptomic data with KODAMA.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
                     </div>
                 </li>
             </ul>
@@ -159,6 +134,18 @@
         <pre><code>library(devtools)
 install_github("tkcaccia/KODAMA")
         </code></pre>
+    </div>
+</section>
+
+<!-- Applications Section -->
+<section>
+    <div class="container">
+        <h2>Applications</h2>
+        <ol>
+            <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a></li>
+            <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a></li>
+            <li><a href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a></li>
+        </ol>
     </div>
 </section>
 
