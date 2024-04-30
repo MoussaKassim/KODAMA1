@@ -210,12 +210,7 @@ install_github("tkcaccia/KODAMA")
     </div>
 </section>
 
-<!-- Code Box for R Script -->
-<div class="container">
-    <div class="copy-box">
-        <pre><code>data(MetRef)
-u=MetRef$data
-u=u[,-which(colSums(u)==0)]</code></pre>
+
     </div>
 </div>
 
