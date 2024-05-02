@@ -240,7 +240,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
         </p>
         <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: black;">tkcaccia/KODAMA</span>")
+install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         </code></pre>
     </div>
 </section>
