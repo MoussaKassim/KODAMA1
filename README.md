@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -162,20 +163,13 @@
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                    <a class="nav-link" href="#news">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#simulation">Simulation</a>
+                    <a class="nav-link" href="#installation">Installation</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Data Analyses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#applications">Applications</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -205,48 +199,48 @@
     <div class="container">
         <h1>Introduction</h1>
         <p>
-            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
+            KODAMA is an unsupervised and semi-supervised learning algorithm designed for feature extraction from noisy and high-dimensional data.
         </p>
     </div>
 </section>
 
 <!-- News Section -->
-<section>
+<section id="news">
     <div class="container">
         <h2>News</h2>
         <p>
-            <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
+            KODAMA facilitates the identification of patterns representing underlying groups in a dataset. This is an improved version of the KODAMA algorithm for spatially-aware dimensionality reduction.
         </p>
         <p>
-            <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
+            The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix into a low-dimensional space.
         </p>
         <p>
+            Relevant articles:
             <ul>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
-                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/">Zinga, M. M., et al. KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false">Cacciatore, S., et al. KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111">Cacciatore, S., et al. Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
             </ul>
         </p>
     </div>
 </section>
 
 <!-- Installation Section -->
-<section>
+<section id="installation">
     <div class="container">
         <h2>Installation</h2>
         <p>
-            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
+            The KODAMA package is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
         <pre><code style="color: blue;">
-library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
+library(devtools)
+install_github("tkcaccia/KODAMA")
         </code></pre>
     </div>
 </section>
 
 <!-- Applications Section -->
-<section>
+<section id="applications">
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
@@ -269,6 +263,93 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Metabolomic Data Section -->
+<section id="metabolomicData">
+    <div class="container">
+        <h2>Metabolomic Data</h2>
+        <p>
+            The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
+        </p>
+        <h3>Tutorial</h3>
+        <p>
+            Here, we load the MetRef dataset. Columns with only zero values are removed. 
+        </p>
+        <pre><code data-lang="R">
+data(MetRef)
+u=MetRef$data
+u=u[,-which(colSums(u)==0)]
+        </code></pre>
+        <p>
+            We apply the Probabilistic Quotient Normalization
+        </p>
+        <pre><code data-lang="R">
+u=normalization(u)$newXtrain
+        </code></pre>
+        <p>
+            We mean-center and univariate scaling the data set.
+        </p>
+        <pre><code data-lang="R">
+u=scaling(u)$newXtrain
+        </code></pre>
+        <p>
+            Two classification vectors are created
+        </p>
+        <pre><code data-lang="R">
+class=as.numeric(as.factor(MetRef$gender))
+class2=as.numeric(as.factor(MetRef$donor))
+        </code></pre>
+        <p>
+            Different algorithms for dimensionality reduction are applied
+        </p>
+        <pre><code data-lang="R">
+res_MDS=cmdscale(dist(u))
+res_tSNE=Rtsne(u)$Y
+res_UMAP = umap(u)$layout
+        </code></pre>
+        <p>
+            We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as a classifier with 50 components to drive the accuracy maximization. The KODAMA dissimilarity matrix's is converted into a low-dimensional space using three different methods (i.e., MDS, t-SNE, and UMAP).
+        </p>
+        <pre><code data-lang="R">
+kk=KODAMA.matrix(u,f.par = 50)
+res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
+res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
+res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")
+        </code></pre>
+        <p>
+            Visualize the different clustering algorithms:
+        </p>
+        <p>
+            a) labelled by the gender
+        </p>
+        <pre><code data-lang="R">
+par(mfrow = c(2,3))
+plot(res_MDS,pch=21,bg=rainbow(2)[class],main="MDS")
+plot(res_tSNE,pch=21,bg=rainbow(2)[class],main="tSNE")
+plot(res_UMAP,pch=21,bg=rainbow(2)[class],main="UMAP")
+plot(res_KODAMA_MDS,pch=21,bg=rainbow(2)[class],main="KODAMA_MDS",)
+plot(res_KODAMA_tSNE,pch=21,bg=rainbow(2)[class],main="KODAMA_tSNE")
+plot(res_KODAMA_UMAP,pch=21,bg=rainbow(2)[class],main="KODAMA_UMAP")
+        </code></pre>
+        <p>
+            <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="Gender" />
+        </p>
+        <p>
+            b) labelled by the donor
+        </p>
+        <pre><code data-lang="R">
+plot(res_MDS,pch=21,bg=rainbow(22)[class2],main="MDS")
+plot(res_tSNE,pch=21,bg=rainbow(22)[class2],main="tSNE")
+plot(res_UMAP,pch=21,bg=rainbow(22)[class2],main="UMAP")
+plot(res_KODAMA_MDS,pch=21,bg=rainbow(22)[class2],main="KODAMA_MDS",)
+plot(res_KODAMA_tSNE,pch=21,bg=rainbow(22)[class2],main="KODAMA_tSNE")
+plot(res_KODAMA_UMAP,pch=21,bg=rainbow(22)[class2],main="KODAMA_UMAP")
+        </code></pre>
+        <p>
+            <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.donor.png" alt="Donor" />
+        </p>
     </div>
 </section>
 
