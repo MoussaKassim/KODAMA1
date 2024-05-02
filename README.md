@@ -190,7 +190,7 @@
     </div>
 </nav>
 
-    <!-- Sidebar -->
+ <!-- Sidebar -->
     <div id="sidebar">
         <ul>
             <li id="introLink">Tutorial</li>
@@ -283,6 +283,6 @@ plot(res_KODAMA_UMAP,pch=21,bg=rainbow(22)[class2],main="KODAMA_UMAP")
         </div>
     </section>
 
-</body>
 
+</body>
 </html>
