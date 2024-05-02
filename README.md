@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,153 +148,140 @@
         }
     </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">KODAMA</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">KODAMA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#introduction">Introduction</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#simulation">Simulation</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Data Analyses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
-                        <span class="fab fa-github"></span>
-                        Source code
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Sidebar -->
-<div id="sidebar">
-    <ul>
-        <li id="introLink">Introduction</li>
-        <li id="newsLink">News</li>
-        <li id="installationLink">Installation</li>
-        <li id="applicationsLink">Applications</li>
-    </ul>
-</div>
-
-<!-- Introduction Section -->
-<section id="introduction">
-    <div class="container">
-        <h1>Introduction</h1>
-        <p>
-            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
-        </p>
-    </div>
-</section>
-
-<!-- News Section -->
-<section>
-    <div class="container">
-        <h2>News</h2>
-        <p>
-            <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
-        </p>
-        <p>
-            <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
-        </p>
-        <p>
-            <ul>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
-                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
-            </ul>
-        </p>
-    </div>
-</section>
-
-<!-- Installation Section -->
-<section>
-    <div class="container">
-        <h2>Installation</h2>
-        <p>
-            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
-        </p>
-        <pre><code style="color: blue;">
-library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-        </code></pre>
-    </div>
-</section>
-
-<!-- Applications Section -->
-<section>
-    <div class="container">
-        <h2>Applications</h2>
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Metabolomic data</h5>
-                    <p class="card-text">Explore Metabolomic data</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Single cell RNA seq data</h5>
-                    <p class="card-text">Explore Single cell RNA seq data</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Spatial Transcriptomic data</h5>
-                    <p class="card-text">Explore Spatial Transcriptomic data</p>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#MetabolomicData">Metabolomic Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Tutorial">Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#MDStSNEUMAP">MDS, tSNE and UMAP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#KODAMA">KODAMA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#VisualizeClusteringAlgorithms">Visualize Clustering Algorithms</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                            <span class="fab fa-github"></span>
+                            Source code
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <ul>
+            <li id="introLink">Introduction</li>
+            <li id="newsLink">News</li>
+            <li id="installationLink">Installation</li>
+            <li id="applicationsLink">Applications</li>
+        </ul>
     </div>
-</section>
 
-<!-- Bootstrap Scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- JavaScript for Smooth Scrolling and Active Navigation -->
-<script>
-    // Smooth scrolling for sidebar links
-    document.getElementById('introLink').addEventListener('click', function() {
-        document.getElementById('introduction').scrollIntoView({ behavior: 'smooth' });
-    });
-    document.getElementById('newsLink').addEventListener('click', function() {
-        document.getElementById('news').scrollIntoView({ behavior: 'smooth' });
-    });
-    document.getElementById('installationLink').addEventListener('click', function() {
-        document.getElementById('installation').scrollIntoView({ behavior: 'smooth' });
-    });
-    document.getElementById('applicationsLink').addEventListener('click', function() {
-        document.getElementById('applications').scrollIntoView({ behavior: 'smooth' });
-    });
-</script>
+    <!-- Metabolomic data-->
+    <section id="MetabolomicData">
+        <div class="container">
+            <h1>Metabolomic Data</h1>
+            <p>
+                The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
+            </p>
+            <h2>Tutorial</h2>
+            <p>
+                Here, we load the MetRef dataset. Columns with only zero values are removed.
+            </p>
+            <pre>
+data(MetRef)
+u=MetRef$data
+u=u[,-which(colSums(u)==0)]
+            </pre>
+            <p>
+                We apply the Probabilistic Quotient Normalization
+            </p>
+            <pre>
+u=normalization(u)$newXtrain
+            </pre>
+            <p>
+                We mean-center and univariate scaling the data set.
+            </p>
+            <pre>
+u=scaling(u)$newXtrain
+            </pre>
+            <p>
+                Two classification vectors are created
+            </p>
+            <pre>
+class=as.numeric(as.factor(MetRef$gender))
+class2=as.numeric(as.factor(MetRef$donor))
+            </pre>
+            <h2>MDS, tSNE and UMAP</h2>
+            <p>
+                Different algorithms for dimensionality reduction are applied
+            </p>
+            <pre>
+res_MDS=cmdscale(dist(u))
+res_tSNE=Rtsne(u)$Y
+res_UMAP = umap(u)$layout
+            </pre>
+            <h2>KODAMA</h2>
+            <p>
+                We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as classifier with 50 components to drive the accuracy maximixation. The KODAMA dissimilarity matrix's is converted in a low dimensionality space using three different methods (i.e., MDS, t-SNE, and UMAP).
+            </p>
+            <pre>
+kk=KODAMA.matrix(u,f.par = 50)
+res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
+res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
+res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")
+            </pre>
+            <h2>Visualize the different clustering algorithms:</h2>
+            <h3>a) labelled by the gender</h3>
+            <pre>
+par(mfrow = c(2,3))
+plot(res_MDS,pch=21,bg=rainbow(2)[class],main="MDS")
+plot(res_tSNE,pch=21,bg=rainbow(2)[class],main="tSNE")
+plot(res_UMAP,pch=21,bg=rainbow(2)[class],main="UMAP")
+plot(res_KODAMA_MDS,pch=21,bg=rainbow(2)[class],main="KODAMA_MDS",)
+plot(res_KODAMA_tSNE,pch=21,bg=rainbow(2)[class],main="KODAMA_tSNE")
+plot(res_KODAMA_UMAP,pch=21,bg=rainbow(2)[class],main="KODAMA_UMAP")
+            </pre>
+            <p align="center">
+                <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="Metabolomic data labelled by gender" />
+            </p>
+            <h3>b) labelled by the donor</h3>
+            <pre>
+plot(res_MDS,pch=21,bg=rainbow(22)[class2],main="MDS")
+plot(res_tSNE,pch=21,bg=rainbow(22)[class2],main="tSNE")
+plot(res_UMAP,pch=21,bg=rainbow(22)[class2],main="UMAP")
+plot(res_KODAMA_MDS,pch=21,bg=rainbow(22)[class2],main="KODAMA_MDS",)
+plot(res_KODAMA_tSNE,pch=21,bg=rainbow(22)[class2],main="KODAMA_tSNE")
+plot(res_KODAMA_UMAP,pch=21,bg=rainbow(22)[class2],main="KODAMA_UMAP")
+            </pre>
+            <p align="center">
+                <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.donor.png" alt="Metabolomic data labelled by donor" />
+            </p>
+        </div>
+    </section>
 
 </body>
+
 </html>
