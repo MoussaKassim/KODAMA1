@@ -32,6 +32,37 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px; /* Height of the navbar */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
+        }
+        /* Sidebar Styles */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 1000;
+            background-color: #333;
+            width: 200px;
+            padding-top: 56px; /* Height of the navbar */
+            overflow-y: auto;
+            transition: all 0.3s;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        #content {
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
+            padding: 20px;
         }
         /* Section Styles */
         section {
@@ -114,27 +145,6 @@
             font-size: 18px;
             color: #007bff;
         }
-        /* Styles for Table of Contents */
-        #TOC {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            background-color: transparent;
-            width: 150px;
-            border: 2px solid black; /* Initial color */
-            border-radius: 5px;
-            padding: 10px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        #TOC li {
-            cursor: pointer;
-        }
-        #TOC li:hover {
-            color: #FFA500; /* Hover color */
-        }
     </style>
 </head>
 <body>
@@ -181,8 +191,8 @@
     </div>
 </nav>
 
-<!-- Table of Contents -->
-<div id="TOC">
+<!-- Sidebar -->
+<div id="sidebar">
     <ul>
         <li id="introLink">Introduction</li>
         <li id="newsLink">News</li>
@@ -267,39 +277,9 @@ install_github("tkcaccia/KODAMA")
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- Copy R Code Script -->
+<!-- JavaScript for Smooth Scrolling and Active Navigation -->
 <script>
-    document.getElementById('r-code').addEventListener('click', function() {
-        var rCode = this.textContent.trim();
-        var temp = document.createElement('textarea');
-        temp.value = rCode;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        alert('R code copied to clipboard!');
-    });
-</script>
-
-<!-- JavaScript for Changing TOC Color -->
-<script>
-    window.addEventListener('scroll', function() {
-        var TOC = document.getElementById('TOC');
-        var introSection = document.getElementById('introduction');
-        var introSectionRect = introSection.getBoundingClientRect();
-        var introSectionTop = introSectionRect.top;
-        var introSectionBottom = introSectionRect.bottom;
-
-        if (introSectionTop <= 0 && introSectionBottom > 0) {
-            TOC.style.backgroundColor = 'black';
-            TOC.style.color = 'white';
-        } else {
-            TOC.style.backgroundColor = 'transparent';
-            TOC.style.color = 'black';
-        }
-    });
-
-    // Smooth scrolling for TOC links
+    // Smooth scrolling for sidebar links
     document.getElementById('introLink').addEventListener('click', function() {
         document.getElementById('introduction').scrollIntoView({ behavior: 'smooth' });
     });
