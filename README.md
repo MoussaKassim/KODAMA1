@@ -1,4 +1,3 @@
-<kodama>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -239,8 +238,9 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
         <p>
             The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
         </p>
-        <pre><code>library(devtools)
-install_github("tkcaccia/KODAMA")
+        <pre><code style="color: blue;">
+library(<span style="color: black;">devtools</span>)
+install_github("<span style="color: black;">tkcaccia/KODAMA</span>")
         </code></pre>
     </div>
 </section>
