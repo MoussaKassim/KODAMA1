@@ -1,6 +1,4 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,54 +146,57 @@
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">KODAMA</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">KODAMA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#MetabolomicData">Metabolomic Data</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Tutorial">Tutorial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#MDStSNEUMAP">MDS, tSNE and UMAP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#KODAMA">KODAMA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#VisualizeClusteringAlgorithms">Visualize Clustering Algorithms</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
-                            <span class="fab fa-github"></span>
-                            Source code
-                        </a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#simulation">Simulation</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                        <span class="fab fa-github"></span>
+                        Source code
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink">Introduction</li>
-            <li id="newsLink">News</li>
-            <li id="installationLink">Installation</li>
-            <li id="applicationsLink">Applications</li>
+            <li id="introLink">Tutorial</li>
+            <li id="newsLink">MDS, tSNE and UMAP</li>
+            <li id="installationLink">KODAMA</li>
+            <li id="applicationsLink">Visualize the different clustering algorithms:</li>
         </ul>
     </div>
 
