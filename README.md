@@ -1,4 +1,4 @@
-<kodama>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,19 +33,21 @@
         body {
             padding-top: 56px; /* Height of the navbar */
             margin-left: 200px; /* Adjusted to accommodate the sidebar */
+            background-color: #f9f9f9; /* Light gray background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
         }
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: -200px; /* Initially hidden */
             bottom: 0;
             z-index: 1000;
             background-color: #333;
             width: 200px;
             padding-top: 56px; /* Height of the navbar */
             overflow-y: auto;
-            transition: all 0.3s;
+            transition: left 0.3s; /* Smooth transition for opening and closing */
         }
         #sidebar ul {
             list-style-type: none;
@@ -61,19 +63,20 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         #content {
-            margin-left: 200px; /* Adjusted to accommodate the sidebar */
+            margin-left: 0; /* Adjusted to accommodate the sidebar */
             padding: 20px;
+            transition: margin-left 0.3s; /* Smooth transition for adjusting content when sidebar opens and closes */
         }
         /* Section Styles */
         section {
             margin-top: 20px;
             padding: 20px;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #fff; /* White background for sections */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         }
         section h1 {
-            color: #007bff;
+            color: #007bff; /* Modern blue color */
             margin-bottom: 20px;
         }
         /* Card Styles */
@@ -89,61 +92,6 @@
         }
         .card-body {
             text-align: center;
-        }
-        /* Code Styles */
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            overflow-x: auto;
-            position: relative;
-            cursor: pointer;
-        }
-        pre:hover::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 255, 0.1); /* Blue color when hovered */
-            border-radius: 5px;
-            z-index: 1;
-        }
-        pre:hover::before {
-            content: "\f0ea"; /* FontAwesome copy icon */
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            color: #007bff;
-            z-index: 2;
-        }
-        .copy-box {
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            margin-top: 20px;
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-        }
-        .copy-box:hover {
-            background-color: #e9ecef;
-        }
-        .copy-box::before {
-            content: "\f0c5"; /* FontAwesome copy icon */
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #007bff;
         }
     </style>
 </head>
@@ -291,6 +239,17 @@ install_github("tkcaccia/KODAMA")
     });
     document.getElementById('applicationsLink').addEventListener('click', function() {
         document.getElementById('applications').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // JavaScript to toggle sidebar
+    document.addEventListener('DOMContentLoaded', function() {
+        var sidebar = document.getElementById('sidebar');
+        var content = document.getElementById('content');
+
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            content.classList.toggle('active');
+        });
     });
 </script>
 
