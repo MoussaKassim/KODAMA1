@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -114,9 +114,27 @@
             font-size: 18px;
             color: #007bff;
         }
+
+        /* Scroll Indicator Styles */
+        .scroll-indicator {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid black; /* Initial color */
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+
+<!-- Scroll Indicator -->
+<div class="scroll-indicator" id="scroll-indicator"></div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -132,20 +150,13 @@
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                    <a class="nav-link" href="#news">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#simulation">Simulation</a>
+                    <a class="nav-link" href="#installation">Installation</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Data Analyses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#applications">Applications</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -171,7 +182,7 @@
 </section>
 
 <!-- News Section -->
-<section>
+<section id="news">
     <div class="container">
         <h2>News</h2>
         <p>
@@ -192,7 +203,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
 </section>
 
 <!-- Installation Section -->
-<section>
+<section id="installation">
     <div class="container">
         <h2>Installation</h2>
         <p>
@@ -205,7 +216,7 @@ install_github("tkcaccia/KODAMA")
 </section>
 
 <!-- Applications Section -->
-<section>
+<section id="applications">
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
@@ -236,17 +247,20 @@ install_github("tkcaccia/KODAMA")
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- Copy R Code Script -->
+<!-- JavaScript for Scroll Indicator -->
 <script>
-    document.getElementById('r-code').addEventListener('click', function() {
-        var rCode = this.textContent.trim();
-        var temp = document.createElement('textarea');
-        temp.value = rCode;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        alert('R code copied to clipboard!');
+    window.addEventListener('scroll', function() {
+        var scrollIndicator = document.getElementById('scroll-indicator');
+        var introSection = document.getElementById('introduction');
+        var introSectionRect = introSection.getBoundingClientRect();
+        var introSectionTop = introSectionRect.top;
+        var introSectionBottom = introSectionRect.bottom;
+
+        if (introSectionTop <= 0 && introSectionBottom > 0) {
+            scrollIndicator.style.backgroundColor = 'black';
+        } else {
+            scrollIndicator.style.backgroundColor = 'transparent';
+        }
     });
 </script>
 
