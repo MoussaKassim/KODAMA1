@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -190,99 +191,98 @@
     </div>
 </nav>
 
- <!-- Sidebar -->
-    <div id="sidebar">
-        <ul>
-            <li id="introLink">Tutorial</li>
-            <li id="newsLink">MDS, tSNE and UMAP</li>
-            <li id="installationLink">KODAMA</li>
-            <li id="applicationsLink">Visualize the different clustering algorithms:</li>
-        </ul>
-    </div>
+<!-- Sidebar -->
+<div id="sidebar">
+    <ul>
+        <li id="introLink">Tutorial</li>
+        <li id="newsLink">MDS, tSNE and UMAP</li>
+        <li id="installationLink">KODAMA</li>
+        <li id="applicationsLink">Visualize the different clustering algorithms:</li>
+    </ul>
+</div>
 
-    <!-- Metabolomic data-->
-    <section id="MetabolomicData">
-        <div class="container">
-            <h1>Metabolomic Data</h1>
-            <p>
-                The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
-            </p>
-            <h2>Tutorial</h2>
-            <p>
-                Here, we load the MetRef dataset. Columns with only zero values are removed.
-            </p>
-            <pre>
+<!-- Metabolomic data-->
+<section id="MetabolomicData">
+    <div class="container">
+        <h1>Metabolomic Data</h1>
+        <p>
+            The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
+        </p>
+        <h2>Tutorial</h2>
+        <p>
+            Here, we load the MetRef dataset. Columns with only zero values are removed.
+        </p>
+        <pre>
 data(MetRef)
 u=MetRef$data
 u=u[,-which(colSums(u)==0)]
-            </pre>
-            <p>
-                We apply the Probabilistic Quotient Normalization
-            </p>
-            <pre>
+        </pre>
+        <p>
+            We apply the Probabilistic Quotient Normalization
+        </p>
+        <pre>
 u=normalization(u)$newXtrain
-            </pre>
-            <p>
-                We mean-center and univariate scaling the data set.
-            </p>
-            <pre>
+        </pre>
+        <p>
+            We mean-center and univariate scaling the data set.
+        </p>
+        <pre>
 u=scaling(u)$newXtrain
-            </pre>
-            <p>
-                Two classification vectors are created
-            </p>
-            <pre>
-class=as.numeric(as.factor(MetRef$gender))
-class2=as.numeric(as.factor(MetRef$donor))
-            </pre>
-            <h2>MDS, tSNE and UMAP</h2>
-            <p>
-                Different algorithms for dimensionality reduction are applied
-            </p>
-            <pre>
+        </pre>
+        <p>
+            Two classification vectors are created
+        </p>
+        <pre>
+genderClass=as.numeric(as.factor(MetRef$gender))
+donorClass=as.numeric(as.factor(MetRef$donor))
+        </pre>
+        <h2>MDS, tSNE and UMAP</h2>
+        <p>
+            Different algorithms for dimensionality reduction are applied
+        </p>
+        <pre>
 res_MDS=cmdscale(dist(u))
 res_tSNE=Rtsne(u)$Y
 res_UMAP = umap(u)$layout
-            </pre>
-            <h2>KODAMA</h2>
-            <p>
-                We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as classifier with 50 components to drive the accuracy maximixation. The KODAMA dissimilarity matrix's is converted in a low dimensionality space using three different methods (i.e., MDS, t-SNE, and UMAP).
-            </p>
-            <pre>
+        </pre>
+        <h2>KODAMA</h2>
+        <p>
+            We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as classifier with 50 components to drive the accuracy maximixation. The KODAMA dissimilarity matrix's is converted in a low dimensionality space using three different methods (i.e., MDS, t-SNE, and UMAP).
+        </p>
+        <pre>
 kk=KODAMA.matrix(u,f.par = 50)
 res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
 res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
 res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")
-            </pre>
-            <h2>Visualize the different clustering algorithms:</h2>
-            <h3>a) labelled by the gender</h3>
-            <pre>
+        </pre>
+        <h2>Visualize the different clustering algorithms:</h2>
+        <h3>a) labelled by the gender</h3>
+        <pre>
 par(mfrow = c(2,3))
-plot(res_MDS,pch=21,bg=rainbow(2)[class],main="MDS")
-plot(res_tSNE,pch=21,bg=rainbow(2)[class],main="tSNE")
-plot(res_UMAP,pch=21,bg=rainbow(2)[class],main="UMAP")
-plot(res_KODAMA_MDS,pch=21,bg=rainbow(2)[class],main="KODAMA_MDS",)
-plot(res_KODAMA_tSNE,pch=21,bg=rainbow(2)[class],main="KODAMA_tSNE")
-plot(res_KODAMA_UMAP,pch=21,bg=rainbow(2)[class],main="KODAMA_UMAP")
-            </pre>
-            <p align="center">
-                <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="Metabolomic data labelled by gender" />
-            </p>
-            <h3>b) labelled by the donor</h3>
-            <pre>
-plot(res_MDS,pch=21,bg=rainbow(22)[class2],main="MDS")
-plot(res_tSNE,pch=21,bg=rainbow(22)[class2],main="tSNE")
-plot(res_UMAP,pch=21,bg=rainbow(22)[class2],main="UMAP")
-plot(res_KODAMA_MDS,pch=21,bg=rainbow(22)[class2],main="KODAMA_MDS",)
-plot(res_KODAMA_tSNE,pch=21,bg=rainbow(22)[class2],main="KODAMA_tSNE")
-plot(res_KODAMA_UMAP,pch=21,bg=rainbow(22)[class2],main="KODAMA_UMAP")
-            </pre>
-            <p align="center">
-                <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.donor.png" alt="Metabolomic data labelled by donor" />
-            </p>
-        </div>
-    </section>
-
+plot(res_MDS,pch=21,bg=rainbow(2)[genderClass],main="MDS")
+plot(res_tSNE,pch=21,bg=rainbow(2)[genderClass],main="tSNE")
+plot(res_UMAP,pch=21,bg=rainbow(2)[genderClass],main="UMAP")
+plot(res_KODAMA_MDS,pch=21,bg=rainbow(2)[genderClass],main="KODAMA_MDS",)
+plot(res_KODAMA_tSNE,pch=21,bg=rainbow(2)[genderClass],main="KODAMA_tSNE")
+plot(res_KODAMA_UMAP,pch=21,bg=rainbow(2)[genderClass],main="KODAMA_UMAP")
+        </pre>
+        <p align="center">
+            <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="Metabolomic data labelled by gender" />
+        </p>
+        <h3>b) labelled by the donor</h3>
+        <pre>
+plot(res_MDS,pch=21,bg=rainbow(22)[donorClass],main="MDS")
+plot(res_tSNE,pch=21,bg=rainbow(22)[donorClass],main="tSNE")
+plot(res_UMAP,pch=21,bg=rainbow(22)[donorClass],main="UMAP")
+plot(res_KODAMA_MDS,pch=21,bg=rainbow(22)[donorClass],main="KODAMA_MDS",)
+plot(res_KODAMA_tSNE,pch=21,bg=rainbow(22)[donorClass],main="KODAMA_tSNE")
+plot(res_KODAMA_UMAP,pch=21,bg=rainbow(22)[donorClass],main="KODAMA_UMAP")
+        </pre>
+        <p align="center">
+            <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.donor.png" alt="Metabolomic data labelled by donor" />
+        </p>
+    </div>
+</section>
 
 </body>
 </html>
