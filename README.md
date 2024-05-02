@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metabolomic Data Exploration | KODAMA</title>
+    <title>KODAMA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -75,6 +74,20 @@
         section h1 {
             color: #007bff;
             margin-bottom: 20px;
+        }
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            text-align: center;
         }
         /* Code Styles */
         pre {
@@ -187,24 +200,75 @@
     </ul>
 </div>
 
-<!-- Metabolomic Data Section -->
-<section id="metabolomicData">
+<!-- Introduction Section -->
+<section id="introduction">
     <div class="container">
-        <h1>Metabolomic Data Exploration</h1>
+        <h1>Introduction</h1>
         <p>
-            The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
+            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
         </p>
-        <h2>Tutorial</h2>
-        <pre><code>
-data(MetRef)
-u=MetRef$data
-u=u[,-which(colSums(u)==0)]
+    </div>
+</section>
+
+<!-- News Section -->
+<section>
+    <div class="container">
+        <h2>News</h2>
+        <p>
+            <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
+This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
+        </p>
+        <p>
+            <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
+        </p>
+        <p>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+            </ul>
+        </p>
+    </div>
+</section>
+
+<!-- Installation Section -->
+<section>
+    <div class="container">
+        <h2>Installation</h2>
+        <p>
+            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
+        </p>
+        <pre><code style="color: blue;">
+library(<span style="color: black;">devtools</span>)
+install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         </code></pre>
-        <!-- More tutorial code here -->
-        <p align="center">
-            <img src="https://github.com/tkcaccia/KODAMA/blob/main/figures/metabolites.gender.png" alt="Metabolomic Data" />
-        </p>
-        <!-- More content here -->
+    </div>
+</section>
+
+<!-- Applications Section -->
+<section>
+    <div class="container">
+        <h2>Applications</h2>
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Metabolomic data</h5>
+                    <p class="card-text">Explore Metabolomic data</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Single cell RNA seq data</h5>
+                    <p class="card-text">Explore Single cell RNA seq data</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Spatial Transcriptomic data</h5>
+                    <p class="card-text">Explore Spatial Transcriptomic data</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
