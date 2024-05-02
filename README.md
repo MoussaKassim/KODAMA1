@@ -1,4 +1,4 @@
-<kodama>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,14 +15,15 @@
             right: 0;
             z-index: 1000;
             background-color: #333;
-            border-radius: 10px;
+            border-radius: 0; /* Rounded rectangle */
         }
         .navbar-nav .nav-link {
             color: white;
-            transition: color 0.3s;
+            transition: color 0.3s, background-color 0.3s; /* Transition for glowing effect */
         }
         .navbar-nav .nav-link:hover {
-            color: #007bff;
+            color: #FFA500; /* Modern orangish color */
+            background-color: rgba(255, 165, 0, 0.1); /* Orange background */
         }
         .navbar-brand {
             color: white;
