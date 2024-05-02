@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -114,27 +114,30 @@
             font-size: 18px;
             color: #007bff;
         }
-
-        /* Scroll Indicator Styles */
-        .scroll-indicator {
+        /* Styles for Table of Contents */
+        #TOC {
             position: fixed;
             top: 50%;
             right: 20px;
             transform: translateY(-50%);
             background-color: transparent;
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
+            width: 150px;
             border: 2px solid black; /* Initial color */
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            padding: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #TOC li {
             cursor: pointer;
+        }
+        #TOC li:hover {
+            color: #FFA500; /* Hover color */
         }
     </style>
 </head>
 <body>
-
-<!-- Scroll Indicator -->
-<div class="scroll-indicator" id="scroll-indicator"></div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -150,13 +153,20 @@
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#news">News</a>
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#installation">Installation</a>
+                    <a class="nav-link" href="#simulation">Simulation</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#applications">Applications</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
+                    </div>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -171,6 +181,16 @@
     </div>
 </nav>
 
+<!-- Table of Contents -->
+<div id="TOC">
+    <ul>
+        <li id="introLink">Introduction</li>
+        <li id="newsLink">News</li>
+        <li id="installationLink">Installation</li>
+        <li id="applicationsLink">Applications</li>
+    </ul>
+</div>
+
 <!-- Introduction Section -->
 <section id="introduction">
     <div class="container">
@@ -182,7 +202,7 @@
 </section>
 
 <!-- News Section -->
-<section id="news">
+<section>
     <div class="container">
         <h2>News</h2>
         <p>
@@ -203,7 +223,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
 </section>
 
 <!-- Installation Section -->
-<section id="installation">
+<section>
     <div class="container">
         <h2>Installation</h2>
         <p>
@@ -216,7 +236,7 @@ install_github("tkcaccia/KODAMA")
 </section>
 
 <!-- Applications Section -->
-<section id="applications">
+<section>
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
@@ -247,20 +267,50 @@ install_github("tkcaccia/KODAMA")
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- JavaScript for Scroll Indicator -->
+<!-- Copy R Code Script -->
+<script>
+    document.getElementById('r-code').addEventListener('click', function() {
+        var rCode = this.textContent.trim();
+        var temp = document.createElement('textarea');
+        temp.value = rCode;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        alert('R code copied to clipboard!');
+    });
+</script>
+
+<!-- JavaScript for Changing TOC Color -->
 <script>
     window.addEventListener('scroll', function() {
-        var scrollIndicator = document.getElementById('scroll-indicator');
+        var TOC = document.getElementById('TOC');
         var introSection = document.getElementById('introduction');
         var introSectionRect = introSection.getBoundingClientRect();
         var introSectionTop = introSectionRect.top;
         var introSectionBottom = introSectionRect.bottom;
 
         if (introSectionTop <= 0 && introSectionBottom > 0) {
-            scrollIndicator.style.backgroundColor = 'black';
+            TOC.style.backgroundColor = 'black';
+            TOC.style.color = 'white';
         } else {
-            scrollIndicator.style.backgroundColor = 'transparent';
+            TOC.style.backgroundColor = 'transparent';
+            TOC.style.color = 'black';
         }
+    });
+
+    // Smooth scrolling for TOC links
+    document.getElementById('introLink').addEventListener('click', function() {
+        document.getElementById('introduction').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('newsLink').addEventListener('click', function() {
+        document.getElementById('news').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('installationLink').addEventListener('click', function() {
+        document.getElementById('installation').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('applicationsLink').addEventListener('click', function() {
+        document.getElementById('applications').scrollIntoView({ behavior: 'smooth' });
     });
 </script>
 
