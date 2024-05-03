@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,28 +11,27 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             z-index: 1000;
             background-color: #333;
-            width: 200px; /* Largeur de la barre de navigation */
-            border-radius: 0; /* Rectangle arrondi */
+            border-radius: 0; /* Rounded rectangle */
         }
-        .navbar-toggler {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
+        .navbar-nav .nav-link {
+            color: white;
+            transition: color 0.3s, background-color 0.3s; /* Transition for glowing effect */
+        }
+        .navbar-nav .nav-link:hover {
+            color: #FFA500; /* Modern orangish color */
+            background-color: rgba(255, 165, 0, 0.1); /* Orange background */
         }
         .navbar-brand {
             color: white;
             font-size: 24px;
         }
-        .navbar-nav .nav-link {
-            color: white;
-            transition: color 0.3s, background-color 0.3s; /* Transition pour l'effet de surbrillance */
-        }
-        .navbar-nav .nav-link:hover {
-            color: #FFA500; /* Couleur orange moderne */
-            background-color: rgba(255, 165, 0, 0.1); /* Fond orange */
+        /* Body padding to compensate for fixed navbar */
+        body {
+            padding-top: 56px; /* Height of the navbar */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
         }
         /* Sidebar Styles */
         #sidebar {
@@ -41,9 +39,10 @@
             top: 0;
             left: 0;
             bottom: 0;
-            z-index: 999; /* Inférieur à la barre de navigation pour que celle-ci soit toujours au-dessus */
+            z-index: 1000;
             background-color: #333;
             width: 200px;
+            padding-top: 56px; /* Height of the navbar */
             overflow-y: auto;
             transition: all 0.3s;
         }
@@ -61,7 +60,7 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         #content {
-            margin-left: 220px; /* Ajusté pour laisser de l'espace pour la barre de navigation */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
             padding: 20px;
         }
         /* Section Styles */
@@ -107,12 +106,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 255, 0.1); /* Couleur bleue au survol */
+            background-color: rgba(0, 0, 255, 0.1); /* Blue color when hovered */
             border-radius: 5px;
             z-index: 1;
         }
         pre:hover::before {
-            content: "\f0ea"; /* Icône de copie FontAwesome */
+            content: "\f0ea"; /* FontAwesome copy icon */
             font-family: "Font Awesome 5 Free";
             position: absolute;
             top: 50%;
@@ -136,7 +135,7 @@
             background-color: #e9ecef;
         }
         .copy-box::before {
-            content: "\f0c5"; /* Icône de copie FontAwesome */
+            content: "\f0c5"; /* FontAwesome copy icon */
             font-family: "Font Awesome 5 Free";
             position: absolute;
             top: 50%;
@@ -163,13 +162,20 @@
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#news">News</a>
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#installation">Installation</a>
+                    <a class="nav-link" href="#simulation">Simulation</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#applications">Applications</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
+                    </div>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -205,7 +211,7 @@
 </section>
 
 <!-- News Section -->
-<section id="news">
+<section>
     <div class="container">
         <h2>News</h2>
         <p>
@@ -226,7 +232,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
 </section>
 
 <!-- Installation Section -->
-<section id="installation">
+<section>
     <div class="container">
         <h2>Installation</h2>
         <p>
@@ -240,7 +246,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 </section>
 
 <!-- Applications Section -->
-<section id="applications">
+<section>
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
