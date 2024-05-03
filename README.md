@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,17 +35,16 @@
         }
         /* Sidebar Styles */
         #sidebar {
-            background-color: #f8f9fa; /* Light grey background */
-            width: 300px; /* Adjust as needed */
-            padding: 20px;
-            border-radius: 10px;
-            color: #333; /* Dark text color */
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
+            bottom: 0;
+            z-index: 1000;
+            background-color: #333;
+            width: 200px;
+            padding-top: 56px; /* Height of the navbar */
             overflow-y: auto;
-            transition: width 0.3s; /* Smooth transition for width */
+            transition: all 0.3s;
         }
         #sidebar ul {
             list-style-type: none;
@@ -54,14 +52,15 @@
         }
         #sidebar ul li {
             padding: 10px;
+            color: white;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         #sidebar ul li:hover {
-            background-color: #e9ecef; /* Light grey background on hover */
+            background-color: rgba(255, 255, 255, 0.1);
         }
         #content {
-            margin-left: 320px; /* Adjusted to accommodate the sidebar */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
             padding: 20px;
         }
         /* Section Styles */
@@ -192,7 +191,7 @@
 </nav>
 
 <!-- Sidebar -->
-<div id="sidebar" class="blue-rectangle">
+<div id="sidebar">
     <ul>
         <li id="introLink">Introduction</li>
         <li id="newsLink">News</li>
