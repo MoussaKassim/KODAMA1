@@ -36,12 +36,17 @@
         }
         /* Sidebar Styles */
         #sidebar {
-            background-color: #007bff; /* Blue background */
+            background-color: #f8f9fa; /* Light grey background */
             width: 300px; /* Adjust as needed */
             padding: 20px;
             border-radius: 10px;
-            color: white;
-            transition: background-color 0.3s;
+            color: #333; /* Dark text color */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+            transition: width 0.3s; /* Smooth transition for width */
         }
         #sidebar ul {
             list-style-type: none;
@@ -53,7 +58,7 @@
             transition: background-color 0.3s;
         }
         #sidebar ul li:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #e9ecef; /* Light grey background on hover */
         }
         #content {
             margin-left: 320px; /* Adjusted to accommodate the sidebar */
