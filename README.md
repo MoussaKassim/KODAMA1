@@ -207,49 +207,28 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li>
+            <li id="introLink">
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Introduction</span>
-                        <span>An overview of KODAMA</span>
-                    </div>
+                    <span>Introduction</span>
                 </a>
             </li>
-            <li>
+            <li id="newsLink">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">News</span>
-                        <span>Stay updated with the latest news</span>
-                    </div>
+                    <span>News</span>
                 </a>
             </li>
-            <li>
+            <li id="installationLink">
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Installation</span>
-                        <span>Get started with KODAMA</span>
-                    </div>
+                    <span>Installation</span>
                 </a>
             </li>
-            <li>
+            <li id="applicationsLink">
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Applications</span>
-                        <span>Explore different uses</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-ellipsis-h"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Other Sections</span>
-                        <span>More sections of interest</span>
-                    </div>
+                    <span>Applications</span>
                 </a>
             </li>
         </ul>
