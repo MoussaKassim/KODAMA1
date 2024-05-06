@@ -33,22 +33,22 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px; /* Height of the navbar */
-            margin-left: 220px; /* Adjusted to accommodate the sidebar */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
         }
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 80px;
-            left: 20px; /* Adjusted position */
-            bottom: 0;
+            top: 20px;
+            left: 0;
             z-index: 1000;
-            background-color: #f8f9fa; /* Sombre */
-            width: 200px; /* Taille normale */
+            background-color: #f8f9fa;
+            width: 300px;
+            height: 100vh;
             padding-top: 56px; /* Height of the navbar */
             overflow-y: auto;
             transition: all 0.3s;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre */
-            border-radius: 10px; /* Border radius */
+            border-right: 2px solid #333;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
         #sidebar ul {
             list-style-type: none;
@@ -56,122 +56,16 @@
         }
         #sidebar ul li {
             padding: 10px;
-            color: #333; /* Couleur du texte */
+            color: #333;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         #sidebar ul li:hover {
-            background-color: rgba(0, 0, 0, 0.05); /* Légèrement plus sombre au survol */
-        }
-        #content {
-            margin-left: 240px; /* Adjusted to accommodate the wider sidebar */
-            padding: 20px;
-        }
-        /* Section Styles */
-        section {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-        }
-        section h1 {
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        /* Card Styles */
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card-body {
-            text-align: center;
-        }
-        /* Code Styles */
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            overflow-x: auto;
-            position: relative;
-            cursor: pointer;
-        }
-        pre:hover::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 255, 0.1); /* Blue color when hovered */
-            border-radius: 5px;
-            z-index: 1;
-        }
-        pre:hover::before {
-            content: "\f0ea"; /* FontAwesome copy icon */
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            color: #007bff;
-            z-index: 2;
-        }
-        .copy-box {
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            margin-top: 20px;
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-        }
-        .copy-box:hover {
             background-color: #e9ecef;
         }
-        .copy-box::before {
-            content: "\f0c5"; /* FontAwesome copy icon */
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #007bff;
-        }
-        /* Sidebar Square Style */
-        #sidebar {
-            padding: 0;
-            overflow: hidden;
-        }
-        #sidebar ul li {
+        #content {
+            margin-left: 300px; /* Adjusted to accommodate the sidebar */
             padding: 20px;
-            border-bottom: 1px solid #dee2e6; /* Border between items */
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        #sidebar ul li:last-child {
-            border-bottom: none; /* Remove border for last item */
-        }
-        #sidebar ul li:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            transform: translateX(5px); /* Move slightly to the right on hover */
-        }
-        #sidebar ul li a {
-            display: block;
-            color: #333; /* Text color */
-        }
-        #sidebar ul li a:hover {
-            text-decoration: none;
-            color: #007bff; /* Hover color */
         }
     </style>
 </head>
@@ -269,8 +163,8 @@
                             M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022).
                             KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
                     <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore,
-                            S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge
-                            discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
+                            S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for
+                            knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
                     <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore,
                             S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of
                             the National Academy of Sciences, 111(14), 5117-5122.</a></li>
