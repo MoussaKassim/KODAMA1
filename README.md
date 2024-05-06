@@ -138,7 +138,6 @@
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.5s;
         }
 
         .data-section h2 {
@@ -149,47 +148,6 @@
         .data-section p {
             color: #343a40;
             margin-bottom: 20px;
-        }
-
-        /* Card Styles */
-        .card {
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card-title {
-            color: #007bff;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .card-text {
-            color: #343a40;
-            margin-bottom: 15px;
-        }
-
-        /* Animation */
-        @keyframes slideInFromLeft {
-            from {
-                transform: translateX(-50%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .animated-section {
-            animation: slideInFromLeft 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -211,13 +169,27 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a>
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#installation">Installation</a>
+                        <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#applications">Applications</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                cell RNA seq data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                Transcriptomic data</a>
+                        </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -235,25 +207,25 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li>
+            <li id="introLink">
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
                     <span>Introduction</span>
                 </a>
             </li>
-            <li>
+            <li id="newsLink">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
                     <span>News</span>
                 </a>
             </li>
-            <li>
+            <li id="installationLink">
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
                     <span>Installation</span>
                 </a>
             </li>
-            <li>
+            <li id="applicationsLink">
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
                     <span>Applications</span>
@@ -263,7 +235,7 @@
     </div>
 
     <!-- Introduction Section -->
-    <section id="introduction" class="data-section animated-section">
+    <section id="introduction" class="data-section">
         <div class="container">
             <h2>Introduction</h2>
             <p>
@@ -274,7 +246,7 @@
     </section>
 
     <!-- News Section -->
-    <section id="news" class="data-section animated-section">
+    <section id="news" class="data-section">
         <div class="container">
             <h2>News</h2>
             <p>
@@ -304,7 +276,7 @@
     </section>
 
     <!-- Installation Section -->
-    <section id="installation" class="data-section animated-section">
+    <section id="installation" class="data-section">
         <div class="container">
             <h2>Installation</h2>
             <p>
@@ -318,7 +290,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     </section>
 
     <!-- Applications Section -->
-    <section id="applications" class="data-section animated-section">
+    <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
             <div class="card-deck">
