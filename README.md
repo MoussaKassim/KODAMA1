@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -170,11 +170,21 @@
             border: none;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #343a40;
         }
     </style>
 </head>
@@ -184,7 +194,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#" style="transition: transform 0.3s; position: relative; z-index: 1;">
+            <a class="navbar-brand" href="#">
                 KODAMA
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -290,7 +300,8 @@
                 matrix in a low dimensional space.
             </p>
             <ul>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue;">Zinga, M. M.,
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/"
+                        style="color: blue;">Zinga, M. M.,
                         Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S.
                         (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
                         9.</a></li>
@@ -324,19 +335,19 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         <div class="container">
             <h2>Applications</h2>
             <div class="card-deck">
-                <div class="card" id="metabolomicCard">
+                <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Metabolomic data</h5>
                         <p class="card-text">Explore Metabolomic data</p>
                     </div>
                 </div>
-                <div class="card" id="rnaSeqCard">
+                <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Single cell RNA seq data</h5>
                         <p class="card-text">Explore Single cell RNA seq data</p>
                     </div>
                 </div>
-                <div class="card" id="transcriptomicCard">
+                <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Spatial Transcriptomic data</h5>
                         <p class="card-text">Explore Spatial Transcriptomic data</p>
@@ -378,19 +389,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
                 this.style.backgroundColor = '';
                 this.style.transform = 'translateX(0)';
             });
-        });
-
-        // Card animations
-        document.getElementById('metabolomicCard').addEventListener('mouseover', function () {
-            document.getElementById('introLink').style.backgroundColor = 'green';
-        });
-
-        document.getElementById('rnaSeqCard').addEventListener('mouseover', function () {
-            document.getElementById('newsLink').style.backgroundColor = 'blue';
-        });
-
-        document.getElementById('transcriptomicCard').addEventListener('mouseover', function () {
-            document.getElementById('installationLink').style.backgroundColor = 'purple';
         });
     </script>
 
