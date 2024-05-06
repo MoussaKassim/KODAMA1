@@ -33,22 +33,26 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px; /* Height of the navbar */
-            margin-left: 200px; /* Adjusted to accommodate the sidebar */
+            margin-left: 0; /* Adjusted to accommodate the sidebar */
         }
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 20px;
+            top: 50%;
             left: 0;
+            transform: translateY(-50%);
             z-index: 1000;
             background-color: #f8f9fa;
-            width: 300px;
-            height: 100vh;
-            padding-top: 56px; /* Height of the navbar */
-            overflow-y: auto;
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            overflow: hidden;
             transition: all 0.3s;
-            border-right: 2px solid #333;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+        #sidebar:hover {
+            width: 150px;
+            height: auto;
         }
         #sidebar ul {
             list-style-type: none;
@@ -64,7 +68,7 @@
             background-color: #e9ecef;
         }
         #content {
-            margin-left: 300px; /* Adjusted to accommodate the sidebar */
+            margin-left: 150px; /* Adjusted to accommodate the sidebar */
             padding: 20px;
         }
     </style>
@@ -162,12 +166,14 @@
                     <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga,
                             M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022).
                             KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
-                    <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore,
-                            S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for
-                            knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
-                    <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore,
-                            S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of
-                            the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+                    <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
+                            style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P.
+                            R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining.
+                            Bioinformatics, 33(4), 621-623.</a></li>
+                    <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111"
+                            style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014).
+                            Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14),
+                            5117-5122.</a></li>
                 </ul>
             </p>
         </div>
