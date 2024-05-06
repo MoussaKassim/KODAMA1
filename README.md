@@ -41,10 +41,11 @@
             left: 0;
             bottom: 0;
             z-index: 1000;
-            background-color: transparent; /* Removed background color */
-            width: 100px; /* Reduced width */
+            background-color: #222; /* Background color */
+            width: 200px; /* Width of the sidebar */
             overflow-y: auto;
             transition: all 0.3s;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
             padding-top: 56px; /* Height of the navbar */
         }
         #sidebar ul {
@@ -60,7 +61,7 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         #content {
-            margin-left: 100px; /* Adjusted to accommodate the sidebar */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
             padding: 20px;
         }
         /* Section Styles */
@@ -143,6 +144,35 @@
             transform: translateY(-50%);
             font-size: 18px;
             color: #007bff;
+        }
+        /* Sidebar Animation */
+        @keyframes sidebarAnimation {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        /* Sidebar Overlay */
+        #sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 999; /* Above sidebar */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        body.sidebar-open #sidebar-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        body.sidebar-open #sidebar {
+            animation: sidebarAnimation 0.3s forwards;
         }
     </style>
 </head>
