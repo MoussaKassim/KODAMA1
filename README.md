@@ -17,7 +17,12 @@
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
-            animation: slideDown 0.5s ease;
+            transition: transform 0.3s;
+        }
+
+        .navbar:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
         .navbar-nav .nav-link {
@@ -28,17 +33,6 @@
         .navbar-nav .nav-link:hover {
             color: #FFA500;
             background-color: rgba(255, 165, 0, 0.1);
-            transform: scale(1.1);
-        }
-
-        .navbar-brand {
-            color: white;
-            font-size: 24px;
-            transition: transform 0.3s;
-        }
-
-        .navbar-brand:hover {
-            transform: rotate(360deg);
         }
 
         /* Body padding to compensate for fixed navbar */
@@ -190,8 +184,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom"
-                title="Click me! I'm rotating!">KODAMA</a>
+            <a class="navbar-brand" href="#" style="transition: transform 0.3s; position: relative; z-index: 1;">
+                KODAMA
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -363,7 +358,13 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <script>
         // Navbar animations
         document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
-            this.style.transform = 'rotate(360deg)';
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
+        });
+
+        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
         });
 
         // Sidebar animations
