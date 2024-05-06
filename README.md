@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -138,6 +138,7 @@
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s;
         }
 
         .data-section h2 {
@@ -148,6 +149,25 @@
         .data-section p {
             color: #343a40;
             margin-bottom: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #343a40;
         }
     </style>
 </head>
@@ -169,27 +189,13 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#news">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#simulation">Simulation</a>
+                        <a class="nav-link" href="#installation">Installation</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Data Analyses
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
-                                data</a>
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
-                                cell RNA seq data</a>
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
-                                Transcriptomic data</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#applications">Applications</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -207,25 +213,25 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink">
+            <li>
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
                     <span>Introduction</span>
                 </a>
             </li>
-            <li id="newsLink">
+            <li>
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
                     <span>News</span>
                 </a>
             </li>
-            <li id="installationLink">
+            <li>
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
                     <span>Installation</span>
                 </a>
             </li>
-            <li id="applicationsLink">
+            <li>
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
                     <span>Applications</span>
