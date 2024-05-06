@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -155,6 +155,9 @@
         .card {
             margin-bottom: 20px;
             transition: transform 0.3s;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .card:hover {
@@ -164,10 +167,29 @@
         .card-title {
             color: #007bff;
             font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .card-text {
             color: #343a40;
+            margin-bottom: 15px;
+        }
+
+        /* Animation */
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .animated-section {
+            animation: slideInFromLeft 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -241,7 +263,7 @@
     </div>
 
     <!-- Introduction Section -->
-    <section id="introduction" class="data-section">
+    <section id="introduction" class="data-section animated-section">
         <div class="container">
             <h2>Introduction</h2>
             <p>
@@ -252,7 +274,7 @@
     </section>
 
     <!-- News Section -->
-    <section id="news" class="data-section">
+    <section id="news" class="data-section animated-section">
         <div class="container">
             <h2>News</h2>
             <p>
@@ -282,7 +304,7 @@
     </section>
 
     <!-- Installation Section -->
-    <section id="installation" class="data-section">
+    <section id="installation" class="data-section animated-section">
         <div class="container">
             <h2>Installation</h2>
             <p>
@@ -296,7 +318,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     </section>
 
     <!-- Applications Section -->
-    <section id="applications" class="data-section">
+    <section id="applications" class="data-section animated-section">
         <div class="container">
             <h2>Applications</h2>
             <div class="card-deck">
