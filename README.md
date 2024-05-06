@@ -53,7 +53,6 @@
         }
         #sidebar ul li {
             padding: 10px;
-            color: white;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -65,16 +64,14 @@
             padding: 20px;
         }
         /* Section Styles */
-        .scrolling-section {
-            overflow-y: auto;
-            max-height: 400px; /* Change the maximum height as needed */
+        section {
+            margin-top: 20px;
+            padding: 20px;
             border-radius: 10px;
             background-color: #f9f9f9;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            padding: 20px;
         }
-        .scrolling-section h1 {
+        section h1 {
             color: #007bff;
             margin-bottom: 20px;
         }
@@ -204,25 +201,25 @@
 </div>
 
 <!-- Introduction Section -->
-<div class="scrolling-section" id="introduction">
+<section id="introduction">
     <div class="container">
         <h1>Introduction</h1>
         <p>
             # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
         </p>
     </div>
-</div>
+</section>
 
 <!-- News Section -->
-<div class="scrolling-section" id="news">
+<section>
     <div class="container">
         <h2>News</h2>
         <p>
-            KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.
+            <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
+This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
         </p>
         <p>
-            The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.
+            <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
         </p>
         <p>
             <ul>
@@ -232,10 +229,10 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
             </ul>
         </p>
     </div>
-</div>
+</section>
 
 <!-- Installation Section -->
-<div class="scrolling-section" id="installation">
+<section>
     <div class="container">
         <h2>Installation</h2>
         <p>
@@ -246,10 +243,10 @@ library(<span style="color: black;">devtools</span>)
 install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         </code></pre>
     </div>
-</div>
+</section>
 
 <!-- Applications Section -->
-<div class="scrolling-section" id="applications">
+<section>
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
@@ -273,7 +270,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
