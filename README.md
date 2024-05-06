@@ -48,7 +48,6 @@
             overflow-y: auto;
             transition: all 0.3s;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ombre */
-            border-right: 2px solid #dee2e6; /* Border */
             border-radius: 10px; /* Border radius */
         }
         #sidebar ul {
@@ -149,6 +148,31 @@
             font-size: 18px;
             color: #007bff;
         }
+        /* Sidebar Square Style */
+        #sidebar {
+            padding: 0;
+            overflow: hidden;
+        }
+        #sidebar ul li {
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6; /* Border between items */
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        #sidebar ul li:last-child {
+            border-bottom: none; /* Remove border for last item */
+        }
+        #sidebar ul li:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            transform: translateX(5px); /* Move slightly to the right on hover */
+        }
+        #sidebar ul li a {
+            display: block;
+            color: #333; /* Text color */
+        }
+        #sidebar ul li a:hover {
+            text-decoration: none;
+            color: #007bff; /* Hover color */
+        }
     </style>
 </head>
 
@@ -175,16 +199,19 @@
                         <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Data Analyses
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
                                 data</a>
-                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
                                 cell RNA seq data</a>
-                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
                                 Transcriptomic data</a>
                         </div>
                     </li>
@@ -204,10 +231,10 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink">Introduction</li>
-            <li id="newsLink">News</li>
-            <li id="installationLink">Installation</li>
-            <li id="applicationsLink">Applications</li>
+            <li id="introLink"><a href="#">Introduction</a></li>
+            <li id="newsLink"><a href="#">News</a></li>
+            <li id="installationLink"><a href="#">Installation</a></li>
+            <li id="applicationsLink"><a href="#">Applications</a></li>
         </ul>
     </div>
 
