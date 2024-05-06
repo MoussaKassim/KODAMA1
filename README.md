@@ -1,4 +1,3 @@
-<MO-DJIB CONSULTING>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -163,13 +162,20 @@
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#news">News</a>
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#installation">Installation</a>
+                    <a class="nav-link" href="#simulation">Simulation</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#applications">Applications</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
+                    </div>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -205,7 +211,7 @@
 </section>
 
 <!-- News Section -->
-<section id="news">
+<section>
     <div class="container">
         <h2>News</h2>
         <p>
@@ -226,7 +232,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
 </section>
 
 <!-- Installation Section -->
-<section id="installation">
+<section>
     <div class="container">
         <h2>Installation</h2>
         <p>
@@ -240,7 +246,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 </section>
 
 <!-- Applications Section -->
-<section id="applications">
+<section>
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
