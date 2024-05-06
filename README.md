@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,19 +28,13 @@
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: #FFA500;
-            background-color: rgba(255, 165, 0, 0.1);
-        }
-
-        /* Body padding to compensate for fixed navbar */
-        body {
-            padding-top: 56px;
-            margin-left: 0;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+        .navbar-nav .nav-item {
+            height: 50px;
         }
 
         /* Sidebar Styles */
@@ -82,55 +76,14 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
         }
 
         #sidebar ul li:hover {
             background-color: #adb5bd;
             transform: translateX(10px);
-        }
-
-        #sidebar ul li a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        #sidebar ul li i {
-            margin-right: 10px;
-        }
-
-        .sidebar-item-content {
-            display: none;
-            padding: 10px;
-            color: white;
-            background-color: #343a40;
-            position: absolute;
-            left: 200px;
-            top: 0;
-            z-index: 1000;
-            width: 200px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            animation: fadeIn 0.3s;
-        }
-
-        #sidebar ul li:hover .sidebar-item-content {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .sidebar-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
         }
 
         /* Custom Styles for Data Sections */
@@ -163,28 +116,6 @@
         .data-section p {
             color: #343a40;
             margin-bottom: 20px;
-        }
-
-        /* Card Styles */
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-title {
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        .card-text {
-            color: #343a40;
         }
     </style>
 </head>
