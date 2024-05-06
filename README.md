@@ -90,8 +90,6 @@
         #sidebar ul li a {
             text-decoration: none;
             color: inherit;
-            display: flex;
-            align-items: center;
         }
 
         #sidebar ul li i {
@@ -171,13 +169,27 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a>
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#installation">Installation</a>
+                        <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#applications">Applications</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                cell RNA seq data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                Transcriptomic data</a>
+                        </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -195,73 +207,28 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li>
+            <li id="introLink">
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Introduction</span>
-                        <span>An overview of KODAMA</span>
-                    </div>
+                    <span>Introduction</span>
                 </a>
             </li>
-            <li>
+            <li id="newsLink">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">News</span>
-                        <span>Stay updated with the latest news</span>
-                    </div>
+                    <span>News</span>
                 </a>
             </li>
-            <li>
+            <li id="installationLink">
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Installation</span>
-                        <span>Get started with KODAMA</span>
-                    </div>
+                    <span>Installation</span>
                 </a>
             </li>
-            <li>
+            <li id="applicationsLink">
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Applications</span>
-                        <span>Explore different uses</span>
-                    </div>
-                </a>
-            </li>
-            <!-- New Elements -->
-            <li>
-                <a href="#introLink">
-                    <i class="fas fa-info-circle"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Introduction</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#newsLink">
-                    <i class="fas fa-newspaper"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">News</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#installationLink">
-                    <i class="fas fa-tools"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Installation</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#applicationsLink">
-                    <i class="fas fa-tasks"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Applications</span>
-                    </div>
+                    <span>Applications</span>
                 </a>
             </li>
         </ul>
