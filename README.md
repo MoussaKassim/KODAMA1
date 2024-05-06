@@ -1,4 +1,3 @@
-<MO-DJIB CONSULTING>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,8 +5,6 @@
     <title>KODAMA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Include tocify.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocify/1.9.0/jquery.tocify.min.css">
     <style>
         /* Navbar Styles */
         .navbar {
@@ -165,13 +162,20 @@
                     <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#news">News</a>
+                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#installation">Installation</a>
+                    <a class="nav-link" href="#simulation">Simulation</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#applications">Applications</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Analyses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single cell RNA seq data</a>
+                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial Transcriptomic data</a>
+                    </div>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -188,106 +192,84 @@
 
 <!-- Sidebar -->
 <div id="sidebar">
-    <ul>
-        <li id="introLink">Introduction</li>
-        <li id="newsLink">News</li>
-        <li id="installationLink">Installation</li>
-        <li id="applicationsLink">Applications</li>
-    </ul>
-</div>
+<div class="col-xs-12 col-sm-4 col-md-3"> <div id="TOC" class="tocify"> <ul id="tocify-header1" class="tocify-header list-group"><li class="tocify-item list-group-item active" data-unique="Introduction" style="cursor: pointer;">Introduction</li></ul><ul id="tocify-header2" class="tocify-header list-group"><li class="tocify-item list-group-item" data-unique="News" style="cursor: pointer;">News</li><ul class="tocify-subheader list-group" data-tag="2" style="display: none;"><li class="tocify-item list-group-item" data-unique="Installation" style="cursor: pointer;">Installation</li><li class="tocify-item list-group-item" data-unique="Applications" style="cursor: pointer;">Applications</li></ul></ul></div> </div>       
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-3">
-            <!-- TOCify Navigation -->
-            <div id="TOC" class="tocify">
-                <!-- Content will be generated automatically -->
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-8 col-md-9">
-            <!-- Content -->
-            <!-- Introduction Section -->
-            <section id="introduction">
-                <div class="container">
-                    <h1>Introduction</h1>
-                    <p>
-                        # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
-                    </p>
-                </div>
-            </section>
+<!-- Introduction Section -->
+<section id="introduction">
+    <div class="container">
+        <h1>Introduction</h1>
+        <p>
+            # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data
+        </p>
+    </div>
+</section>
 
-            <!-- News Section -->
-            <section id="news">
-                <div class="container">
-                    <h2>News</h2>
-                    <p>
-                        <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-    This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
-                    </p>
-                    <p>
-                        <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
-                    </p>
-                    <p>
-                        <ul>
-                            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
-                            <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
-                            <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
-                        </ul>
-                    </p>
-                </div>
-            </section>
+<!-- News Section -->
+<section>
+    <div class="container">
+        <h2>News</h2>
+        <p>
+            <span style="color: black;">KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
+This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.</span>
+        </p>
+        <p>
+            <span style="color: black;">The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.</span>
+        </p>
+        <p>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+            </ul>
+        </p>
+    </div>
+</section>
 
-            <!-- Installation Section -->
-            <section id="installation">
-                <div class="container">
-                    <h2>Installation</h2>
-                    <p>
-                        The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
-                    </p>
-                    <pre><code style="color: blue;">
+<!-- Installation Section -->
+<section>
+    <div class="container">
+        <h2>Installation</h2>
+        <p>
+            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
+        </p>
+        <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
 install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-                    </code></pre>
-                </div>
-            </section>
+        </code></pre>
+    </div>
+</section>
 
-            <!-- Applications Section -->
-            <section id="applications">
-                <div class="container">
-                    <h2>Applications</h2>
-                    <div class="card-deck">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Metabolomic data</h5>
-                                <p class="card-text">Explore Metabolomic data</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Single cell RNA seq data</h5>
-                                <p class="card-text">Explore Single cell RNA seq data</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Spatial Transcriptomic data</h5>
-                                <p class="card-text">Explore Spatial Transcriptomic data</p>
-                            </div>
-                        </div>
-                    </div>
+<!-- Applications Section -->
+<section>
+    <div class="container">
+        <h2>Applications</h2>
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Metabolomic data</h5>
+                    <p class="card-text">Explore Metabolomic data</p>
                 </div>
-            </section>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Single cell RNA seq data</h5>
+                    <p class="card-text">Explore Single cell RNA seq data</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Spatial Transcriptomic data</h5>
+                    <p class="card-text">Explore Spatial Transcriptomic data</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Include tocify.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocify/1.9.0/jquery.tocify.min.js"></script>
 
 <!-- JavaScript for Smooth Scrolling and Active Navigation -->
 <script>
@@ -303,17 +285,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     });
     document.getElementById('applicationsLink').addEventListener('click', function() {
         document.getElementById('applications').scrollIntoView({ behavior: 'smooth' });
-    });
-</script>
-
-<!-- Initialize TOCify -->
-<script>
-    $(document).ready(function(){
-        // Initialize TOCify
-        $("#TOC").tocify({
-            selectors: "h1,h2,h3",
-            showAndHide: false // Show only the current active item
-        });
     });
 </script>
 
