@@ -34,6 +34,8 @@
         body {
             padding-top: 56px; /* Height of the navbar */
             margin-left: 0; /* Adjusted to accommodate the sidebar */
+            background-color: #f8f9fa; /* Background color for body */
+            font-family: Arial, sans-serif; /* Font family for better readability */
         }
         /* Sidebar Styles */
         #sidebar {
@@ -42,10 +44,10 @@
             left: 0;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: #f8f9fa;
+            background-color: #343a40; /* Darker sidebar background */
             width: 70px;
             height: 70px;
-            border-radius: 10px;
+            border-radius: 50%; /* Rounded shape */
             overflow: hidden;
             transition: all 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
@@ -57,15 +59,25 @@
         #sidebar ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
         #sidebar ul li {
             padding: 10px;
-            color: #333;
+            color: white;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         #sidebar ul li:hover {
-            background-color: #e9ecef;
+            background-color: #adb5bd; /* Lighter background color on hover */
+        }
+        #sidebar ul li a {
+            text-decoration: none;
+            color: inherit;
         }
         #content {
             margin-left: 150px; /* Adjusted to accommodate the sidebar */
@@ -129,10 +141,10 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink"><a href="#">Introduction</a></li>
-            <li id="newsLink"><a href="#">News</a></li>
-            <li id="installationLink"><a href="#">Installation</a></li>
-            <li id="applicationsLink"><a href="#">Applications</a></li>
+            <li><a href="#introduction"><i class="fas fa-book-open"></i></a></li>
+            <li><a href="#news"><i class="fas fa-newspaper"></i></a></li>
+            <li><a href="#installation"><i class="fas fa-cogs"></i></a></li>
+            <li><a href="#applications"><i class="fas fa-th-large"></i></a></li>
         </ul>
     </div>
 
@@ -148,7 +160,7 @@
     </section>
 
     <!-- News Section -->
-    <section>
+    <section id="news">
         <div class="container">
             <h2>News</h2>
             <p>
@@ -163,24 +175,16 @@
             </p>
             <p>
                 <ul>
-                    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga,
-                            M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022).
-                            KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
-                    <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
-                            style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P.
-                            R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining.
-                            Bioinformatics, 33(4), 621-623.</a></li>
-                    <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111"
-                            style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014).
-                            Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14),
-                            5117-5122.</a></li>
+                    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
+                    <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false" style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
+                    <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
                 </ul>
             </p>
         </div>
     </section>
 
     <!-- Installation Section -->
-    <section>
+    <section id="installation">
         <div class="container">
             <h2>Installation</h2>
             <p>
@@ -194,7 +198,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     </section>
 
     <!-- Applications Section -->
-    <section>
+    <section id="applications">
         <div class="container">
             <h2>Applications</h2>
             <div class="card-deck">
@@ -225,28 +229,17 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
     <!-- JavaScript for Smooth Scrolling and Active Navigation -->
     <script>
         // Smooth scrolling for sidebar links
-        document.getElementById('introLink').addEventListener('click', function () {
-            document.getElementById('introduction').scrollIntoView({
-                behavior: 'smooth'
-            });
+        document.getElementById('sidebar').addEventListener('mouseenter', function () {
+            this.style.width = '150px';
         });
-        document.getElementById('newsLink').addEventListener('click', function () {
-            document.getElementById('news').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-        document.getElementById('installationLink').addEventListener('click', function () {
-            document.getElementById('installation').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-        document.getElementById('applicationsLink').addEventListener('click', function () {
-            document.getElementById('applications').scrollIntoView({
-                behavior: 'smooth'
-            });
+        document.getElementById('sidebar').addEventListener('mouseleave', function () {
+            this.style.width = '70px';
         });
     </script>
 
