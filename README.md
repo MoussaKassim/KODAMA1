@@ -16,27 +16,32 @@
             right: 0;
             z-index: 1000;
             background-color: #333;
-            border-radius: 0; /* Rounded rectangle */
+            border-radius: 0;
         }
+
         .navbar-nav .nav-link {
             color: white;
-            transition: color 0.3s, background-color 0.3s; /* Transition for glowing effect */
+            transition: color 0.3s, background-color 0.3s;
         }
+
         .navbar-nav .nav-link:hover {
-            color: #FFA500; /* Modern orangish color */
-            background-color: rgba(255, 165, 0, 0.1); /* Orange background */
+            color: #FFA500;
+            background-color: rgba(255, 165, 0, 0.1);
         }
+
         .navbar-brand {
             color: white;
             font-size: 24px;
         }
+
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 56px; /* Height of the navbar */
-            margin-left: 0; /* Adjusted to accommodate the sidebar */
-            background-color: #f8f9fa; /* Background color for body */
-            font-family: Arial, sans-serif; /* Font family for better readability */
+            padding-top: 56px;
+            margin-left: 0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
+
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
@@ -44,16 +49,18 @@
             left: 0;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: #343a40; /* Darker sidebar background */
+            background-color: #343a40;
             width: 70px;
             height: auto;
             overflow: hidden;
             transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
+
         #sidebar:hover {
-            width: 150px;
+            width: 200px;
         }
+
         #sidebar ul {
             list-style-type: none;
             padding: 0;
@@ -64,9 +71,10 @@
             justify-content: center;
             height: 100%;
         }
+
         #sidebar ul li {
-            width: 150px;
-            padding: 10px;
+            width: 200px;
+            padding: 15px;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -74,23 +82,27 @@
             align-items: center;
             justify-content: flex-start;
         }
+
         #sidebar ul li:hover {
-            background-color: #adb5bd; /* Lighter background color on hover */
+            background-color: #adb5bd;
         }
+
         #sidebar ul li a {
             text-decoration: none;
             color: inherit;
         }
+
         #sidebar ul li i {
             margin-right: 10px;
         }
+
         .sidebar-item-content {
             display: none;
             padding: 10px;
             color: white;
             background-color: #343a40;
             position: absolute;
-            left: 150px;
+            left: 200px;
             top: 0;
             z-index: 1000;
             width: 200px;
@@ -98,21 +110,44 @@
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
         }
+
         #sidebar ul li:hover .sidebar-item-content {
             display: block;
             animation: fadeIn 0.3s;
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
+
         .sidebar-item-title {
             font-weight: bold;
             margin-bottom: 5px;
+        }
+
+        /* Custom Styles for Data Sections */
+        .data-section {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .data-section p {
+            color: #343a40;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -177,7 +212,7 @@
                     <i class="fas fa-book-open"></i>
                     <div class="sidebar-item-content">
                         <span class="sidebar-item-title">Introduction</span>
-                        <span>Learn about KODAMA</span>
+                        <span>An overview of KODAMA</span>
                     </div>
                 </a>
             </li>
@@ -186,7 +221,7 @@
                     <i class="fas fa-newspaper"></i>
                     <div class="sidebar-item-content">
                         <span class="sidebar-item-title">News</span>
-                        <span>Latest updates</span>
+                        <span>Stay updated with the latest news</span>
                     </div>
                 </a>
             </li>
@@ -212,9 +247,9 @@
     </div>
 
     <!-- Introduction Section -->
-    <section id="introduction">
+    <section id="introduction" class="data-section">
         <div class="container">
-            <h1>Introduction</h1>
+            <h2>Introduction</h2>
             <p>
                 # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from
                 noisy and high-dimensional data
@@ -223,56 +258,51 @@
     </section>
 
     <!-- News Section -->
-    <section id="news">
+    <section id="news" class="data-section">
         <div class="container">
             <h2>News</h2>
             <p>
-                <span>KODAMA facilitates identification of patterns representing underlying groups on all samples in a
-                    data set.
-                    This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A
-                    landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with
-                    more than 10,000 entries.</span>
+                KODAMA facilitates identification of patterns representing underlying groups on all samples in a data
+                set. This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A
+                landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more
+                than 10,000 entries.
             </p>
             <p>
-                <span>The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity
-                    matrix in a low dimensional space.</span>
+                The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity
+                matrix in a low dimensional space.
             </p>
-            <p>
-                <ul>
-                    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/"
-                            style="color: blue; text-decoration: underline;">Zinga, M. M., Abdel-Shafy, E., Melak,
-                            T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA
-                            exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
-                            9.</a></li>
-                    <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
-                            style="color: blue; text-decoration: underline;">Cacciatore, S., Tenori, L., Luchinat,
-                            C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge
-                            discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
-                    <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111"
-                            style="color: blue; text-decoration: underline;">Cacciatore, S., Luchinat, C., &
-                            Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the
-                            National Academy of Sciences, 111(14), 5117-5122.</a></li>
-                </ul>
-            </p>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue;">Zinga, M. M.,
+                        Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S.
+                        (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
+                        9.</a></li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
+                        style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
+                        A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
+                        33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
+                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
+                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+            </ul>
         </div>
     </section>
 
     <!-- Installation Section -->
-    <section id="installation">
+    <section id="installation" class="data-section">
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
 install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-        </code></pre>
+            </code></pre>
         </div>
     </section>
 
     <!-- Applications Section -->
-    <section id="applications">
+    <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
             <div class="card-deck">
@@ -305,17 +335,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- JavaScript for Smooth Scrolling and Active Navigation -->
-    <script>
-        // Smooth scrolling for sidebar links
-        document.getElementById('sidebar').addEventListener('mouseenter', function () {
-            this.style.width = '150px';
-        });
-        document.getElementById('sidebar').addEventListener('mouseleave', function () {
-            this.style.width = '70px';
-        });
-    </script>
 
 </body>
 
