@@ -186,7 +186,7 @@
                     <i class="fas fa-newspaper"></i>
                     <div class="sidebar-item-content">
                         <span class="sidebar-item-title">News</span>
-                        <span>Get the latest updates</span>
+                        <span>Latest updates</span>
                     </div>
                 </a>
             </li>
