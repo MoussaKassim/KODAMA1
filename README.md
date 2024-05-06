@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +41,7 @@
             left: 0;
             bottom: 0;
             z-index: 1000;
-            background-color: #333;
+            background-color: #f9f9f9; /* Changed to light grey */
             width: 200px;
             padding-top: 56px; /* Height of the navbar */
             overflow-y: auto;
@@ -52,12 +53,12 @@
         }
         #sidebar ul li {
             padding: 10px;
-            color: white;
+            color: black; /* Changed to black text */
             cursor: pointer;
             transition: background-color 0.3s;
         }
         #sidebar ul li:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.1); /* Light grey background on hover */
         }
         #content {
             margin-left: 200px; /* Adjusted to accommodate the sidebar */
@@ -211,7 +212,7 @@
 </section>
 
 <!-- News Section -->
-<section>
+<section id="news">
     <div class="container">
         <h2>News</h2>
         <p>
@@ -232,7 +233,7 @@ This is an improved version of KODAMA algorithm for spatially-aware dimensionali
 </section>
 
 <!-- Installation Section -->
-<section>
+<section id="installation">
     <div class="container">
         <h2>Installation</h2>
         <p>
@@ -246,7 +247,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 </section>
 
 <!-- Applications Section -->
-<section>
+<section id="applications">
     <div class="container">
         <h2>Applications</h2>
         <div class="card-deck">
