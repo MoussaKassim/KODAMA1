@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<MO-DJIB CONSULTING>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            border-radius: 0;
+        }
+        .navbar-brand {
+            font-size: 24px;
+        }
+        .navbar-nav .nav-link {
+            transition: color 0.3s, background-color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #FFA500;
+            background-color: rgba(255, 165, 0, 0.1);
+        }
+        /* Sidebar */
+        #sidebar {
+            background-color: #333;
+            width: 200px;
+            padding-top: 56px;
+            overflow-y: auto;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        /* Sections */
+        section {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        section h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
 <body>
 
