@@ -1,4 +1,4 @@
-<KODAMA >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,6 +17,7 @@
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
+            animation: slideDown 0.5s ease;
         }
 
         .navbar-nav .nav-link {
@@ -27,11 +28,17 @@
         .navbar-nav .nav-link:hover {
             color: #FFA500;
             background-color: rgba(255, 165, 0, 0.1);
+            transform: scale(1.1);
         }
 
         .navbar-brand {
             color: white;
             font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand:hover {
+            transform: rotate(360deg);
         }
 
         /* Body padding to compensate for fixed navbar */
@@ -77,7 +84,7 @@
             padding: 15px;
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -85,6 +92,7 @@
 
         #sidebar ul li:hover {
             background-color: #adb5bd;
+            transform: translateX(10px);
         }
 
         #sidebar ul li a {
@@ -182,7 +190,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">KODAMA</a>
+            <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom"
+                title="Click me! I'm rotating!">KODAMA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -190,13 +199,13 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
                         <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -232,25 +241,25 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink">
+            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
                     <span>Introduction</span>
                 </a>
             </li>
-            <li id="newsLink">
+            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
                     <span>News</span>
                 </a>
             </li>
-            <li id="installationLink">
+            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
                     <span>Installation</span>
                 </a>
             </li>
-            <li id="applicationsLink">
+            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
                     <span>Applications</span>
@@ -352,26 +361,18 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <!-- Custom Script -->
     <script>
         document.getElementById('metabolomicCard').addEventListener('mouseover', function () {
-            document.getElementById('introLink').classList.add('active');
+            document.getElementById('introLink').style.backgroundColor = 'green';
         });
 
         document.getElementById('rnaSeqCard').addEventListener('mouseover', function () {
-            document.getElementById('newsLink').classList.add('active');
+            document.getElementById('newsLink').style.backgroundColor = 'blue';
         });
 
         document.getElementById('transcriptomicCard').addEventListener('mouseover', function () {
-            document.getElementById('installationLink').classList.add('active');
-        });
-
-        // Reset active class on mouseout
-        document.querySelectorAll('.card').forEach(function (card) {
-            card.addEventListener('mouseout', function () {
-                document.querySelectorAll('.nav-item').forEach(function (navItem) {
-                    navItem.classList.remove('active');
-                });
-            });
+            document.getElementById('installationLink').style.backgroundColor = 'purple';
         });
     </script>
+
 </body>
 
 </html>
