@@ -205,7 +205,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
-                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
                         <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
