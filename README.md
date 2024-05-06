@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,16 +11,10 @@
             position: fixed;
             top: 0;
             left: 0;
-            bottom: 0;
+            right: 0;
             z-index: 1000;
             background-color: #333;
             border-radius: 0; /* Rounded rectangle */
-            width: 56px;
-            overflow-y: auto;
-            transition: width 0.3s;
-        }
-        .navbar:hover {
-            width: 200px;
         }
         .navbar-nav .nav-link {
             color: white;
@@ -34,13 +27,11 @@
         .navbar-brand {
             color: white;
             font-size: 24px;
-            display: block;
-            text-align: center;
-            padding: 10px 0;
         }
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-left: 56px; /* Width of the navbar */
+            padding-top: 56px; /* Height of the navbar */
+            margin-left: 200px; /* Adjusted to accommodate the sidebar */
         }
         /* Sidebar Styles */
         #sidebar {
@@ -301,24 +292,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     document.getElementById('applicationsLink').addEventListener('click', function() {
         document.getElementById('applications').scrollIntoView({ behavior: 'smooth' });
     });
-
-    // Change color on click
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.addEventListener('click', function() {
-            this.style.backgroundColor = getRandomColor();
-        });
-    });
-
-    // Function to generate random color
-    function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
 </script>
 
 </body>
