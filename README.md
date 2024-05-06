@@ -15,15 +15,15 @@
             right: 0;
             z-index: 1000;
             background-color: #333;
-            border-radius: 0;
+            border-radius: 0;/* Rounded rectangle */
         }
         .navbar-nav .nav-link {
             color: white;
-            transition: color 0.3s, background-color 0.3s;
+            transition: color 0.3s, background-color 0.3s;/* Transition for glowing effect */
         }
         .navbar-nav .nav-link:hover {
-            color: #FFA500;
-            background-color: rgba(255, 165, 0, 0.1);
+            color: #FFA500; /* Modern orangish color */
+            background-color: rgba(255, 165, 0, 0.1);/* Orange background */
         }
         .navbar-brand {
             color: white;
@@ -43,7 +43,7 @@
             z-index: 1000;
             background-color: #333;
             width: 200px;
-            padding-top: 4rem;
+            padding-top: 56px; /* Height of the navbar */
             overflow-y: auto;
             transition: all 0.3s;
         }
