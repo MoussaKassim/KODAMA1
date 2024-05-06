@@ -45,19 +45,20 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 0;
+            top: 50%;
             left: 0;
-            bottom: 0;
+            transform: translateY(-50%);
             z-index: 1000;
             background-color: #343a40;
-            width: 250px;
-            overflow-y: auto;
+            width: 70px;
+            height: auto;
+            overflow: hidden;
             transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
         #sidebar:hover {
-            width: 300px;
+            width: 200px;
         }
 
         #sidebar ul {
@@ -72,7 +73,7 @@
         }
 
         #sidebar ul li {
-            width: 100%;
+            width: 200px;
             padding: 15px;
             color: white;
             cursor: pointer;
@@ -89,15 +90,51 @@
         #sidebar ul li a {
             text-decoration: none;
             color: inherit;
+            display: flex;
+            align-items: center;
         }
 
         #sidebar ul li i {
             margin-right: 10px;
         }
 
+        .sidebar-item-content {
+            display: none;
+            padding: 10px;
+            color: white;
+            background-color: #343a40;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            z-index: 1000;
+            width: 200px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        #sidebar ul li:hover .sidebar-item-content {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sidebar-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
         /* Custom Styles for Data Sections */
         .data-section {
-            margin-left: 250px;
             margin-top: 20px;
             padding: 20px;
             border-radius: 10px;
@@ -161,25 +198,70 @@
             <li>
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
-                    Introduction
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Introduction</span>
+                        <span>An overview of KODAMA</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
-                    News
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">News</span>
+                        <span>Stay updated with the latest news</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
-                    Installation
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Installation</span>
+                        <span>Get started with KODAMA</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
-                    Applications
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Applications</span>
+                        <span>Explore different uses</span>
+                    </div>
+                </a>
+            </li>
+            <!-- New Elements -->
+            <li>
+                <a href="#introLink">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Introduction</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#newsLink">
+                    <i class="fas fa-newspaper"></i>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">News</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#installationLink">
+                    <i class="fas fa-tools"></i>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Installation</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#applicationsLink">
+                    <i class="fas fa-tasks"></i>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Applications</span>
+                    </div>
                 </a>
             </li>
         </ul>
