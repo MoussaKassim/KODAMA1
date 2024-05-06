@@ -1,4 +1,4 @@
-<KODAMA >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -109,11 +109,11 @@
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
+            animation: fadeIn 0.3s;
         }
 
         #sidebar ul li:hover .sidebar-item-content {
             display: block;
-            animation: fadeIn 0.3s;
         }
 
         @keyframes fadeIn {
@@ -138,6 +138,19 @@
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .data-section h2 {
@@ -148,6 +161,18 @@
         .data-section p {
             color: #343a40;
             margin-bottom: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -294,19 +319,19 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         <div class="container">
             <h2>Applications</h2>
             <div class="card-deck">
-                <div class="card">
+                <div class="card" id="metabolomicCard">
                     <div class="card-body">
                         <h5 class="card-title">Metabolomic data</h5>
                         <p class="card-text">Explore Metabolomic data</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="rnaSeqCard">
                     <div class="card-body">
                         <h5 class="card-title">Single cell RNA seq data</h5>
                         <p class="card-text">Explore Single cell RNA seq data</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="transcriptomicCard">
                     <div class="card-body">
                         <h5 class="card-title">Spatial Transcriptomic data</h5>
                         <p class="card-text">Explore Spatial Transcriptomic data</p>
@@ -324,6 +349,29 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
+    <!-- Custom Script -->
+    <script>
+        document.getElementById('metabolomicCard').addEventListener('mouseover', function () {
+            document.getElementById('introLink').classList.add('active');
+        });
+
+        document.getElementById('rnaSeqCard').addEventListener('mouseover', function () {
+            document.getElementById('newsLink').classList.add('active');
+        });
+
+        document.getElementById('transcriptomicCard').addEventListener('mouseover', function () {
+            document.getElementById('installationLink').classList.add('active');
+        });
+
+        // Reset active class on mouseout
+        document.querySelectorAll('.card').forEach(function (card) {
+            card.addEventListener('mouseout', function () {
+                document.querySelectorAll('.nav-item').forEach(function (navItem) {
+                    navItem.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
