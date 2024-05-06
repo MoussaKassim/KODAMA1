@@ -32,7 +32,7 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px; /* Height of the navbar */
-            margin-left: 200px; /* Adjusted to accommodate the sidebar */
+            margin-left: 100px; /* Adjusted to accommodate the sidebar */
         }
         /* Sidebar Styles */
         #sidebar {
@@ -41,11 +41,11 @@
             left: 0;
             bottom: 0;
             z-index: 1000;
-            background-color: #333;
-            width: 200px;
-            padding-top: 56px; /* Height of the navbar */
+            background-color: transparent; /* Removed background color */
+            width: 100px; /* Reduced width */
             overflow-y: auto;
             transition: all 0.3s;
+            padding-top: 56px; /* Height of the navbar */
         }
         #sidebar ul {
             list-style-type: none;
@@ -60,7 +60,7 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         #content {
-            margin-left: 200px; /* Adjusted to accommodate the sidebar */
+            margin-left: 100px; /* Adjusted to accommodate the sidebar */
             padding: 20px;
         }
         /* Section Styles */
