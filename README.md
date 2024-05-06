@@ -1,4 +1,4 @@
-<MO-DJIB CONSULTING>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -45,20 +45,19 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 50%;
+            top: 0;
             left: 0;
-            transform: translateY(-50%);
+            bottom: 0;
             z-index: 1000;
             background-color: #343a40;
-            width: 70px;
-            height: auto;
-            overflow: hidden;
+            width: 250px;
+            overflow-y: auto;
             transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
         #sidebar:hover {
-            width: 200px;
+            width: 300px;
         }
 
         #sidebar ul {
@@ -73,7 +72,7 @@
         }
 
         #sidebar ul li {
-            width: 200px;
+            width: 100%;
             padding: 15px;
             color: white;
             cursor: pointer;
@@ -96,43 +95,9 @@
             margin-right: 10px;
         }
 
-        .sidebar-item-content {
-            display: none;
-            padding: 10px;
-            color: white;
-            background-color: #343a40;
-            position: absolute;
-            left: 200px;
-            top: 0;
-            z-index: 1000;
-            width: 200px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-
-        #sidebar ul li:hover .sidebar-item-content {
-            display: block;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .sidebar-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
         /* Custom Styles for Data Sections */
         .data-section {
+            margin-left: 250px;
             margin-top: 20px;
             padding: 20px;
             border-radius: 10px;
@@ -196,37 +161,25 @@
             <li>
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Introduction</span>
-                        <span>An overview of KODAMA</span>
-                    </div>
+                    Introduction
                 </a>
             </li>
             <li>
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">News</span>
-                        <span>Stay updated with the latest news</span>
-                    </div>
+                    News
                 </a>
             </li>
             <li>
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Installation</span>
-                        <span>Get started with KODAMA</span>
-                    </div>
+                    Installation
                 </a>
             </li>
             <li>
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Applications</span>
-                        <span>Explore different uses</span>
-                    </div>
+                    Applications
                 </a>
             </li>
         </ul>
