@@ -1,4 +1,4 @@
-<KODAMA >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -208,7 +208,8 @@
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
+                        title="Data Analyses">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Data Analyses
@@ -360,6 +361,25 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Custom Script -->
     <script>
+        // Navbar animations
+        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
+            this.style.transform = 'rotate(360deg)';
+        });
+
+        // Sidebar animations
+        const sidebarItems = document.querySelectorAll('#sidebar ul li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', function () {
+                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', function () {
+                this.style.backgroundColor = '';
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Card animations
         document.getElementById('metabolomicCard').addEventListener('mouseover', function () {
             document.getElementById('introLink').style.backgroundColor = 'green';
         });
