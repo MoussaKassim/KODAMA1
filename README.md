@@ -187,35 +187,76 @@
             color: #343a40;
         }
 
-        /* Toolbox */
+        /* Toolbox Styles */
         .toolbox {
             position: fixed;
             top: 50%;
             right: 20px;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.8);
-            width: 50px;
-            height: auto;
+            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
             padding: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            transition: width 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .toolbox:hover {
-            width: 200px;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .toolbox-item {
+        .toolbox-icon {
             color: white;
-            margin-bottom: 10px;
+            font-size: 24px;
             cursor: pointer;
             transition: transform 0.3s;
+            position: relative;
         }
 
-        .toolbox-item:hover {
-            transform: translateX(5px);
+        .toolbox-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .toolbox-icon:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Highlighting Style */
+        .highlighted {
+            background-color: yellow !important;
+        }
+
+        /* Drawing Style */
+        .drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -307,14 +348,17 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom">
+        <div class="toolbox-icon" onclick="toggleZoom()">
             <i class="fas fa-search"></i>
+            <span class="tooltip">Loupe (Zoom)</span>
         </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight">
+        <div class="toolbox-icon" onclick="toggleHighlight()">
             <i class="fas fa-highlighter"></i>
+            <span class="tooltip">Surligner</span>
         </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw">
+        <div class="toolbox-icon" onclick="toggleDrawing()">
             <i class="fas fa-pen"></i>
+            <span class="tooltip">Crayon (Dessiner)</span>
         </div>
     </div>
 
@@ -353,9 +397,11 @@
                         style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
                         A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
                         33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
-                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
-                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.2100689118"
+                        style="color: blue;">Yu, C., Zinga, M. M., Abdel-Shafy, E., Vignoli, A., Piazza, S., Cacciatore,
+                        S., ... & Mackie, A. (2021). KODAMA: a machine learning algorithm to identify novel patterns of
+                        spatial interaction between cells in imaging mass spectrometry data. Proceedings of the National
+                        Academy of Sciences, 118(27).</a></li>
             </ul>
         </div>
     </section>
@@ -365,12 +411,11 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
+                KODAMA is available as an R package and can be installed from CRAN using the following command:
             </p>
-            <pre><code style="color: blue;">
-library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-            </code></pre>
+            <pre><code>install.packages("kodama")</code></pre>
+            <p>Alternatively, you can install the development version from GitHub:</p>
+            <pre><code>remotes::install_github("tkcaccia/KODAMA")</code></pre>
         </div>
     </section>
 
@@ -378,64 +423,114 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Metabolomic data</h5>
-                        <p class="card-text">Explore Metabolomic data</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Single cell RNA seq data</h5>
-                        <p class="card-text">Explore Single cell RNA seq data</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Spatial Transcriptomic data</h5>
-                        <p class="card-text">Explore Spatial Transcriptomic data</p>
-                    </div>
-                </div>
-            </div>
+            <p>
+                KODAMA is a versatile tool for exploratory analysis and knowledge discovery in various omics data
+                sets. Some of its applications include:
+            </p>
+            <ul>
+                <li>Metabolomics data analysis</li>
+                <li>Single cell RNA seq analysis</li>
+                <li>Spatial Transcriptomic analysis</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Drawing Canvas -->
+    <canvas id="drawingCanvas" class="drawing-canvas"></canvas>
 
-    <!-- Font Awesome Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- Custom Script -->
     <script>
-        // Navbar animations
-        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
-        });
+        // Variables pour suivre l'état des outils
+        let zoomEnabled = false;
+        let highlightEnabled = false;
+        let drawingEnabled = false;
 
-        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
+        // Fonction pour activer ou désactiver le zoom
+        function toggleZoom() {
+            zoomEnabled = !zoomEnabled;
+            if (zoomEnabled) {
+                // Changer le curseur en un carré de zoom
+                document.body.style.cursor = "zoom-in";
 
-        // Sidebar animations
-        const sidebarItems = document.querySelectorAll('#sidebar ul li');
-        sidebarItems.forEach(item => {
-            item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
-                this.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '';
-                this.style.transform = 'translateX(0)';
-            });
-        });
+                // Ajouter un événement de suivi de la souris pour le zoom
+                document.addEventListener("mousemove", handleZoom);
+            } else {
+                // Réinitialiser le curseur et supprimer l'événement de suivi de la souris
+                document.body.style.cursor = "default";
+                document.removeEventListener("mousemove", handleZoom);
+            }
+        }
+
+        // Fonction pour gérer le zoom avec le curseur de la souris
+        function handleZoom(event) {
+            // Implémenter la logique du zoom ici
+            console.log("Zooming...");
+        }
+
+        // Fonction pour activer ou désactiver le surlignage
+        function toggleHighlight() {
+            highlightEnabled = !highlightEnabled;
+            if (highlightEnabled) {
+                // Changer le curseur en un marqueur de surlignage
+                document.body.style.cursor = "url('path/to/highlighter-cursor.png'), auto";
+
+                // Ajouter un événement de suivi de la souris pour le surlignage
+                document.addEventListener("mousedown", startHighlighting);
+                document.addEventListener("mouseup", stopHighlighting);
+            } else {
+                // Réinitialiser le curseur et supprimer les événements de suivi de la souris
+                document.body.style.cursor = "default";
+                document.removeEventListener("mousedown", startHighlighting);
+                document.removeEventListener("mouseup", stopHighlighting);
+            }
+        }
+
+        // Fonction pour commencer le surlignage
+        function startHighlighting(event) {
+            // Implémenter la logique de début de surlignage ici
+            console.log("Start highlighting...");
+        }
+
+        // Fonction pour arrêter le surlignage
+        function stopHighlighting(event) {
+            // Implémenter la logique d'arrêt de surlignage ici
+            console.log("Stop highlighting...");
+        }
+
+        // Fonction pour activer ou désactiver le dessin
+        function toggleDrawing() {
+            drawingEnabled = !drawingEnabled;
+            if (drawingEnabled) {
+                // Changer le curseur en une icône de crayon
+                document.body.style.cursor = "url('path/to/pencil-cursor.png'), auto";
+
+                // Ajouter un événement de suivi de la souris pour le dessin
+                document.addEventListener("mousedown", startDrawing);
+                document.addEventListener("mouseup", stopDrawing);
+            } else {
+                // Réinitialiser le curseur et supprimer les événements de suivi de la souris
+                document.body.style.cursor = "default";
+                document.removeEventListener("mousedown", startDrawing);
+                document.removeEventListener("mouseup", stopDrawing);
+            }
+        }
+
+        // Fonction pour commencer le dessin
+        function startDrawing(event) {
+            // Implémenter la logique de début de dessin ici
+            console.log("Start drawing...");
+        }
+
+        // Fonction pour arrêter le dessin
+        function stopDrawing(event) {
+            // Implémenter la logique d'arrêt de dessin ici
+            console.log("Stop drawing...");
+        }
     </script>
 
+    <!-- Bootstrap and FontAwesome JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
