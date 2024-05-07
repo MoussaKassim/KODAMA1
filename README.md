@@ -455,78 +455,56 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         </div>
     </div>
 
-    <!-- Custom Cursors -->
-    <div id="zoomCursor" class="zoom-cursor"></div>
-    <div id="highlightCursor" class="highlight-cursor"></div>
-    <div id="drawCursor" class="draw-cursor"></div>
+<!-- Custom Cursors -->
+<div id="zoomCursor" class="zoom-cursor"></div>
+<div id="highlightCursor" class="highlight-cursor"></div>
+<div id="drawCursor" class="draw-cursor"></div>
 
-    <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script>
+    // Toggle Zoom Function
+    function toggleZoom() {
+        // Change cursor to zoom icon
+        document.body.style.cursor = 'url("zoom.cur"), auto';
+        // Implement zoom functionality here
+        // For example: document.addEventListener('mousemove', zoomFunction);
+    }
 
-    <!-- Font Awesome Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    // Toggle Highlight Function
+    function toggleHighlight() {
+        // Change cursor to highlighter icon
+        document.body.style.cursor = 'url("highlight.cur"), auto';
+        // Implement highlight functionality here
+        // For example: document.addEventListener('mousedown', startHighlight);
+        // For example: document.addEventListener('mouseup', endHighlight);
+    }
 
-    <!-- Custom Script -->
-    <script>
-        // Navbar animations
-        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
-        });
+    // Toggle Drawing Function
+    function toggleDrawing() {
+        // Change cursor to pencil icon
+        document.body.style.cursor = 'url("pencil.cur"), auto';
+        // Implement drawing functionality here
+        // For example: document.addEventListener('mousedown', startDrawing);
+        // For example: document.addEventListener('mousemove', draw);
+        // For example: document.addEventListener('mouseup', endDrawing);
+    }
 
-        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
+    // Track mouse movements for custom cursors
+    document.addEventListener('mousemove', function (e) {
+        const zoomCursor = document.getElementById('zoomCursor');
+        const highlightCursor = document.getElementById('highlightCursor');
+        const drawCursor = document.getElementById('drawCursor');
+        
+        // Position the custom cursors
+        zoomCursor.style.left = `${e.clientX}px`;
+        zoomCursor.style.top = `${e.clientY}px`;
+        highlightCursor.style.left = `${e.clientX}px`;
+        highlightCursor.style.top = `${e.clientY}px`;
+        drawCursor.style.left = `${e.clientX}px`;
+        drawCursor.style.top = `${e.clientY}px`;
+    });
+</script>
 
-        // Sidebar animations
-        const sidebarItems = document.querySelectorAll('#sidebar ul li');
-        sidebarItems.forEach(item => {
-            item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
-                this.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '';
-                this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Toggle Zoom Function
-        function toggleZoom() {
-            // Add your code here to toggle zoom feature
-            alert("Zoom feature toggled");
-        }
-
-        // Toggle Highlight Function
-        function toggleHighlight() {
-            // Add your code here to toggle highlight feature
-            alert("Highlight feature toggled");
-        }
-
-        // Toggle Drawing Function
-        function toggleDrawing() {
-            // Add your code here to toggle drawing feature
-            alert("Drawing feature toggled");
-        }
-
-        // Track mouse movements for custom cursors
-        document.addEventListener('mousemove', function (e) {
-            const zoomCursor = document.getElementById('zoomCursor');
-            const highlightCursor = document.getElementById('highlightCursor');
-            const drawCursor = document.getElementById('drawCursor');
-            
-            // Position the custom cursors
-            zoomCursor.style.left = `${e.clientX}px`;
-            zoomCursor.style.top = `${e.clientY}px`;
-            highlightCursor.style.left = `${e.clientX}px`;
-            highlightCursor.style.top = `${e.clientY}px`;
-            drawCursor.style.left = `${e.clientX}px`;
-            drawCursor.style.top = `${e.clientY}px`;
-        });
-    </script>
 
 </body>
 
