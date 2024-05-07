@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama>
 <html lang="en">
 
 <head>
@@ -201,7 +201,6 @@
             padding: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
             transition: width 0.3s;
-            cursor: default; /* Added cursor default */
         }
 
         .toolbox:hover {
@@ -217,55 +216,6 @@
 
         .toolbox-item:hover {
             transform: translateX(5px);
-        }
-
-        /* Added styles for custom cursor */
-        .zoom-cursor {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 2px solid #000;
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none; /* Prevent cursor from interfering with clicks */
-            background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-search-512.png');
-            background-size: cover;
-        }
-
-        .highlight-cursor {
-            position: fixed;
-            width: 16px;
-            height: 16px;
-            background-color: yellow;
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none; /* Prevent cursor from interfering with clicks */
-            transform: translate(-50%, -50%);
-            mix-blend-mode: multiply; /* Ensures the cursor color blends well with underlying text */
-            animation: highlight 1s infinite alternate;
-        }
-
-        @keyframes highlight {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.5);
-            }
-        }
-
-        .draw-cursor {
-            position: fixed;
-            width: 16px;
-            height: 16px;
-            background-color: black;
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none; /* Prevent cursor from interfering with clicks */
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference; /* Ensures the cursor color blends well with underlying content */
         }
     </style>
 </head>
@@ -355,6 +305,22 @@
         </ul>
     </div>
 
+    <!-- Toolbox -->
+    <div class="toolbox">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom"
+            onclick="toggleZoom()">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight"
+            onclick="toggleHighlight()">
+            <i class="fas fa-highlighter"></i>
+        </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw"
+            onclick="toggleDrawing()">
+            <i class="fas fa-pen"></i>
+        </div>
+    </div>
+
     <!-- Introduction Section -->
     <section id="introduction" class="data-section">
         <div class="container">
@@ -439,21 +405,13 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         </div>
     </section>
 
-    <!-- Toolbox -->
-    <div class="toolbox">
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom"
-            onclick="toggleZoom()">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight"
-            onclick="toggleHighlight()">
-            <i class="fas fa-highlighter"></i>
-        </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw"
-            onclick="toggleDrawing()">
-            <i class="fas fa-pen"></i>
-        </div>
-    </div>
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
 <!-- Custom Cursors -->
 <div id="zoomCursor" class="zoom-cursor"></div>
