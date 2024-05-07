@@ -1,4 +1,4 @@
-<kodama >
+<KODAMA >
 <html lang="en">
 
 <head>
@@ -186,6 +186,37 @@
         .card-text {
             color: #343a40;
         }
+
+        /* Toolbox */
+        .toolbox {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 50px;
+            height: auto;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            transition: width 0.3s;
+        }
+
+        .toolbox:hover {
+            width: 200px;
+        }
+
+        .toolbox-item {
+            color: white;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .toolbox-item:hover {
+            transform: translateX(5px);
+        }
     </style>
 </head>
 
@@ -272,6 +303,19 @@
                 </a>
             </li>
         </ul>
+    </div>
+
+    <!-- Toolbox -->
+    <div class="toolbox">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight">
+            <i class="fas fa-highlighter"></i>
+        </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw">
+            <i class="fas fa-pen"></i>
+        </div>
     </div>
 
     <!-- Introduction Section -->
