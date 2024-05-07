@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -92,6 +92,7 @@
         #sidebar ul li a {
             text-decoration: none;
             color: inherit;
+            line-height: 2; /* Ajustement de la hauteur de ligne */
         }
 
         #sidebar ul li i {
