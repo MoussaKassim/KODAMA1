@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama>
 <html lang="en">
 
 <head>
@@ -307,13 +307,16 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom"
+            onclick="toggleZoom()">
             <i class="fas fa-search"></i>
         </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight"
+            onclick="toggleHighlight()">
             <i class="fas fa-highlighter"></i>
         </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw"
+            onclick="toggleDrawing()">
             <i class="fas fa-pen"></i>
         </div>
     </div>
@@ -365,7 +368,8 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
+                    style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
@@ -434,6 +438,24 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
                 this.style.transform = 'translateX(0)';
             });
         });
+
+        // Toggle Zoom Function
+        function toggleZoom() {
+            // Add your code here to toggle zoom feature
+            alert("Zoom feature toggled");
+        }
+
+        // Toggle Highlight Function
+        function toggleHighlight() {
+            // Add your code here to toggle highlight feature
+            alert("Highlight feature toggled");
+        }
+
+        // Toggle Drawing Function
+        function toggleDrawing() {
+            // Add your code here to toggle drawing feature
+            alert("Drawing feature toggled");
+        }
     </script>
 
 </body>
