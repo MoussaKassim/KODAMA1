@@ -413,55 +413,92 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
-<!-- Custom Cursors -->
-<div id="zoomCursor" class="zoom-cursor"></div>
-<div id="highlightCursor" class="highlight-cursor"></div>
-<div id="drawCursor" class="draw-cursor"></div>
+// Variables pour suivre l'état des outils
+let zoomEnabled = false;
+let highlightEnabled = false;
+let drawingEnabled = false;
 
-<!-- Custom Script -->
-<script>
-    // Toggle Zoom Function
-    function toggleZoom() {
-        // Change cursor to zoom icon
-        document.body.style.cursor = 'url("zoom.cur"), auto';
-        // Implement zoom functionality here
-        // For example: document.addEventListener('mousemove', zoomFunction);
+// Fonction pour activer ou désactiver le zoom
+function toggleZoom() {
+    zoomEnabled = !zoomEnabled;
+    if (zoomEnabled) {
+        // Changer le curseur en un carré de zoom
+        document.body.style.cursor = "zoom-in";
+
+        // Ajouter un événement de suivi de la souris pour le zoom
+        document.addEventListener("mousemove", handleZoom);
+    } else {
+        // Réinitialiser le curseur et supprimer l'événement de suivi de la souris
+        document.body.style.cursor = "default";
+        document.removeEventListener("mousemove", handleZoom);
     }
+}
 
-    // Toggle Highlight Function
-    function toggleHighlight() {
-        // Change cursor to highlighter icon
-        document.body.style.cursor = 'url("highlight.cur"), auto';
-        // Implement highlight functionality here
-        // For example: document.addEventListener('mousedown', startHighlight);
-        // For example: document.addEventListener('mouseup', endHighlight);
+// Fonction pour gérer le zoom avec le curseur de la souris
+function handleZoom(event) {
+    // Implémenter la logique du zoom ici
+    console.log("Zooming...");
+}
+
+// Fonction pour activer ou désactiver le surlignage
+function toggleHighlight() {
+    highlightEnabled = !highlightEnabled;
+    if (highlightEnabled) {
+        // Changer le curseur en un marqueur de surlignage
+        document.body.style.cursor = "url('path/to/highlighter-cursor.png'), auto";
+
+        // Ajouter un événement de suivi de la souris pour le surlignage
+        document.addEventListener("mousedown", startHighlighting);
+        document.addEventListener("mouseup", stopHighlighting);
+    } else {
+        // Réinitialiser le curseur et supprimer les événements de suivi de la souris
+        document.body.style.cursor = "default";
+        document.removeEventListener("mousedown", startHighlighting);
+        document.removeEventListener("mouseup", stopHighlighting);
     }
+}
 
-    // Toggle Drawing Function
-    function toggleDrawing() {
-        // Change cursor to pencil icon
-        document.body.style.cursor = 'url("pencil.cur"), auto';
-        // Implement drawing functionality here
-        // For example: document.addEventListener('mousedown', startDrawing);
-        // For example: document.addEventListener('mousemove', draw);
-        // For example: document.addEventListener('mouseup', endDrawing);
+// Fonction pour commencer le surlignage
+function startHighlighting(event) {
+    // Implémenter la logique de début de surlignage ici
+    console.log("Start highlighting...");
+}
+
+// Fonction pour arrêter le surlignage
+function stopHighlighting(event) {
+    // Implémenter la logique d'arrêt de surlignage ici
+    console.log("Stop highlighting...");
+}
+
+// Fonction pour activer ou désactiver le dessin
+function toggleDrawing() {
+    drawingEnabled = !drawingEnabled;
+    if (drawingEnabled) {
+        // Changer le curseur en une icône de crayon
+        document.body.style.cursor = "url('path/to/pencil-cursor.png'), auto";
+
+        // Ajouter un événement de suivi de la souris pour le dessin
+        document.addEventListener("mousedown", startDrawing);
+        document.addEventListener("mouseup", stopDrawing);
+    } else {
+        // Réinitialiser le curseur et supprimer les événements de suivi de la souris
+        document.body.style.cursor = "default";
+        document.removeEventListener("mousedown", startDrawing);
+        document.removeEventListener("mouseup", stopDrawing);
     }
+}
 
-    // Track mouse movements for custom cursors
-    document.addEventListener('mousemove', function (e) {
-        const zoomCursor = document.getElementById('zoomCursor');
-        const highlightCursor = document.getElementById('highlightCursor');
-        const drawCursor = document.getElementById('drawCursor');
-        
-        // Position the custom cursors
-        zoomCursor.style.left = `${e.clientX}px`;
-        zoomCursor.style.top = `${e.clientY}px`;
-        highlightCursor.style.left = `${e.clientX}px`;
-        highlightCursor.style.top = `${e.clientY}px`;
-        drawCursor.style.left = `${e.clientX}px`;
-        drawCursor.style.top = `${e.clientY}px`;
-    });
-</script>
+// Fonction pour commencer le dessin
+function startDrawing(event) {
+    // Implémenter la logique de début de dessin ici
+    console.log("Start drawing...");
+}
+
+// Fonction pour arrêter le dessin
+function stopDrawing(event) {
+    // Implémenter la logique d'arrêt de dessin ici
+    console.log("Stop drawing...");
+}
 
 
 </body>
