@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -187,76 +187,35 @@
             color: #343a40;
         }
 
-        /* Toolbox Styles */
+        /* Toolbox */
         .toolbox {
             position: fixed;
             top: 50%;
             right: 20px;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 50px;
+            height: auto;
             border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
             padding: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s, transform 0.3s;
+            transition: width 0.3s;
         }
 
         .toolbox:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+            width: 200px;
         }
 
-        .toolbox-icon {
+        .toolbox-item {
             color: white;
-            font-size: 24px;
+            margin-bottom: 10px;
             cursor: pointer;
             transition: transform 0.3s;
-            position: relative;
         }
 
-        .toolbox-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .tooltip {
-            visibility: hidden;
-            width: 120px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .toolbox-icon:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Highlighting Style */
-        .highlighted {
-            background-color: yellow !important;
-        }
-
-        /* Drawing Style */
-        .drawing-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 999;
-            pointer-events: none;
+        .toolbox-item:hover {
+            transform: translateX(5px);
         }
     </style>
 </head>
@@ -348,17 +307,14 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-icon" onclick="toggleZoom()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom">
             <i class="fas fa-search"></i>
-            <span class="tooltip">Loupe (Zoom)</span>
         </div>
-        <div class="toolbox-icon" onclick="toggleHighlight()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight">
             <i class="fas fa-highlighter"></i>
-            <span class="tooltip">Surligner</span>
         </div>
-        <div class="toolbox-icon" onclick="toggleDrawing()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw">
             <i class="fas fa-pen"></i>
-            <span class="tooltip">Crayon (Dessiner)</span>
         </div>
     </div>
 
@@ -397,10 +353,9 @@
                         style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
                         A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
                         33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1423999112"
-                        style="color: blue;">Cacciatore, S., Zerbini, L. F., Piazza, S., Menendez, P., Luchinat, C.,
-                        & Tenori, L. (2015). KODAMA: a workflow for distance-based molecule activity
-                        prediction.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
+                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
+                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
             </ul>
         </div>
     </section>
@@ -410,10 +365,12 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                To install KODAMA, run the following commands in your R environment:
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
-            <pre><code class="r">install.packages("devtools")
-devtools::install_github("tkcaccia/KODAMA")</code></pre>
+            <pre><code style="color: blue;">
+library(<span style="color: black;">devtools</span>)
+install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
+            </code></pre>
         </div>
     </section>
 
@@ -421,47 +378,64 @@ devtools::install_github("tkcaccia/KODAMA")</code></pre>
     <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
-            <p>
-                KODAMA has been applied to various areas of research including:
-            </p>
-            <ul>
-                <li>Metabolomics</li>
-                <li>Single cell RNA sequencing</li>
-                <li>Spatial transcriptomics</li>
-            </ul>
-            <p>
-                For detailed applications, refer to the respective documentation available on the GitHub repository.
-            </p>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Metabolomic data</h5>
+                        <p class="card-text">Explore Metabolomic data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Single cell RNA seq data</h5>
+                        <p class="card-text">Explore Single cell RNA seq data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Spatial Transcriptomic data</h5>
+                        <p class="card-text">Explore Spatial Transcriptomic data</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Bootstrap JS and Font Awesome -->
+    <!-- Bootstrap Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-D/EoTKB8smFbAxNhH6vGnqz87ls2xanFgpF/nFziItVHZCKsaP+FKlV7zVZE3Cs3"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-JMkP+udwY6qL4v4hVaH3ai6f3oT63KStwBxVubuXGfbsp7f7s+sFPrV92S9KFkFf"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
     <!-- Custom Script -->
     <script>
-        // Function to toggle zoom
-        function toggleZoom() {
-            alert("Toggling zoom!");
-        }
+        // Navbar animations
+        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
+        });
 
-        // Function to toggle highlighting
-        function toggleHighlight() {
-            alert("Toggling highlight!");
-        }
+        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
 
-        // Function to toggle drawing
-        function toggleDrawing() {
-            alert("Toggling drawing!");
-        }
+        // Sidebar animations
+        const sidebarItems = document.querySelectorAll('#sidebar ul li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', function () {
+                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', function () {
+                this.style.backgroundColor = '';
+                this.style.transform = 'translateX(0)';
+            });
+        });
     </script>
+
 </body>
 
 </html>
