@@ -1,4 +1,4 @@
-<KODAMA>
+<KODAMA >
 <html lang="en">
 
 <head>
@@ -209,38 +209,24 @@
 
         .toolbox-item {
             color: white;
-            padding: 8px;
+            margin-bottom: 10px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.3s;
         }
 
         .toolbox-item:hover {
-            background-color: #4CAF50;
+            transform: translateX(5px);
         }
 
-        /* Tooltip */
-        [data-tooltip] {
-            position: relative;
+        /* Custom Styles for Highlighting */
+        .highlight {
+            background-color: yellow !important;
         }
 
-        [data-tooltip]::before {
-            content: attr(data-tooltip);
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #000;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        [data-tooltip]:hover::before {
-            opacity: 1;
+        /* Custom Styles for Drawing */
+        .drawing {
+            cursor: url('https://www.iconfinder.com/data/icons/essential-web-3/50/essential_Sketch-512.png') 0 25,
+                auto;
         }
     </style>
 </head>
@@ -260,16 +246,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item" data-tooltip="Introduction">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
-                    <li class="nav-item" data-tooltip="Software Tutorial">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
                         <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
-                    <li class="nav-item" data-tooltip="Simulation">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
-                    <li class="nav-item dropdown" data-tooltip="Data Analyses">
+                    <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
+                        title="Data Analyses">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Data Analyses
@@ -302,25 +289,25 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li data-tooltip="Introduction">
+            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
                     <span>Introduction</span>
                 </a>
             </li>
-            <li data-tooltip="News">
+            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
                     <span>News</span>
                 </a>
             </li>
-            <li data-tooltip="Installation">
+            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
                     <span>Installation</span>
                 </a>
             </li>
-            <li data-tooltip="Applications">
+            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
                     <span>Applications</span>
@@ -331,21 +318,17 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-dropdown">
-            <button class="toolbox-dropdown-btn" onclick="toggleToolboxDropdown()">
-                <i class="fas fa-cog"></i>
-            </button>
-            <div class="toolbox-dropdown-content">
-                <div class="toolbox-item" data-tooltip="Zoom" onclick="toggleZoom()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="toolbox-item" data-tooltip="Highlight" onclick="toggleHighlight()">
-                    <i class="fas fa-highlighter"></i>
-                </div>
-                <div class="toolbox-item" data-tooltip="Draw" onclick="toggleDrawing()">
-                    <i class="fas fa-pen"></i>
-                </div>
-            </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom"
+            onclick="toggleZoom()">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight"
+            onclick="toggleHighlight()">
+            <i class="fas fa-highlighter"></i>
+        </div>
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw"
+            onclick="toggleDrawing()">
+            <i class="fas fa-pen"></i>
         </div>
     </div>
 
@@ -467,135 +450,27 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             });
         });
 
-        // Toggle Toolbox Dropdown
-        function toggleToolboxDropdown() {
-            const dropdownContent = document.querySelector('.toolbox-dropdown-content');
-            dropdownContent.classList.toggle('toolbox-dropdown-content-show');
-        }
-
         // Toggle Zoom Function
         function toggleZoom() {
-            const body = document.querySelector('body');
-            const zoomMarker = document.createElement('div');
-            zoomMarker.style.position = 'absolute';
-            zoomMarker.style.width = '100px';
-            zoomMarker.style.height = '100px';
-            zoomMarker.style.border = '2px solid #000';
-            zoomMarker.style.pointerEvents = 'none';
-            zoomMarker.style.background = 'rgba(255, 255, 255, 0.5)';
-            zoomMarker.style.zIndex = '9999';
-            zoomMarker.style.cursor = 'zoom-in';
-            body.appendChild(zoomMarker);
-
-            let isDragging = false;
-            let startX, startY;
-
-            zoomMarker.addEventListener('mousedown', function (e) {
-                isDragging = true;
-                startX = e.clientX - parseInt(zoomMarker.style.left);
-                startY = e.clientY - parseInt(zoomMarker.style.top);
-            });
-
-            body.addEventListener('mousemove', function (e) {
-                if (isDragging) {
-                    const left = e.clientX - startX;
-                    const top = e.clientY - startY;
-                    zoomMarker.style.left = left + 'px';
-                    zoomMarker.style.top = top + 'px';
-                }
-            });
-
-            body.addEventListener('mouseup', function () {
-                isDragging = false;
-            });
-
-            body.addEventListener('mouseleave', function () {
-                isDragging = false;
-            });
+            // Add your code here to toggle zoom feature
+            alert("Zoom feature toggled");
         }
 
         // Toggle Highlight Function
         function toggleHighlight() {
             const body = document.querySelector('body');
-            const highlightMarker = document.createElement('div');
-            highlightMarker.style.position = 'absolute';
-            highlightMarker.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
-            highlightMarker.style.pointerEvents = 'none';
-            highlightMarker.style.zIndex = '9999';
-            body.appendChild(highlightMarker);
-
-            let isHighlighting = false;
-            let startX, startY;
-
-            body.addEventListener('mousedown', function (e) {
-                if (e.button === 0) {
-                    isHighlighting = true;
-                    startX = e.clientX;
-                    startY = e.clientY;
-                    highlightMarker.style.left = startX + 'px';
-                    highlightMarker.style.top = startY + 'px';
-                }
-            });
-
-            body.addEventListener('mousemove', function (e) {
-                if (isHighlighting) {
-                    const width = e.clientX - startX;
-                    const height = e.clientY - startY;
-                    highlightMarker.style.width = width + 'px';
-                    highlightMarker.style.height = height + 'px';
-                }
-            });
-
-            body.addEventListener('mouseup', function () {
-                isHighlighting = false;
-                highlightMarker.style.width = '';
-                highlightMarker.style.height = '';
-            });
+            body.classList.toggle('highlight');
+            alert("Highlight feature toggled");
         }
 
         // Toggle Drawing Function
         function toggleDrawing() {
             const body = document.querySelector('body');
-            const drawingCanvas = document.createElement('canvas');
-            drawingCanvas.style.position = 'absolute';
-            drawingCanvas.style.pointerEvents = 'none';
-            drawingCanvas.style.zIndex = '9999';
-            body.appendChild(drawingCanvas);
-
-            const ctx = drawingCanvas.getContext('2d');
-            let isDrawing = false;
-            let startX, startY;
-
-            body.addEventListener('mousedown', function (e) {
-                if (e.button === 0) {
-                    isDrawing = true;
-                    startX = e.clientX;
-                    startY = e.clientY;
-                }
-            });
-
-            body.addEventListener('mousemove', function (e) {
-                if (isDrawing) {
-                    ctx.beginPath();
-                    ctx.moveTo(startX, startY);
-                    ctx.lineTo(e.clientX, e.clientY);
-                    ctx.strokeStyle = '#000';
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-                    startX = e.clientX;
-                    startY = e.clientY;
-                }
-            });
-
-            body.addEventListener('mouseup', function () {
-                isDrawing = false;
-            });
-
-            body.addEventListener('mouseleave', function () {
-                isDrawing = false;
-            });
+            body.classList.toggle('drawing');
+            alert("Drawing feature toggled");
         }
     </script>
+
 </body>
 
 </html>
