@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -276,7 +276,33 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <!-- Ajoutez vos liens de navigation ici -->
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
+                        <a class="nav-link" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
+                        <a class="nav-link" href="#simulation">Simulation</a>
+                    </li>
+                    <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
+                        title="Data Analyses">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                cell RNA seq data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                Transcriptomic data</a>
+                        </div>
+                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -293,7 +319,30 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <!-- Ajoutez vos éléments de la barre latérale ici -->
+            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
+                <a href="#introduction">
+                    <i class="fas fa-book-open"></i>
+                    <span>Introduction</span>
+                </a>
+            </li>
+            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
+                <a href="#news">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+            </li>
+            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
+                <a href="#installation">
+                    <i class="fas fa-tools"></i>
+                    <span>Installation</span>
+                </a>
+            </li>
+            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
+                <a href="#applications">
+                    <i class="fas fa-tasks"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -398,22 +447,19 @@ devtools::install_github("tkcaccia/KODAMA")</code></pre>
 
     <!-- Custom Script -->
     <script>
-        // Fonction pour basculer le zoom
+        // Function to toggle zoom
         function toggleZoom() {
-            alert("Basculer le zoom !");
-            // Votre logique pour le zoom ici
+            alert("Toggling zoom!");
         }
 
-        // Fonction pour basculer le surlignage
+        // Function to toggle highlighting
         function toggleHighlight() {
-            alert("Basculer le surlignage !");
-            // Votre logique pour le surlignage ici
+            alert("Toggling highlight!");
         }
 
-        // Fonction pour basculer le dessin
+        // Function to toggle drawing
         function toggleDrawing() {
-            alert("Basculer le dessin !");
-            // Votre logique pour le dessin ici
+            alert("Toggling drawing!");
         }
     </script>
 </body>
