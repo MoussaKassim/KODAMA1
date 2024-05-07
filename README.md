@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -7,6 +7,7 @@
     <title>KODAMA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css">
     <style>
         /* Navbar Styles */
         .navbar {
@@ -324,9 +325,9 @@
             <p>
                 The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
-            <pre><code style="color: blue;">
-library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
+            <pre><code class="language-r" style="color: blue;">
+library(devtools)
+install_github("tkcaccia/KODAMA")
             </code></pre>
         </div>
     </section>
@@ -365,6 +366,9 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 
     <!-- Custom Script -->
     <script>
