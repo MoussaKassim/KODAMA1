@@ -1,4 +1,4 @@
-<kodama>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -207,15 +207,40 @@
             width: 200px;
         }
 
-        .toolbox-item {
-            color: white;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
+        .toolbox-dropdown {
+            position: relative;
         }
 
-        .toolbox-item:hover {
-            transform: translateX(5px);
+        .toolbox-dropdown-btn {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+        }
+
+        .toolbox-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            min-width: 160px;
+            border-radius: 8px;
+            padding: 8px 0;
+            z-index: 1;
+            right: 0;
+        }
+
+        .toolbox-dropdown-content .toolbox-item {
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .toolbox-dropdown-content .toolbox-item:hover {
+            background-color: #4CAF50;
         }
     </style>
 </head>
@@ -307,17 +332,24 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom"
-            onclick="toggleZoom()">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight"
-            onclick="toggleHighlight()">
-            <i class="fas fa-highlighter"></i>
-        </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw"
-            onclick="toggleDrawing()">
-            <i class="fas fa-pen"></i>
+        <div class="toolbox-dropdown">
+            <button class="toolbox-dropdown-btn" onclick="toggleToolboxDropdown()">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div class="toolbox-dropdown-content">
+                <div class="toolbox-item" onclick="toggleZoom()">
+                    <i class="fas fa-search"></i>
+                    <span>Zoom</span>
+                </div>
+                <div class="toolbox-item" onclick="toggleHighlight()">
+                    <i class="fas fa-highlighter"></i>
+                    <span>Highlight</span>
+                </div>
+                <div class="toolbox-item" onclick="toggleDrawing()">
+                    <i class="fas fa-pen"></i>
+                    <span>Draw</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -413,93 +445,56 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
-// Variables pour suivre l'état des outils
-let zoomEnabled = false;
-let highlightEnabled = false;
-let drawingEnabled = false;
+    <!-- Custom Script -->
+    <script>
+        // Navbar animations
+        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
+        });
 
-// Fonction pour activer ou désactiver le zoom
-function toggleZoom() {
-    zoomEnabled = !zoomEnabled;
-    if (zoomEnabled) {
-        // Changer le curseur en un carré de zoom
-        document.body.style.cursor = "zoom-in";
+        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
 
-        // Ajouter un événement de suivi de la souris pour le zoom
-        document.addEventListener("mousemove", handleZoom);
-    } else {
-        // Réinitialiser le curseur et supprimer l'événement de suivi de la souris
-        document.body.style.cursor = "default";
-        document.removeEventListener("mousemove", handleZoom);
-    }
-}
+        // Sidebar animations
+        const sidebarItems = document.querySelectorAll('#sidebar ul li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', function () {
+                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', function () {
+                this.style.backgroundColor = '';
+                this.style.transform = 'translateX(0)';
+            });
+        });
 
-// Fonction pour gérer le zoom avec le curseur de la souris
-function handleZoom(event) {
-    // Implémenter la logique du zoom ici
-    console.log("Zooming...");
-}
+        // Toggle Zoom Function
+        function toggleZoom() {
+            // Add your code here to toggle zoom feature
+            alert("Zoom feature toggled");
+        }
 
-// Fonction pour activer ou désactiver le surlignage
-function toggleHighlight() {
-    highlightEnabled = !highlightEnabled;
-    if (highlightEnabled) {
-        // Changer le curseur en un marqueur de surlignage
-        document.body.style.cursor = "url('path/to/highlighter-cursor.png'), auto";
+        // Toggle Highlight Function
+        function toggleHighlight() {
+            // Add your code here to toggle highlight feature
+            alert("Highlight feature toggled");
+        }
 
-        // Ajouter un événement de suivi de la souris pour le surlignage
-        document.addEventListener("mousedown", startHighlighting);
-        document.addEventListener("mouseup", stopHighlighting);
-    } else {
-        // Réinitialiser le curseur et supprimer les événements de suivi de la souris
-        document.body.style.cursor = "default";
-        document.removeEventListener("mousedown", startHighlighting);
-        document.removeEventListener("mouseup", stopHighlighting);
-    }
-}
+        // Toggle Drawing Function
+        function toggleDrawing() {
+            // Add your code here to toggle drawing feature
+            alert("Drawing feature toggled");
+        }
 
-// Fonction pour commencer le surlignage
-function startHighlighting(event) {
-    // Implémenter la logique de début de surlignage ici
-    console.log("Start highlighting...");
-}
-
-// Fonction pour arrêter le surlignage
-function stopHighlighting(event) {
-    // Implémenter la logique d'arrêt de surlignage ici
-    console.log("Stop highlighting...");
-}
-
-// Fonction pour activer ou désactiver le dessin
-function toggleDrawing() {
-    drawingEnabled = !drawingEnabled;
-    if (drawingEnabled) {
-        // Changer le curseur en une icône de crayon
-        document.body.style.cursor = "url('path/to/pencil-cursor.png'), auto";
-
-        // Ajouter un événement de suivi de la souris pour le dessin
-        document.addEventListener("mousedown", startDrawing);
-        document.addEventListener("mouseup", stopDrawing);
-    } else {
-        // Réinitialiser le curseur et supprimer les événements de suivi de la souris
-        document.body.style.cursor = "default";
-        document.removeEventListener("mousedown", startDrawing);
-        document.removeEventListener("mouseup", stopDrawing);
-    }
-}
-
-// Fonction pour commencer le dessin
-function startDrawing(event) {
-    // Implémenter la logique de début de dessin ici
-    console.log("Start drawing...");
-}
-
-// Fonction pour arrêter le dessin
-function stopDrawing(event) {
-    // Implémenter la logique d'arrêt de dessin ici
-    console.log("Stop drawing...");
-}
-
+        // Toggle Toolbox Dropdown
+        function toggleToolboxDropdown() {
+            const dropdownContent = document.querySelector('.toolbox-dropdown-content');
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 
 </body>
 
