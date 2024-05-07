@@ -471,29 +471,132 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             });
         });
 
-        // Toggle Zoom Function
-        function toggleZoom() {
-            // Add your code here to toggle zoom feature
-            alert("Zoom feature toggled");
-        }
+       // Toggle Zoom Function
+function toggleZoom() {
+    const body = document.querySelector('body');
+    const zoomMarker = document.createElement('div');
+    zoomMarker.style.position = 'absolute';
+    zoomMarker.style.width = '100px';
+    zoomMarker.style.height = '100px';
+    zoomMarker.style.border = '2px solid #000';
+    zoomMarker.style.pointerEvents = 'none';
+    zoomMarker.style.background = 'rgba(255, 255, 255, 0.5)';
+    zoomMarker.style.zIndex = '9999';
+    zoomMarker.style.cursor = 'zoom-in';
+    body.appendChild(zoomMarker);
 
-        // Toggle Highlight Function
-        function toggleHighlight() {
-            // Add your code here to toggle highlight feature
-            alert("Highlight feature toggled");
-        }
+    let isDragging = false;
+    let startX, startY;
 
-        // Toggle Drawing Function
-        function toggleDrawing() {
-            // Add your code here to toggle drawing feature
-            alert("Drawing feature toggled");
-        }
+    zoomMarker.addEventListener('mousedown', function (e) {
+        isDragging = true;
+        startX = e.clientX - parseInt(zoomMarker.style.left);
+        startY = e.clientY - parseInt(zoomMarker.style.top);
+    });
 
-        // Toggle Toolbox Dropdown
-        function toggleToolboxDropdown() {
-            const dropdownContent = document.querySelector('.toolbox-dropdown-content');
-            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    body.addEventListener('mousemove', function (e) {
+        if (isDragging) {
+            const left = e.clientX - startX;
+            const top = e.clientY - startY;
+            zoomMarker.style.left = left + 'px';
+            zoomMarker.style.top = top + 'px';
         }
+    });
+
+    body.addEventListener('mouseup', function () {
+        isDragging = false;
+    });
+
+    body.addEventListener('mouseleave', function () {
+        isDragging = false;
+    });
+}
+
+// Toggle Highlight Function
+function toggleHighlight() {
+    const body = document.querySelector('body');
+    const highlightMarker = document.createElement('div');
+    highlightMarker.style.position = 'absolute';
+    highlightMarker.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+    highlightMarker.style.pointerEvents = 'none';
+    highlightMarker.style.zIndex = '9999';
+    body.appendChild(highlightMarker);
+
+    let isHighlighting = false;
+    let startX, startY;
+
+    body.addEventListener('mousedown', function (e) {
+        if (e.button === 0) {
+            isHighlighting = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            highlightMarker.style.left = startX + 'px';
+            highlightMarker.style.top = startY + 'px';
+        }
+    });
+
+    body.addEventListener('mousemove', function (e) {
+        if (isHighlighting) {
+            const width = e.clientX - startX;
+            const height = e.clientY - startY;
+            highlightMarker.style.width = width + 'px';
+            highlightMarker.style.height = height + 'px';
+        }
+    });
+
+    body.addEventListener('mouseup', function () {
+        isHighlighting = false;
+    });
+
+    body.addEventListener('mouseleave', function () {
+        isHighlighting = false;
+    });
+}
+
+// Toggle Drawing Function
+function toggleDrawing() {
+    const body = document.querySelector('body');
+    const drawingCanvas = document.createElement('canvas');
+    drawingCanvas.style.position = 'absolute';
+    drawingCanvas.style.pointerEvents = 'none';
+    drawingCanvas.style.zIndex = '9999';
+    body.appendChild(drawingCanvas);
+
+    const ctx = drawingCanvas.getContext('2d');
+    let isDrawing = false;
+    let startX, startY;
+
+    body.addEventListener('mousedown', function (e) {
+        if (e.button === 0) {
+            isDrawing = true;
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+    });
+
+    body.addEventListener('mousemove', function (e) {
+        if (isDrawing) {
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(e.clientX, e.clientY);
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+    });
+
+    body.addEventListener('mouseup', function () {
+        isDrawing = false;
+    });
+
+    body.addEventListener('mouseleave', function () {
+        isDrawing = false;
+    });
+}
+
     </script>
 
 </body>
