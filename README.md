@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -214,10 +214,33 @@
             font-size: 24px;
             cursor: pointer;
             transition: transform 0.3s;
+            position: relative;
         }
 
         .toolbox-icon:hover {
             transform: scale(1.1);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .toolbox-icon:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* Highlighting Style */
@@ -325,9 +348,18 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <i class="fas fa-search toolbox-icon" onclick="toggleZoom()"></i>
-        <i class="fas fa-highlighter toolbox-icon" onclick="toggleHighlight()"></i>
-        <i class="fas fa-pencil-alt toolbox-icon" onclick="toggleDrawing()"></i>
+        <div class="toolbox-icon" onclick="toggleZoom()">
+            <i class="fas fa-search"></i>
+            <span class="tooltip">Loupe (Zoom)</span>
+        </div>
+        <div class="toolbox-icon" onclick="toggleHighlight()">
+            <i class="fas fa-highlighter"></i>
+            <span class="tooltip">Surligner</span>
+        </div>
+        <div class="toolbox-icon" onclick="toggleDrawing()">
+            <i class="fas fa-pen"></i>
+            <span class="tooltip">Crayon (Dessiner)</span>
+        </div>
     </div>
 
     <!-- Introduction Section -->
@@ -365,9 +397,10 @@
                         style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
                         A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
                         33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
-                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
-                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1423999112"
+                        style="color: blue;">Cacciatore, S., Zerbini, L. F., Piazza, S., Menendez, P., Luchinat, C.,
+                        & Tenori, L. (2015). KODAMA: a workflow for distance-based molecule activity
+                        prediction.</a></li>
             </ul>
         </div>
     </section>
@@ -377,13 +410,10 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
-                    style="color: blue;">CRAN</a>.
+                To install KODAMA, run the following commands in your R environment:
             </p>
-            <pre><code style="color: blue;">
-library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-            </code></pre>
+            <pre><code class="r">install.packages("devtools")
+devtools::install_github("tkcaccia/KODAMA")</code></pre>
         </div>
     </section>
 
@@ -391,145 +421,47 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Metabolomic data</h5>
-                        <p class="card-text">Explore Metabolomic data</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Single cell RNA seq data</h5>
-                        <p class="card-text">Explore Single cell RNA seq data</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Spatial Transcriptomic data</h5>
-                        <p class="card-text">Explore Spatial Transcriptomic data</p>
-                    </div>
-                </div>
-            </div>
+            <p>
+                KODAMA has been applied to various areas of research including:
+            </p>
+            <ul>
+                <li>Metabolomics</li>
+                <li>Single cell RNA sequencing</li>
+                <li>Spatial transcriptomics</li>
+            </ul>
+            <p>
+                For detailed applications, refer to the respective documentation available on the GitHub repository.
+            </p>
         </div>
     </section>
 
-    <!-- Bootstrap Scripts -->
+    <!-- Bootstrap JS and Font Awesome -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-D/EoTKB8smFbAxNhH6vGnqz87ls2xanFgpF/nFziItVHZCKsaP+FKlV7zVZE3Cs3"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-JMkP+udwY6qL4v4hVaH3ai6f3oT63KStwBxVubuXGfbsp7f7s+sFPrV92S9KFkFf"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <!-- Custom Script -->
     <script>
-        // Navbar animations
-        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
-        });
-
-        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-
-        // Sidebar animations
-        const sidebarItems = document.querySelectorAll('#sidebar ul li');
-        sidebarItems.forEach(item => {
-            item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
-                this.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '';
-                this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Toolbox functionality
-        let zoomEnabled = false;
-        let highlightEnabled = false;
-        let drawingEnabled = false;
-
+        // Function to toggle zoom
         function toggleZoom() {
-            zoomEnabled = !zoomEnabled;
-            if (zoomEnabled) {
-                document.body.style.transform = 'scale(1.2)';
-            } else {
-                document.body.style.transform = 'scale(1)';
-            }
+            alert("Toggling zoom!");
         }
 
+        // Function to toggle highlighting
         function toggleHighlight() {
-            highlightEnabled = !highlightEnabled;
-            const paragraphs = document.querySelectorAll('.data-section p');
-            paragraphs.forEach(paragraph => {
-                if (highlightEnabled) {
-                    paragraph.classList.add('highlighted');
-                } else {
-                    paragraph.classList.remove('highlighted');
-                }
-            });
+            alert("Toggling highlight!");
         }
 
+        // Function to toggle drawing
         function toggleDrawing() {
-            drawingEnabled = !drawingEnabled;
-            const drawingCanvas = document.createElement('div');
-            drawingCanvas.classList.add('drawing-canvas');
-            document.body.appendChild(drawingCanvas);
-
-            if (drawingEnabled) {
-                drawingCanvas.addEventListener('mousemove', draw);
-                drawingCanvas.addEventListener('mousedown', startDrawing);
-                drawingCanvas.addEventListener('mouseup', stopDrawing);
-            } else {
-                drawingCanvas.removeEventListener('mousemove', draw);
-                drawingCanvas.removeEventListener('mousedown', startDrawing);
-                drawingCanvas.removeEventListener('mouseup', stopDrawing);
-                document.body.removeChild(drawingCanvas);
-            }
+            alert("Toggling drawing!");
         }
-
-        let isDrawing = false;
-
-        function startDrawing(e) {
-            isDrawing = true;
-            draw(e);
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-            const canvas = document.querySelector('.drawing-canvas');
-            const ctx = canvas.getContext('2d');
-            ctx.lineWidth = 5;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = '#fff';
-            ctx.lineTo(e.clientX, e.clientY);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(e.clientX, e.clientY);
-        }
-
-        // Reset tools on page refresh
-        window.addEventListener('beforeunload', function () {
-            document.body.style.transform = 'scale(1)';
-            const paragraphs = document.querySelectorAll('.data-section p');
-            paragraphs.forEach(paragraph => {
-                paragraph.classList.remove('highlighted');
-            });
-            const drawingCanvas = document.querySelector('.drawing-canvas');
-            if (drawingCanvas) {
-                drawingCanvas.remove();
-            }
-        });
     </script>
-
 </body>
 
 </html>
