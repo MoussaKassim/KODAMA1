@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama>
 <html lang="en">
 
 <head>
@@ -216,17 +216,6 @@
 
         .toolbox-item:hover {
             transform: translateX(5px);
-        }
-
-        /* Custom Styles for Highlighting */
-        .highlight {
-            background-color: yellow !important;
-        }
-
-        /* Custom Styles for Drawing */
-        .drawing {
-            cursor: url('https://www.iconfinder.com/data/icons/essential-web-3/50/essential_Sketch-512.png') 0 25,
-                auto;
         }
     </style>
 </head>
@@ -458,15 +447,13 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
         // Toggle Highlight Function
         function toggleHighlight() {
-            const body = document.querySelector('body');
-            body.classList.toggle('highlight');
+            // Add your code here to toggle highlight feature
             alert("Highlight feature toggled");
         }
 
         // Toggle Drawing Function
         function toggleDrawing() {
-            const body = document.querySelector('body');
-            body.classList.toggle('drawing');
+            // Add your code here to toggle drawing feature
             alert("Drawing feature toggled");
         }
     </script>
