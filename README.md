@@ -141,6 +141,7 @@
             background-color: #fff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1s ease;
+            position: relative; /* Added */
         }
 
         @keyframes fadeInUp {
@@ -193,25 +194,16 @@
             top: 50%;
             right: 20px;
             transform: translateY(-50%);
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+            z-index: 1001;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around;
-            padding: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .toolbox:hover {
-            background-color: rgba(0, 0, 0, 0.8);
         }
 
         .toolbox-icon {
             color: white;
             font-size: 24px;
+            margin-bottom: 10px;
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -232,6 +224,15 @@
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        /* Zoom Rectangle */
+        .zoom-rectangle {
+            position: absolute;
+            border: 2px solid #fff;
+            background-color: rgba(255, 255, 255, 0.1);
             z-index: 999;
             pointer-events: none;
         }
@@ -325,9 +326,12 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <i class="fas fa-search toolbox-icon" onclick="toggleZoom()"></i>
-        <i class="fas fa-highlighter toolbox-icon" onclick="toggleHighlight()"></i>
-        <i class="fas fa-pencil-alt toolbox-icon" onclick="toggleDrawing()"></i>
+        <i class="fas fa-search toolbox-icon" onclick="toggleZoom()" data-toggle="tooltip" data-placement="left"
+            title="Zoom (Loupe)"></i>
+        <i class="fas fa-highlighter toolbox-icon" onclick="toggleHighlight()" data-toggle="tooltip"
+            data-placement="left" title="Highlight (Surligner)"></i>
+        <i class="fas fa-pen toolbox-icon" onclick="toggleDrawing()" data-toggle="tooltip" data-placement="left"
+            title="Draw (Crayon)"></i>
     </div>
 
     <!-- Introduction Section -->
@@ -448,86 +452,97 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             });
         });
 
-        // Toolbox functionality
-        let zoomEnabled = false;
-        let highlightEnabled = false;
-        let drawingEnabled = false;
-
-        function toggleZoom() {
-            zoomEnabled = !zoomEnabled;
-            if (zoomEnabled) {
-                document.body.style.transform = 'scale(1.2)';
-            } else {
-                document.body.style.transform = 'scale(1)';
-            }
-        }
-
+        // Toggle Highlight
         function toggleHighlight() {
-            highlightEnabled = !highlightEnabled;
-            const paragraphs = document.querySelectorAll('.data-section p');
-            paragraphs.forEach(paragraph => {
-                if (highlightEnabled) {
-                    paragraph.classList.add('highlighted');
-                } else {
-                    paragraph.classList.remove('highlighted');
-                }
-            });
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            const highlighted = document.createElement('span');
+            highlighted.classList.add('highlighted');
+            range.surroundContents(highlighted);
         }
 
-        function toggleDrawing() {
-            drawingEnabled = !drawingEnabled;
-            const drawingCanvas = document.createElement('div');
-            drawingCanvas.classList.add('drawing-canvas');
-            document.body.appendChild(drawingCanvas);
-
-            if (drawingEnabled) {
-                drawingCanvas.addEventListener('mousemove', draw);
-                drawingCanvas.addEventListener('mousedown', startDrawing);
-                drawingCanvas.addEventListener('mouseup', stopDrawing);
-            } else {
-                drawingCanvas.removeEventListener('mousemove', draw);
-                drawingCanvas.removeEventListener('mousedown', startDrawing);
-                drawingCanvas.removeEventListener('mouseup', stopDrawing);
-                document.body.removeChild(drawingCanvas);
-            }
-        }
-
+        // Drawing functionality
         let isDrawing = false;
 
-        function startDrawing(e) {
+        function startDrawing(event) {
             isDrawing = true;
-            draw(e);
+            const canvas = document.createElement('div');
+            canvas.classList.add('drawing-canvas');
+            document.body.appendChild(canvas);
+            draw(event);
         }
 
-        function stopDrawing() {
+        function endDrawing() {
             isDrawing = false;
+            const canvas = document.querySelector('.drawing-canvas');
+            if (canvas) {
+                document.body.removeChild(canvas);
+            }
         }
 
-        function draw(e) {
+        function draw(event) {
             if (!isDrawing) return;
             const canvas = document.querySelector('.drawing-canvas');
-            const ctx = canvas.getContext('2d');
-            ctx.lineWidth = 5;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = '#fff';
-            ctx.lineTo(e.clientX, e.clientY);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(e.clientX, e.clientY);
+            const x = event.clientX;
+            const y = event.clientY;
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.style.left = x + 'px';
+            dot.style.top = y + 'px';
+            canvas.appendChild(dot);
         }
 
-        // Reset tools on page refresh
-        window.addEventListener('beforeunload', function () {
-            document.body.style.transform = 'scale(1)';
-            const paragraphs = document.querySelectorAll('.data-section p');
-            paragraphs.forEach(paragraph => {
-                paragraph.classList.remove('highlighted');
-            });
-            const drawingCanvas = document.querySelector('.drawing-canvas');
-            if (drawingCanvas) {
-                drawingCanvas.remove();
+        document.addEventListener('mousedown', startDrawing);
+        document.addEventListener('mouseup', endDrawing);
+        document.addEventListener('mousemove', draw);
+
+        // Toggle Drawing
+        function toggleDrawing() {
+            if (!isDrawing) {
+                document.addEventListener('mousedown', startDrawing);
+                document.addEventListener('mouseup', endDrawing);
+                document.addEventListener('mousemove', draw);
+            } else {
+                document.removeEventListener('mousedown', startDrawing);
+                document.removeEventListener('mouseup', endDrawing);
+                document.removeEventListener('mousemove', draw);
             }
-        });
+            isDrawing = !isDrawing;
+        }
+
+        // Toggle Zoom
+        function toggleZoom() {
+            const zoomRect = document.createElement('div');
+            zoomRect.classList.add('zoom-rectangle');
+            document.body.appendChild(zoomRect);
+            const startX = 0;
+            const startY = 0;
+            let x, y, width, height;
+
+            function handleMouseMove(event) {
+                x = Math.min(event.clientX, startX);
+                y = Math.min(event.clientY, startY);
+                width = Math.abs(event.clientX - startX);
+                height = Math.abs(event.clientY - startY);
+
+                zoomRect.style.left = x + 'px';
+                zoomRect.style.top = y + 'px';
+                zoomRect.style.width = width + 'px';
+                zoomRect.style.height = height + 'px';
+            }
+
+            function handleMouseUp() {
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', handleMouseUp);
+                document.body.removeChild(zoomRect);
+
+                const zoomedArea = document.elementFromPoint(x + width / 2, y + height / 2);
+                zoomedArea.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+            }
+
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        }
     </script>
 
 </body>
