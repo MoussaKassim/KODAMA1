@@ -1,4 +1,4 @@
-<KODAMA >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -207,40 +207,40 @@
             width: 200px;
         }
 
-        .toolbox-dropdown {
-            position: relative;
-        }
-
-        .toolbox-dropdown-btn {
-            background-color: transparent;
-            border: none;
-            outline: none;
+        .toolbox-item {
+            color: white;
+            padding: 8px;
             cursor: pointer;
-            color: white;
-            font-size: 24px;
-        }
-
-        .toolbox-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.8);
-            min-width: 160px;
-            border-radius: 8px;
-            padding: 8px 0;
-            z-index: 1;
-            right: 0;
-        }
-
-        .toolbox-dropdown-content .toolbox-item {
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            display: block;
             transition: background-color 0.3s;
         }
 
-        .toolbox-dropdown-content .toolbox-item:hover {
+        .toolbox-item:hover {
             background-color: #4CAF50;
+        }
+
+        /* Tooltip */
+        [data-tooltip] {
+            position: relative;
+        }
+
+        [data-tooltip]::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        [data-tooltip]:hover::before {
+            opacity: 1;
         }
     </style>
 </head>
@@ -260,17 +260,16 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
+                    <li class="nav-item" data-tooltip="Introduction">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
+                    <li class="nav-item" data-tooltip="Software Tutorial">
                         <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
+                    <li class="nav-item" data-tooltip="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
-                    <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
-                        title="Data Analyses">
+                    <li class="nav-item dropdown" data-tooltip="Data Analyses">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Data Analyses
@@ -303,25 +302,25 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
+            <li data-tooltip="Introduction">
                 <a href="#introduction">
                     <i class="fas fa-book-open"></i>
                     <span>Introduction</span>
                 </a>
             </li>
-            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
+            <li data-tooltip="News">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
                     <span>News</span>
                 </a>
             </li>
-            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
+            <li data-tooltip="Installation">
                 <a href="#installation">
                     <i class="fas fa-tools"></i>
                     <span>Installation</span>
                 </a>
             </li>
-            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
+            <li data-tooltip="Applications">
                 <a href="#applications">
                     <i class="fas fa-tasks"></i>
                     <span>Applications</span>
@@ -337,17 +336,14 @@
                 <i class="fas fa-cog"></i>
             </button>
             <div class="toolbox-dropdown-content">
-                <div class="toolbox-item" onclick="toggleZoom()">
+                <div class="toolbox-item" data-tooltip="Zoom" onclick="toggleZoom()">
                     <i class="fas fa-search"></i>
-                    <span>Zoom</span>
                 </div>
-                <div class="toolbox-item" onclick="toggleHighlight()">
+                <div class="toolbox-item" data-tooltip="Highlight" onclick="toggleHighlight()">
                     <i class="fas fa-highlighter"></i>
-                    <span>Highlight</span>
                 </div>
-                <div class="toolbox-item" onclick="toggleDrawing()">
+                <div class="toolbox-item" data-tooltip="Draw" onclick="toggleDrawing()">
                     <i class="fas fa-pen"></i>
-                    <span>Draw</span>
                 </div>
             </div>
         </div>
@@ -471,134 +467,135 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             });
         });
 
-       // Toggle Zoom Function
-function toggleZoom() {
-    const body = document.querySelector('body');
-    const zoomMarker = document.createElement('div');
-    zoomMarker.style.position = 'absolute';
-    zoomMarker.style.width = '100px';
-    zoomMarker.style.height = '100px';
-    zoomMarker.style.border = '2px solid #000';
-    zoomMarker.style.pointerEvents = 'none';
-    zoomMarker.style.background = 'rgba(255, 255, 255, 0.5)';
-    zoomMarker.style.zIndex = '9999';
-    zoomMarker.style.cursor = 'zoom-in';
-    body.appendChild(zoomMarker);
-
-    let isDragging = false;
-    let startX, startY;
-
-    zoomMarker.addEventListener('mousedown', function (e) {
-        isDragging = true;
-        startX = e.clientX - parseInt(zoomMarker.style.left);
-        startY = e.clientY - parseInt(zoomMarker.style.top);
-    });
-
-    body.addEventListener('mousemove', function (e) {
-        if (isDragging) {
-            const left = e.clientX - startX;
-            const top = e.clientY - startY;
-            zoomMarker.style.left = left + 'px';
-            zoomMarker.style.top = top + 'px';
+        // Toggle Toolbox Dropdown
+        function toggleToolboxDropdown() {
+            const dropdownContent = document.querySelector('.toolbox-dropdown-content');
+            dropdownContent.classList.toggle('toolbox-dropdown-content-show');
         }
-    });
 
-    body.addEventListener('mouseup', function () {
-        isDragging = false;
-    });
+        // Toggle Zoom Function
+        function toggleZoom() {
+            const body = document.querySelector('body');
+            const zoomMarker = document.createElement('div');
+            zoomMarker.style.position = 'absolute';
+            zoomMarker.style.width = '100px';
+            zoomMarker.style.height = '100px';
+            zoomMarker.style.border = '2px solid #000';
+            zoomMarker.style.pointerEvents = 'none';
+            zoomMarker.style.background = 'rgba(255, 255, 255, 0.5)';
+            zoomMarker.style.zIndex = '9999';
+            zoomMarker.style.cursor = 'zoom-in';
+            body.appendChild(zoomMarker);
 
-    body.addEventListener('mouseleave', function () {
-        isDragging = false;
-    });
-}
+            let isDragging = false;
+            let startX, startY;
 
-// Toggle Highlight Function
-function toggleHighlight() {
-    const body = document.querySelector('body');
-    const highlightMarker = document.createElement('div');
-    highlightMarker.style.position = 'absolute';
-    highlightMarker.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
-    highlightMarker.style.pointerEvents = 'none';
-    highlightMarker.style.zIndex = '9999';
-    body.appendChild(highlightMarker);
+            zoomMarker.addEventListener('mousedown', function (e) {
+                isDragging = true;
+                startX = e.clientX - parseInt(zoomMarker.style.left);
+                startY = e.clientY - parseInt(zoomMarker.style.top);
+            });
 
-    let isHighlighting = false;
-    let startX, startY;
+            body.addEventListener('mousemove', function (e) {
+                if (isDragging) {
+                    const left = e.clientX - startX;
+                    const top = e.clientY - startY;
+                    zoomMarker.style.left = left + 'px';
+                    zoomMarker.style.top = top + 'px';
+                }
+            });
 
-    body.addEventListener('mousedown', function (e) {
-        if (e.button === 0) {
-            isHighlighting = true;
-            startX = e.clientX;
-            startY = e.clientY;
-            highlightMarker.style.left = startX + 'px';
-            highlightMarker.style.top = startY + 'px';
+            body.addEventListener('mouseup', function () {
+                isDragging = false;
+            });
+
+            body.addEventListener('mouseleave', function () {
+                isDragging = false;
+            });
         }
-    });
 
-    body.addEventListener('mousemove', function (e) {
-        if (isHighlighting) {
-            const width = e.clientX - startX;
-            const height = e.clientY - startY;
-            highlightMarker.style.width = width + 'px';
-            highlightMarker.style.height = height + 'px';
+        // Toggle Highlight Function
+        function toggleHighlight() {
+            const body = document.querySelector('body');
+            const highlightMarker = document.createElement('div');
+            highlightMarker.style.position = 'absolute';
+            highlightMarker.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+            highlightMarker.style.pointerEvents = 'none';
+            highlightMarker.style.zIndex = '9999';
+            body.appendChild(highlightMarker);
+
+            let isHighlighting = false;
+            let startX, startY;
+
+            body.addEventListener('mousedown', function (e) {
+                if (e.button === 0) {
+                    isHighlighting = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    highlightMarker.style.left = startX + 'px';
+                    highlightMarker.style.top = startY + 'px';
+                }
+            });
+
+            body.addEventListener('mousemove', function (e) {
+                if (isHighlighting) {
+                    const width = e.clientX - startX;
+                    const height = e.clientY - startY;
+                    highlightMarker.style.width = width + 'px';
+                    highlightMarker.style.height = height + 'px';
+                }
+            });
+
+            body.addEventListener('mouseup', function () {
+                isHighlighting = false;
+                highlightMarker.style.width = '';
+                highlightMarker.style.height = '';
+            });
         }
-    });
 
-    body.addEventListener('mouseup', function () {
-        isHighlighting = false;
-    });
+        // Toggle Drawing Function
+        function toggleDrawing() {
+            const body = document.querySelector('body');
+            const drawingCanvas = document.createElement('canvas');
+            drawingCanvas.style.position = 'absolute';
+            drawingCanvas.style.pointerEvents = 'none';
+            drawingCanvas.style.zIndex = '9999';
+            body.appendChild(drawingCanvas);
 
-    body.addEventListener('mouseleave', function () {
-        isHighlighting = false;
-    });
-}
+            const ctx = drawingCanvas.getContext('2d');
+            let isDrawing = false;
+            let startX, startY;
 
-// Toggle Drawing Function
-function toggleDrawing() {
-    const body = document.querySelector('body');
-    const drawingCanvas = document.createElement('canvas');
-    drawingCanvas.style.position = 'absolute';
-    drawingCanvas.style.pointerEvents = 'none';
-    drawingCanvas.style.zIndex = '9999';
-    body.appendChild(drawingCanvas);
+            body.addEventListener('mousedown', function (e) {
+                if (e.button === 0) {
+                    isDrawing = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                }
+            });
 
-    const ctx = drawingCanvas.getContext('2d');
-    let isDrawing = false;
-    let startX, startY;
+            body.addEventListener('mousemove', function (e) {
+                if (isDrawing) {
+                    ctx.beginPath();
+                    ctx.moveTo(startX, startY);
+                    ctx.lineTo(e.clientX, e.clientY);
+                    ctx.strokeStyle = '#000';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    startX = e.clientX;
+                    startY = e.clientY;
+                }
+            });
 
-    body.addEventListener('mousedown', function (e) {
-        if (e.button === 0) {
-            isDrawing = true;
-            startX = e.clientX;
-            startY = e.clientY;
+            body.addEventListener('mouseup', function () {
+                isDrawing = false;
+            });
+
+            body.addEventListener('mouseleave', function () {
+                isDrawing = false;
+            });
         }
-    });
-
-    body.addEventListener('mousemove', function (e) {
-        if (isDrawing) {
-            ctx.beginPath();
-            ctx.moveTo(startX, startY);
-            ctx.lineTo(e.clientX, e.clientY);
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            startX = e.clientX;
-            startY = e.clientY;
-        }
-    });
-
-    body.addEventListener('mouseup', function () {
-        isDrawing = false;
-    });
-
-    body.addEventListener('mouseleave', function () {
-        isDrawing = false;
-    });
-}
-
     </script>
-
 </body>
 
 </html>
