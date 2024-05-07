@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA >
 <html lang="en">
 
 <head>
@@ -98,6 +98,95 @@
             margin-right: 10px;
         }
 
+        .sidebar-item-content {
+            display: none;
+            padding: 10px;
+            color: white;
+            background-color: #343a40;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            z-index: 1000;
+            width: 200px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            animation: fadeIn 0.3s;
+        }
+
+        #sidebar ul li:hover .sidebar-item-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sidebar-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Custom Styles for Data Sections */
+        .data-section {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .data-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .data-section p {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #343a40;
+        }
+
         /* Toolbox Styles */
         .toolbox {
             position: fixed;
@@ -125,34 +214,17 @@
             font-size: 24px;
             cursor: pointer;
             transition: transform 0.3s;
-            margin: 10px;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #343a40;
+            position: relative;
         }
 
         .toolbox-icon:hover {
             transform: scale(1.1);
         }
 
-        .toolbox-icon i {
-            margin: 0;
-        }
-
-        /* Tooltip Style */
         .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
             visibility: hidden;
             width: 120px;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             text-align: center;
             border-radius: 6px;
@@ -166,20 +238,25 @@
             transition: opacity 0.3s;
         }
 
-        .tooltip .tooltiptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #333 transparent transparent transparent;
-        }
-
-        .tooltip:hover .tooltiptext {
+        .toolbox-icon:hover .tooltip {
             visibility: visible;
             opacity: 1;
+        }
+
+        /* Highlighting Style */
+        .highlighted {
+            background-color: yellow !important;
+        }
+
+        /* Drawing Style */
+        .drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -199,33 +276,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
-                        <a class="nav-link" href="#introduction">Introduction</a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
-                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
-                        <a class="nav-link" href="#simulation">Simulation</a>
-                    </li>
-                    <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
-                        title="Data Analyses">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Data Analyses
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
-                                data</a>
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
-                                cell RNA seq data</a>
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
-                                Transcriptomic data</a>
-                        </div>
-                    </li>
+                    <!-- Ajoutez vos liens de navigation ici -->
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -242,48 +293,23 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
-                <a href="#introduction">
-                    <i class="fas fa-book-open"></i>
-                </a>
-            </li>
-            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
-                <a href="#news">
-                    <i class="fas fa-newspaper"></i>
-                </a>
-            </li>
-            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
-                <a href="#installation">
-                    <i class="fas fa-tools"></i>
-                </a>
-            </li>
-            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
-                <a href="#applications">
-                    <i class="fas fa-tasks"></i>
-                </a>
-            </li>
+            <!-- Ajoutez vos éléments de la barre latérale ici -->
         </ul>
     </div>
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="tooltip">
-            <div class="toolbox-icon" onclick="toggleZoom()">
-                <i class="fas fa-search"></i>
-            </div>
-            <span class="tooltiptext">Zoom</span>
+        <div class="toolbox-icon" onclick="toggleZoom()">
+            <i class="fas fa-search"></i>
+            <span class="tooltip">Loupe (Zoom)</span>
         </div>
-        <div class="tooltip">
-            <div class="toolbox-icon" onclick="toggleHighlight()">
-                <i class="fas fa-highlighter"></i>
-            </div>
-            <span class="tooltiptext">Highlight</span>
+        <div class="toolbox-icon" onclick="toggleHighlight()">
+            <i class="fas fa-highlighter"></i>
+            <span class="tooltip">Surligner</span>
         </div>
-        <div class="tooltip">
-            <div class="toolbox-icon" onclick="toggleDrawing()">
-                <i class="fas fa-pencil-alt"></i>
-            </div>
-            <span class="tooltiptext">Drawing</span>
+        <div class="toolbox-icon" onclick="toggleDrawing()">
+            <i class="fas fa-pen"></i>
+            <span class="tooltip">Crayon (Dessiner)</span>
         </div>
     </div>
 
@@ -322,9 +348,10 @@
                         style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
                         A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
                         33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
-                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
-                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1423999112"
+                        style="color: blue;">Cacciatore, S., Zerbini, L. F., Piazza, S., Menendez, P., Luchinat, C.,
+                        & Tenori, L. (2015). KODAMA: a workflow for distance-based molecule activity
+                        prediction.</a></li>
             </ul>
         </div>
     </section>
@@ -346,51 +373,47 @@ devtools::install_github("tkcaccia/KODAMA")</code></pre>
         <div class="container">
             <h2>Applications</h2>
             <p>
-                KODAMA can be applied in various fields including metabolomics, single-cell RNA sequencing, and spatial
-                transcriptomics for dimensionality reduction and exploratory analysis.
+                KODAMA has been applied to various areas of research including:
+            </p>
+            <ul>
+                <li>Metabolomics</li>
+                <li>Single cell RNA sequencing</li>
+                <li>Spatial transcriptomics</li>
+            </ul>
+            <p>
+                For detailed applications, refer to the respective documentation available on the GitHub repository.
             </p>
         </div>
     </section>
 
-    <!-- Scripts -->
+    <!-- Bootstrap JS and Font Awesome -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-D/EoTKB8smFbAxNhH6vGnqz87ls2xanFgpF/nFziItVHZCKsaP+FKlV7zVZE3Cs3"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-JMkP+udwY6qL4v4hVaH3ai6f3oT63KStwBxVubuXGfbsp7f7s+sFPrV92S9KFkFf"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Custom Script -->
     <script>
-        $(document).ready(function () {
-            // Tooltips initialization
-            $('[data-toggle="tooltip"]').tooltip();
-
-            // Smooth scrolling using jQuery easing
-            $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname ==
-                    this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html, body').animate({
-                            scrollTop: (target.offset().top - 56)
-                        }, 1000, "easeInOutExpo");
-                        return false;
-                    }
-                }
-            });
-        });
-
-        // Functions to control toolbox
+        // Fonction pour basculer le zoom
         function toggleZoom() {
-            // Add your zoom logic here
-            console.log("Toggle Zoom");
+            alert("Basculer le zoom !");
+            // Votre logique pour le zoom ici
         }
 
+        // Fonction pour basculer le surlignage
         function toggleHighlight() {
-            // Add your highlight logic here
-            console.log("Toggle Highlight");
+            alert("Basculer le surlignage !");
+            // Votre logique pour le surlignage ici
         }
 
+        // Fonction pour basculer le dessin
         function toggleDrawing() {
-            // Add your drawing logic here
-            console.log("Toggle Drawing");
+            alert("Basculer le dessin !");
+            // Votre logique pour le dessin ici
         }
     </script>
 </body>
