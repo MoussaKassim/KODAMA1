@@ -1,4 +1,4 @@
-<KODAMA >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,94 +43,64 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Sidebar Styles */
-        #sidebar {
+        /* Toolbox */
+        .toolbox-wrapper {
             position: fixed;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
-            background-color: #343a40;
-            width: 70px;
-            height: auto;
-            overflow: hidden;
-            transition: width 0.3s;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
         }
 
-        #sidebar:hover {
-            width: 200px;
-        }
-
-        #sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        .toolbox {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
-        }
-
-        #sidebar ul li {
-            width: 200px;
-            padding: 15px;
-            color: white;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
         }
 
-        #sidebar ul li:hover {
-            background-color: #adb5bd;
-            transform: translateX(10px);
+        .toolbox:hover {
+            background-color: #FFA500;
         }
 
-        #sidebar ul li a {
-            text-decoration: none;
-            color: inherit;
+        .toolbox-icon {
+            color: white;
+            font-size: 20px;
         }
 
-        #sidebar ul li i {
-            margin-right: 10px;
-        }
-
-        .sidebar-item-content {
+        .toolbox-menu {
+            position: absolute;
+            bottom: 60px;
+            right: 50%;
+            transform: translateX(50%);
             display: none;
             padding: 10px;
-            color: white;
-            background-color: #343a40;
-            position: absolute;
-            left: 200px;
-            top: 0;
-            z-index: 1000;
-            width: 200px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            animation: fadeIn 0.3s;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
-        #sidebar ul li:hover .sidebar-item-content {
+        .toolbox-menu.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        .toolbox-menu-item {
+            margin: 5px 0;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
         }
 
-        .sidebar-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
+        .toolbox-menu-item:hover {
+            color: #FFA500;
         }
 
         /* Custom Styles for Data Sections */
@@ -141,7 +111,6 @@
             background-color: #fff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1s ease;
-            position: relative; /* Added */
         }
 
         @keyframes fadeInUp {
@@ -186,55 +155,6 @@
 
         .card-text {
             color: #343a40;
-        }
-
-        /* Toolbox Styles */
-        .toolbox {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .toolbox-icon {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .toolbox-icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* Highlighting Style */
-        .highlighted {
-            background-color: yellow !important;
-        }
-
-        /* Drawing Style */
-        .drawing-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 999;
-            pointer-events: none;
-        }
-
-        /* Zoom Rectangle */
-        .zoom-rectangle {
-            position: absolute;
-            border: 2px solid #fff;
-            background-color: rgba(255, 255, 255, 0.1);
-            z-index: 999;
-            pointer-events: none;
         }
     </style>
 </head>
@@ -324,16 +244,6 @@
         </ul>
     </div>
 
-    <!-- Toolbox -->
-    <div class="toolbox">
-        <i class="fas fa-search toolbox-icon" onclick="toggleZoom()" data-toggle="tooltip" data-placement="left"
-            title="Zoom (Loupe)"></i>
-        <i class="fas fa-highlighter toolbox-icon" onclick="toggleHighlight()" data-toggle="tooltip"
-            data-placement="left" title="Highlight (Surligner)"></i>
-        <i class="fas fa-pen toolbox-icon" onclick="toggleDrawing()" data-toggle="tooltip" data-placement="left"
-            title="Draw (Crayon)"></i>
-    </div>
-
     <!-- Introduction Section -->
     <section id="introduction" class="data-section">
         <div class="container">
@@ -381,8 +291,7 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
-                    style="color: blue;">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
@@ -452,97 +361,13 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             });
         });
 
-        // Toggle Highlight
-        function toggleHighlight() {
-            const selection = window.getSelection();
-            const range = selection.getRangeAt(0);
-            const highlighted = document.createElement('span');
-            highlighted.classList.add('highlighted');
-            range.surroundContents(highlighted);
-        }
+        // Toolbox animations
+        const toolbox = document.querySelector('.toolbox');
+        const toolboxMenu = document.querySelector('.toolbox-menu');
 
-        // Drawing functionality
-        let isDrawing = false;
-
-        function startDrawing(event) {
-            isDrawing = true;
-            const canvas = document.createElement('div');
-            canvas.classList.add('drawing-canvas');
-            document.body.appendChild(canvas);
-            draw(event);
-        }
-
-        function endDrawing() {
-            isDrawing = false;
-            const canvas = document.querySelector('.drawing-canvas');
-            if (canvas) {
-                document.body.removeChild(canvas);
-            }
-        }
-
-        function draw(event) {
-            if (!isDrawing) return;
-            const canvas = document.querySelector('.drawing-canvas');
-            const x = event.clientX;
-            const y = event.clientY;
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            dot.style.left = x + 'px';
-            dot.style.top = y + 'px';
-            canvas.appendChild(dot);
-        }
-
-        document.addEventListener('mousedown', startDrawing);
-        document.addEventListener('mouseup', endDrawing);
-        document.addEventListener('mousemove', draw);
-
-        // Toggle Drawing
-        function toggleDrawing() {
-            if (!isDrawing) {
-                document.addEventListener('mousedown', startDrawing);
-                document.addEventListener('mouseup', endDrawing);
-                document.addEventListener('mousemove', draw);
-            } else {
-                document.removeEventListener('mousedown', startDrawing);
-                document.removeEventListener('mouseup', endDrawing);
-                document.removeEventListener('mousemove', draw);
-            }
-            isDrawing = !isDrawing;
-        }
-
-        // Toggle Zoom
-        function toggleZoom() {
-            const zoomRect = document.createElement('div');
-            zoomRect.classList.add('zoom-rectangle');
-            document.body.appendChild(zoomRect);
-            const startX = 0;
-            const startY = 0;
-            let x, y, width, height;
-
-            function handleMouseMove(event) {
-                x = Math.min(event.clientX, startX);
-                y = Math.min(event.clientY, startY);
-                width = Math.abs(event.clientX - startX);
-                height = Math.abs(event.clientY - startY);
-
-                zoomRect.style.left = x + 'px';
-                zoomRect.style.top = y + 'px';
-                zoomRect.style.width = width + 'px';
-                zoomRect.style.height = height + 'px';
-            }
-
-            function handleMouseUp() {
-                document.removeEventListener('mousemove', handleMouseMove);
-                document.removeEventListener('mouseup', handleMouseUp);
-                document.body.removeChild(zoomRect);
-
-                const zoomedArea = document.elementFromPoint(x + width / 2, y + height / 2);
-                zoomedArea.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
-            }
-
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
-        }
+        toolbox.addEventListener('click', function () {
+            toolboxMenu.classList.toggle('active');
+        });
     </script>
 
 </body>
