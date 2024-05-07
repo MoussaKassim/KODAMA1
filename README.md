@@ -187,35 +187,53 @@
             color: #343a40;
         }
 
-        /* Toolbox */
+        /* Toolbox Styles */
         .toolbox {
             position: fixed;
             top: 50%;
             right: 20px;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.8);
-            width: 50px;
-            height: auto;
+            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
             padding: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            transition: width 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .toolbox:hover {
-            width: 200px;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .toolbox-item {
+        .toolbox-icon {
             color: white;
-            margin-bottom: 10px;
+            font-size: 24px;
             cursor: pointer;
             transition: transform 0.3s;
         }
 
-        .toolbox-item:hover {
-            transform: translateX(5px);
+        .toolbox-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Highlighting Style */
+        .highlighted {
+            background-color: yellow !important;
+        }
+
+        /* Drawing Style */
+        .drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -307,15 +325,9 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight">
-            <i class="fas fa-highlighter"></i>
-        </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw">
-            <i class="fas fa-pen"></i>
-        </div>
+        <i class="fas fa-search toolbox-icon" onclick="toggleZoom()"></i>
+        <i class="fas fa-highlighter toolbox-icon" onclick="toggleHighlight()"></i>
+        <i class="fas fa-pencil-alt toolbox-icon" onclick="toggleDrawing()"></i>
     </div>
 
     <!-- Introduction Section -->
@@ -365,7 +377,8 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
+                    style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
@@ -433,6 +446,87 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
                 this.style.backgroundColor = '';
                 this.style.transform = 'translateX(0)';
             });
+        });
+
+        // Toolbox functionality
+        let zoomEnabled = false;
+        let highlightEnabled = false;
+        let drawingEnabled = false;
+
+        function toggleZoom() {
+            zoomEnabled = !zoomEnabled;
+            if (zoomEnabled) {
+                document.body.style.transform = 'scale(1.2)';
+            } else {
+                document.body.style.transform = 'scale(1)';
+            }
+        }
+
+        function toggleHighlight() {
+            highlightEnabled = !highlightEnabled;
+            const paragraphs = document.querySelectorAll('.data-section p');
+            paragraphs.forEach(paragraph => {
+                if (highlightEnabled) {
+                    paragraph.classList.add('highlighted');
+                } else {
+                    paragraph.classList.remove('highlighted');
+                }
+            });
+        }
+
+        function toggleDrawing() {
+            drawingEnabled = !drawingEnabled;
+            const drawingCanvas = document.createElement('div');
+            drawingCanvas.classList.add('drawing-canvas');
+            document.body.appendChild(drawingCanvas);
+
+            if (drawingEnabled) {
+                drawingCanvas.addEventListener('mousemove', draw);
+                drawingCanvas.addEventListener('mousedown', startDrawing);
+                drawingCanvas.addEventListener('mouseup', stopDrawing);
+            } else {
+                drawingCanvas.removeEventListener('mousemove', draw);
+                drawingCanvas.removeEventListener('mousedown', startDrawing);
+                drawingCanvas.removeEventListener('mouseup', stopDrawing);
+                document.body.removeChild(drawingCanvas);
+            }
+        }
+
+        let isDrawing = false;
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const canvas = document.querySelector('.drawing-canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#fff';
+            ctx.lineTo(e.clientX, e.clientY);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX, e.clientY);
+        }
+
+        // Reset tools on page refresh
+        window.addEventListener('beforeunload', function () {
+            document.body.style.transform = 'scale(1)';
+            const paragraphs = document.querySelectorAll('.data-section p');
+            paragraphs.forEach(paragraph => {
+                paragraph.classList.remove('highlighted');
+            });
+            const drawingCanvas = document.querySelector('.drawing-canvas');
+            if (drawingCanvas) {
+                drawingCanvas.remove();
+            }
         });
     </script>
 
