@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -186,42 +186,6 @@
         .card-text {
             color: #343a40;
         }
-
-        /* Custom Styles for Code Highlighting */
-        code {
-            color: #00ff00; /* Bright Green */
-            font-weight: bold;
-        }
-
-        pre {
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-
-        /* Custom Styles for Tool Dropdown */
-        .dropdown-menu {
-            background-color: #343a40;
-            border: none;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .dropdown-menu a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 5px 0;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #adb5bd;
-            border-radius: 5px;
-        }
-
     </style>
 </head>
 
@@ -300,10 +264,6 @@
                     <i class="fas fa-tools"></i>
                     <span>Installation</span>
                 </a>
-                <div class="sidebar-item-content">
-                    <p>Options:</p>
-                    <a href="#" class="tool-option" onclick="toggleBrightness()">Brightness</a>
-                </div>
             </li>
             <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
                 <a href="#applications">
@@ -361,17 +321,12 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
-                    style="color: blue;">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
 install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             </code></pre>
-            <div id="brightness-section" style="display: none;">
-                <p>Adjust Brightness:</p>
-                <input type="range" min="0" max="100" value="50" class="slider" id="brightness-slider">
-            </div>
         </div>
     </section>
 
@@ -434,18 +389,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
                 this.style.backgroundColor = '';
                 this.style.transform = 'translateX(0)';
             });
-        });
-
-        // Toggle brightness section
-        function toggleBrightness() {
-            const brightnessSection = document.getElementById('brightness-section');
-            brightnessSection.style.display = brightnessSection.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Brightness slider
-        const brightnessSlider = document.getElementById('brightness-slider');
-        brightnessSlider.addEventListener('input', function () {
-            document.body.style.filter = `brightness(${this.value}%)`;
         });
     </script>
 
