@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA >
 <html lang="en">
 
 <head>
@@ -8,40 +8,215 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Styles CSS */
-
         /* Navbar Styles */
         .navbar {
-            /* Styles Navbar */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #333;
+            border-radius: 0;
+            transition: transform 0.3s;
+        }
+
+        .navbar:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #FFA500;
+            background-color: rgba(255, 165, 0, 0.1);
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            /* Styles Body */
+            padding-top: 56px;
+            margin-left: 0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
 
         /* Sidebar Styles */
         #sidebar {
-            /* Styles Sidebar */
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background-color: #343a40;
+            width: 70px;
+            height: auto;
+            overflow: hidden;
+            transition: width 0.3s;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Toolbox */
-        .toolbox {
-            /* Styles Toolbox */
+        #sidebar:hover {
+            width: 200px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        #sidebar ul li {
+            width: 200px;
+            padding: 15px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        #sidebar ul li:hover {
+            background-color: #adb5bd;
+            transform: translateX(10px);
+        }
+
+        #sidebar ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #sidebar ul li i {
+            margin-right: 10px;
+        }
+
+        .sidebar-item-content {
+            display: none;
+            padding: 10px;
+            color: white;
+            background-color: #343a40;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            z-index: 1000;
+            width: 200px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            animation: fadeIn 0.3s;
+        }
+
+        #sidebar ul li:hover .sidebar-item-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sidebar-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
         /* Custom Styles for Data Sections */
         .data-section {
-            /* Styles Data Sections */
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .data-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .data-section p {
+            color: #343a40;
+            margin-bottom: 20px;
         }
 
         /* Card Styles */
         .card {
-            /* Styles Card */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        /* Tooltip Styles */
-        /* Styles Tooltip */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #343a40;
+        }
+
+        /* Toolbox */
+        .toolbox {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 50px;
+            height: auto;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            transition: width 0.3s;
+        }
+
+        .toolbox:hover {
+            width: 200px;
+        }
+
+        .toolbox-item {
+            color: white;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .toolbox-item:hover {
+            transform: translateX(5px);
+        }
     </style>
 </head>
 
@@ -132,13 +307,13 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom" onclick="toggleZoom()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom">
             <i class="fas fa-search"></i>
         </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight" onclick="toggleHighlight()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight">
             <i class="fas fa-highlighter"></i>
         </div>
-        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw" onclick="toggleDrawing()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw">
             <i class="fas fa-pen"></i>
         </div>
     </div>
@@ -171,9 +346,8 @@
             <ul>
                 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/"
                         style="color: blue;">Zinga, M. M.,
-                        Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2021).
-                        Comparative omics analysis of malaria parasite infection and pre-erythrocytic vaccine efficacy
-                        in central and peripheral venous human blood. Frontiers in Molecular Biosciences,
+                        Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S.
+                        (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
                         9.</a></li>
                 <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
                         style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
@@ -191,8 +365,7 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
-                    style="color: blue;">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
@@ -238,78 +411,29 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Custom Script -->
     <script>
-        // Variables pour suivre l'état des outils
-        let zoomEnabled = false;
-        let highlightEnabled = false;
-        let drawingEnabled = false;
-
-        // Fonction pour activer ou désactiver le zoom
-        function toggleZoom() {
-            zoomEnabled = !zoomEnabled;
-            if (zoomEnabled) {
-                document.body.style.cursor = "zoom-in";
-                document.addEventListener("mousemove", handleZoom);
-            } else {
-                document.body.style.cursor = "default";
-                document.removeEventListener("mousemove", handleZoom);
-            }
-        }
-
-        // Fonction pour gérer le zoom avec le curseur de la souris
-        function handleZoom(event) {
-            console.log("Zooming...");
-        }
-
-        // Fonction pour activer ou désactiver le surlignage
-        function toggleHighlight() {
-            highlightEnabled = !highlightEnabled;
-            if (highlightEnabled) {
-                document.body.style.cursor = "url('path/to/highlighter-cursor.png'), auto";
-                document.addEventListener("mousedown", startHighlighting);
-                document.addEventListener("mouseup", stopHighlighting);
-            } else {
-                document.body.style.cursor = "default";
-                document.removeEventListener("mousedown", startHighlighting);
-                document.removeEventListener("mouseup", stopHighlighting);
-            }
-        }
-
-        // Fonction pour commencer le surlignage
-        function startHighlighting(event) {
-            console.log("Start highlighting...");
-        }
-
-        // Fonction pour arrêter le surlignage
-        function stopHighlighting(event) {
-            console.log("Stop highlighting...");
-        }
-
-        // Fonction pour activer ou désactiver le dessin
-        function toggleDrawing() {
-            drawingEnabled = !drawingEnabled;
-            if (drawingEnabled) {
-                document.body.style.cursor = "url('path/to/pencil-cursor.png'), auto";
-                document.addEventListener("mousedown", startDrawing);
-                document.addEventListener("mouseup", stopDrawing);
-            } else {
-                document.body.style.cursor = "default";
-                document.removeEventListener("mousedown", startDrawing);
-                document.removeEventListener("mouseup", stopDrawing);
-            }
-        }
-
-        // Fonction pour commencer le dessin
-        function startDrawing(event) {
-            console.log("Start drawing...");
-        }
-
-        // Fonction pour arrêter le dessin
-        function stopDrawing(event) {
-            console.log("Stop drawing...");
-        }
-
         // Navbar animations
+        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
+        });
+
+        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+
         // Sidebar animations
+        const sidebarItems = document.querySelectorAll('#sidebar ul li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', function () {
+                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', function () {
+                this.style.backgroundColor = '';
+                this.style.transform = 'translateX(0)';
+            });
+        });
     </script>
 
 </body>
