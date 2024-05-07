@@ -8,256 +8,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Styles CSS */
+
         /* Navbar Styles */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background-color: #333;
-            border-radius: 0;
-            transition: transform 0.3s;
-        }
-
-        .navbar:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar-nav .nav-link {
-            color: white;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #FFA500;
-            background-color: rgba(255, 165, 0, 0.1);
+            /* Styles Navbar */
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 56px;
-            margin-left: 0;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            /* Styles Body */
         }
 
         /* Sidebar Styles */
         #sidebar {
-            position: fixed;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            z-index: 1000;
-            background-color: #343a40;
-            width: 70px;
-            height: auto;
-            overflow: hidden;
-            transition: width 0.3s;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            /* Styles Sidebar */
         }
 
-        #sidebar:hover {
-            width: 200px;
-        }
-
-        #sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        #sidebar ul li {
-            width: 200px;
-            padding: 15px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        #sidebar ul li:hover {
-            background-color: #adb5bd;
-            transform: translateX(10px);
-        }
-
-        #sidebar ul li a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        #sidebar ul li i {
-            margin-right: 10px;
-        }
-
-        .sidebar-item-content {
-            display: none;
-            padding: 10px;
-            color: white;
-            background-color: #343a40;
-            position: absolute;
-            left: 200px;
-            top: 0;
-            z-index: 1000;
-            width: 200px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            animation: fadeIn 0.3s;
-        }
-
-        #sidebar ul li:hover .sidebar-item-content {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .sidebar-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
+        /* Toolbox */
+        .toolbox {
+            /* Styles Toolbox */
         }
 
         /* Custom Styles for Data Sections */
         .data-section {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .data-section h2 {
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        .data-section p {
-            color: #343a40;
-            margin-bottom: 20px;
+            /* Styles Data Sections */
         }
 
         /* Card Styles */
         .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            /* Styles Card */
         }
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-title {
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        .card-text {
-            color: #343a40;
-        }
-
-        /* Toolbox Styles */
-        .toolbox {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            padding: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .toolbox:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .toolbox-icon {
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            position: relative;
-        }
-
-        .toolbox-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .tooltip {
-            visibility: hidden;
-            width: 120px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .toolbox-icon:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Highlighting Style */
-        .highlighted {
-            background-color: yellow !important;
-        }
-
-        /* Drawing Style */
-        .drawing-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 999;
-            pointer-events: none;
-        }
+        /* Tooltip Styles */
+        /* Styles Tooltip */
     </style>
 </head>
 
@@ -348,17 +132,14 @@
 
     <!-- Toolbox -->
     <div class="toolbox">
-        <div class="toolbox-icon" onclick="toggleZoom()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Zoom" onclick="toggleZoom()">
             <i class="fas fa-search"></i>
-            <span class="tooltip">Loupe (Zoom)</span>
         </div>
-        <div class="toolbox-icon" onclick="toggleHighlight()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Highlight" onclick="toggleHighlight()">
             <i class="fas fa-highlighter"></i>
-            <span class="tooltip">Surligner</span>
         </div>
-        <div class="toolbox-icon" onclick="toggleDrawing()">
+        <div class="toolbox-item" data-toggle="tooltip" data-placement="left" title="Draw" onclick="toggleDrawing()">
             <i class="fas fa-pen"></i>
-            <span class="tooltip">Crayon (Dessiner)</span>
         </div>
     </div>
 
@@ -397,11 +178,9 @@
                         style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
                         A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
                         33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.2100689118"
-                        style="color: blue;">Yu, C., Zinga, M. M., Abdel-Shafy, E., Vignoli, A., Piazza, S., Cacciatore,
-                        S., ... & Mackie, A. (2021). KODAMA: a machine learning algorithm to identify novel patterns of
-                        spatial interaction between cells in imaging mass spectrometry data. Proceedings of the National
-                        Academy of Sciences, 118(27).</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
+                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
+                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
             </ul>
         </div>
     </section>
@@ -411,11 +190,12 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                KODAMA is available as an R package and can be installed from CRAN using the following command:
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
             </p>
-            <pre><code>install.packages("kodama")</code></pre>
-            <p>Alternatively, you can install the development version from GitHub:</p>
-            <pre><code>remotes::install_github("tkcaccia/KODAMA")</code></pre>
+            <pre><code style="color: blue;">
+library(<span style="color: black;">devtools</span>)
+install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
+            </code></pre>
         </div>
     </section>
 
@@ -423,21 +203,38 @@
     <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
-            <p>
-                KODAMA is a versatile tool for exploratory analysis and knowledge discovery in various omics data
-                sets. Some of its applications include:
-            </p>
-            <ul>
-                <li>Metabolomics data analysis</li>
-                <li>Single cell RNA seq analysis</li>
-                <li>Spatial Transcriptomic analysis</li>
-            </ul>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Metabolomic data</h5>
+                        <p class="card-text">Explore Metabolomic data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Single cell RNA seq data</h5>
+                        <p class="card-text">Explore Single cell RNA seq data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Spatial Transcriptomic data</h5>
+                        <p class="card-text">Explore Spatial Transcriptomic data</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Drawing Canvas -->
-    <canvas id="drawingCanvas" class="drawing-canvas"></canvas>
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Custom Script -->
     <script>
         // Variables pour suivre l'état des outils
         let zoomEnabled = false;
@@ -448,13 +245,9 @@
         function toggleZoom() {
             zoomEnabled = !zoomEnabled;
             if (zoomEnabled) {
-                // Changer le curseur en un carré de zoom
                 document.body.style.cursor = "zoom-in";
-
-                // Ajouter un événement de suivi de la souris pour le zoom
                 document.addEventListener("mousemove", handleZoom);
             } else {
-                // Réinitialiser le curseur et supprimer l'événement de suivi de la souris
                 document.body.style.cursor = "default";
                 document.removeEventListener("mousemove", handleZoom);
             }
@@ -462,7 +255,6 @@
 
         // Fonction pour gérer le zoom avec le curseur de la souris
         function handleZoom(event) {
-            // Implémenter la logique du zoom ici
             console.log("Zooming...");
         }
 
@@ -470,14 +262,10 @@
         function toggleHighlight() {
             highlightEnabled = !highlightEnabled;
             if (highlightEnabled) {
-                // Changer le curseur en un marqueur de surlignage
                 document.body.style.cursor = "url('path/to/highlighter-cursor.png'), auto";
-
-                // Ajouter un événement de suivi de la souris pour le surlignage
                 document.addEventListener("mousedown", startHighlighting);
                 document.addEventListener("mouseup", stopHighlighting);
             } else {
-                // Réinitialiser le curseur et supprimer les événements de suivi de la souris
                 document.body.style.cursor = "default";
                 document.removeEventListener("mousedown", startHighlighting);
                 document.removeEventListener("mouseup", stopHighlighting);
@@ -486,13 +274,11 @@
 
         // Fonction pour commencer le surlignage
         function startHighlighting(event) {
-            // Implémenter la logique de début de surlignage ici
             console.log("Start highlighting...");
         }
 
         // Fonction pour arrêter le surlignage
         function stopHighlighting(event) {
-            // Implémenter la logique d'arrêt de surlignage ici
             console.log("Stop highlighting...");
         }
 
@@ -500,14 +286,10 @@
         function toggleDrawing() {
             drawingEnabled = !drawingEnabled;
             if (drawingEnabled) {
-                // Changer le curseur en une icône de crayon
                 document.body.style.cursor = "url('path/to/pencil-cursor.png'), auto";
-
-                // Ajouter un événement de suivi de la souris pour le dessin
                 document.addEventListener("mousedown", startDrawing);
                 document.addEventListener("mouseup", stopDrawing);
             } else {
-                // Réinitialiser le curseur et supprimer les événements de suivi de la souris
                 document.body.style.cursor = "default";
                 document.removeEventListener("mousedown", startDrawing);
                 document.removeEventListener("mouseup", stopDrawing);
@@ -516,21 +298,18 @@
 
         // Fonction pour commencer le dessin
         function startDrawing(event) {
-            // Implémenter la logique de début de dessin ici
             console.log("Start drawing...");
         }
 
         // Fonction pour arrêter le dessin
         function stopDrawing(event) {
-            // Implémenter la logique d'arrêt de dessin ici
             console.log("Stop drawing...");
         }
+
+        // Navbar animations
+        // Sidebar animations
     </script>
 
-    <!-- Bootstrap and FontAwesome JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
