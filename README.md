@@ -43,64 +43,94 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Toolbox */
-        .toolbox-wrapper {
+        /* Sidebar Styles */
+        #sidebar {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
             z-index: 1000;
-            transition: transform 0.3s;
+            background-color: #343a40;
+            width: 70px;
+            height: auto;
+            overflow: hidden;
+            transition: width 0.3s;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .toolbox {
-            position: relative;
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            border-radius: 50%;
+        #sidebar:hover {
+            width: 200px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s;
+            height: 100%;
         }
 
-        .toolbox:hover {
-            background-color: #FFA500;
-        }
-
-        .toolbox-icon {
+        #sidebar ul li {
+            width: 200px;
+            padding: 15px;
             color: white;
-            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
 
-        .toolbox-menu {
-            position: absolute;
-            bottom: 60px;
-            right: 50%;
-            transform: translateX(50%);
+        #sidebar ul li:hover {
+            background-color: #adb5bd;
+            transform: translateX(10px);
+        }
+
+        #sidebar ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #sidebar ul li i {
+            margin-right: 10px;
+        }
+
+        .sidebar-item-content {
             display: none;
             padding: 10px;
-            background-color: #333;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            color: white;
+            background-color: #343a40;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            z-index: 1000;
+            width: 200px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            animation: fadeIn 0.3s;
         }
 
-        .toolbox-menu.active {
+        #sidebar ul li:hover .sidebar-item-content {
             display: block;
         }
 
-        .toolbox-menu-item {
-            margin: 5px 0;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-            transition: color 0.3s;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
-        .toolbox-menu-item:hover {
-            color: #FFA500;
+        .sidebar-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
         /* Custom Styles for Data Sections */
@@ -155,6 +185,55 @@
 
         .card-text {
             color: #343a40;
+        }
+
+        /* Toolbox Styles */
+        .toolbox {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .toolbox:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .toolbox-icon {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .toolbox-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Highlighting Style */
+        .highlighted {
+            background-color: yellow !important;
+        }
+
+        /* Drawing Style */
+        .drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -244,6 +323,13 @@
         </ul>
     </div>
 
+    <!-- Toolbox -->
+    <div class="toolbox">
+        <i class="fas fa-search toolbox-icon" onclick="toggleZoom()"></i>
+        <i class="fas fa-highlighter toolbox-icon" onclick="toggleHighlight()"></i>
+        <i class="fas fa-pencil-alt toolbox-icon" onclick="toggleDrawing()"></i>
+    </div>
+
     <!-- Introduction Section -->
     <section id="introduction" class="data-section">
         <div class="container">
@@ -291,7 +377,8 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
+                    style="color: blue;">CRAN</a>.
             </p>
             <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
@@ -361,12 +448,85 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             });
         });
 
-        // Toolbox animations
-        const toolbox = document.querySelector('.toolbox');
-        const toolboxMenu = document.querySelector('.toolbox-menu');
+        // Toolbox functionality
+        let zoomEnabled = false;
+        let highlightEnabled = false;
+        let drawingEnabled = false;
 
-        toolbox.addEventListener('click', function () {
-            toolboxMenu.classList.toggle('active');
+        function toggleZoom() {
+            zoomEnabled = !zoomEnabled;
+            if (zoomEnabled) {
+                document.body.style.transform = 'scale(1.2)';
+            } else {
+                document.body.style.transform = 'scale(1)';
+            }
+        }
+
+        function toggleHighlight() {
+            highlightEnabled = !highlightEnabled;
+            const paragraphs = document.querySelectorAll('.data-section p');
+            paragraphs.forEach(paragraph => {
+                if (highlightEnabled) {
+                    paragraph.classList.add('highlighted');
+                } else {
+                    paragraph.classList.remove('highlighted');
+                }
+            });
+        }
+
+        function toggleDrawing() {
+            drawingEnabled = !drawingEnabled;
+            const drawingCanvas = document.createElement('div');
+            drawingCanvas.classList.add('drawing-canvas');
+            document.body.appendChild(drawingCanvas);
+
+            if (drawingEnabled) {
+                drawingCanvas.addEventListener('mousemove', draw);
+                drawingCanvas.addEventListener('mousedown', startDrawing);
+                drawingCanvas.addEventListener('mouseup', stopDrawing);
+            } else {
+                drawingCanvas.removeEventListener('mousemove', draw);
+                drawingCanvas.removeEventListener('mousedown', startDrawing);
+                drawingCanvas.removeEventListener('mouseup', stopDrawing);
+                document.body.removeChild(drawingCanvas);
+            }
+        }
+
+        let isDrawing = false;
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const canvas = document.querySelector('.drawing-canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#fff';
+            ctx.lineTo(e.clientX, e.clientY);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX, e.clientY);
+        }
+
+        // Reset tools on page refresh
+        window.addEventListener('beforeunload', function () {
+            document.body.style.transform = 'scale(1)';
+            const paragraphs = document.querySelectorAll('.data-section p');
+            paragraphs.forEach(paragraph => {
+                paragraph.classList.remove('highlighted');
+            });
+            const drawingCanvas = document.querySelector('.drawing-canvas');
+            if (drawingCanvas) {
+                drawingCanvas.remove();
+            }
         });
     </script>
 
