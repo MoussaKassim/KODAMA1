@@ -1,4 +1,4 @@
-<kodama >
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -28,7 +28,6 @@
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
-            font-weight: bold; 
         }
 
         .navbar-nav .nav-link:hover {
@@ -213,7 +212,6 @@
             padding: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 18px;
         }
 
         .toolbox-item:hover {
@@ -243,13 +241,6 @@
 
         [data-tooltip]:hover::before {
             opacity: 1;
-        }
-        
-        /* Suggestions */
-        /* External Links */
-        a.external-link {
-            color: blue !important;
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -298,7 +289,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link external-link" href="https://github.com/tkcaccia/KODAMA">
+                        <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
                             <span class="fab fa-github"></span>
                             Source code
                         </a>
@@ -384,14 +375,17 @@
                 matrix in a low dimensional space.
             </p>
             <ul>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" class="external-link">Zinga, M. M.,
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/" style="color: blue;">Zinga, M. M.,
                         Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S.
                         (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
                         9.</a></li>
-                <li><a href="https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/btab823/6375407?redirectedFrom=fulltext"
-                        class="external-link">De Felice, M., Bernardinelli, G., Taneja, P., & Cacciatore, S. (2021).
-                        KODAMA: unsupervised learning for spatially-aware dimensionality reduction. Bioinformatics.</a>
-                </li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
+                        style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
+                        A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
+                        33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
+                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
+                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
             </ul>
         </div>
     </section>
@@ -401,10 +395,13 @@
         <div class="container">
             <h2>Installation</h2>
             <p>
-                KODAMA requires the Python programming language to be installed on your system. You can then install
-                KODAMA using pip:
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
+                    style="color: blue;">CRAN</a>.
             </p>
-            <pre><code>pip install KODAMA</code></pre>
+            <pre><code style="color: blue;">
+library(<span style="color: black;">devtools</span>)
+install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
+            </code></pre>
         </div>
     </section>
 
@@ -412,62 +409,190 @@
     <section id="applications" class="data-section">
         <div class="container">
             <h2>Applications</h2>
-            <p>
-                KODAMA has been applied in various fields including:
-            </p>
-            <ul>
-                <li>Metabolomics data analysis</li>
-                <li>Single cell RNA seq data analysis</li>
-                <li>Spatial Transcriptomic data analysis</li>
-            </ul>
-            <p>
-                It's a versatile tool for exploratory analysis in high-dimensional data sets.
-            </p>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Metabolomic data</h5>
+                        <p class="card-text">Explore Metabolomic data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Single cell RNA seq data</h5>
+                        <p class="card-text">Explore Single cell RNA seq data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Spatial Transcriptomic data</h5>
+                        <p class="card-text">Explore Spatial Transcriptomic data</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Bootstrap and Font Awesome Scripts -->
+    <!-- Bootstrap Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <!-- Toolbox Toggle Functions -->
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Custom Script -->
     <script>
+        // Navbar animations
+        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
+        });
+
+        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+
+        // Sidebar animations
+        const sidebarItems = document.querySelectorAll('#sidebar ul li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', function () {
+                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', function () {
+                this.style.backgroundColor = '';
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Toggle Toolbox Dropdown
         function toggleToolboxDropdown() {
-            var dropdownContent = document.querySelector('.toolbox-dropdown-content');
-            dropdownContent.classList.toggle('show');
+            const dropdownContent = document.querySelector('.toolbox-dropdown-content');
+            dropdownContent.classList.toggle('toolbox-dropdown-content-show');
         }
 
-        window.onclick = function (event) {
-            if (!event.target.matches('.toolbox-dropdown-btn')) {
-                var dropdowns = document.getElementsByClassName("toolbox-dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Zoom, Highlight, Draw Toggle Functions -->
-    <script>
+        // Toggle Zoom Function
         function toggleZoom() {
-            // Your code for toggling zoom functionality here
-            alert("Toggle zoom function triggered!");
+            const body = document.querySelector('body');
+            const zoomMarker = document.createElement('div');
+            zoomMarker.style.position = 'absolute';
+            zoomMarker.style.width = '100px';
+            zoomMarker.style.height = '100px';
+            zoomMarker.style.border = '2px solid #000';
+            zoomMarker.style.pointerEvents = 'none';
+            zoomMarker.style.background = 'rgba(255, 255, 255, 0.5)';
+            zoomMarker.style.zIndex = '9999';
+            zoomMarker.style.cursor = 'zoom-in';
+            body.appendChild(zoomMarker);
+
+            let isDragging = false;
+            let startX, startY;
+
+            zoomMarker.addEventListener('mousedown', function (e) {
+                isDragging = true;
+                startX = e.clientX - parseInt(zoomMarker.style.left);
+                startY = e.clientY - parseInt(zoomMarker.style.top);
+            });
+
+            body.addEventListener('mousemove', function (e) {
+                if (isDragging) {
+                    const left = e.clientX - startX;
+                    const top = e.clientY - startY;
+                    zoomMarker.style.left = left + 'px';
+                    zoomMarker.style.top = top + 'px';
+                }
+            });
+
+            body.addEventListener('mouseup', function () {
+                isDragging = false;
+            });
+
+            body.addEventListener('mouseleave', function () {
+                isDragging = false;
+            });
         }
 
+        // Toggle Highlight Function
         function toggleHighlight() {
-            // Your code for toggling highlight functionality here
-            alert("Toggle highlight function triggered!");
+            const body = document.querySelector('body');
+            const highlightMarker = document.createElement('div');
+            highlightMarker.style.position = 'absolute';
+            highlightMarker.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+            highlightMarker.style.pointerEvents = 'none';
+            highlightMarker.style.zIndex = '9999';
+            body.appendChild(highlightMarker);
+
+            let isHighlighting = false;
+            let startX, startY;
+
+            body.addEventListener('mousedown', function (e) {
+                if (e.button === 0) {
+                    isHighlighting = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    highlightMarker.style.left = startX + 'px';
+                    highlightMarker.style.top = startY + 'px';
+                }
+            });
+
+            body.addEventListener('mousemove', function (e) {
+                if (isHighlighting) {
+                    const width = e.clientX - startX;
+                    const height = e.clientY - startY;
+                    highlightMarker.style.width = width + 'px';
+                    highlightMarker.style.height = height + 'px';
+                }
+            });
+
+            body.addEventListener('mouseup', function () {
+                isHighlighting = false;
+                highlightMarker.style.width = '';
+                highlightMarker.style.height = '';
+            });
         }
 
+        // Toggle Drawing Function
         function toggleDrawing() {
-            // Your code for toggling drawing functionality here
-            alert("Toggle drawing function triggered!");
+            const body = document.querySelector('body');
+            const drawingCanvas = document.createElement('canvas');
+            drawingCanvas.style.position = 'absolute';
+            drawingCanvas.style.pointerEvents = 'none';
+            drawingCanvas.style.zIndex = '9999';
+            body.appendChild(drawingCanvas);
+
+            let isDrawing = false;
+            let startX, startY;
+            const ctx = drawingCanvas.getContext('2d');
+
+            body.addEventListener('mousedown', function (e) {
+                if (e.button === 0) {
+                    isDrawing = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    ctx.beginPath();
+                    ctx.moveTo(startX, startY);
+                }
+            });
+
+            body.addEventListener('mousemove', function (e) {
+                if (isDrawing) {
+                    const currentX = e.clientX;
+                    const currentY = e.clientY;
+                    ctx.lineTo(currentX, currentY);
+                    ctx.stroke();
+                }
+            });
+
+            body.addEventListener('mouseup', function () {
+                isDrawing = false;
+                ctx.closePath();
+            });
+
+            body.addEventListener('mouseleave', function () {
+                isDrawing = false;
+                ctx.closePath();
+            });
         }
     </script>
 </body>
