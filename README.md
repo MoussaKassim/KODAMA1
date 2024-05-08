@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama >
 <html lang="en">
 
 <head>
@@ -217,7 +217,7 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
-                        <a class="nav-link" href="#tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
@@ -230,139 +230,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item"
-                                href=    <!-- Sidebar -->
-    <div id="sidebar">
-        <ul>
-            <li id="TutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
-                <a href="#tutorial">
-                    <i class="fas fa-book-open"></i>
-                    <span>Tutorial</span>
-                </a>
-            </li>
-            <li id="MDS, tSNE and UMAPLink" data-toggle="tooltip" data-placement="right" title="MDS, tSNE and UMAP">
-                <a href="#dimensionality-reduction">
-                    <i class="fas fa-newspaper"></i>
-                    <span>MDS, tSNE and UMAP</span>
-                </a>
-            </li>
-            <li id="KODAMALink" data-toggle="tooltip" data-placement="right" title="KODAMA">
-                <a href="#kodama">
-                    <i class="fas fa-tools"></i>
-                    <span>KODAMA</span>
-                </a>
-            </li>
-            <li id="VisualizeAlgorithmsLink" data-toggle="tooltip" data-placement="right"
-                title="Visualize the different clustering algorithms">
-                <a href="#visualizations">
-                    <i class="fas fa-tasks"></i>
-                    <span>Visualize the different clustering algorithms</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Content -->
-    <div class="container">
-        <!-- Metabolomic data -->
-        <div class="data-section" id="metabolomic-data">
-            <h2>Metabolomic data</h2>
-            <p>The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.</p>
-        </div>
-
-        <!-- Tutorial -->
-        <div class="data-section" id="tutorial">
-            <h2>Tutorial</h2>
-            <p>Here, we load the MetRef dataset. Columns with only zero values are removed.</p>
-            <pre><code>data(MetRef)
-u=MetRef$data
-u=u[,-which(colSums(u)==0)]</code></pre>
-            <p>We apply the Probabilistic Quotient Normalization</p>
-            <pre><code>u=normalization(u)$newXtrain</code></pre>
-            <p>We mean-center and univariate scaling the data set.</p>
-            <pre><code>u=scaling(u)$newXtrain</code></pre>
-            <p>Two classification vectors are created</p>
-            <pre><code>class=as.numeric(as.factor(MetRef$gender))
-class2=as.numeric(as.factor(MetRef$donor))</code></pre>
-        </div>
-
-        <!-- MDS, tSNE and UMAP -->
-        <div class="data-section" id="dimensionality-reduction">
-            <h2>MDS, tSNE and UMAP</h2>
-            <p>Different algorithms for dimensionality reduction are applied</p>
-            <pre><code>res_MDS=cmdscale(dist(u))
-res_tSNE=Rtsne(u)$Y
-res_UMAP = umap(u)$layout</code></pre>
-        </div>
-
-        <!-- KODAMA -->
-        <div class="data-section" id="kodama">
-            <h2>KODAMA</h2>
-            <p>We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as classifier with 50 components to drive the accuracy maximization. The KODAMA dissimilarity matrix's is converted in a low dimensionality space using three different methods (i.e., MDS, t-SNE, and UMAP).</p>
-            <pre><code>kk=KODAMA.matrix(u,f.par = 50)
-res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
-res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
-res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
-        </div>
-
-        <!-- Visualizations -->
-        <div class="data-section" id="visualizations">
-            <h2>Visualize the different clustering algorithms</h2>
-            <h3>a) labelled by the gender</h3>
-            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.gender.png" alt="gender-clustering"></p>
-            <h3>b) labelled by the donor</h3>
-            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.donor.png" alt="donor-clustering"></p>
-        </div>
-    </div>
-
-    <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- Custom Script -->
-    <script>
-        // Navbar and Sidebar animations
-        const navbarBrand = document.querySelector('.navbar-brand');
-        navbarBrand.addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
-        });
-        navbarBrand.addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-
-        const sidebarItems = document.querySelectorAll('#sidebar ul li');
-        sidebarItems.forEach(item => {
-            item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
-                this.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '';
-                this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>>Metabolomic
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
                                 data</a>
                             <a class="dropdown-item"
                                 href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
@@ -389,26 +257,25 @@ res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
     <div id="sidebar">
         <ul>
             <li id="TutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
-                <a href="#tutorial">
+                <a href="#Tutorial">
                     <i class="fas fa-book-open"></i>
                     <span>Tutorial</span>
                 </a>
             </li>
             <li id="MDS, tSNE and UMAPLink" data-toggle="tooltip" data-placement="right" title="MDS, tSNE and UMAP">
-                <a href="#dimensionality-reduction">
+                <a href="#news">
                     <i class="fas fa-newspaper"></i>
                     <span>MDS, tSNE and UMAP</span>
                 </a>
             </li>
             <li id="KODAMALink" data-toggle="tooltip" data-placement="right" title="KODAMA">
-                <a href="#kodama">
+                <a href="#KODAMA">
                     <i class="fas fa-tools"></i>
                     <span>KODAMA</span>
                 </a>
             </li>
-            <li id="VisualizeAlgorithmsLink" data-toggle="tooltip" data-placement="right"
-                title="Visualize the different clustering algorithms">
-                <a href="#visualizations">
+            <li id="aVisualize the different clustering algorithms" data-toggle="tooltip" data-placement="right" title="Visualize the different clustering algorithms">
+                <a href="#Visualize the different clustering algorithms">
                     <i class="fas fa-tasks"></i>
                     <span>Visualize the different clustering algorithms</span>
                 </a>
@@ -499,22 +366,6 @@ res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
             item.addEventListener('mouseout', function () {
                 this.style.backgroundColor = '';
                 this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                }
             });
         });
     </script>
