@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama >
 <html lang="en">
 
 <head>
