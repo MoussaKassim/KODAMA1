@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -21,7 +21,7 @@
         }
 
         .navbar:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
@@ -47,7 +47,7 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px;
-            margin-left: 0;
+            margin: 0;
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
@@ -285,6 +285,7 @@
 
     <!-- Content -->
     <div class="container">
+        <!-- Metabolomic data -->
         <div class="data-section" id="metabolomic-data">
             <h2>Metabolomic data</h2>
             <p>The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.</p>
@@ -345,18 +346,17 @@ res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
 
     <!-- Custom Script -->
     <script>
-        // Navbar animations
-        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
+        // Navbar and Sidebar animations
+        const navbarBrand = document.querySelector('.navbar-brand');
+        navbarBrand.addEventListener('mouseover', function () {
             this.style.transform = 'scale(1.1)';
             this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
         });
-
-        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
+        navbarBrand.addEventListener('mouseout', function () {
             this.style.transform = 'scale(1)';
             this.style.boxShadow = 'none';
         });
 
-        // Sidebar animations
         const sidebarItems = document.querySelectorAll('#sidebar ul li');
         sidebarItems.forEach(item => {
             item.addEventListener('mouseover', function () {
