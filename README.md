@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,12 +17,21 @@
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .navbar:hover {
             transform: scale(1.1);
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-brand {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
         }
 
         .navbar-nav .nav-link {
@@ -54,7 +63,7 @@
             width: 70px;
             height: auto;
             overflow: hidden;
-            transition: width 0.3s;
+            transition: width 0.3s, box-shadow 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -274,84 +283,57 @@
         </ul>
     </div>
 
-# Metabolomic data
+    <!-- Content -->
+    <div class="container">
+        <div class="data-section" id="metabolomic-data">
+            <h2>Metabolomic data</h2>
+            <p>The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.</p>
+        </div>
 
-The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided in 450 spectral bins.
-
-## Tutorial
-
-Here, we load the MetRef dataset. Columns with only zero values are removed. 
-
-```
-data(MetRef)
+        <!-- Tutorial -->
+        <div class="data-section" id="tutorial">
+            <h2>Tutorial</h2>
+            <p>Here, we load the MetRef dataset. Columns with only zero values are removed.</p>
+            <pre><code>data(MetRef)
 u=MetRef$data
-u=u[,-which(colSums(u)==0)]
-```
-We apply the Probabilistic Quotient Normalization
-```
-u=normalization(u)$newXtrain
-```
-We mean-center and univariate scaling the data set.
-```
-u=scaling(u)$newXtrain
-```
-Two classification vectors are created
-```
-class=as.numeric(as.factor(MetRef$gender))
-class2=as.numeric(as.factor(MetRef$donor))
-```
-# MDS, tSNE and UMAP
-Different algorithms for dimensionality reduction are applied
-```
-res_MDS=cmdscale(dist(u))
-res_tSNE=Rtsne(u)$Y
-res_UMAP = umap(u)$layout
-```
-# KODAMA
-We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as classifier with 50 components to drive the accuracy maximixation. The KODAMA dissimilarity matrix's is converted in a low dimensionality space using three different methods (i.e., MDS, t-SNE, and UMAP).
+u=u[,-which(colSums(u)==0)]</code></pre>
+            <p>We apply the Probabilistic Quotient Normalization</p>
+            <pre><code>u=normalization(u)$newXtrain</code></pre>
+            <p>We mean-center and univariate scaling the data set.</p>
+            <pre><code>u=scaling(u)$newXtrain</code></pre>
+            <p>Two classification vectors are created</p>
+            <pre><code>class=as.numeric(as.factor(MetRef$gender))
+class2=as.numeric(as.factor(MetRef$donor))</code></pre>
+        </div>
 
-```
-kk=KODAMA.matrix(u,f.par = 50)
+        <!-- MDS, tSNE and UMAP -->
+        <div class="data-section" id="dimensionality-reduction">
+            <h2>MDS, tSNE and UMAP</h2>
+            <p>Different algorithms for dimensionality reduction are applied</p>
+            <pre><code>res_MDS=cmdscale(dist(u))
+res_tSNE=Rtsne(u)$Y
+res_UMAP = umap(u)$layout</code></pre>
+        </div>
+
+        <!-- KODAMA -->
+        <div class="data-section" id="kodama">
+            <h2>KODAMA</h2>
+            <p>We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as classifier with 50 components to drive the accuracy maximization. The KODAMA dissimilarity matrix's is converted in a low dimensionality space using three different methods (i.e., MDS, t-SNE, and UMAP).</p>
+            <pre><code>kk=KODAMA.matrix(u,f.par = 50)
 res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
 res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
-res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")
-```
+res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
+        </div>
 
-# Visualize the different clustering algorithmss:
-
-  a) labelled by the gender
-
-```
-par(mfrow = c(2,3))
-plot(res_MDS,pch=21,bg=rainbow(2)[class],main="MDS")
-plot(res_tSNE,pch=21,bg=rainbow(2)[class],main="tSNE")
-plot(res_UMAP,pch=21,bg=rainbow(2)[class],main="UMAP")
-plot(res_KODAMA_MDS,pch=21,bg=rainbow(2)[class],main="KODAMA_MDS",)
-plot(res_KODAMA_tSNE,pch=21,bg=rainbow(2)[class],main="KODAMA_tSNE")
-plot(res_KODAMA_UMAP,pch=21,bg=rainbow(2)[class],main="KODAMA_UMAP")
-```
-<p>
-  <p align="center">
-    <img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.gender.png" alt="hello-light"  />
-  </p>
-</p>
-
-  b) labelled by the donor
-
-```
-plot(res_MDS,pch=21,bg=rainbow(22)[class2],main="MDS")
-plot(res_tSNE,pch=21,bg=rainbow(22)[class2],main="tSNE")
-plot(res_UMAP,pch=21,bg=rainbow(22)[class2],main="UMAP")
-plot(res_KODAMA_MDS,pch=21,bg=rainbow(22)[class2],main="KODAMA_MDS",)
-plot(res_KODAMA_tSNE,pch=21,bg=rainbow(22)[class2],main="KODAMA_tSNE")
-plot(res_KODAMA_UMAP,pch=21,bg=rainbow(22)[class2],main="KODAMA_UMAP")
-```
-<p>
-  <p align="center">
-    <img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.donor.png" alt="hello-light" />
-  </p>
-</p>
-
+        <!-- Visualizations -->
+        <div class="data-section" id="visualizations">
+            <h2>Visualize the different clustering algorithms</h2>
+            <h3>a) labelled by the gender</h3>
+            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.gender.png" alt="gender-clustering"></p>
+            <h3>b) labelled by the donor</h3>
+            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.donor.png" alt="donor-clustering"></p>
+        </div>
+    </div>
 
     <!-- Bootstrap Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
