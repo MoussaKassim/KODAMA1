@@ -256,28 +256,28 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
-                <a href="#introduction">
+            <li id="TutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
+                <a href="#Tutorial">
                     <i class="fas fa-book-open"></i>
-                    <span>Introduction</span>
+                    <span>Tutorial</span>
                 </a>
             </li>
-            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
+            <li id="MDS, tSNE and UMAPLink" data-toggle="tooltip" data-placement="right" title="MDS, tSNE and UMAP">
                 <a href="#news">
                     <i class="fas fa-newspaper"></i>
-                    <span>News</span>
+                    <span>MDS, tSNE and UMAP</span>
                 </a>
             </li>
-            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
-                <a href="#installation">
+            <li id="KODAMALink" data-toggle="tooltip" data-placement="right" title="KODAMA">
+                <a href="#KODAMA">
                     <i class="fas fa-tools"></i>
-                    <span>Installation</span>
+                    <span>KODAMA</span>
                 </a>
             </li>
-            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
-                <a href="#applications">
+            <li id="aVisualize the different clustering algorithms" data-toggle="tooltip" data-placement="right" title="Visualize the different clustering algorithms">
+                <a href="#Visualize the different clustering algorithms">
                     <i class="fas fa-tasks"></i>
-                    <span>Applications</span>
+                    <span>Visualize the different clustering algorithms</span>
                 </a>
             </li>
         </ul>
