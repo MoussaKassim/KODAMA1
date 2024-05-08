@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -217,7 +217,7 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
-                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
@@ -257,25 +257,26 @@
     <div id="sidebar">
         <ul>
             <li id="TutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
-                <a href="#Tutorial">
+                <a href="#tutorial">
                     <i class="fas fa-book-open"></i>
                     <span>Tutorial</span>
                 </a>
             </li>
             <li id="MDS, tSNE and UMAPLink" data-toggle="tooltip" data-placement="right" title="MDS, tSNE and UMAP">
-                <a href="#news">
+                <a href="#dimensionality-reduction">
                     <i class="fas fa-newspaper"></i>
                     <span>MDS, tSNE and UMAP</span>
                 </a>
             </li>
             <li id="KODAMALink" data-toggle="tooltip" data-placement="right" title="KODAMA">
-                <a href="#KODAMA">
+                <a href="#kodama">
                     <i class="fas fa-tools"></i>
                     <span>KODAMA</span>
                 </a>
             </li>
-            <li id="aVisualize the different clustering algorithms" data-toggle="tooltip" data-placement="right" title="Visualize the different clustering algorithms">
-                <a href="#Visualize the different clustering algorithms">
+            <li id="VisualizeAlgorithmsLink" data-toggle="tooltip" data-placement="right"
+                title="Visualize the different clustering algorithms">
+                <a href="#visualizations">
                     <i class="fas fa-tasks"></i>
                     <span>Visualize the different clustering algorithms</span>
                 </a>
@@ -366,6 +367,22 @@ res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
             item.addEventListener('mouseout', function () {
                 this.style.backgroundColor = '';
                 this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
