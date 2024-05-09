@@ -30,8 +30,8 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #FFA500;
-            background-color: rgba(255, 165, 0, 0.1);
+            background-color: #222222;
+            border-color: #121212;
         }
 
         /* Body padding to compensate for fixed navbar */
