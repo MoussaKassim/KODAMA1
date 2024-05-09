@@ -157,11 +157,13 @@
         .data-section h2 {
             color: #007bff;
             margin-bottom: 20px;
+            font-size: 24px;
         }
 
         .data-section p {
             color: #343a40;
             margin-bottom: 20px;
+            font-size: 18px;
         }
 
         /* Card Styles */
@@ -180,10 +182,12 @@
         .card-title {
             color: #007bff;
             font-weight: bold;
+            font-size: 24px;
         }
 
         .card-text {
             color: #343a40;
+            font-size: 18px;
         }
     </style>
 </head>
