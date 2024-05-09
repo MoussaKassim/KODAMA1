@@ -399,8 +399,11 @@ div.tocify {
 <div id="Installation" class="section level2">
 <h2>installation</h2>
 <p>The KODAMA is available on CRAN.</p>
-<pre class="r"><code class="hljs"><span class="hljs-keyword">library</span>(devtools))<span class="hljs-keyword">  install_github<span class="hljs-string">("tkcaccia/KODAMA")</span>)</code></pre>
+<pre class="r"><code class="hljs"><span class="hljs-keyword">library</span>(devtools))<span class="hljs-keyword">  install_github<span class="hljs-string">("tkcaccia/KODAMA")</span>)</code>
+</pre>
+       </div>
 </div>
+      
 <div id="Applications" class="section level2">
 <h2>Applications</h2>
 <p>Here below, we introduced three different applications of the KODAMA algorithm.
