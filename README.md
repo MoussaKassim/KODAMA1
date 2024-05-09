@@ -331,7 +331,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">BASS</a>
+      <a class="navbar-brand" href="index.html">KODAMA</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -346,25 +346,23 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Real data analyses
+    data analyses
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="STARmap.html">STARmap (Wang et al., 2018)</a>
+      <a href="STARmap.html">Metabolomic data</a>
     </li>
     <li>
-      <a href="MERFISH.html">MERFISH (Moffitt et al., 2018)</a>
+      <a href="MERFISH.html">Single-cell data</a>
     </li>
     <li>
-      <a href="DLPFC.html">DLPFC (Maynard et al., 2021)</a>
+      <a href="DLPFC.html">KODAMA for Spatial Transcriptomics</a>
     </li>
   </ul>
 </li>
-<li>
-  <a href="license.html">License</a>
-</li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -383,395 +381,14 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to BASS</h1>
-<h4 class="author">Zheng Li</h4>
-<h4 class="date">2022-06-07</h4>
+<h1 class="title toc-ignore">Knowledge Discovery by Accuracy Maximization</h1>
+<h4 class="author">Stefano Cacciatore  </h4>
+<h4 class="date">2023-01-11</h4>
 
 </div>
 
 
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span>
-</button>
-</p>
-<div id="workflowr-report" class="collapse">
-<ul class="nav nav-tabs">
-<li class="active">
-<a data-toggle="tab" href="#summary">Summary</a>
-</li>
-<li>
-<a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
-</li>
-<li>
-<a data-toggle="tab" href="#versions">Past versions</a>
-</li>
-</ul>
-<div class="tab-content">
-<div id="summary" class="tab-pane fade in active">
-<p>
-<strong>Last updated:</strong> 2022-06-07
-</p>
-<p>
-<strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
-</p>
-<p>
-<strong>Knit directory:</strong> <code>BASS-analysis/</code> <span
-class="glyphicon glyphicon-question-sign" aria-hidden="true"
-title="This is the local directory in which the code in this file was executed.">
-</span>
-</p>
-<p>
-This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
-analysis was created with <a
-  href="https://github.com/workflowr/workflowr">workflowr</a> (version
-1.7.0). The <em>Checks</em> tab describes the reproducibility checks
-that were applied when the results were created. The <em>Past
-versions</em> tab lists the development history.
-</p>
-<hr>
-</div>
-<div id="checks" class="tab-pane fade">
-<div id="workflowr-checks" class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
-</p>
-</div>
-<div id="strongRMarkdownfilestronguptodate"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
-</p>
-</div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the
-global environment can affect the analysis in your R Markdown file in
-unknown ways. For reproduciblity it’s best to always run the code in an
-empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed0code">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Seed:</strong>
-<code>set.seed(0)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed0code"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(0)</code> was run prior to running the
-code in the R Markdown file. Setting a seed ensures that any results
-that rely on randomness, e.g. subsampling or permutations, are
-reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Session information:</strong>
-recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package
-versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be
-confident that you successfully produced the results during this
-run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
-</p>
-</div>
-<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr
-project makes it easier to run your code on other machines.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomzhengli09BASSanalysistree6a631f82816b7be00b249f66a2288f7a3bd35adftargetblank6a631f8a">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/zhengli09//BASS-analysis/tree/6a631f82816b7be00b249f66a2288f7a3bd35adf" target="_blank">6a631f8</a>
-</a>
-</p>
-</div>
-<div
-id="strongRepositoryversionstrongahrefhttpsgithubcomzhengli09BASSanalysistree6a631f82816b7be00b249f66a2288f7a3bd35adftargetblank6a631f8a"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>
-Great! You are using Git for version control. Tracking code development
-and connecting the code version to the results is critical for
-reproducibility.
-</p>
-<p>
-The results in this page were generated with repository version
-<a href="https://github.com/zhengli09//BASS-analysis/tree/6a631f82816b7be00b249f66a2288f7a3bd35adf" target="_blank">6a631f8</a>.
-See the <em>Past versions</em> tab to see a history of the changes made
-to the R Markdown and HTML files.
-</p>
-<p>
-Note that you need to be careful to ensure that all relevant files for
-the analysis have been committed to Git prior to generating the results
-(you can use <code>wflow_publish</code> or
-<code>wflow_git_commit</code>). workflowr only checks the R Markdown
-file, but you know if there are other scripts or data files that it
-depends on. Below is the status of the Git repository when the results
-were generated:
-</p>
-<pre><code>
-Untracked files:
-    Untracked:  code/run_giniclust3.py
 
-Unstaged changes:
-    Modified:   code/simu_utils.R
-    Modified:   code/viz.R
-    Modified:   data/MERFISH_Animal1.RData
-    Modified:   data/starmap_mpfc.RData
-
-</code></pre>
-<p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not
-included in this status report because it is ok for generated content to
-have uncommitted changes.
-</p>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</div>
-<div id="versions" class="tab-pane fade">
-
-<p>
-These are the previous versions of the repository in which changes were
-made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML
-(<code>docs/index.html</code>) files. If you’ve configured a remote Git
-repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
-in the table below to view the files as they were in that past version.
-</p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/zhengli09//BASS-analysis/blob/6a631f82816b7be00b249f66a2288f7a3bd35adf/analysis/index.Rmd" target="_blank">6a631f8</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-06-07
-</td>
-<td>
-Update software introduction and tutorial
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/345228b446ca2cd0eb8ece1f6a832e9cf41b3958/docs/index.html" target="_blank">345228b</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-27
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/zhengli09//BASS-analysis/blob/9713c56c5fa59ac9a05dec6997a2af3bbb1d0da8/analysis/index.Rmd" target="_blank">9713c56</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-27
-</td>
-<td>
-Link workflow figure to introduction page
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/9a685114f1f29bb007c27088adaf8ce2582c56a2/docs/index.html" target="_blank">9a68511</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-27
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/zhengli09//BASS-analysis/blob/4ec8df1262087c7c78f682e56014a7087a756d4f/analysis/index.Rmd" target="_blank">4ec8df1</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-27
-</td>
-<td>
-Publish the introduction, simulation analysis and STARmap analysis
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/b2c476b7c59342294dc8304cd5d2f19213f27d43/docs/index.html" target="_blank">b2c476b</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-06
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/a6097f45ea3c63efeecda29c8c9305498aed39ee/docs/index.html" target="_blank">a6097f4</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-06
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/zhengli09//BASS-analysis/blob/9f8756a61ff477ed278dcfb8b2682e6c07fac36b/analysis/index.Rmd" target="_blank">9f8756a</a>
-</td>
-<td>
-zhengli09
-</td>
-<td>
-2022-02-06
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-</div>
-</div>
-</div>
 <div id="Introduction" class="section level1">
 <h1>introduction</h1>
 <p># KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data </a>.</p>
