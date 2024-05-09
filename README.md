@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -48,8 +48,11 @@
         body {
             padding-top: 56px;
             margin: 0;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.42857143;
+            color: #333333;
+            background-color: #ffffff;
         }
 
         /* Sidebar Styles */
@@ -216,12 +219,6 @@
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
-                        <a class="nav-link" href="#tutorial">Software Tutorial</a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
-                        <a class="nav-link" href="#simulation">Simulation</a>
-                    </li>
                     <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
                         title="Data Analyses">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -256,29 +253,29 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <ul>
-            <li id="TutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
-                <a href="#tutorial">
+            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
+                <a href="#introduction">
                     <i class="fas fa-book-open"></i>
+                    <span>Introduction</span>
+                </a>
+            </li>
+            <li id="metabolomicLink" data-toggle="tooltip" data-placement="right" title="Metabolomic Data">
+                <a href="#metabolomic-data">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Metabolomic Data</span>
+                </a>
+            </li>
+            <li id="tutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
+                <a href="#tutorial">
+                    <i class="fas fa-tools"></i>
                     <span>Tutorial</span>
                 </a>
             </li>
-            <li id="MDS, tSNE and UMAPLink" data-toggle="tooltip" data-placement="right" title="MDS, tSNE and UMAP">
-                <a href="#dimensionality-reduction">
-                    <i class="fas fa-newspaper"></i>
-                    <span>MDS, tSNE and UMAP</span>
-                </a>
-            </li>
-            <li id="KODAMALink" data-toggle="tooltip" data-placement="right" title="KODAMA">
-                <a href="#kodama">
-                    <i class="fas fa-tools"></i>
-                    <span>KODAMA</span>
-                </a>
-            </li>
-            <li id="VisualizeAlgorithmsLink" data-toggle="tooltip" data-placement="right"
+            <li id="visualizationsLink" data-toggle="tooltip" data-placement="right"
                 title="Visualize the different clustering algorithms">
                 <a href="#visualizations">
                     <i class="fas fa-tasks"></i>
-                    <span>Visualize the different clustering algorithms</span>
+                    <span>Visualizations</span>
                 </a>
             </li>
         </ul>
@@ -308,25 +305,6 @@ u=u[,-which(colSums(u)==0)]</code></pre>
 class2=as.numeric(as.factor(MetRef$donor))</code></pre>
         </div>
 
-        <!-- MDS, tSNE and UMAP -->
-        <div class="data-section" id="dimensionality-reduction">
-            <h2>MDS, tSNE and UMAP</h2>
-            <p>Different algorithms for dimensionality reduction are applied</p>
-            <pre><code>res_MDS=cmdscale(dist(u))
-res_tSNE=Rtsne(u)$Y
-res_UMAP = umap(u)$layout</code></pre>
-        </div>
-
-        <!-- KODAMA -->
-        <div class="data-section" id="kodama">
-            <h2>KODAMA</h2>
-            <p>We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as a classifier with 50 components to maximize accuracy. The KODAMA dissimilarity matrix is converted into a low-dimensional space using three different methods (i.e., MDS, t-SNE, and UMAP).</p>
-            <pre><code>kk=KODAMA.matrix(u,f.par = 50)
-res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
-res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
-res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
-        </div>
-
         <!-- Visualizations -->
         <div class="data-section" id="visualizations">
             <h2>Visualize the different clustering algorithms</h2>
@@ -336,118 +314,6 @@ res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
             <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.donor.png" alt="donor-clustering"></p>
         </div>
     </div>
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <ul>
-            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
-                <a href="#introduction">
-                    <i class="fas fa-book-open"></i>
-                    <span>Introduction</span>
-                </a>
-            </li>
-            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
-                <a href="#news">
-                    <i class="fas fa-newspaper"></i>
-                    <span>News</span>
-                </a>
-            </li>
-            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
-                <a href="#installation">
-                    <i class="fas fa-tools"></i>
-                    <span>Installation</span>
-                </a>
-            </li>
-            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
-                <a href="#applications">
-                    <i class="fas fa-tasks"></i>
-                    <span>Applications</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Introduction Section -->
-    <section id="introduction" class="data-section">
-        <div class="container">
-            <h2>Introduction</h2>
-            <p>
-                # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from
-                noisy and high-dimensional data
-            </p>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="data-section">
-        <div class="container">
-            <h2>News</h2>
-            <p>
-                KODAMA facilitates identification of patterns representing underlying groups on all samples in a data
-                set. This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A
-                landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more
-                than 10,000 entries.
-            </p>
-            <p>
-                The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity
-                matrix in a low dimensional space.
-            </p>
-            <ul>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/"
-                        style="color: blue;">Zinga, M. M.,
-                        Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S.
-                        (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
-                        9.</a></li>
-                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
-                        style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
-                        A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
-                        33(4), 621-623.</a></li>
-                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
-                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
-                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Installation Section -->
-    <section id="installation" class="data-section">
-        <div class="container">
-            <h2>Installation</h2>
-            <p>
-                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
-            </p>
-            <pre><code style="color: blue;">
-library(<span style="color: black;">devtools</span>)
-install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-            </code></pre>
-        </div>
-    </section>
-
-    <!-- Applications Section -->
-    <section id="applications" class="data-section">
-        <div class="container">
-            <h2>Applications</h2>
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Metabolomic data</h5>
-                        <p class="card-text">Explore Metabolomic data</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Single cell RNA seq data</h5>
-                        <p class="card-text">Explore Single cell RNA seq data</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Spatial Transcriptomic data</h5>
-                        <p class="card-text">Explore Spatial Transcriptomic data</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Bootstrap Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -480,60 +346,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
             item.addEventListener('mouseout', function () {
                 this.style.backgroundColor = '';
                 this.style.transform = 'translateX(0)';
-            });
-        });
-    </script>
-
-</body>
-
-</html>
-
-    <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- Custom Script -->
-    <script>
-        // Navbar and Sidebar animations
-        const navbarBrand = document.querySelector('.navbar-brand');
-        navbarBrand.addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
-        });
-        navbarBrand.addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-
-        const sidebarItems = document.querySelectorAll('#sidebar ul li');
-        sidebarItems.forEach(item => {
-            item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
-                this.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '';
-                this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                }
             });
         });
     </script>
