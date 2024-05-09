@@ -12,11 +12,11 @@
         /* Navbar Styles */
         .navbar {
             position: fixed;
-            top: 5;
+            top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background-color: #333;
+            background-color: #000;
             border-radius: 0;
             transition: transform 0.3s;
         }
