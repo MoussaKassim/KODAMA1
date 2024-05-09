@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama >
 <html lang="en">
 
 <head>
@@ -17,21 +17,12 @@
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
 
         .navbar:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar-brand {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .navbar-brand:hover {
             transform: scale(1.1);
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
         .navbar-nav .nav-link {
@@ -47,12 +38,9 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px;
-            margin: 0;
-            font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 15px;
-            line-height: 1.42857143;
-            color: #333333;
-            background-color: #ffffff;
+            margin-left: 0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
 
         /* Sidebar Styles */
@@ -66,7 +54,7 @@
             width: 70px;
             height: auto;
             overflow: hidden;
-            transition: width 0.3s, box-shadow 0.3s;
+            transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -219,6 +207,12 @@
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
+                        <a class="nav-link" href="#simulation">Simulation</a>
+                    </li>
                     <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
                         title="Data Analyses">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -226,9 +220,9 @@
                             Data Analyses
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#metabolomic-data">
-                                Metabolomic data
-                            </a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
                             <a class="dropdown-item"
                                 href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
                                 cell RNA seq data</a>
@@ -259,61 +253,109 @@
                     <span>Introduction</span>
                 </a>
             </li>
-            <li id="metabolomicLink" data-toggle="tooltip" data-placement="right" title="Metabolomic Data">
-                <a href="#metabolomic-data">
+            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
+                <a href="#news">
                     <i class="fas fa-newspaper"></i>
-                    <span>Metabolomic Data</span>
+                    <span>News</span>
                 </a>
             </li>
-            <li id="tutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
-                <a href="#tutorial">
+            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
+                <a href="#installation">
                     <i class="fas fa-tools"></i>
-                    <span>Tutorial</span>
+                    <span>Installation</span>
                 </a>
             </li>
-            <li id="visualizationsLink" data-toggle="tooltip" data-placement="right"
-                title="Visualize the different clustering algorithms">
-                <a href="#visualizations">
+            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
+                <a href="#applications">
                     <i class="fas fa-tasks"></i>
-                    <span>Visualizations</span>
+                    <span>Applications</span>
                 </a>
             </li>
         </ul>
     </div>
 
-    <!-- Content -->
-    <div class="container">
-        <!-- Metabolomic data -->
-        <div class="data-section" id="metabolomic-data">
-            <h2>Metabolomic data</h2>
-            <p>The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided into 450 spectral bins.</p>
+    <!-- Introduction Section -->
+    <section id="introduction" class="data-section">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>
+                # KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from
+                noisy and high-dimensional data
+            </p>
         </div>
+    </section>
 
-        <!-- Tutorial -->
-        <div class="data-section" id="tutorial">
-            <h2>Tutorial</h2>
-            <p>Here, we load the MetRef dataset. Columns with only zero values are removed.</p>
-            <pre><code>data(MetRef)
-u=MetRef$data
-u=u[,-which(colSums(u)==0)]</code></pre>
-            <p>We apply Probabilistic Quotient Normalization</p>
-            <pre><code>u=normalization(u)$newXtrain</code></pre>
-            <p>We mean-center and univariate scale the dataset.</p>
-            <pre><code>u=scaling(u)$newXtrain</code></pre>
-            <p>Two classification vectors are created</p>
-            <pre><code>class=as.numeric(as.factor(MetRef$gender))
-class2=as.numeric(as.factor(MetRef$donor))</code></pre>
+    <!-- News Section -->
+    <section id="news" class="data-section">
+        <div class="container">
+            <h2>News</h2>
+            <p>
+                KODAMA facilitates identification of patterns representing underlying groups on all samples in a data
+                set. This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A
+                landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more
+                than 10,000 entries.
+            </p>
+            <p>
+                The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity
+                matrix in a low dimensional space.
+            </p>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/"
+                        style="color: blue;">Zinga, M. M.,
+                        Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S.
+                        (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences,
+                        9.</a></li>
+                <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false"
+                        style="color: blue;">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D.
+                        A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics,
+                        33(4), 621-623.</a></li>
+                <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111" style="color: blue;">Cacciatore,
+                        S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings
+                        of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+            </ul>
         </div>
+    </section>
 
-        <!-- Visualizations -->
-        <div class="data-section" id="visualizations">
-            <h2>Visualize the different clustering algorithms</h2>
-            <h3>a) labelled by gender</h3>
-            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.gender.png" alt="gender-clustering"></p>
-            <h3>b) labelled by donor</h3>
-            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.donor.png" alt="donor-clustering"></p>
+    <!-- Installation Section -->
+    <section id="installation" class="data-section">
+        <div class="container">
+            <h2>Installation</h2>
+            <p>
+                The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
+            </p>
+            <pre><code style="color: blue;">
+library(<span style="color: black;">devtools</span>)
+install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
+            </code></pre>
         </div>
-    </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="data-section">
+        <div class="container">
+            <h2>Applications</h2>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Metabolomic data</h5>
+                        <p class="card-text">Explore Metabolomic data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Single cell RNA seq data</h5>
+                        <p class="card-text">Explore Single cell RNA seq data</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Spatial Transcriptomic data</h5>
+                        <p class="card-text">Explore Spatial Transcriptomic data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Bootstrap Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
