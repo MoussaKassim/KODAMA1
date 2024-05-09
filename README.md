@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<KODAMA >
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KODAMA</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Navbar Styles */
@@ -16,264 +17,376 @@
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
+        .navbar:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-brand {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+        }
+
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
         }
+
         .navbar-nav .nav-link:hover {
             color: #FFA500;
             background-color: rgba(255, 165, 0, 0.1);
         }
-        .navbar-brand {
-            color: white;
-            font-size: 24px;
-        }
+
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 4rem;
-            margin-left: 200px;
+            padding-top: 56px;
+            margin: 0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
+
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 0;
+            top: 50%;
             left: 0;
-            bottom: 0;
+            transform: translateY(-50%);
             z-index: 1000;
-            background-color: #333;
-            width: 200px;
-            padding-top: 4rem;
-            overflow-y: auto;
-            transition: all 0.3s;
+            background-color: #343a40;
+            width: 70px;
+            height: auto;
+            overflow: hidden;
+            transition: width 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
+
+        #sidebar:hover {
+            width: 200px;
+        }
+
         #sidebar ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
+
         #sidebar ul li {
-            padding: 10px;
+            width: 200px;
+            padding: 15px;
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
+
         #sidebar ul li:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #adb5bd;
+            transform: translateX(10px);
         }
-        #content {
-            margin-left: 200px;
-            padding: 20px;
+
+        #sidebar ul li a {
+            text-decoration: none;
+            color: inherit;
         }
-        /* Section Styles */
-        section {
+
+        #sidebar ul li i {
+            margin-right: 10px;
+        }
+
+        .sidebar-item-content {
+            display: none;
+            padding: 10px;
+            color: white;
+            background-color: #343a40;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            z-index: 1000;
+            width: 200px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            animation: fadeIn 0.3s;
+        }
+
+        #sidebar ul li:hover .sidebar-item-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sidebar-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Custom Styles for Data Sections */
+        .data-section {
             margin-top: 20px;
             padding: 20px;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #fff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
         }
-        section h1 {
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .data-section h2 {
             color: #007bff;
             margin-bottom: 20px;
         }
+
+        .data-section p {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
         /* Card Styles */
         .card {
             border: none;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
         }
-        .card-body {
-            text-align: center;
-        }
-        /* Code Styles */
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            overflow-x: auto;
-            position: relative;
-            cursor: pointer;
-        }
-        pre:hover::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 255, 0.1);
-            border-radius: 5px;
-            z-index: 1;
-        }
-        pre:hover::before {
-            content: "\f0ea";
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
+
+        .card-title {
             color: #007bff;
-            z-index: 2;
+            font-weight: bold;
         }
-        .copy-box {
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            margin-top: 20px;
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-        }
-        .copy-box:hover {
-            background-color: #e9ecef;
-        }
-        .copy-box::before {
-            content: "\f0c5";
-            font-family: "Font Awesome 5 Free";
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #007bff;
+
+        .card-text {
+            color: #343a40;
         }
     </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">KODAMA</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                KODAMA
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#introduction">Introduction</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#news">News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#installation">Installation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#applications">Applications</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
-                        <span class="fab fa-github"></span>
-                        Source code
-                    </a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
+                        <a class="nav-link" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
+                        <a class="nav-link" href="#tutorial">Software Tutorial</a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
+                        <a class="nav-link" href="#simulation">Simulation</a>
+                    </li>
+                    <li class="nav-item dropdown" data-toggle="tooltip" data-placement="bottom"
+                        title="Data Analyses">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#metabolomic-data">
+                                Metabolomic data
+                            </a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                cell RNA seq data</a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                Transcriptomic data</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                            <span class="fab fa-github"></span>
+                            Source code
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Sidebar -->
-<div id="sidebar">
-    <ul class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link" href="#introduction">Introduction</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#news">News</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#installation">Installation</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#applications">Applications</a>
-        </li>
-    </ul>
-</div>
-
-<!-- Introduction Section -->
-<section id="introduction">
-    <div class="container">
-        <h1>Introduction</h1>
-        <p>
-            KODAMA An unsupervised and semi-supervised learning algorithm to perform feature extraction from noisy and high-dimensional data.
-        </p>
-    </div>
-</section>
-
-<!-- News Section -->
-<section id="news">
-    <div class="container">
-        <h2>News</h2>
-        <p>
-            KODAMA facilitates identification of patterns representing underlying groups on all samples in a data set. 
-            This is an improved version of KODAMA algorithm for spatially-aware dimensionality reduction. A landmarks procedure has been implemented to adapt the algorithm to the analysis of data set with more than 10,000 entries.
-        </p>
-        <p>
-            The KODAMA package has been integrated with t-SNE and UMAP to convert the KODAMA's dissimilarity matrix in a low dimensional space.
-        </p>
+    <!-- Sidebar -->
+    <div id="sidebar">
         <ul>
-            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9887019/">Zinga, M. M., Abdel-Shafy, E., Melak, T., Vignoli, A., Piazza, S., Zerbini, L. F., ... & Cacciatore, S. (2022). KODAMA exploratory analysis in metabolic phenotyping. Frontiers in Molecular Biosciences, 9.</a></li>
-            <li><a href="https://academic.oup.com/bioinformatics/article/33/4/621/2667156?login=false">Cacciatore, S., Tenori, L., Luchinat, C., Bennett, P. R., & MacIntyre, D. A. (2017). KODAMA: an R package for knowledge discovery and data mining. Bioinformatics, 33(4), 621-623.</a></li>
-            <li><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1220873111">Cacciatore, S., Luchinat, C., & Tenori, L. (2014). Knowledge discovery by accuracy maximization. Proceedings of the National Academy of Sciences, 111(14), 5117-5122.</a></li>
+            <li id="TutorialLink" data-toggle="tooltip" data-placement="right" title="Tutorial">
+                <a href="#tutorial">
+                    <i class="fas fa-book-open"></i>
+                    <span>Tutorial</span>
+                </a>
+            </li>
+            <li id="MDS, tSNE and UMAPLink" data-toggle="tooltip" data-placement="right" title="MDS, tSNE and UMAP">
+                <a href="#dimensionality-reduction">
+                    <i class="fas fa-newspaper"></i>
+                    <span>MDS, tSNE and UMAP</span>
+                </a>
+            </li>
+            <li id="KODAMALink" data-toggle="tooltip" data-placement="right" title="KODAMA">
+                <a href="#kodama">
+                    <i class="fas fa-tools"></i>
+                    <span>KODAMA</span>
+                </a>
+            </li>
+            <li id="VisualizeAlgorithmsLink" data-toggle="tooltip" data-placement="right"
+                title="Visualize the different clustering algorithms">
+                <a href="#visualizations">
+                    <i class="fas fa-tasks"></i>
+                    <span>Visualize the different clustering algorithms</span>
+                </a>
+            </li>
         </ul>
     </div>
-</section>
 
-<!-- Installation Section -->
-<section id="installation">
+    <!-- Content -->
     <div class="container">
-        <h2>Installation</h2>
-        <p>
-            The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA">CRAN</a>.
-        </p>
-        <pre><code>
-library(devtools)
-install_github("tkcaccia/KODAMA")
-        </code></pre>
-    </div>
-</section>
+        <!-- Metabolomic data -->
+        <div class="data-section" id="metabolomic-data">
+            <h2>Metabolomic data</h2>
+            <p>The data belong to a cohort of 22 healthy donors (11 male and 11 female) where each provided about 40 urine samples over the time course of approximately 2 months, for a total of 873 samples. Each sample was analysed by Nuclear Magnetic Resonance Spectroscopy. Each spectrum was divided into 450 spectral bins.</p>
+        </div>
 
-<!-- Applications Section -->
-<section id="applications">
-    <div class="container">
-        <h2>Applications</h2>
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Metabolomic data</h5>
-                    <p class="card-text">Explore Metabolomic data</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Single cell RNA seq data</h5>
-                    <p class="card-text">Explore Single cell RNA seq data</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Spatial Transcriptomic data</h5>
-                    <p class="card-text">Explore Spatial Transcriptomic data</p>
-                </div>
-            </div>
+        <!-- Tutorial -->
+        <div class="data-section" id="tutorial">
+            <h2>Tutorial</h2>
+            <p>Here, we load the MetRef dataset. Columns with only zero values are removed.</p>
+            <pre><code>data(MetRef)
+u=MetRef$data
+u=u[,-which(colSums(u)==0)]</code></pre>
+            <p>We apply Probabilistic Quotient Normalization</p>
+            <pre><code>u=normalization(u)$newXtrain</code></pre>
+            <p>We mean-center and univariate scale the dataset.</p>
+            <pre><code>u=scaling(u)$newXtrain</code></pre>
+            <p>Two classification vectors are created</p>
+            <pre><code>class=as.numeric(as.factor(MetRef$gender))
+class2=as.numeric(as.factor(MetRef$donor))</code></pre>
+        </div>
+
+        <!-- MDS, tSNE and UMAP -->
+        <div class="data-section" id="dimensionality-reduction">
+            <h2>MDS, tSNE and UMAP</h2>
+            <p>Different algorithms for dimensionality reduction are applied</p>
+            <pre><code>res_MDS=cmdscale(dist(u))
+res_tSNE=Rtsne(u)$Y
+res_UMAP = umap(u)$layout</code></pre>
+        </div>
+
+        <!-- KODAMA -->
+        <div class="data-section" id="kodama">
+            <h2>KODAMA</h2>
+            <p>We apply KODAMA with Partial Least Square Discriminant Analysis (PLS-DA) as a classifier with 50 components to maximize accuracy. The KODAMA dissimilarity matrix is converted into a low-dimensional space using three different methods (i.e., MDS, t-SNE, and UMAP).</p>
+            <pre><code>kk=KODAMA.matrix(u,f.par = 50)
+res_KODAMA_MDS=KODAMA.visualization(kk,method = "MDS")
+res_KODAMA_tSNE=KODAMA.visualization(kk,method = "t-SNE")
+res_KODAMA_UMAP=KODAMA.visualization(kk,method = "UMAP")</code></pre>
+        </div>
+
+        <!-- Visualizations -->
+        <div class="data-section" id="visualizations">
+            <h2>Visualize the different clustering algorithms</h2>
+            <h3>a) labelled by gender</h3>
+            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.gender.png" alt="gender-clustering"></p>
+            <h3>b) labelled by donor</h3>
+            <p><img src="https://github.com/MoussaKassim/KODAMA1/blob/main/metabolites.donor.png" alt="donor-clustering"></p>
         </div>
     </div>
-</section>
 
-<!-- Bootstrap Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        // Navbar and Sidebar animations
+        const navbarBrand = document.querySelector('.navbar-brand');
+        navbarBrand.addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
+        });
+        navbarBrand.addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+
+        const sidebarItems = document.querySelectorAll('#sidebar ul li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('mouseover', function () {
+                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', function () {
+                this.style.backgroundColor = '';
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>
