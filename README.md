@@ -1,10 +1,8 @@
-<!DOCTYPE moussa html>
+<kodama >
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Moussa Kassim" />
-    <meta name="date" content="2024-05-09" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KODAMA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -16,8 +14,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            color: #ffffff;
-            background-color: #090909;
+            background-color: #333;
             border-radius: 0;
             transition: transform 0.3s;
         }
@@ -160,13 +157,11 @@
         .data-section h2 {
             color: #007bff;
             margin-bottom: 20px;
-            font-size: 24px;
         }
 
         .data-section p {
             color: #343a40;
             margin-bottom: 20px;
-            font-size: 18px;
         }
 
         /* Card Styles */
@@ -185,16 +180,13 @@
         .card-title {
             color: #007bff;
             font-weight: bold;
-            font-size: 24px;
         }
 
         .card-text {
             color: #343a40;
-            font-size: 18px;
         }
     </style>
 </head>
-
 
 <body>
 
