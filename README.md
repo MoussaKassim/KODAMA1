@@ -1,9 +1,9 @@
-
 <!DOCTYPE moussa html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Moussa Kassim" />
+    <meta name="date" content="2024-05-09" />
     <title>KODAMA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -13,7 +13,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            right: 3;
+            right: 0;
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
