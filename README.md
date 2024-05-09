@@ -346,7 +346,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    data analyses
+    Data analyses
      
     <span class="caret"></span>
   </a>
@@ -358,7 +358,7 @@ div.tocify {
       <a href="MERFISH.html">Single-cell data</a>
     </li>
     <li>
-      <a href="DLPFC.html">KODAMA for Spatial Transcriptomics</a>
+      <a href="DLPFC.html">Spatial Transcriptomics</a>
     </li>
   </ul>
 </li>
