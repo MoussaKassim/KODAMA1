@@ -16,7 +16,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.04);
             border-radius: 0;
             transition: transform 0.3s;
         }
