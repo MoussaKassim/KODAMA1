@@ -11,7 +11,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
         }
 
@@ -23,12 +23,32 @@
             right: 0;
             z-index: 1000;
             background-color: #121212;
-            padding: 5px 1rem;
+            padding: 5px 0; /* Réduit la hauteur de la barre noire */
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            padding: 0.5rem 1rem; /* Ajuste les espacements */
+        }
+
+        .navbar-brand, .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        .navbar-toggler {
+            border-color: white;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
         }
 
         .navbar-nav .nav-link {
             color: white;
-            padding: 0.5rem 1rem;
         }
 
         .navbar-nav .nav-link:hover {
