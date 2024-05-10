@@ -16,8 +16,8 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 20px; /* Réduire la taille de la police */
-            line-height: 0.5;
+            font-size: 18px; /* Réduire la taille de la police */
+            line-height: 1.5;
             color: #333333;
         }
 
@@ -78,7 +78,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -0.5px; /* Réduire légèrement la marge supérieure */
+            margin-top: -0.9px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
