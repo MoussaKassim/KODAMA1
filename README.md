@@ -1,4 +1,4 @@
-<kodama >
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -17,12 +17,16 @@
             z-index: 1000;
             background-color: #333;
             border-radius: 0;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .navbar:hover {
+        .navbar-brand {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar-brand:hover {
             transform: scale(1.1);
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
         }
 
         .navbar-nav .nav-link {
@@ -38,7 +42,7 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px;
-            margin-left: 0;
+            margin: 0;
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
@@ -54,7 +58,7 @@
             width: 70px;
             height: auto;
             overflow: hidden;
-            transition: width 0.3s;
+            transition: width 0.3s, box-shadow 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -208,7 +212,7 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
-                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
@@ -220,9 +224,9 @@
                             Data Analyses
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
-                                data</a>
+                            <a class="dropdown-item" href="#metabolomic-data">
+                                Metabolomic data
+                            </a>
                             <a class="dropdown-item"
                                 href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
                                 cell RNA seq data</a>
@@ -244,3 +248,11 @@
         </div>
     </nav>
 
+    <!-- Your content goes here -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
