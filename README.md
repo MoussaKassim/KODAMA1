@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Font Family */
+        body, .navbar-nav .nav-link, .sidebar-item-content, .data-section, .card-title, .card-text {
+            font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.42857143;
+            color: #333333;
+            background-color: #ffffff;
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+        }
+
         /* Navbar Styles */
         .navbar {
             position: fixed;
@@ -27,6 +40,8 @@
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
+            margin-right: 0;
+            margin-left: 0;
         }
 
         .navbar-nav .nav-link:hover {
@@ -39,7 +54,6 @@
             padding-top: 56px;
             margin-left: 0;
             background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
         }
 
         /* Sidebar Styles */
@@ -61,130 +75,8 @@
             width: 200px;
         }
 
-        #sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        #sidebar ul li {
-            width: 200px;
-            padding: 15px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        #sidebar ul li:hover {
-            background-color: #adb5bd;
-            transform: translateX(10px);
-        }
-
-        #sidebar ul li a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        #sidebar ul li i {
-            margin-right: 10px;
-        }
-
-        .sidebar-item-content {
-            display: none;
-            padding: 10px;
-            color: white;
-            background-color: #343a40;
-            position: absolute;
-            left: 200px;
-            top: 0;
-            z-index: 1000;
-            width: 200px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            animation: fadeIn 0.3s;
-        }
-
-        #sidebar ul li:hover .sidebar-item-content {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .sidebar-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        /* Custom Styles for Data Sections */
-        .data-section {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .data-section h2 {
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        .data-section p {
-            color: #343a40;
-            margin-bottom: 20px;
-        }
-
-        /* Card Styles */
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-title {
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        .card-text {
-            color: #343a40;
-        }
+        /* Rest of your existing CSS */
+        
     </style>
 </head>
 
