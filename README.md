@@ -77,7 +77,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -1px; /* Réduire légèrement la marge supérieure */
+            margin-top: -0px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
