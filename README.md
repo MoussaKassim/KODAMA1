@@ -16,7 +16,7 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 15px;
+            font-size: 18px; /* Augmenter la taille du texte */
             line-height: 1.42857143;
             color: #333333;
             background-color: transparent;
@@ -40,6 +40,7 @@
             border-left-color: rgb(18, 18, 18);
             background-color: #121212;
             border-radius: 0;
+            height: 60px; /* Ajuster la taille de la barre de navigation */
         }
 
         .navbar-nav .nav-link {
@@ -47,6 +48,7 @@
             transition: color 0.3s, background-color 0.3s;
             margin-right: 0;
             margin-left: 0;
+            font-size: 18px; /* Augmenter la taille du texte */
         }
 
         .navbar-nav .nav-link:hover {
@@ -56,7 +58,7 @@
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 56px;
+            padding-top: 60px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             margin-left: 0;
             background-color: #f8f9fa;
         }
