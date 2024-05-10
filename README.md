@@ -16,7 +16,7 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 16px;
+            font-size: 18px; /* Réduire la taille de la police */
             line-height: 1.5;
             color: #333333;
         }
@@ -31,24 +31,24 @@
             border-color: #121212;
             border-radius: 0;
             background-color: #121212;
-            padding: 0.3rem 1rem; /* Réduire la taille de la barre noire */
+            padding: 0.01rem 1rem; /* Réduire la taille de la barre noire */
         }
 
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
-            padding: 0.8rem 1.5rem; /* Ajuster les espacements */
-            font-size: 18px; /* Augmenter la taille de la police */
+            padding: 0.5rem 1.5rem; /* Ajuster les espacements */
+            font-weight: normal; /* Rendre le texte un peu en gras */
         }
 
         .navbar-nav .nav-link:hover {
             color: #fff;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.2); /* Couleur de fond plus sombre au survol */
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 50px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
+            padding-top: 30px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             background-color: #f8f9fa;
         }
 
@@ -60,15 +60,15 @@
             transform: translateY(-50%);
             z-index: 1000;
             background-color: #343a40;
-            width: 30px; /* Réduire la taille de la bande noire */
-            height: auto; /* Supprimer la hauteur fixe */
+            width: 20px; /* Réduire la taille de la barre noire */
+            height: auto;
             overflow: hidden;
             transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
         #sidebar:hover {
-            width: 80px; /* Ajuster la largeur de la bande noire au survol */
+            width: 50px; /* Ajuster la largeur de la barre noire au survol */
         }
 
         /* Styles for menu items */
@@ -78,7 +78,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: 0px; /* Réduire légèrement la marge supérieure */
+            margin-top: -0.9px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
@@ -91,7 +91,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" style="font-size: 15px;"> <!-- Taille de police pour "KODAMA" -->
                 KODAMA
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
