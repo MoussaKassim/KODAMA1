@@ -71,7 +71,14 @@
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
+        #sidebar:hover {
+            width: 200px;
+        }
 
+        /* Styles for menu items */
+        .nav-item {
+            margin-bottom: 0;
+        }
 
         /* Rest of your existing CSS */
         
