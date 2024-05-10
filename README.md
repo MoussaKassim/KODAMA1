@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Font Family */
+        /* Font Family and Size */
         body,
         .navbar-nav .nav-link,
         .sidebar-item-content,
@@ -16,14 +16,9 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 18px; /* Augmenter la taille du texte */
-            line-height: 1.42857143;
+            font-size: 18px; /* Augmenter la taille de la police */
+            line-height: 1.5;
             color: #333333;
-            background-color: transparent;
-            display: block !important;
-            height: auto !important;
-            padding-bottom: 0;
-            overflow: visible !important;
         }
 
         /* Navbar Styles */
@@ -34,32 +29,24 @@
             right: 0;
             z-index: 1000;
             border-color: #121212;
-            border-top-color: rgb(18, 18, 18);
-            border-right-color: rgb(18, 18, 18);
-            border-bottom-color: rgb(18, 18, 18);
-            border-left-color: rgb(18, 18, 18);
-            background-color: #121212;
             border-radius: 0;
-            height: 60px; /* Ajuster la taille de la barre de navigation */
+            background-color: #121212;
         }
 
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
-            margin-right: 0;
-            margin-left: 0;
-            font-size: 18px; /* Augmenter la taille du texte */
+            padding: 1rem 1.5rem; /* Ajuster les espacements */
         }
 
         .navbar-nav .nav-link:hover {
-            color: #FFFFF;
-            background-color: rgba(255, 255, 2555, 0.1);
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 60px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
-            margin-left: 0;
+            padding-top: 70px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             background-color: #f8f9fa;
         }
 
