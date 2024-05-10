@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama >
 <html lang="en">
 
 <head>
@@ -20,10 +20,9 @@
             transition: transform 0.3s;
         }
 
-        /* Supprimer la brillance lorsque le curseur est sur "KODAMA" */
         .navbar:hover {
-            transform: none;
-            box-shadow: none;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
         .navbar-nav .nav-link {
@@ -245,8 +244,3 @@
         </div>
     </nav>
 
-    
-
-</body>
-
-</html>
