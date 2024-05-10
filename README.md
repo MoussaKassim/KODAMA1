@@ -16,7 +16,7 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 15px; /* Réduire la taille de la police */
+            font-size: 20px; /* Réduire la taille de la police */
             line-height: 0.5;
             color: #333333;
         }
@@ -37,7 +37,7 @@
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
-            padding: 0.8rem 1.5rem; /* Ajuster les espacements */
+            padding: 0.5rem 2.5rem; /* Ajuster les espacements */
             font-weight: normal; /* Rendre le texte un peu en gras */
         }
 
@@ -78,7 +78,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -0.2px; /* Réduire légèrement la marge supérieure */
+            margin-top: -0.5px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
