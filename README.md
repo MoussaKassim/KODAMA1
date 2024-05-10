@@ -1,4 +1,4 @@
-<kodama>
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -15,20 +15,13 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background-color: #121212; /* Nouvelle couleur de fond de la navbar */
+            border-color: #121212;
+            border-top-color: rgb(18, 18, 18);
+            border-right-color: rgb(18, 18, 18);
+            border-bottom-color: rgb(18, 18, 18);
+            border-left-color: rgb(18, 18, 18);
+            background-color: black #121212;
             border-radius: 0;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif; /* Nouveau style de police pour le texte du menu */
-        }
-
-        .navbar-brand {
-            transition: transform 0.3s, box-shadow 0.3s;
-            color: white; /* Couleur du texte de la marque */
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
         }
 
         .navbar-nav .nav-link {
@@ -37,14 +30,14 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #FFA500;
-            background-color: rgba(255, 165, 0, 0.1);
+            color: #FFFFF;
+            background-color: rgba(255, 255, 2555, 0.1);
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 56px;
-            margin: 0;
+            margin-left: 0;
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
@@ -60,7 +53,7 @@
             width: 70px;
             height: auto;
             overflow: hidden;
-            transition: width 0.3s, box-shadow 0.3s;
+            transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -214,7 +207,7 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
-                        <a class="nav-link" href="#tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Simulation">
                         <a class="nav-link" href="#simulation">Simulation</a>
@@ -226,9 +219,9 @@
                             Data Analyses
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#metabolomic-data">
-                                Metabolomic data
-                            </a>
+                            <a class="dropdown-item"
+                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
                             <a class="dropdown-item"
                                 href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
                                 cell RNA seq data</a>
@@ -250,11 +243,10 @@
         </div>
     </nav>
 
-    <!-- Your content goes here -->
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
