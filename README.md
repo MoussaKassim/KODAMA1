@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Font Family */
-        body, .navbar-nav .nav-link, .sidebar-item-content, .data-section, .card-title, .card-text {
+        body,
+        .navbar-nav .nav-link,
+        .sidebar-item-content,
+        .data-section,
+        .card-title,
+        .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
             font-size: 15px;
             line-height: 1.42857143;
@@ -80,8 +85,13 @@
             margin-bottom: 0;
         }
 
+        /* Adjusting margin for Introduction */
+        .navbar-nav .nav-item:first-child {
+            margin-top: 10px;
+        }
+
         /* Rest of your existing CSS */
-        
+
     </style>
 </head>
 
