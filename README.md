@@ -1,4 +1,4 @@
-<KODAMA>
+<kodama>
 <html lang="en">
 
 <head>
@@ -15,13 +15,15 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background-color: #333;
+            background-color: #121212; /* Nouvelle couleur de fond de la navbar */
             border-radius: 0;
             transition: transform 0.3s, box-shadow 0.3s;
+            font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif; /* Nouveau style de police pour le texte du menu */
         }
 
         .navbar-brand {
             transition: transform 0.3s, box-shadow 0.3s;
+            color: white; /* Couleur du texte de la marque */
         }
 
         .navbar-brand:hover {
