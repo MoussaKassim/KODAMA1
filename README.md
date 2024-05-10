@@ -49,7 +49,7 @@
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 40px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
+            padding-top: 20px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             background-color: #f8f9fa;
         }
 
@@ -61,7 +61,7 @@
             transform: translateY(-50%);
             z-index: 1000;
             background-color: #343a40;
-            width: 30px; /* Réduire la taille de la barre noire */
+            width: 20px; /* Réduire la taille de la barre noire */
             height: auto;
             overflow: hidden;
             transition: width 0.3s;
@@ -79,7 +79,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: 0.5px; /* Réduire légèrement la marge supérieure */
+            margin-top: -0.2px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
