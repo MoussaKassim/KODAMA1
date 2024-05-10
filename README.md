@@ -37,7 +37,7 @@
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
-            padding: 0.5rem 2.5rem; /* Ajuster les espacements */
+            padding: 0.5rem 1.5rem; /* Ajuster les espacements */
             font-weight: normal; /* Rendre le texte un peu en gras */
         }
 
@@ -48,7 +48,7 @@
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 50px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
+            padding-top: 30px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             background-color: #f8f9fa;
         }
 
@@ -59,9 +59,9 @@
             left: 0;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: #343a40;
-            width: 40px; /* Réduire la taille de la barre noire */
-            height: auto;
+            background-color: #000000;
+            width: 20px; /* Réduire la taille de la barre noire */
+            height: 2px;
             overflow: hidden;
             transition: width 0.3s;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
