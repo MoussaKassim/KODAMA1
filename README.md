@@ -14,7 +14,7 @@
             font-size: 15px;
             line-height: 1.42857143;
             color: #333333;
-            background-color: transparent; /* Couleur de fond transparente */
+            background-color: transparent;
             display: block !important;
             height: auto !important;
             padding-bottom: 0;
@@ -33,7 +33,7 @@
             border-right-color: rgb(18, 18, 18);
             border-bottom-color: rgb(18, 18, 18);
             border-left-color: rgb(18, 18, 18);
-            background-color: #121212; /* Couleur ajustée */
+            background-color: #121212;
             border-radius: 0;
         }
 
