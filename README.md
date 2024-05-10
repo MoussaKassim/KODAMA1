@@ -14,7 +14,7 @@
             font-size: 15px;
             line-height: 1.42857143;
             color: #333333;
-            background-color: #ffffff;
+            background-color: transparent; /* Couleur de fond transparente */
             display: block !important;
             height: auto !important;
             padding-bottom: 0;
