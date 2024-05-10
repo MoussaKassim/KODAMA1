@@ -16,7 +16,7 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 16px;
+            font-size: 15px; /* Réduire la taille de la police */
             line-height: 1.5;
             color: #333333;
         }
@@ -39,29 +39,28 @@
             transition: color 0.3s, background-color 0.3s;
             padding: 0.8rem 1.5rem; /* Ajuster les espacements */
             font-weight: bold; /* Rendre le texte un peu en gras */
-            font-size: 18px; /* Augmenter la taille de la police */
         }
 
         .navbar-nav .nav-link:hover {
             color: #fff;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.2); /* Couleur de fond plus sombre au survol */
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 20px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
+            padding-top: 50px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             background-color: #f8f9fa;
         }
 
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 50%;
+            top: 0%;
             left: 0;
             transform: translateY(-50%);
             z-index: 1000;
             background-color: #343a40;
-            width: 20px; /* Réduire la taille de la barre noire */
+            width: 40px; /* Réduire la taille de la barre noire */
             height: auto;
             overflow: hidden;
             transition: width 0.3s;
@@ -69,7 +68,7 @@
         }
 
         #sidebar:hover {
-            width: 150px; /* Ajuster la largeur de la barre noire au survol */
+            width: 100px; /* Ajuster la largeur de la barre noire au survol */
         }
 
         /* Styles for menu items */
@@ -79,7 +78,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -0.2px; /* Réduire légèrement la marge supérieure */
+            margin-top: 0px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
@@ -92,7 +91,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" style="font-size: 15px;"> <!-- Taille de police pour "KODAMA" -->
                 KODAMA
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
