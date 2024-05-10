@@ -95,7 +95,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction" style="margin-bottom: 10px;">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
