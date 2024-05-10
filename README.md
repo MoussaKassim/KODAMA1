@@ -16,7 +16,7 @@
         .card-title,
         .card-text {
             font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
-            font-size: 16px; /* Augmenter la taille de la police */
+            font-size: 16px;
             line-height: 1.5;
             color: #333333;
         }
@@ -31,13 +31,15 @@
             border-color: #121212;
             border-radius: 0;
             background-color: #121212;
-            padding: 0.5rem 1rem; /* Réduire la taille de la barre noire */
+            padding: 0.3rem 1rem; /* Réduire la taille de la barre noire */
         }
 
         .navbar-nav .nav-link {
             color: white;
             transition: color 0.3s, background-color 0.3s;
-            padding: 1rem 1.5rem; /* Ajuster les espacements */
+            padding: 0.8rem 1.5rem; /* Ajuster les espacements */
+            font-weight: bold; /* Rendre le texte un peu en gras */
+            font-size: 18px; /* Augmenter la taille de la police */
         }
 
         .navbar-nav .nav-link:hover {
@@ -47,7 +49,7 @@
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 70px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
+            padding-top: 40px; /* Ajuster la marge supérieure pour compenser la hauteur de la barre de navigation */
             background-color: #f8f9fa;
         }
 
@@ -59,7 +61,7 @@
             transform: translateY(-50%);
             z-index: 1000;
             background-color: #343a40;
-            width: 70px;
+            width: 30px; /* Réduire la taille de la barre noire */
             height: auto;
             overflow: hidden;
             transition: width 0.3s;
@@ -67,7 +69,7 @@
         }
 
         #sidebar:hover {
-            width: 200px;
+            width: 150px; /* Ajuster la largeur de la barre noire au survol */
         }
 
         /* Styles for menu items */
@@ -77,7 +79,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -0.5px; /* Réduire légèrement la marge supérieure */
+            margin-top: 0.5px; /* Réduire légèrement la marge supérieure */
         }
 
         /* Rest of your existing CSS */
