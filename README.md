@@ -33,7 +33,7 @@
             border-right-color: rgb(18, 18, 18);
             border-bottom-color: rgb(18, 18, 18);
             border-left-color: rgb(18, 18, 18);
-            background-color: black #121212;
+            background-color: #121212; /* Couleur ajustée */
             border-radius: 0;
         }
 
@@ -95,7 +95,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction" style="margin-bottom: 10px;">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Introduction">
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Software Tutorial">
