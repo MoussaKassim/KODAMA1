@@ -23,7 +23,7 @@
             left: 0; /* Ajustement pour couvrir toute la largeur de la page */
             right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
-            background-color: #000000; /* Couleur foncée pour la navbar */
+            background-color: #121212; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
 
@@ -93,7 +93,7 @@
         }
 
         #sidebar ul li:hover {
-            background-color: #00faff; /* Changement de couleur au survol */
+            background-color: #2780e3; /* Changement de couleur au survol */
         }
 
         #sidebar ul li a {
