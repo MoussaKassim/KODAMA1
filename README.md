@@ -72,12 +72,12 @@
             top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
             bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
             left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
-            width: 8.5cm; /* Largeur du carré */
+            width: 6.5cm; /* Largeur du carré */
             height: 7.5cm; /* Hauteur automatique pour s'adapter au contenu */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            padding: 20px; /* Ajoute de l'espacement à l'intérieur du carré */
-            border-radius: 10px; /* Ajoute un arrondi aux coins */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 5px; /* Ajoute de l'espacement à l'intérieur du carré */
+            border-radius: 4px; /* Ajoute un arrondi aux coins */
         }
 
         #sidebar ul {
@@ -104,7 +104,7 @@
 
         /* Main Content Styles */
         .container {
-            /* Retiré la classe container pour permettre le plein écran */
+            margin-left: 1.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
         }
 
         /* Sections Styles */
@@ -114,7 +114,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -1px;
+            margin-top: 0px;
         }
     </style>
 </head>
