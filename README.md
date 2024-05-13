@@ -30,6 +30,7 @@
         .navbar-brand,
         .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
+            margin-left: 20px;
             text-decoration: none; /* Supprime le soulignement */
         }
 
