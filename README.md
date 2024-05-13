@@ -7,7 +7,41 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Font Family and Size */
+        /* Ajouts CSS */
+        .navbar-default {
+            background-color: #222222;
+            border-color: #121212;
+        }
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+        @media (min-width: 768px) {
+            .navbar-fixed-top, .navbar-fixed-bottom {
+                border-radius: 0;
+            }
+        }
+        .navbar-fixed-top, .navbar-fixed-bottom {
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+        }
+        .navbar.navbar-default.navbar-fixed-top {
+        }
+        @media (min-width: 768px) {
+            .navbar {
+                border-radius: 0;
+            }
+        }
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 21px;
+            border: 1px solid transparent;
+        }
+
+        /* Ancien CSS */
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
@@ -15,7 +49,6 @@
             color: #333;
         }
 
-        /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -55,13 +88,11 @@
             background-color: rgba(0, 0, 0, 0.2);
         }
 
-        /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 60px;
             background-color: #f8f9fa;
         }
 
-        /* Sidebar Styles */
         #sidebar {
             position: fixed;
             top: 0%;
@@ -80,16 +111,13 @@
             width: 80px;
         }
 
-        /* Styles for menu items */
         .nav-item {
             margin-bottom: 0;
         }
 
-        /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
             margin-top: -1px;
         }
-
     </style>
 </head>
 <body>
