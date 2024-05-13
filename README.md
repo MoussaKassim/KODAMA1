@@ -30,8 +30,6 @@
         .navbar-brand,
         .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
-                margin-left: 2cm;
-    margin-right: 20px; /* Ajouter une marge à droite pour le titre et le menu */
             text-decoration: none; /* Supprime le soulignement */
         }
 
