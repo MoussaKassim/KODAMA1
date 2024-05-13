@@ -71,7 +71,7 @@
             position: fixed;
             top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
             bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-            left: 4cm; /* Place le carré à 2 cm du bord gauche */
+            left: 6.5cm; /* Place le carré à 2 cm du bord gauche */
             width: 7.5cm; /* Largeur du carré */
             height: 6.5cm; /* Hauteur automatique pour s'adapter au contenu */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
