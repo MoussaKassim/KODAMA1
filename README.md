@@ -30,7 +30,7 @@
         .navbar-brand,
         .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
-            margin-left: 60px;
+            
             text-decoration: none; /* Supprime le soulignement */
         }
 
@@ -46,7 +46,7 @@
         .navbar-nav {
             display: flex; /* Affiche les éléments du menu en ligne */
             align-items: center; /* Centre les éléments du menu verticalement */
-            margin-left: 20px; /* Ajuste la marge gauche pour correspondre à la marque */
+            margin-left: 40px; /* Ajuste la marge gauche pour correspondre à la marque */
         }
 
         .navbar-nav .nav-link {
