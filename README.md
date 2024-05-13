@@ -21,7 +21,7 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 500;
+            z-index: 100;
             background-color: #080808; /* Couleur foncée pour la navbar */
             padding: 0px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
