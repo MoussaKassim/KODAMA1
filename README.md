@@ -94,7 +94,8 @@
 
         #sidebar ul li:hover {
             background-color: #2780e3; /* Changement de couleur au survol */
-        }
+    border-color: #dddddd; /* Couleur de la bordure */
+}
 
         #sidebar ul li a {
             color: #000000; /* Couleur du texte */
