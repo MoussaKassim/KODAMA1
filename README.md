@@ -20,7 +20,7 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: cm; /* Ajustement pour couvrir toute la largeur de la page */
+            left: 7.5cm; /* Ajustement pour couvrir toute la largeur de la page */
             right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
             background-color: #121212; /* Couleur foncée pour la navbar */
@@ -35,7 +35,7 @@
 
         .navbar-brand {
             font-size: 20px; /* Augmente la taille du texte de la marque */
-            margin-right: 10px; /* Ajoute un espace entre la marque et les éléments du menu */
+            margin-right: 5px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
         .navbar-brand:hover {
@@ -45,7 +45,7 @@
         .navbar-nav {
             display: flex; /* Affiche les éléments du menu en ligne */
             align-items: center; /* Centre les éléments du menu verticalement */
-            margin-left: 40px; /* Ajuste la marge gauche pour correspondre à la marque */
+            margin-left: 20px; /* Ajuste la marge gauche pour correspondre à la marque */
         }
 
         .navbar-nav .nav-link {
