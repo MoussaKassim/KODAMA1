@@ -1,5 +1,6 @@
-
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,8 @@
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
 
-        .navbar-brand, .navbar-nav .nav-link {
+        .navbar-brand,
+        .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
         }
@@ -65,18 +67,17 @@
 
         /* Sidebar Styles */
         #sidebar {
-    position: fixed;
-    top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
-    bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-    left: 4cm; /* Place le carré à 2 cm du bord gauche */
-    width: 7.5cm; /* Largeur du carré */
-    height: 6.5cm; /* Hauteur automatique pour s'adapter au contenu */
-    overflow-y: auto; /* Activation du défilement vertical si nécessaire */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px; /* Ajoute de l'espacement à l'intérieur du carré */
-    border-radius: 10px; /* Ajoute un arrondi aux coins */
-}
-
+            position: fixed;
+            top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
+            bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
+            left: 4cm; /* Place le carré à 2 cm du bord gauche */
+            width: 7.5cm; /* Largeur du carré */
+            height: 6.5cm; /* Hauteur automatique pour s'adapter au contenu */
+            overflow-y: auto; /* Activation du défilement vertical si nécessaire */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px; /* Ajoute de l'espacement à l'intérieur du carré */
+            border-radius: 10px; /* Ajoute un arrondi aux coins */
+        }
 
         #sidebar ul {
             list-style: none; /* Supprime les puces des listes */
@@ -116,6 +117,7 @@
 
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -133,14 +135,27 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a>
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#installation">Installation</a>
+                        <a class="nav-link" href="#simulation">Simulation</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#applications">Applications</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                cell RNA seq data</a>
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                Transcriptomic data</a>
+                        </div>
                     </li>
+                </ul>
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
                             <span class="fab fa-github"></span>
@@ -151,36 +166,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <ul>
-            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
-                <a href="#introduction">
-                    <i class="fas fa-book-open"></i>
-                    <span>Introduction</span>
-                </a>
-            </li>
-            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
-                <a href="#news">
-                    <i class="fas fa-newspaper"></i>
-                    <span>News</span>
-                </a>
-            </li>
-            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
-                <a href="#installation">
-                    <i class="fas fa-tools"></i>
-                    <span>Installation</span>
-                </a>
-            </li>
-            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
-                <a href="#applications">
-                    <i class="fas fa-tasks"></i>
-                    <span>Applications</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 
     <!-- Main Content -->
     <div class="container">
