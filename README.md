@@ -34,7 +34,7 @@
         }
 
         .navbar-brand {
-            font-size: 10px; /* Augmente la taille du texte de la marque */
+            font-size: 20px; /* Augmente la taille du texte de la marque */
             margin-right: 10px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
@@ -45,11 +45,11 @@
         .navbar-nav {
             display: flex; /* Affiche les éléments du menu en ligne */
             align-items: center; /* Centre les éléments du menu verticalement */
-            margin-left: 10px; /* Ajuste la marge gauche pour correspondre à la marque */
+            margin-left: 20px; /* Ajuste la marge gauche pour correspondre à la marque */
         }
 
         .navbar-nav .nav-link {
-            margin-right: 10px; /* Ajoute un espacement entre les éléments du menu */
+            margin-right: 20px; /* Ajoute un espacement entre les éléments du menu */
             transition: color 0.3s; /* Animation de transition de la couleur au survol */
         }
 
@@ -71,7 +71,7 @@
             position: fixed;
             top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
             bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-            left: 9.5cm; /* Place le carré à 2 cm du bord gauche */
+            left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
             width: 7.5cm; /* Largeur du carré */
             height: 6.5cm; /* Hauteur automatique pour s'adapter au contenu */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
