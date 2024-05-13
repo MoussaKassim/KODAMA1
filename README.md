@@ -70,7 +70,7 @@
             position: fixed;
             top: 2.5cm;
             bottom: 7cm;
-            left: 8.5cm;
+            left: 10.5cm;
             width: 5.5cm;
             height: 4.5cm;
             overflow-y: auto;
