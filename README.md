@@ -20,12 +20,12 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 7.5cm; /* Marge fixe à gauche */
+            left: 0cm; /* Marge fixe à gauche */
             right: 0;
             z-index: 500;
             background-color: #121212;
             padding: 0;
-            width: calc(100% - 7.5cm); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
+            width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
 
         .container {
