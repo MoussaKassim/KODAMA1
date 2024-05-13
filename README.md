@@ -65,19 +65,18 @@
 
         /* Sidebar Styles */
         #sidebar {
-            position: fixed;
-            top: 50%; /* Centrer verticalement */
-            left: 2cm; /* Place le menu latéral à 2 cm du bord gauche */
-            transform: translateY(-50%); /* Décalage vertical de -50% pour centrer verticalement */
-            z-index: 1000;
-            background-color: #ffffff; /* Couleur de fond pour la sidebar */
-            width: 7.5cm; /* Largeur du menu latéral */
-            height: 6cm; /* Hauteur du menu latéral */
-            overflow-y: auto; /* Activation du défilement vertical si nécessaire */
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            padding: 20px; /* Ajoute de l'espacement à l'intérieur du menu latéral */
-            border-radius: 10px; /* Ajoute un arrondi aux coins */
-        }
+    position: fixed;
+    top: 1cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
+    bottom: 4cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
+    left: 2cm; /* Place le carré à 2 cm du bord gauche */
+    width: 7.5cm; /* Largeur du carré */
+    height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    overflow-y: auto; /* Activation du défilement vertical si nécessaire */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Ajoute de l'espacement à l'intérieur du carré */
+    border-radius: 10px; /* Ajoute un arrondi aux coins */
+}
+
 
         #sidebar ul {
             list-style: none; /* Supprime les puces des listes */
