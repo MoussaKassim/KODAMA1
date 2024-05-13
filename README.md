@@ -21,7 +21,7 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: 7cm;
             right: 0;
             z-index: 500;
             background-color: #000000; /* Couleur foncée pour la navbar */
