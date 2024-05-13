@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             color: #ffffff;
         }
 
@@ -34,7 +34,7 @@
 
         .navbar-brand,
         .navbar-nav .nav-link {
-            padding: 14.5px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
+            padding: 0.1px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
             text-decoration: none;
             display: inline-block; /* Affichage en ligne pour tous les éléments */
         }
