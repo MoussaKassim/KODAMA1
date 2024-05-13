@@ -135,27 +135,14 @@
                         <a class="nav-link" href="#introduction">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                        <a class="nav-link" href="#news">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#simulation">Simulation</a>
+                        <a class="nav-link" href="#installation">Installation</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Data Analyses
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
-                                data</a>
-                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
-                                cell RNA seq data</a>
-                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
-                                Transcriptomic data</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#applications">Applications</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
                             <span class="fab fa-github"></span>
@@ -166,6 +153,36 @@
             </div>
         </div>
     </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <ul>
+            <li id="introLink" data-toggle="tooltip" data-placement="right" title="Introduction">
+                <a href="#introduction">
+                    <i class="fas fa-book-open"></i>
+                    <span>Introduction</span>
+                </a>
+            </li>
+            <li id="newsLink" data-toggle="tooltip" data-placement="right" title="News">
+                <a href="#news">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+            </li>
+            <li id="installationLink" data-toggle="tooltip" data-placement="right" title="Installation">
+                <a href="#installation">
+                    <i class="fas fa-tools"></i>
+                    <span>Installation</span>
+                </a>
+            </li>
+            <li id="applicationsLink" data-toggle="tooltip" data-placement="right" title="Applications">
+                <a href="#applications">
+                    <i class="fas fa-tasks"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <div class="container">
@@ -261,4 +278,5 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
+
 </html>
