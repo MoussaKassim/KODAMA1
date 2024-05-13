@@ -1,4 +1,4 @@
-KODAMA
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@ KODAMA
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
+            z-index: 500;
             background-color: #000000; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
@@ -102,7 +102,7 @@ KODAMA
 
         /* Main Content Styles */
         .container {
-            margin-left: 4.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            margin-left: 1.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
         }
 
         /* Sections Styles */
