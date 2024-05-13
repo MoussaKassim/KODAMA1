@@ -1,4 +1,4 @@
-<KODAMA >
+<kodama >
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18x; /* Taille de police par défaut */
+            font-size: 24px; /* Taille de police par défaut */
             color: #ffffff; /* Couleur du texte */
         }
 
@@ -20,9 +20,9 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 7cm; /* Nouvelle position de la navbar */
+            left: 2cm; /* Nouvelle position de la navbar */
             right: 0;
-            z-index: 1000;
+            z-index: 500;
             background-color: #000000; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
@@ -45,6 +45,7 @@
         .navbar-nav {
             display: flex; /* Affiche les éléments du menu en ligne */
             align-items: center; /* Centre les éléments du menu verticalement */
+            margin-left: 20px; /* Ajuste la marge gauche pour correspondre à la marque */
         }
 
         .navbar-nav .nav-link {
@@ -120,7 +121,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar"> <!-- Ajout de la classe custom-navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Retiré la classe custom-navbar -->
         <div class="container">
             <a class="navbar-brand" href="#">KODAMA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
