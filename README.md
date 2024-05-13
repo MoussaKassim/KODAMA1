@@ -1,4 +1,4 @@
-<kodama >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,8 +20,8 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 2cm; /* Nouvelle position de la navbar */
-            right: 0;
+            left: 0; /* Ajustement pour couvrir toute la largeur de la page */
+            right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
             background-color: #000000; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
@@ -103,7 +103,7 @@
 
         /* Main Content Styles */
         .container {
-            margin-left: 1.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            /* Retiré la classe container pour permettre le plein écran */
         }
 
         /* Sections Styles */
@@ -198,7 +198,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="container">
+    <div>
         <!-- Introduction Section -->
         <section id="introduction" class="data-section">
             <div class="container">
