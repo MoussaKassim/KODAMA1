@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA >
 <html lang="en">
 
 <head>
@@ -10,10 +10,9 @@
     <style>
         /* Font Family and Size */
         body,
-        .navbar-nav .nav-link,
-        .navbar-brand {
+        .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18px; /* Taille de police par défaut */
+            font-size: 20px; /* Taille de police par défaut */
             color: #ffffff; /* Couleur du texte */
         }
 
@@ -21,8 +20,8 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 7cm;
-            right: 0;
+            left: 0; /* Ajustement pour couvrir toute la largeur de la page */
+            right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
             background-color: #000000; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
@@ -32,13 +31,11 @@
         .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
-            margin-right: 20px; /* Ajoute un espace entre les éléments */
         }
 
         .navbar-brand {
-            font-weight: bold; /* Rend le texte en gras */
-            font-size: 24px; /* Taille de police du titre KODAMA */
-            margin-right: 0; /* Supprime la marge à droite pour aligner le menu à côté */
+            font-size: 20px; /* Augmente la taille du texte de la marque */
+            margin-right: 20px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
         .navbar-brand:hover {
@@ -48,10 +45,11 @@
         .navbar-nav {
             display: flex; /* Affiche les éléments du menu en ligne */
             align-items: center; /* Centre les éléments du menu verticalement */
-            margin-left: auto; /* Aligne le menu à droite */
+            margin-left: 20px; /* Ajuste la marge gauche pour correspondre à la marque */
         }
 
         .navbar-nav .nav-link {
+            margin-right: 20px; /* Ajoute un espacement entre les éléments du menu */
             transition: color 0.3s; /* Animation de transition de la couleur au survol */
         }
 
@@ -89,7 +87,7 @@
         }
 
         #sidebar ul li {
-            padding: 10px; /* Espacement entre les éléments de la liste */
+            padding: 20px; /* Espacement entre les éléments de la liste */
             transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
             cursor: pointer; /* Change le curseur au survol */
         }
@@ -124,41 +122,48 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Retiré la classe custom-navbar -->
-        <a class="navbar-brand" href="#">KODAMA</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#introduction">Introduction</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#simulation">Simulation</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Data Analyses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
-                            data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
-                            cell RNA seq data</a>
-                        <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
-                            Transcriptomic data</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
-                        <span class="fab fa-github"></span>
-                        Source code
-                    </a>
-                </li>
-            </ul>
+        <div class="container">
+            <a class="navbar-brand" href="#">KODAMA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#software-tutorial">Software Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#simulation">Simulation</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                                data</a>
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                cell RNA seq data</a>
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                Transcriptomic data</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/tkcaccia/KODAMA">
+                            <span class="fab fa-github"></span>
+                            Source code
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
