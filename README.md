@@ -12,7 +12,7 @@
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
             font-size: 18px; /* Taille de police par défaut */
-            color: #333;
+            color: #ffffff; /* Couleur du texte */
         }
 
         /* Navbar Styles */
@@ -29,7 +29,6 @@
         .navbar-brand, .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
-            color: #ffffff; /* Couleur du texte */
         }
 
         .navbar-brand {
@@ -67,15 +66,17 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 2cm; /* Place le menu latéral à 2 cm du haut */
+            top: 50%; /* Centrer verticalement */
             left: 2cm; /* Place le menu latéral à 2 cm du bord gauche */
+            transform: translateY(-50%); /* Décalage vertical de -50% pour centrer verticalement */
             z-index: 1000;
-            background-color: #ffffff; /* Couleur foncée pour la sidebar */
-            width: 7cm; /* Largeur du menu latéral */
-            height: calc(100vh - 2cm); /* Hauteur du menu latéral, ajustée en fonction de la hauteur de la fenêtre */
+            background-color: #ffffff; /* Couleur de fond pour la sidebar */
+            width: 7.5cm; /* Largeur du menu latéral */
+            height: 7.5cm; /* Hauteur du menu latéral */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
             padding: 20px; /* Ajoute de l'espacement à l'intérieur du menu latéral */
+            border-radius: 10px; /* Ajoute un arrondi aux coins */
         }
 
         #sidebar ul {
@@ -91,7 +92,7 @@
         }
 
         #sidebar ul li:hover {
-            background-color: #007bff; /* Changement de couleur au survol */
+            background-color: #000000; /* Changement de couleur au survol */
         }
 
         #sidebar ul li a {
@@ -101,7 +102,7 @@
 
         /* Main Content Styles */
         .container {
-            margin-left: 4cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            margin-left: 7.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
         }
 
         /* Sections Styles */
@@ -282,7 +283,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         const sidebarItems = document.querySelectorAll('#sidebar ul li');
         sidebarItems.forEach(item => {
             item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = '#007bff'; /* Changement de couleur au survol */
+                this.style.backgroundColor = '#000000'; /* Changement de couleur au survol */
                 this.style.transform = 'translateX(10px)';
             });
             item.addEventListener('mouseout', function () {
