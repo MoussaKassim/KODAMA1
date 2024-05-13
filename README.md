@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+KODAMA
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
         }
 
         .navbar-brand, .navbar-nav .nav-link {
-            padding: 0.5rem 1rem; /* Ajuste les espacements */
+            padding: 0.1rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
         }
 
@@ -102,7 +102,7 @@
 
         /* Main Content Styles */
         .container {
-            margin-left: 7.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            margin-left: 4.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
         }
 
         /* Sections Styles */
