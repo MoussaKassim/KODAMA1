@@ -1,4 +1,4 @@
-<kodama>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,57 +12,54 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18px; /* Taille de police par défaut */
-            color: #ffffff; /* Couleur du texte */
+            font-size: 18px;
+            color: #ffffff;
         }
 
         /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
-            left: 0cm; /* Ajustement pour couvrir toute la largeur de la page */
-            right: 0; /* Ajustement pour couvrir toute la largeur de la page */
+            left: 7.5cm; /* Marge fixe à gauche */
+            right: 0;
             z-index: 500;
-            background-color: #121212; /* Couleur foncée pour la navbar */
-            padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
+            background-color: #121212;
+            padding: 0;
+            width: calc(100% - 7.5cm); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
-.container {
+
+        .container {
             padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
+
         .navbar-brand,
         .navbar-nav .nav-link {
-            padding: 0.1rem 1rem; /* Ajuste les espacements */
-            text-decoration: none; /* Supprime le soulignement */
+            padding: 14.5px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
+            text-decoration: none;
+            display: inline-block; /* Affichage en ligne pour tous les éléments */
         }
 
         .navbar-brand {
-            font-size: 20px; /* Augmente la taille du texte de la marque */
-            margin-right: 5px; /* Ajoute un espace entre la marque et les éléments du menu */
+            font-size: 20px;
+            margin-right: 5px;
+            position: relative;
+            display: block;
         }
 
-        .navbar-brand:hover {
-            text-decoration: none; /* Supprime le soulignement au survol */
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover {
+            text-decoration: none;
         }
 
         .navbar-nav {
-            display: flex; /* Affiche les éléments du menu en ligne */
-            align-items: center; /* Centre les éléments du menu verticalement */
-            margin-left: 05px; /* Ajuste la marge gauche pour correspondre à la marque */
-        }
-
-        .navbar-nav .nav-link {
-            margin-right: 20px; /* Ajoute un espacement entre les éléments du menu */
-            transition: color 0.3s; /* Animation de transition de la couleur au survol */
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #000000; /* Changement de couleur au survol */
-            text-decoration: none; /* Supprime le soulignement au survol */
+            display: flex;
+            align-items: center;
+            margin-left: 05px;
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 50px; /* Augmente la marge supérieure pour compenser la hauteur de la navbar */
+            padding-top: 50px;
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
@@ -71,52 +68,52 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
-            bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-            left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
-            width: 6cm; /* Largeur du carré */
-            height: 5.5cm; /* Hauteur automatique pour s'adapter au contenu */
-            overflow-y: auto; /* Activation du défilement vertical si nécessaire */
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
-            padding: 5px; /* Ajoute de l'espacement à l'intérieur du carré */
-            border-radius: 5px; /* Coins plus arrondis */
-            border: 1px solid #dddddd; /* Bordure plus épaisse */
+            top: 2.5cm;
+            bottom: 2cm;
+            left: 4.5cm;
+            width: 6cm;
+            height: 5.5cm;
+            overflow-y: auto;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #dddddd;
         }
 
         #sidebar ul {
-            list-style: none; /* Supprime les puces des listes */
+            list-style: none;
             padding: 0;
             margin: 0;
         }
 
         #sidebar ul li {
-            padding: 10px; /* Espacement entre les éléments de la liste */
-            transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
-            cursor: pointer; /* Change le curseur au survol */
+            padding: 10px;
+            transition: background-color 0.3s;
+            cursor: pointer;
         }
 
         #sidebar ul li:hover {
-            background-color: #2780e3; /* Changement de couleur au survol */
+            background-color: #2780e3;
         }
 
         #sidebar ul li a {
-            color: #000000; /* Couleur du texte */
-            text-decoration: none; /* Supprime le soulignement */
-            font-size: 20px; /* Taille du texte ajustée */
+            color: #000000;
+            text-decoration: none;
+            font-size: 20px;
         }
 
         #sidebar ul li a i {
-            font-size: 10px; /* Taille des icônes ajustée */
+            font-size: 10px;
         }
 
         /* Main Content Styles */
         .container {
-            margin-left: 1.5cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            margin-left: 1.5cm;
         }
 
         /* Sections Styles */
         .data-section {
-            margin-bottom: 30px; /* Ajoute un espacement entre les sections */
+            margin-bottom: 30px;
         }
 
         /* Adjusting margin for Introduction */
@@ -128,7 +125,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Retiré la classe custom-navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">KODAMA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
