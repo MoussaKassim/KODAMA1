@@ -1,4 +1,4 @@
-<KODAMA >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -65,31 +65,21 @@
             color: #333;
             margin: 0;
         }
-#sidebar {
-    position: fixed;
-    top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
-    bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-    left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
-    width: 6.5cm; /* Largeur du carré */
-    height: 3.5cm; /* Hauteur automatique pour s'adapter au contenu */
-    overflow-y: auto; /* Activation du défilement vertical si nécessaire */
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
-    padding: 10px; /* Ajoute de l'espacement à l'intérieur du carré */
-    border-radius: 10px; /* Coins plus arrondis */
-    border: 2px solid #dddddd; /* Bordure plus épaisse */
-}
 
-#sidebar ul li {
-    padding: 10px; /* Espacement entre les éléments de la liste */
-}
-
-#sidebar ul li a {
-    font-size: 16px; /* Taille du texte ajustée */
-}
-
-#sidebar ul li a i {
-    font-size: 20px; /* Taille des icônes ajustée */
-}
+        /* Sidebar Styles */
+        #sidebar {
+            position: fixed;
+            top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
+            bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
+            left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
+            width: 6.5cm; /* Largeur du carré */
+            height: 3.5cm; /* Hauteur automatique pour s'adapter au contenu */
+            overflow-y: auto; /* Activation du défilement vertical si nécessaire */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
+            padding: 10px; /* Ajoute de l'espacement à l'intérieur du carré */
+            border-radius: 10px; /* Coins plus arrondis */
+            border: 2px solid #dddddd; /* Bordure plus épaisse */
+        }
 
         #sidebar ul {
             list-style: none; /* Supprime les puces des listes */
@@ -98,19 +88,23 @@
         }
 
         #sidebar ul li {
-            padding: 5px; /* Espacement entre les éléments de la liste */
+            padding: 10px; /* Espacement entre les éléments de la liste */
             transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
             cursor: pointer; /* Change le curseur au survol */
         }
 
         #sidebar ul li:hover {
             background-color: #2780e3; /* Changement de couleur au survol */
-    border-color: #dddddd; /* Couleur de la bordure */
-}
+        }
 
         #sidebar ul li a {
             color: #000000; /* Couleur du texte */
             text-decoration: none; /* Supprime le soulignement */
+            font-size: 16px; /* Taille du texte ajustée */
+        }
+
+        #sidebar ul li a i {
+            font-size: 20px; /* Taille des icônes ajustée */
         }
 
         /* Main Content Styles */
@@ -131,7 +125,6 @@
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Retiré la classe custom-navbar -->
         <div class="container">
