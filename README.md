@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama>
 <html lang="en">
 
 <head>
@@ -104,7 +104,7 @@
         }
 
         #sidebar ul li a i {
-            font-size: 20px; /* Taille des icônes ajustée */
+            font-size: 10px; /* Taille des icônes ajustée */
         }
 
         /* Main Content Styles */
@@ -119,7 +119,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: 0px;
+            margin-top: -1px;
         }
     </style>
 </head>
