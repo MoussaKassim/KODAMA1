@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,25 +66,39 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 0%;
+            top: 0;
             left: 0;
-            transform: translateY(-50%);
+            bottom: 0; /* Ajuste la position verticale pour s'étendre du haut au bas */
             z-index: 1000;
             background-color: #222222; /* Couleur foncée pour la sidebar */
-            width: 20px;
-            height: auto;
-            overflow: hidden;
-            transition: width 0.3s;
+            width: 80px; /* Largeur initiale */
+            overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
         #sidebar:hover {
-            width: 80px;
+            width: 200px; /* Largeur augmentée au survol */
         }
 
         /* Styles for menu items */
-        .nav-item {
-            margin-bottom: 0;
+        #sidebar ul {
+            list-style: none; /* Supprime les puces des listes */
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar ul li {
+            padding: 10px; /* Espacement entre les éléments de la liste */
+            transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
+        }
+
+        #sidebar ul li:hover {
+            background-color: #444444; /* Couleur de fond au survol */
+        }
+
+        #sidebar ul li a {
+            color: #ffffff; /* Couleur du texte */
+            text-decoration: none; /* Supprime le soulignement */
         }
 
         /* Adjusting margin for Introduction */
