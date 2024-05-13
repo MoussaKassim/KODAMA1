@@ -76,15 +76,15 @@
             height: 5cm; /* Hauteur automatique pour s'adapter au contenu */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
-            padding: 10px; /* Ajoute de l'espacement à l'intérieur du carré */
+            padding: 5px; /* Ajoute de l'espacement à l'intérieur du carré */
             border-radius: 10px; /* Coins plus arrondis */
-            border: 2px solid #dddddd; /* Bordure plus épaisse */
+            border: 1px solid #dddddd; /* Bordure plus épaisse */
         }
 
         #sidebar ul {
             list-style: none; /* Supprime les puces des listes */
-            padding: 0;
-            margin: 0;
+            padding: 1;
+            margin: 1;
         }
 
         #sidebar ul li {
