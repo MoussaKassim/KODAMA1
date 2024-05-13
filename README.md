@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,8 +70,8 @@
             top: 2cm; /* Place le menu latéral à 2 cm du haut */
             left: 2cm; /* Place le menu latéral à 2 cm du bord gauche */
             z-index: 1000;
-            background-color: #000000; /* Couleur foncée pour la sidebar */
-            width: 6cm; /* Largeur du menu latéral */
+            background-color: #ffffff; /* Couleur foncée pour la sidebar */
+            width: 7cm; /* Largeur du menu latéral */
             height: calc(100vh - 2cm); /* Hauteur du menu latéral, ajustée en fonction de la hauteur de la fenêtre */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
@@ -95,13 +95,13 @@
         }
 
         #sidebar ul li a {
-            color: #ffffff; /* Couleur du texte */
+            color: #000000; /* Couleur du texte */
             text-decoration: none; /* Supprime le soulignement */
         }
 
         /* Main Content Styles */
         .container {
-            margin-left: 10cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            margin-left: 4cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
         }
 
         /* Sections Styles */
@@ -278,17 +278,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Custom Script -->
     <script>
-        // Navbar animations
-        document.querySelector('.navbar-brand').addEventListener('mouseover', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 0.5)';
-        });
-
-        document.querySelector('.navbar-brand').addEventListener('mouseout', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-
         // Sidebar animations
         const sidebarItems = document.querySelectorAll('#sidebar ul li');
         sidebarItems.forEach(item => {
@@ -297,7 +286,7 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
                 this.style.transform = 'translateX(10px)';
             });
             item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '#000000'; /* Retour à la couleur de fond initiale */
+                this.style.backgroundColor = '#ffffff'; /* Retour à la couleur de fond initiale */
                 this.style.transform = 'translateX(0)';
             });
         });
