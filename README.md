@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18px; /* Taille de police par défaut */
+            font-size: 18x; /* Taille de police par défaut */
             color: #ffffff; /* Couleur du texte */
         }
 
@@ -21,13 +21,13 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background-color: #080808; /* Couleur foncée pour la navbar */
-            padding: 0px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
+            z-index: 1000;
+            background-color: #000000; /* Couleur foncée pour la navbar */
+            padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
 
         .navbar-brand, .navbar-nav .nav-link {
-            padding: 0.1rem 3rem; /* Ajuste les espacements */
+            padding: 0.5rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
         }
 
@@ -51,13 +51,13 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #c8c8c8; /* Changement de couleur au survol */
+            color: #000000; /* Changement de couleur au survol */
             text-decoration: none; /* Supprime le soulignement au survol */
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 70px; /* Augmente la marge supérieure pour compenser la hauteur de la navbar */
+            padding-top: 50px; /* Augmente la marge supérieure pour compenser la hauteur de la navbar */
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
@@ -72,7 +72,7 @@
             z-index: 1000;
             background-color: #ffffff; /* Couleur de fond pour la sidebar */
             width: 7.5cm; /* Largeur du menu latéral */
-            height: 7.5cm; /* Hauteur du menu latéral */
+            height: 6cm; /* Hauteur du menu latéral */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
             padding: 20px; /* Ajoute de l'espacement à l'intérieur du menu latéral */
@@ -92,7 +92,7 @@
         }
 
         #sidebar ul li:hover {
-            background-color: #000000; /* Changement de couleur au survol */
+            background-color: #00faff; /* Changement de couleur au survol */
         }
 
         #sidebar ul li a {
@@ -276,21 +276,5 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- Custom Script -->
-    <script>
-        // Sidebar animations
-        const sidebarItems = document.querySelectorAll('#sidebar ul li');
-        sidebarItems.forEach(item => {
-            item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = '#000000'; /* Changement de couleur au survol */
-                this.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '#ffffff'; /* Retour à la couleur de fond initiale */
-                this.style.transform = 'translateX(0)';
-            });
-        });
-    </script>
 </body>
 </html>
