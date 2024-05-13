@@ -11,7 +11,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 16px; /* Taille de police par défaut */
+            font-size: 18px; /* Taille de police par défaut */
             color: #333;
         }
 
@@ -21,13 +21,13 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
+            z-index: 500;
             background-color: #080808; /* Couleur foncée pour la navbar */
-            padding: 10px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
+            padding: 0px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
 
         .navbar-brand, .navbar-nav .nav-link {
-            padding: 0.5rem 1rem; /* Ajuste les espacements */
+            padding: 0.1rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
             color: #ffffff; /* Couleur du texte */
         }
