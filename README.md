@@ -13,7 +13,7 @@
         .navbar-nav .nav-link,
         .navbar-brand {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 24px; /* Taille de police par défaut */
+            font-size: 18px; /* Taille de police par défaut */
             color: #ffffff; /* Couleur du texte */
         }
 
