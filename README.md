@@ -108,7 +108,7 @@
 
         /* Main Content Styles */
         .container {
-            margin-left: 1cm;
+            margin-left: 0.5cm;
         }
 
         /* Sections Styles */
