@@ -34,7 +34,7 @@
         }
 
         .navbar-brand {
-            font-size: 24px; /* Augmente la taille du texte de la marque */
+            font-size: 20px; /* Augmente la taille du texte de la marque */
             margin-right: 20px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
@@ -49,7 +49,7 @@
         }
 
         .navbar-nav .nav-link {
-            margin-right: 10px; /* Ajoute un espacement entre les éléments du menu */
+            margin-right: 20px; /* Ajoute un espacement entre les éléments du menu */
             transition: color 0.3s; /* Animation de transition de la couleur au survol */
         }
 
@@ -87,7 +87,7 @@
         }
 
         #sidebar ul li {
-            padding: 10px; /* Espacement entre les éléments de la liste */
+            padding: 20px; /* Espacement entre les éléments de la liste */
             transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
             cursor: pointer; /* Change le curseur au survol */
         }
