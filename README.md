@@ -110,10 +110,7 @@
             margin-bottom: 30px; /* Ajoute un espacement entre les sections */
         }
 
-        /* Adjusting margin for Introduction */
-        .navbar-nav .nav-item:first-child {
-            margin-top: -1px;
-        }
+       
 
     </style>
 </head>
