@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 22px; /* Taille de police par défaut */
+            font-size: 18px; /* Taille de police par défaut */
             color: #ffffff; /* Couleur du texte */
         }
 
@@ -72,8 +72,8 @@
             top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
             bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
             left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
-            width: 7.5cm; /* Largeur du carré */
-            height: 6.5cm; /* Hauteur automatique pour s'adapter au contenu */
+            width: 8.5cm; /* Largeur du carré */
+            height: 7.5cm; /* Hauteur automatique pour s'adapter au contenu */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
             padding: 20px; /* Ajoute de l'espacement à l'intérieur du carré */
