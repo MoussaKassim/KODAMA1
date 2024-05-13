@@ -1,4 +1,4 @@
-<Kodama>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
             right: 0;
             z-index: 1000;
             background-color: #080808; /* Couleur foncée pour la navbar */
-            padding: 00px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
+            padding: 10px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
 
         .navbar-brand, .navbar-nav .nav-link {
@@ -67,15 +67,15 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 4cm; /* Place le menu latéral à 4 cm du haut */
-            left: 50%; /* Centre le menu latéral horizontalement */
-            transform: translateX(-50%); /* Recentre le menu latéral */
+            top: 2cm; /* Place le menu latéral à 2 cm du haut */
+            left: 2cm; /* Place le menu latéral à 2 cm du bord gauche */
             z-index: 1000;
             background-color: #000000; /* Couleur foncée pour la sidebar */
             width: 6cm; /* Largeur du menu latéral */
-            height: 4.5cm; /* Hauteur du menu latéral */
+            height: calc(100vh - 2cm); /* Hauteur du menu latéral, ajustée en fonction de la hauteur de la fenêtre */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px; /* Ajoute de l'espacement à l'intérieur du menu latéral */
         }
 
         #sidebar ul {
@@ -87,10 +87,11 @@
         #sidebar ul li {
             padding: 10px; /* Espacement entre les éléments de la liste */
             transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
+            cursor: pointer; /* Change le curseur au survol */
         }
 
         #sidebar ul li:hover {
-            background-color: #444444; /* Changement de couleur au survol */
+            background-color: #007bff; /* Changement de couleur au survol */
         }
 
         #sidebar ul li a {
@@ -100,7 +101,7 @@
 
         /* Main Content Styles */
         .container {
-            margin-left: 8cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
+            margin-left: 10cm; /* Ajoute un espacement à gauche pour éviter le chevauchement avec le menu latéral */
         }
 
         /* Sections Styles */
@@ -292,11 +293,11 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
         const sidebarItems = document.querySelectorAll('#sidebar ul li');
         sidebarItems.forEach(item => {
             item.addEventListener('mouseover', function () {
-                this.style.backgroundColor = 'rgba(173, 181, 189, 0.5)';
+                this.style.backgroundColor = '#007bff'; /* Changement de couleur au survol */
                 this.style.transform = 'translateX(10px)';
             });
             item.addEventListener('mouseout', function () {
-                this.style.backgroundColor = '';
+                this.style.backgroundColor = '#000000'; /* Retour à la couleur de fond initiale */
                 this.style.transform = 'translateX(0)';
             });
         });
