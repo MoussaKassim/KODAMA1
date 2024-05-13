@@ -69,8 +69,8 @@
         #sidebar {
             position: fixed;
             top: 2.5cm;
-            bottom: 2cm;
-            left: 4.5cm;
+            bottom: 7cm;
+            left: 8.5cm;
             width: 6cm;
             height: 5.5cm;
             overflow-y: auto;
@@ -99,7 +99,7 @@
         #sidebar ul li a {
             color: #000000;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 10px;
         }
 
         #sidebar ul li a i {
