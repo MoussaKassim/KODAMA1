@@ -27,7 +27,7 @@
         }
 
         .navbar-brand, .navbar-nav .nav-link {
-            padding: 0.1rem 1rem; /* Ajuste les espacements */
+            padding: 0.1rem 3rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
         }
 
