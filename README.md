@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,7 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: 7cm; /* Nouvelle position de la navbar */
             right: 0;
             z-index: 500;
             background-color: #000000; /* Couleur foncée pour la navbar */
@@ -110,15 +110,17 @@
             margin-bottom: 30px; /* Ajoute un espacement entre les sections */
         }
 
-       
-
+        /* Adjusting margin for Introduction */
+        .navbar-nav .nav-item:first-child {
+            margin-top: -1px;
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar"> <!-- Ajout de la classe custom-navbar -->
         <div class="container">
             <a class="navbar-brand" href="#">KODAMA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
