@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA >
 <html lang="en">
 
 <head>
@@ -22,7 +22,7 @@
             top: 0;
             left: 7cm; /* Nouvelle position de la navbar */
             right: 0;
-            z-index: 500;
+            z-index: 1000;
             background-color: #000000; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
