@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<kodama>
 <html lang="en">
 
 <head>
@@ -20,32 +20,15 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 7.5cm; /* Ajustement pour couvrir toute la largeur de la page */
+            left: 0cm; /* Ajustement pour couvrir toute la largeur de la page */
             right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
             background-color: #121212; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
-
-        .navbar-brand {
-            padding-top: 14.5px;
-            padding-bottom: 14.5px;
-            position: relative;
-            display: block;
+.container {
+            padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
-
-        .navbar-nav .nav-item:not(:last-child) {
-            margin-bottom: 10px;
-        }
-
-        .navbar-nav .nav-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .nav-link {
-            padding: 10px 15px;
-        }
-
         .navbar-brand,
         .navbar-nav .nav-link {
             padding: 0.1rem 1rem; /* Ajuste les espacements */
