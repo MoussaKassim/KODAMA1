@@ -71,8 +71,8 @@
             top: 2.5cm;
             bottom: 7cm;
             left: 8.5cm;
-            width: 6cm;
-            height: 5.5cm;
+            width: 5.5cm;
+            height: 4.5cm;
             overflow-y: auto;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             padding: 5px;
@@ -87,7 +87,7 @@
         }
 
         #sidebar ul li {
-            padding: 10px;
+            padding: 5px;
             transition: background-color 0.3s;
             cursor: pointer;
         }
@@ -99,7 +99,7 @@
         #sidebar ul li a {
             color: #000000;
             text-decoration: none;
-            font-size: 10px;
+            font-size: 16px;
         }
 
         #sidebar ul li a i {
