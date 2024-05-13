@@ -20,8 +20,8 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 0; /* Ajustement pour couvrir toute la largeur de la page */
-            right: 7cm; /* Ajustement pour couvrir toute la largeur de la page */
+            left: 7cm; /* Ajustement pour couvrir toute la largeur de la page */
+            right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
             background-color: #121212; /* Couleur foncée pour la navbar */
             padding: 0 px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
