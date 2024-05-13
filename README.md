@@ -11,7 +11,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 15px;
+            font-size: 16px; /* Augmente la taille de la police */
             color: #333;
         }
 
@@ -22,44 +22,45 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background-color: #121212;
-            padding: 5px 0; /* Réduit la hauteur de la barre noire */
+            background-color: #080808; /* Couleur foncée pour la navbar */
+            padding: 10px 0; /* Réduit la hauteur de la barre noire et ajoute un peu de padding */
         }
 
         .navbar-brand, .navbar-nav .nav-link {
             padding: 0.5rem 1rem; /* Ajuste les espacements */
             text-decoration: none; /* Supprime le soulignement */
+            color: #ffffff; /* Couleur du texte */
         }
 
-        .navbar-brand, .navbar-nav {
-            display: flex;
-            align-items: center;
+        .navbar-brand {
+            font-size: 24px; /* Augmente la taille du texte de la marque */
+            margin-right: 20px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
-        .navbar-collapse {
-            justify-content: flex-end;
+        .navbar-brand:hover {
+            text-decoration: none; /* Supprime le soulignement au survol */
         }
 
-        .navbar-toggler {
-            border-color: white;
-        }
-
-        .navbar-toggler-icon {
-            background-color: white;
+        .navbar-nav {
+            display: flex; /* Affiche les éléments du menu en ligne */
+            align-items: center; /* Centre les éléments du menu verticalement */
         }
 
         .navbar-nav .nav-link {
-            color: white;
+            margin-right: 10px; /* Ajoute un espacement entre les éléments du menu */
+            transition: color 0.3s; /* Animation de transition de la couleur au survol */
         }
 
         .navbar-nav .nav-link:hover {
-            background-color: rgba(0, 0, 0, 0.2);
+            color: #c8c8c8; /* Changement de couleur au survol */
+            text-decoration: none; /* Supprime le soulignement au survol */
         }
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 60px;
+            padding-top: 70px; /* Augmente la marge supérieure pour compenser la hauteur de la navbar */
             background-color: #f8f9fa;
+            color: #333;
         }
 
         /* Sidebar Styles */
@@ -69,7 +70,7 @@
             left: 0;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: #343a40;
+            background-color: #222222; /* Couleur foncée pour la sidebar */
             width: 20px;
             height: auto;
             overflow: hidden;
