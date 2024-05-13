@@ -87,7 +87,7 @@
         }
 
         #sidebar ul li {
-            padding: 20px; /* Espacement entre les éléments de la liste */
+            padding: 5px; /* Espacement entre les éléments de la liste */
             transition: background-color 0.3s; /* Animation de transition de la couleur au survol */
             cursor: pointer; /* Change le curseur au survol */
         }
