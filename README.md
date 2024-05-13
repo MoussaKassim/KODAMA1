@@ -67,10 +67,10 @@
         #sidebar {
     position: fixed;
     top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
-    bottom: 4cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-    left: 2cm; /* Place le carré à 2 cm du bord gauche */
+    bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
+    left: 4cm; /* Place le carré à 2 cm du bord gauche */
     width: 7.5cm; /* Largeur du carré */
-    height: 6cm; /* Hauteur automatique pour s'adapter au contenu */
+    height: 6.5cm; /* Hauteur automatique pour s'adapter au contenu */
     overflow-y: auto; /* Activation du défilement vertical si nécessaire */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     padding: 20px; /* Ajoute de l'espacement à l'intérieur du carré */
