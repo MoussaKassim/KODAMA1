@@ -73,7 +73,7 @@
             bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
             left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
             width: 6.5cm; /* Largeur du carré */
-            height: 5cm; /* Hauteur automatique pour s'adapter au contenu */
+            height: 6cm; /* Hauteur automatique pour s'adapter au contenu */
             overflow-y: auto; /* Activation du défilement vertical si nécessaire */
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
             padding: 5px; /* Ajoute de l'espacement à l'intérieur du carré */
@@ -83,8 +83,8 @@
 
         #sidebar ul {
             list-style: none; /* Supprime les puces des listes */
-            padding: 1;
-            margin: 1;
+            padding: 0;
+            margin: 0;
         }
 
         #sidebar ul li {
