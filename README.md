@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -108,7 +108,7 @@
 
         /* Main Content Styles */
         .container {
-            margin-left: 1.5cm;
+            margin-left: 1cm;
         }
 
         /* Sections Styles */
