@@ -34,7 +34,7 @@
         }
 
         .navbar-brand {
-            font-size: 10px; /* Augmente la taille du texte de la marque */
+            font-size: 20px; /* Augmente la taille du texte de la marque */
             margin-right: 10px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
