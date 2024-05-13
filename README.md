@@ -20,7 +20,7 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 7cm; /* Ajustement pour couvrir toute la largeur de la page */
+            left: cm; /* Ajustement pour couvrir toute la largeur de la page */
             right: 0; /* Ajustement pour couvrir toute la largeur de la page */
             z-index: 500;
             background-color: #121212; /* Couleur foncée pour la navbar */
@@ -34,7 +34,7 @@
         }
 
         .navbar-brand {
-            font-size: 20px; /* Augmente la taille du texte de la marque */
+            font-size: 10px; /* Augmente la taille du texte de la marque */
             margin-right: 10px; /* Ajoute un espace entre la marque et les éléments du menu */
         }
 
