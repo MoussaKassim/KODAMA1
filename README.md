@@ -45,7 +45,7 @@
         .navbar-nav {
             display: flex; /* Affiche les éléments du menu en ligne */
             align-items: center; /* Centre les éléments du menu verticalement */
-            margin-left: 20px; /* Ajuste la marge gauche pour correspondre à la marque */
+            margin-left: 05px; /* Ajuste la marge gauche pour correspondre à la marque */
         }
 
         .navbar-nav .nav-link {
@@ -100,7 +100,7 @@
         #sidebar ul li a {
             color: #000000; /* Couleur du texte */
             text-decoration: none; /* Supprime le soulignement */
-            font-size: 16px; /* Taille du texte ajustée */
+            font-size: 20px; /* Taille du texte ajustée */
         }
 
         #sidebar ul li a i {
