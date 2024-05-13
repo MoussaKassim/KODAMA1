@@ -65,20 +65,31 @@
             color: #333;
             margin: 0;
         }
+#sidebar {
+    position: fixed;
+    top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
+    bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
+    left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
+    width: 6.5cm; /* Largeur du carré */
+    height: 3.5cm; /* Hauteur automatique pour s'adapter au contenu */
+    overflow-y: auto; /* Activation du défilement vertical si nécessaire */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
+    padding: 10px; /* Ajoute de l'espacement à l'intérieur du carré */
+    border-radius: 10px; /* Coins plus arrondis */
+    border: 2px solid #dddddd; /* Bordure plus épaisse */
+}
 
-        /* Sidebar Styles */
-        #sidebar {
-            position: fixed;
-            top: 2.5cm; /* Ajustez la valeur pour positionner le carré à 2 cm du haut de la page */
-            bottom: 2cm; /* Ajustez la valeur pour positionner le carré à 2 cm du bas de la page */
-            left: 4.5cm; /* Place le carré à 2 cm du bord gauche */
-            width: 6.5cm; /* Largeur du carré */
-            height: 5cm; /* Hauteur automatique pour s'adapter au contenu */
-            overflow-y: auto; /* Activation du défilement vertical si nécessaire */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            padding: 5px; /* Ajoute de l'espacement à l'intérieur du carré */
-            border-radius: 4px; /* Ajoute un arrondi aux coins */
-        }
+#sidebar ul li {
+    padding: 10px; /* Espacement entre les éléments de la liste */
+}
+
+#sidebar ul li a {
+    font-size: 16px; /* Taille du texte ajustée */
+}
+
+#sidebar ul li a i {
+    font-size: 20px; /* Taille des icônes ajustée */
+}
 
         #sidebar ul {
             list-style: none; /* Supprime les puces des listes */
