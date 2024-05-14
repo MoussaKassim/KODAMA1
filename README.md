@@ -20,12 +20,12 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 0; /* Aligner la navbar à gauche */
+            left: 0cm; /* Marge fixe à gauche */
             right: 0;
             z-index: 500;
             background-color: #121212;
             padding: 0;
-            width: 100%;
+            width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
 
         .container {
@@ -70,8 +70,8 @@
             position: fixed;
             top: 2cm;
             bottom: 2cm;
-            left: 2cm; /* Ajout de marge à gauche */
-            width: 260px;
+            left: 7.5cm;
+            width: 180%;
             max-width: 260px;
             max-height: 20%;
             overflow-y: auto;
@@ -91,8 +91,6 @@
             padding: 5px;
             transition: background-color 0.3s;
             cursor: pointer;
-            display: flex; /* Alignement vertical du texte avec les icônes */
-            align-items: center; /* Alignement vertical du texte avec les icônes */
         }
 
         #sidebar ul li:hover {
@@ -103,7 +101,6 @@
             color: #000000;
             text-decoration: none;
             font-size: 16px;
-            margin-left: 5px; /* Ajout de marge à gauche du texte */
         }
 
         #sidebar ul li a i {
@@ -214,6 +211,36 @@
         </ul>
     </div>
 
+    <script>
+        // Fonction pour changer le style de l'élément actif
+        function setActiveLink(linkId) {
+            // Supprimer la classe active-link de tous les éléments
+            var links = document.querySelectorAll('#sidebar ul li');
+            links.forEach(function (item) {
+                item.classList.remove('active-link');
+            });
+
+            // Ajouter la classe active-link à l'élément sélectionné
+            var selectedLink = document.getElementById(linkId);
+            selectedLink.classList.add('active-link');
+        }
+
+        // Ajouter un écouteur d'événement pour chaque élément de la barre latérale
+        var sidebarLinks = document.querySelectorAll('#sidebar ul li');
+        sidebarLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                // Empêcher le comportement par défaut du lien
+                event.preventDefault();
+                
+                // Récupérer l'ID de l'élément cliqué
+                var linkId = event.currentTarget.id;
+                
+                // Appeler la fonction pour définir l'élément actif
+                setActiveLink(linkId);
+            });
+        });
+    </script>
+
     <!-- Main Content -->
     <div>
         <!-- Introduction Section -->
@@ -307,36 +334,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <script>
-        // Fonction pour changer le style de l'élément actif
-        function setActiveLink(linkId) {
-            // Supprimer la classe active-link de tous les éléments
-            var links = document.querySelectorAll('#sidebar ul li');
-            links.forEach(function (item) {
-                item.classList.remove('active-link');
-            });
-
-            // Ajouter la classe active-link à l'élément sélectionné
-            var selectedLink = document.getElementById(linkId);
-            selectedLink.classList.add('active-link');
-        }
-
-        // Ajouter un écouteur d'événement pour chaque élément de la barre latérale
-        var sidebarLinks = document.querySelectorAll('#sidebar ul li');
-        sidebarLinks.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                // Empêcher le comportement par défaut du lien
-                event.preventDefault();
-                
-                // Récupérer l'ID de l'élément cliqué
-                var linkId = event.currentTarget.id;
-                
-                // Appeler la fonction pour définir l'élément actif
-                setActiveLink(linkId);
-            });
-        });
-    </script>
 </body>
 
 </html>
