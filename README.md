@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #ffffff;
         }
 
@@ -50,7 +50,7 @@
             margin-top: 20px; /* Décalage de l'élément 4 */
         }
 .navbar-nav .source-code-link {
-            margin-top: 20px; /* Décalage de l'élément Source code */
+            margin-top: 40px; /* Décalage de l'élément Source code */
         }
         .container {
             padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
@@ -143,7 +143,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: 0px;
+            margin-top: 20px;
         }
 
         /* Active link styles */
