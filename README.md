@@ -24,7 +24,9 @@
             right: 0;
             z-index: 500;
             background-color: #121212;
-            padding: 0;
+            padding-top: 00px; /* Ajustement de la taille de la bande noire en haut */
+            padding-bottom: 00px; /* Ajustement de la taille de la bande noire en bas */
+            height: 40px; /* ou toute autre valeur que vous souhaitez */
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
 
@@ -59,7 +61,7 @@
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 50px;
+            padding-top: 30px; /* Correspond à la hauteur de la barre de menu */
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
