@@ -89,7 +89,7 @@
             margin: 0;
         }
 
-        /* Sidebar Styles */
+       /* Sidebar Styles */
         #sidebar {
             position: fixed;
             top: 2cm;
@@ -97,10 +97,11 @@
             left: 7.5cm;
             width: 180%;
             max-width: 260px;
-            max-height: 20%;
+            max-height: 13%;
             overflow-y: auto;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             padding: 5px;
+            line-height: 20px;
             border-radius: 6px;
             border: 1px solid #ccc;
         }
