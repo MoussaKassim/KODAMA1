@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -29,12 +29,12 @@
             height: 50px; /* ou toute autre valeur que vous souhaitez */
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
-
         .navbar-brand {
             margin-top: -5px; /* Décalage de l'élément KODAMA */
         }
 
-        .navbar-nav .nav-item:nth-child(1) {
+        
+ .navbar-nav .nav-item:nth-child(1) {
             margin-top: 40px; /* Décalage de l'élément 1 */
         }
 
@@ -49,19 +49,16 @@
         .navbar-nav .nav-item:nth-child(4) {
             margin-top: 20px; /* Décalage de l'élément 4 */
         }
-
-        .navbar-nav .source-code-link {
+.navbar-nav .source-code-link {
             margin-top: 40px; /* Décalage de l'élément Source code */
         }
-
+            
         .container {
             padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
-
-        .container .navbar-nav .source-code-link {
+.container .navbar-nav .source-code-link {
             margin-right: -8cm; /* Placement du lien "Source code" à 5 cm du côté droit */
         }
-
         .navbar-brand,
         .navbar-nav .nav-link {
             padding: 0.1px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
@@ -86,7 +83,8 @@
             align-items: center;
             margin-left: 05px;
         }
-         /* Body padding to compensate for fixed navbar */
+
+        /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 10px; /* Correspond à la hauteur de la barre de menu */
             background-color: #f8f9fa;
@@ -94,7 +92,7 @@
             margin: 0;
         }
 
-        /* Sidebar Styles */
+       /* Sidebar Styles */
         #sidebar {
             position: fixed;
             top: 2cm;
@@ -147,6 +145,11 @@
             margin-bottom: 30px;
         }
 
+        /* Adjusting margin for Introduction */
+        .navbar-nav .nav-item:first-child {
+            margin-top: 20px;
+        }
+
         /* Active link styles */
         .active-link {
             background-color: #2780e3 !important;
@@ -155,14 +158,7 @@
         .active-link a {
             color: white !important;
         }
-
-        /* Couleur de fond spécifique */
-        .bg-color {
-        background-color: #121212 !important; /* Modifier cette couleur selon vos préférences */
-    /* Ajouter une propriété de taille */
-    width: 3cm; /* ou toute autre valeur que vous souhaitez */
-    height: 2cm; /* ou toute autre valeur que vous souhaitez */
-}}
+        
     </style>
 </head>
 
@@ -193,14 +189,11 @@
                             Data Analyses
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Metabolomics_data.md">Metabolomic
                                 data</a>
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
                                 cell RNA seq data</a>
-                            <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                            <a class="dropdown-item" href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
                                 Transcriptomic data</a>
                         </div>
                     </li>
@@ -246,6 +239,36 @@
             </li>
         </ul>
     </div>
+
+    <script>
+        // Fonction pour changer le style de l'élément actif
+        function setActiveLink(linkId) {
+            // Supprimer la classe active-link de tous les éléments
+            var links = document.querySelectorAll('#sidebar ul li');
+            links.forEach(function (item) {
+                item.classList.remove('active-link');
+            });
+
+            // Ajouter la classe active-link à l'élément sélectionné
+            var selectedLink = document.getElementById(linkId);
+            selectedLink.classList.add('active-link');
+        }
+
+        // Ajouter un écouteur d'événement pour chaque élément de la barre latérale
+        var sidebarLinks = document.querySelectorAll('#sidebar ul li');
+        sidebarLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                // Empêcher le comportement par défaut du lien
+                event.preventDefault();
+                
+                // Récupérer l'ID de l'élément cliqué
+                var linkId = event.currentTarget.id;
+                
+                // Appeler la fonction pour définir l'élément actif
+                setActiveLink(linkId);
+            });
+        });
+    </script>
 
     <!-- Main Content -->
     <div>
@@ -296,8 +319,7 @@
             <div class="container">
                 <h2>Installation</h2>
                 <p>
-                    The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
-                        style="color: blue;">CRAN</a>.
+                    The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA" style="color: blue;">CRAN</a>.
                 </p>
                 <pre><code style="color: blue;">
 library(<span style="color: black;">devtools</span>)
@@ -341,42 +363,6 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- Font Awesome Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-    <!-- JavaScript for interactive functionality -->
-    <script>
-        // Fonction pour ajouter la classe de couleur de fond au survol
-        function addBackgroundOnHover(element) {
-            element.addEventListener('mouseenter', function () {
-                element.classList.add('bg-color');
-            });
-            element.addEventListener('mouseleave', function () {
-                element.classList.remove('bg-color');
-            });
-        }
-
-        // Fonction pour gérer le clic sur un élément de la liste
-        function handleItemClick(element) {
-            element.addEventListener('click', function () {
-                // Supprimer la classe de couleur de fond de tous les éléments
-                var listItems = document.querySelectorAll('.nav-item');
-                listItems.forEach(function (item) {
-                    item.classList.remove('bg-color');
-                });
-
-                // Ajouter la classe de couleur de fond à l'élément cliqué
-                element.classList.add('bg-color');
-            });
-        }
-
-        // Sélectionnez tous les éléments de la liste du menu
-        var menuItems = document.querySelectorAll('.nav-item');
-
-        // Ajouter la logique d'interaction pour chaque élément de la liste du menu
-        menuItems.forEach(function (item) {
-            handleItemClick(item);
-            addBackgroundOnHover(item);
-        });
-    </script>
 </body>
 
 </html>
