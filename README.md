@@ -29,8 +29,13 @@
             height: 40px; /* ou toute autre valeur que vous souhaitez */
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
+        .navbar-brand {
+            margin-top: 20px; /* Décalage de l'élément KODAMA */
+        }
+
+        
  .navbar-nav .nav-item:nth-child(1) {
-            margin-top: 30px; /* Décalage de l'élément 1 */
+            margin-top: 40px; /* Décalage de l'élément 1 */
         }
 
         .navbar-nav .nav-item:nth-child(2) {
@@ -44,7 +49,9 @@
         .navbar-nav .nav-item:nth-child(4) {
             margin-top: 20px; /* Décalage de l'élément 4 */
         }
-
+.navbar-nav .source-code-link {
+            margin-top: 20px; /* Décalage de l'élément Source code */
+        }
         .container {
             padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
