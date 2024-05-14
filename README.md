@@ -68,16 +68,17 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 2.5cm;
-            bottom: 7cm;
-            left: 10.5cm;
-            width: 5.5cm;
-            height: 4.5cm;
+            top: 1cm;
+            bottom: 2cm;
+            left: 7.5cm;
+            width: 20%;
+            max-width: 260px;
+            max-height: 85%;
             overflow-y: auto;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #dddddd;
+            border-radius: 6px;
+            border: 1px solid #ccc;
         }
 
         #sidebar ul {
