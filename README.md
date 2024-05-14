@@ -52,10 +52,13 @@
 .navbar-nav .source-code-link {
             margin-top: 40px; /* Décalage de l'élément Source code */
         }
+            
         .container {
             padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
-
+.container .navbar-nav .source-code-link {
+            margin-right: -8cm; /* Placement du lien "Source code" à 5 cm du côté droit */
+        }
         .navbar-brand,
         .navbar-nav .nav-link {
             padding: 0.1px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
