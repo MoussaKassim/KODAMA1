@@ -23,7 +23,7 @@
             left: 0cm; /* Marge fixe à gauche */
             right: 0;
             z-index: 500;
-            background-color: #121212;
+            background-color: #3D3D3D;
             padding-top: 00px; /* Ajustement de la taille de la bande noire en haut */
             padding-bottom: 00px; /* Ajustement de la taille de la bande noire en bas */
             height: 50px; /* ou toute autre valeur que vous souhaitez */
@@ -100,7 +100,7 @@
             left: 7.5cm;
             width: 180%;
             max-width: 260px;
-            max-height: 14%;
+            max-height: 15%;
             overflow-y: auto;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             padding: 5px;
