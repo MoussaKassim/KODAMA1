@@ -121,6 +121,15 @@
         .navbar-nav .nav-item:first-child {
             margin-top: -1px;
         }
+
+        /* Active link styles */
+        .active-link {
+            background-color: #2780e3 !important;
+        }
+
+        .active-link a {
+            color: white !important;
+        }
     </style>
 </head>
 
@@ -201,6 +210,36 @@
             </li>
         </ul>
     </div>
+
+    <script>
+        // Fonction pour changer le style de l'élément actif
+        function setActiveLink(linkId) {
+            // Supprimer la classe active-link de tous les éléments
+            var links = document.querySelectorAll('#sidebar ul li');
+            links.forEach(function (item) {
+                item.classList.remove('active-link');
+            });
+
+            // Ajouter la classe active-link à l'élément sélectionné
+            var selectedLink = document.getElementById(linkId);
+            selectedLink.classList.add('active-link');
+        }
+
+        // Ajouter un écouteur d'événement pour chaque élément de la barre latérale
+        var sidebarLinks = document.querySelectorAll('#sidebar ul li');
+        sidebarLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                // Empêcher le comportement par défaut du lien
+                event.preventDefault();
+                
+                // Récupérer l'ID de l'élément cliqué
+                var linkId = event.currentTarget.id;
+                
+                // Appeler la fonction pour définir l'élément actif
+                setActiveLink(linkId);
+            });
+        });
+    </script>
 
     <!-- Main Content -->
     <div>
