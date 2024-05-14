@@ -29,6 +29,21 @@
             height: 40px; /* ou toute autre valeur que vous souhaitez */
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
+ .navbar-nav .nav-item:nth-child(1) {
+            margin-top: 30px; /* Décalage de l'élément 1 */
+        }
+
+        .navbar-nav .nav-item:nth-child(2) {
+            margin-top: 20px; /* Décalage de l'élément 2 */
+        }
+
+        .navbar-nav .nav-item:nth-child(3) {
+            margin-top: 20px; /* Décalage de l'élément 3 */
+        }
+
+        .navbar-nav .nav-item:nth-child(4) {
+            margin-top: 20px; /* Décalage de l'élément 4 */
+        }
 
         .container {
             padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
