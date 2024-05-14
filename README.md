@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             color: #ffffff;
         }
 
