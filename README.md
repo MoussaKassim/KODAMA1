@@ -30,7 +30,7 @@
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
         .navbar-brand {
-            margin-top: 0px; /* Décalage de l'élément KODAMA */
+            margin-top: -5px; /* Décalage de l'élément KODAMA */
         }
 
         
