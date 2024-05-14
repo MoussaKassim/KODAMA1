@@ -136,7 +136,7 @@
 
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
-            margin-top: -1px;
+            margin-top: 0px;
         }
 
         /* Active link styles */
