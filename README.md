@@ -376,6 +376,27 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- JavaScript for interactive functionality -->
     <script>
+    // Fonction pour déplacer la page vers l'élément correspondant
+function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Ajouter un écouteur d'événement pour chaque élément de la barre latérale
+var sidebarLinks = document.querySelectorAll('#sidebar ul li');
+sidebarLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+        // Empêcher le comportement par défaut du lien
+        event.preventDefault();
+
+        // Récupérer l'ID de la section correspondante
+        var sectionId = link.querySelector('a').getAttribute('href').replace('#', '');
+
+        // Défiler jusqu'à la section correspondante
+        scrollToSection(sectionId);
+    });
+});
+
         // Fonction pour ajouter la classe de couleur de fond au survol
         function addBackgroundOnHover(element) {
             element.addEventListener('mouseenter', function () {
