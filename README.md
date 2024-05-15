@@ -122,7 +122,7 @@
         }
 
         #sidebar ul li:hover {
-            background-color: #2780e3;
+            background-color: #none; important couleur de font au survol dans le carre a gauche
         }
 
         #sidebar ul li a {
