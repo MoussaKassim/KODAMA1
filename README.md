@@ -52,17 +52,13 @@
 
         .navbar-nav .source-code-link {
     margin-top: 40px; /* Décalage de l'élément Source code */
-    margin-right: 3cm;
+    margin-right: 4cm; /* Déplace le lien à 4 cm du côté droit */
+    margin-left: auto; /* Pour le placer à droite */
 }
 
         .container {
             padding-left: 8.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
-
-       .container .navbar-nav .source-code-link {
-    position: absolute;
-    right: 3cm;
-}
 
         .navbar-brand,
         .navbar-nav .nav-link {
