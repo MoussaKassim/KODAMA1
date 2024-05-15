@@ -162,7 +162,7 @@
 
         /* Couleur de fond spécifique */
         .bg-color {
-        background-color: #121212 !important; /* Modifier cette couleur selon vos préférences */
+        background-color: #090909 !important; /* Modifier cette couleur selon vos préférences */
     /* Ajouter une propriété de taille */
     width: 3cm; /* ou toute autre valeur que vous souhaitez */
     height: 1.3cm; /* ou toute autre valeur que vous souhaitez */
