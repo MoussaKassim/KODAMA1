@@ -59,7 +59,7 @@
         }
 
         .container .navbar-nav .source-code-link {
-            margin-right: 5cm; /* Placement du lien "Source code" à 5 cm du côté droit */
+            padding-left: 22cm; /* Placement du lien "Source code" à 5 cm du côté droit */
         }
 
         .navbar-brand,
