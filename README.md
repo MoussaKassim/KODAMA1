@@ -99,7 +99,7 @@
             position: fixed;
             top: 2cm;
             bottom: 2cm;
-            left: 7.5cm;
+            left: 8.5cm;
             width: 180%;
             max-width: 260px;
             max-height: 17%;
