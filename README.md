@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<KODAMA>
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             color: #ffffff;
         }
 
@@ -96,7 +96,7 @@
             left: 7.5cm;
             width: 180%;
             max-width: 260px;
-            max-height: 14%;
+            max-height: 15%;
             overflow-y: auto;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             padding: 5px;
