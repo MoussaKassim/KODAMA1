@@ -26,7 +26,7 @@
             background-color: #3D3D3D;
             padding-top: 00px; /* Ajustement de la taille de la bande noire en haut */
             padding-bottom: 00px; /* Ajustement de la taille de la bande noire en bas */
-            height: 50px; /* ou toute autre valeur que vous souhaitez */
+            height: 52px; /* ou toute autre valeur que vous souhaitez */
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
 
