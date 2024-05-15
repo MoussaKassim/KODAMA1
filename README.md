@@ -165,7 +165,7 @@
         background-color: #121212 !important; /* Modifier cette couleur selon vos préférences */
     /* Ajouter une propriété de taille */
     width: 3cm; /* ou toute autre valeur que vous souhaitez */
-    height: 1cm; /* ou toute autre valeur que vous souhaitez */
+    height: 1.3cm; /* ou toute autre valeur que vous souhaitez */
 }}
     </style>
 </head>
