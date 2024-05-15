@@ -48,12 +48,14 @@
 
         .navbar-nav .nav-item:nth-child(4) {
             margin-top: 20px; /* Décalage de l'élément 4 */
+             margin-right: 12cm;
+            
         }
 
         .navbar-nav .source-code-link {
     margin-top: 40px; /* Décalage de l'élément Source code */
-    margin-right: 4cm; /* Déplace le lien à 4 cm du côté droit */
-    margin-left: auto; /* Pour le placer à droite */
+    
+   
 }
 
         .container {
