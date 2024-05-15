@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
         body,
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #ffffff;
         }
 
@@ -20,53 +20,47 @@
         .navbar {
             position: fixed;
             top: 0;
-            left: 0cm; /* Marge fixe à gauche */
+            left: 0;
             right: 0;
             z-index: 500;
             background-color: #3D3D3D;
-            padding-top: 00px; /* Ajustement de la taille de la bande noire en haut */
-            padding-bottom: 00px; /* Ajustement de la taille de la bande noire en bas */
-            height: 50px; /* ou toute autre valeur que vous souhaitez */
-            width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 50px;
+            width: 100%;
         }
 
         .navbar-brand {
-            margin-top: -5px; /* Décalage de l'élément KODAMA */
+            margin-top: 5px;
         }
 
         .navbar-nav .nav-item:nth-child(1) {
-            margin-top: 40px; /* Décalage de l'élément 1 */
+            margin-top: 5px;
         }
 
-        .navbar-nav .nav-item:nth-child(2) {
-            margin-top: 20px; /* Décalage de l'élément 2 */
-        }
-
-        .navbar-nav .nav-item:nth-child(3) {
-            margin-top: 20px; /* Décalage de l'élément 3 */
-        }
-
+        .navbar-nav .nav-item:nth-child(2),
+        .navbar-nav .nav-item:nth-child(3),
         .navbar-nav .nav-item:nth-child(4) {
-            margin-top: 20px; /* Décalage de l'élément 4 */
+            margin-top: 5px;
         }
 
         .navbar-nav .source-code-link {
-            margin-top: 40px; /* Décalage de l'élément Source code */
+            margin-top: 5px;
         }
 
         .container {
-            padding-left: 8.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
+            padding-left: 8.5cm;
         }
 
         .container .navbar-nav .source-code-link {
-            margin-right: 5cm; /* Placement du lien "Source code" à 5 cm du côté droit */
+            margin-right: 4cm;
         }
 
         .navbar-brand,
         .navbar-nav .nav-link {
-            padding: 0.1px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
+            padding: 0.1px 1rem;
             text-decoration: none;
-            display: inline-block; /* Affichage en ligne pour tous les éléments */
+            display: inline-block;
         }
 
         .navbar-brand {
@@ -86,9 +80,9 @@
             align-items: center;
             margin-left: 05px;
         }
-         /* Body padding to compensate for fixed navbar */
+
         body {
-            padding-top: 1px; /* Correspond à la hauteur de la barre de menu */
+            padding-top: 1px;
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
@@ -102,7 +96,7 @@
             left: 7.5cm;
             width: 180%;
             max-width: 260px;
-            max-height: 17%;
+            max-height: 14%;
             overflow-y: auto;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
             padding: 5px;
@@ -146,10 +140,6 @@
         .data-section {
             margin-bottom: 20px;
         }
-        /* Adjusting margin for Introduction */
-        .navbar-nav .nav-item:first-child {
-            margin-top: 20px;
-        }
 
         /* Active link styles */
         .active-link {
@@ -162,11 +152,10 @@
 
         /* Couleur de fond spécifique */
         .bg-color {
-        background-color: #121212 !important; /* Modifier cette couleur selon vos préférences */
-    /* Ajouter une propriété de taille */
-    width: 3cm; /* ou toute autre valeur que vous souhaitez */
-    height: 1.3cm; /* ou toute autre valeur que vous souhaitez */
-}}
+            background-color: #121212 !important;
+            width: 3cm;
+            height: 1.3cm;
+        }
     </style>
 </head>
 
@@ -250,35 +239,7 @@
             </li>
         </ul>
     </div>
- <script>
-        // Fonction pour changer le style de l'élément actif
-        function setActiveLink(linkId) {
-            // Supprimer la classe active-link de tous les éléments
-            var links = document.querySelectorAll('#sidebar ul li');
-            links.forEach(function (item) {
-                item.classList.remove('active-link');
-            });
 
-            // Ajouter la classe active-link à l'élément sélectionné
-            var selectedLink = document.getElementById(linkId);
-            selectedLink.classList.add('active-link');
-        }
-
-        // Ajouter un écouteur d'événement pour chaque élément de la barre latérale
-        var sidebarLinks = document.querySelectorAll('#sidebar ul li');
-        sidebarLinks.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                // Empêcher le comportement par défaut du lien
-                event.preventDefault();
-                
-                // Récupérer l'ID de l'élément cliqué
-                var linkId = event.currentTarget.id;
-                
-                // Appeler la fonction pour définir l'élément actif
-                setActiveLink(linkId);
-            });
-        });
-    </script>
     <!-- Main Content -->
     <div>
         <!-- Introduction Section -->
@@ -376,37 +337,32 @@ install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
 
     <!-- JavaScript for interactive functionality -->
     <script>
-        // Fonction pour ajouter la classe de couleur de fond au survol
-        function addBackgroundOnHover(element) {
-            element.addEventListener('mouseenter', function () {
-                element.classList.add('bg-color');
+        // Fonction pour changer le style de l'élément actif
+        function setActiveLink(linkId) {
+            // Supprimer la classe active-link de tous les éléments
+            var links = document.querySelectorAll('#sidebar ul li');
+            links.forEach(function (item) {
+                item.classList.remove('active-link');
             });
-            element.addEventListener('mouseleave', function () {
-                element.classList.remove('bg-color');
-            });
+
+            // Ajouter la classe active-link à l'élément sélectionné
+            var selectedLink = document.getElementById(linkId);
+            selectedLink.classList.add('active-link');
         }
 
-        // Fonction pour gérer le clic sur un élément de la liste
-        function handleItemClick(element) {
-            element.addEventListener('click', function () {
-                // Supprimer la classe de couleur de fond de tous les éléments
-                var listItems = document.querySelectorAll('.nav-item');
-                listItems.forEach(function (item) {
-                    item.classList.remove('bg-color');
-                });
+        // Ajouter un écouteur d'événement pour chaque élément de la barre latérale
+        var sidebarLinks = document.querySelectorAll('#sidebar ul li');
+        sidebarLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                // Empêcher le comportement par défaut du lien
+                event.preventDefault();
 
-                // Ajouter la classe de couleur de fond à l'élément cliqué
-                element.classList.add('bg-color');
+                // Récupérer l'ID de l'élément cliqué
+                var linkId = event.currentTarget.id;
+
+                // Appeler la fonction pour définir l'élément actif
+                setActiveLink(linkId);
             });
-        }
-
-        // Sélectionnez tous les éléments de la liste du menu
-        var menuItems = document.querySelectorAll('.nav-item');
-
-        // Ajouter la logique d'interaction pour chaque élément de la liste du menu
-        menuItems.forEach(function (item) {
-            handleItemClick(item);
-            addBackgroundOnHover(item);
         });
     </script>
 </body>
