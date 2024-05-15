@@ -51,9 +51,9 @@
         }
 
         .navbar-nav .source-code-link {
-            margin-top: 40px; /* Décalage de l'élément Source code */
-            margin-rigt: 3cm;
-        }
+    margin-top: 40px; /* Décalage de l'élément Source code */
+    margin-right: 3cm;
+}
 
         .container {
             padding-left: 8.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
