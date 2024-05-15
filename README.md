@@ -55,11 +55,11 @@
         }
 
         .container {
-            padding-left: 7.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
+            padding-left: 8.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
         }
 
         .container .navbar-nav .source-code-link {
-            margin-right: -8cm; /* Placement du lien "Source code" à 5 cm du côté droit */
+            margin-right: 5cm; /* Placement du lien "Source code" à 5 cm du côté droit */
         }
 
         .navbar-brand,
