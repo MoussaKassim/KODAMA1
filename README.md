@@ -26,7 +26,7 @@
             background-color: #3D3D3D;
             padding-top: 00px; /* Ajustement de la taille de la bande noire en haut */
             padding-bottom: 00px; /* Ajustement de la taille de la bande noire en bas */
-            height: 52px; /* ou toute autre valeur que vous souhaitez */
+            height: 50px; /* ou toute autre valeur que vous souhaitez */
             width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
         }
 
@@ -164,6 +164,7 @@
         .bg-color {
         background-color: #090909 !important; /* Modifier cette couleur selon vos préférences */
     /* Ajouter une propriété de taille */
+    padding-top: 00px
     width: 3.8cm; /* ou toute autre valeur que vous souhaitez */
     height: 1.4cm; /* ou toute autre valeur que vous souhaitez */
 }}
