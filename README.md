@@ -158,14 +158,7 @@
             color: white !important;
         }
 
-        /* Couleur de fond spécifique */
-        .bg-color {
-        background-color: #090909 !important; /* Modifier cette couleur selon vos préférences */
-    /* Ajouter une propriété de taille */
-    padding-top: 00px
-    width: 3.8cm; /* ou toute autre valeur que vous souhaitez */
-    height: 1.4cm; /* ou toute autre valeur que vous souhaitez */
-}}
+        }
     </style>
 </head>
 
