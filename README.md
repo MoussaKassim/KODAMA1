@@ -31,21 +31,21 @@
         }
 
         .navbar-brand {
-            margin-top: 5px;
+            margin-top: -5px;
         }
 
         .navbar-nav .nav-item:nth-child(1) {
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .navbar-nav .nav-item:nth-child(2),
         .navbar-nav .nav-item:nth-child(3),
         .navbar-nav .nav-item:nth-child(4) {
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .navbar-nav .source-code-link {
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .container {
