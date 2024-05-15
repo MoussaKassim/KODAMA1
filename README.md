@@ -164,8 +164,8 @@
         .bg-color {
         background-color: #090909 !important; /* Modifier cette couleur selon vos préférences */
     /* Ajouter une propriété de taille */
-    width: 3cm; /* ou toute autre valeur que vous souhaitez */
-    height: 1.3cm; /* ou toute autre valeur que vous souhaitez */
+    width: 0cm; /* ou toute autre valeur que vous souhaitez */
+    height: 0cm; /* ou toute autre valeur que vous souhaitez */
 }}
     </style>
 </head>
