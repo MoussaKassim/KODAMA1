@@ -88,7 +88,7 @@
         }
          /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 10px; /* Correspond à la hauteur de la barre de menu */
+            padding-top: 1px; /* Correspond à la hauteur de la barre de menu */
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
