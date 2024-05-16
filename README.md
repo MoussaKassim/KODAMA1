@@ -41,6 +41,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 19px 19px rgba(0,0,0,0.2); /* Ajoute une ombre légère en dessous de chaque élément */
         }
 
         .navbar-nav .nav-link {
