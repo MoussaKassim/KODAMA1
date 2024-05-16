@@ -36,6 +36,18 @@
         .navbar-brand {
             margin-top: -5px; /* Décalage de l'élément KODAMA */
         }
+        .navbar-nav .nav-item {
+            margin-bottom: 20px; /* Espacement entre les éléments du menu */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-nav .nav-link {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
         .navbar-nav .nav-item:nth-child(1) {
             margin-top: 40px; /* Décalage de l'élément 1 */
@@ -51,12 +63,13 @@
 
         .navbar-nav .nav-item:nth-child(4) {
             margin-top: 20px; /* Décalage de l'élément 4 */
+             margin-right: 8cm; /* Déplace le lien à 4 cm du côté droit */
+    margin-left: auto; /* Pour le placer à droite */
         }
 
         .navbar-nav .source-code-link {
     margin-top: 40px; /* Décalage de l'élément Source code */
-    margin-right: 4cm; /* Déplace le lien à 4 cm du côté droit */
-    margin-left: auto; /* Pour le placer à droite */
+   
 }
 
         .container {
