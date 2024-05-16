@@ -1,4 +1,4 @@
-<KODAMA>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,37 +11,36 @@
         /* Font Family and Size */
         body,
         .navbar-nav .nav-link {
-        .navbar-nav .nav-link {
-    color: #ffffff;
             font-family: "Source Sans Pro", Arial, sans-serif;
-            font-size: 16x;
+            font-size: 16px;
             color: #ffffff;
             background-color: ;
-        }}
+        }
 
         /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
-            left: 0cm; /* Marge fixe à gauche */
+            left: 0cm;
             right: 0;
             z-index: 500;
             background-color: #3D3D3D;
-            padding-top: 00px; /* Ajustement de la taille de la bande noire en haut */
-            padding-bottom: 00px; /* Ajustement de la taille de la bande noire en bas */
-            height: 50px; /* ou toute autre valeur que vous souhaitez */
-            width: calc(100% ); /* Largeur dynamique pour couvrir toute la largeur moins la marge */
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 50px;
+            width: calc(100%);
         }
 
         .navbar-brand {
-            margin-top: -5px; /* Décalage de l'élément KODAMA */
+            margin-top: -5px;
         }
+
         .navbar-nav .nav-item {
-            margin-bottom: 04px; /* Espacement entre les éléments du menu */
+            margin-bottom: 04px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 109px 109px rgba(0,0,0,0); /* Ajoute une ombre légère en dessous de chaque élément */
+            box-shadow: 0 109px 109px rgba(0, 0, 0, 0);
         }
 
         .navbar-nav .nav-link {
@@ -51,37 +50,36 @@
         }
 
         .navbar-nav .nav-item:nth-child(1) {
-            margin-top: 20px; /* Décalage de l'élément 1 */
+            margin-top: 20px;
         }
 
         .navbar-nav .nav-item:nth-child(2) {
-            margin-top: 20px; /* Décalage de l'élément 2 */
+            margin-top: 20px;
         }
 
         .navbar-nav .nav-item:nth-child(3) {
-            margin-top: 20px; /* Décalage de l'élément 3 */
+            margin-top: 20px;
         }
 
         .navbar-nav .nav-item:nth-child(4) {
-            margin-top: 20px; /* Décalage de l'élément 4 */
-             margin-right: 9cm; /* Déplace le lien à 4 cm du côté droit */
-    margin-left: auto; /* Pour le placer à droite */
+            margin-top: 20px;
+            margin-right: 9cm;
+            margin-left: auto;
         }
 
         .navbar-nav .source-code-link {
-    margin-top: 40px; /* Décalage de l'élément Source code */
-   
-}
+            margin-top: 40px;
+        }
 
         .container {
-            padding-left: 8.5cm; /* Ajouter une marge à gauche pour compenser le déplacement de la navbar */
+            padding-left: 8.5cm;
         }
 
         .navbar-brand,
         .navbar-nav .nav-link {
-            padding: 0.1px 1rem; /* Ajustement pour correspondre à la hauteur de la navbar */
+            padding: 0.1px 1rem;
             text-decoration: none;
-            display: inline-block; /* Affichage en ligne pour tous les éléments */
+            display: inline-block;
         }
 
         .navbar-brand {
@@ -101,9 +99,10 @@
             align-items: center;
             margin-left: 05px;
         }
-         /* Body padding to compensate for fixed navbar */
+
+        /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 1px; /* Correspond à la hauteur de la barre de menu */
+            padding-top: 1px;
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
@@ -139,7 +138,7 @@
         }
 
         #sidebar ul li:hover {
-            background-color: #none; important couleur de font au survol dans le carre a gauche
+            background-color: #none;
         }
 
         #sidebar ul li a {
@@ -162,6 +161,7 @@
         .data-section {
             margin-bottom: 20px;
         }
+
         /* Adjusting margin for Introduction */
         .navbar-nav .nav-item:first-child {
             margin-top: 20px;
@@ -176,6 +176,43 @@
             color: white !important;
         }
 
+        /* Code container styles */
+        .code-container {
+            position: relative;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        pre {
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+        }
+
+        button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: #0056b3;
+        }
+
+        button.copied {
+            color: #28a745;
+        }
+
+        button.copied:hover {
+            color: #218838;
         }
     </style>
 </head>
@@ -260,7 +297,7 @@
             </li>
         </ul>
     </div>
- <script>
+     <script>
         // Fonction pour changer le style de l'élément actif
         function setActiveLink(linkId) {
             // Supprimer la classe active-link de tous les éléments
@@ -289,9 +326,10 @@
             });
         });
     </script>
+
     <!-- Main Content -->
     <div>
-        <!-- Introduction Section -->
+    <!-- Introduction Section -->
         <section id="introduction" class="data-section">
             <div class="container">
                 <h2>Introduction</h2>
@@ -332,7 +370,6 @@
                 </ul>
             </div>
         </section>
-
         <!-- Installation Section -->
         <section id="installation" class="data-section">
             <div class="container">
@@ -341,14 +378,16 @@
                     The KODAMA is available on <a href="https://CRAN.R-project.org/package=KODAMA"
                         style="color: blue;">CRAN</a>.
                 </p>
-                <pre><code style="color: blue;">
+                <div class="code-container">
+                    <pre><code id="rCode" style="color: blue;">
 library(<span style="color: black;">devtools</span>)
 install_github("<span style="color: green;">tkcaccia/KODAMA</span>")
-                </code></pre>
+                    </code></pre>
+                    <button id="copyButton"><i class="far fa-copy"></i> </button>
+                </div>
             </div>
         </section>
-
-        <!-- Applications Section -->
+     <!-- Applications Section -->
         <section id="applications" class="data-section">
             <div class="container">
                 <h2>Applications</h2>
@@ -438,6 +477,21 @@ sidebarLinks.forEach(function (link) {
         menuItems.forEach(function (item) {
             handleItemClick(item);
             addBackgroundOnHover(item);
+        });
+        // JavaScript for copying code and adding hover effect
+        function copyCode() {
+            var rCode = document.getElementById('rCode');
+            var codeText = rCode.innerText;
+            navigator.clipboard.writeText(codeText);
+        }
+
+        var copyButton = document.getElementById('copyButton');
+        copyButton.addEventListener('click', function () {
+            copyCode();
+            copyButton.classList.add('copied');
+            setTimeout(function () {
+                copyButton.classList.remove('copied');
+            }, 1000);
         });
     </script>
 </body>
