@@ -236,6 +236,13 @@
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+.code-container {
+    background-color: #f4f4f4; /* gris clair */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
 
 
     </style>
