@@ -10,12 +10,13 @@
     <style>
         /* Font Family and Size */
         body,
+        .navbar-nav .nav-link {color: #ffffff;
         .navbar-nav .nav-link {
             font-family: "Source Sans Pro", Arial, sans-serif;
             font-size: 16px;
             color: #ffffff;
             background-color: ;
-        }
+        }}
 
         /* Navbar Styles */
         .navbar {
