@@ -64,7 +64,7 @@
 
         .navbar-nav .nav-item:nth-child(4) {
             margin-top: 20px;
-            margin-right: 9cm;
+            margin-right: 10cm;
             margin-left: auto;
         }
 
