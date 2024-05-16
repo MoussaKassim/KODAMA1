@@ -104,7 +104,7 @@
         /* Body padding to compensate for fixed navbar */
         body {
             padding-top: 0cm;
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             color: #333;
             margin: 0;
         }
