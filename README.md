@@ -103,7 +103,7 @@
 
         /* Body padding to compensate for fixed navbar */
         body {
-            padding-top: 1px;
+            padding-top: 0cm;
             background-color: #f8f9fa;
             color: #333;
             margin: 0;
