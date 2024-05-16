@@ -105,7 +105,7 @@
             max-width: 260px;
             max-height: 17%;
             overflow-y: auto;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.0);
             padding: 5px;
             line-height: 20px;
             border-radius: 6px;
@@ -132,6 +132,7 @@
             color: #000000;
             text-decoration: none;
             font-size: 16px;
+            font-family: "Source Sans Pro", Arial, sans-serif;
         }
 
         #sidebar ul li a i {
