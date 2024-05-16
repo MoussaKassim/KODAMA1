@@ -214,6 +214,14 @@
         button.copied:hover {
             color: #218838;
         }
+        .card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
     </style>
 </head>
 
