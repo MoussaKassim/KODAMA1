@@ -25,7 +25,7 @@
             left: 0cm;
             right: 0;
             z-index: 500;
-            background-color: #3D3D3D;
+            background-color: #121212;
             padding-top: 0;
             padding-bottom: 0;
             height: 50px;
