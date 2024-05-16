@@ -37,7 +37,7 @@
             margin-top: -5px; /* Décalage de l'élément KODAMA */
         }
         .navbar-nav .nav-item {
-            margin-bottom: 13px; /* Espacement entre les éléments du menu */
+            margin-bottom: 08px; /* Espacement entre les éléments du menu */
             display: flex;
             align-items: center;
             justify-content: space-between;
