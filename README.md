@@ -98,9 +98,9 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 2cm;
+            top: 2.5cm;
             bottom: 2cm;
-            left: 8.5cm;
+            left: 9.5cm;
             width: 180%;
             max-width: 260px;
             max-height: 17%;
