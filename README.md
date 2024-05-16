@@ -17,8 +17,7 @@
             color: #ffffff;
             background-color: ;
         }}
-          /* Navbar Styles */
-        .navbar { background-color: #333333;
+         
         /* Navbar Styles */
         .navbar {
             position: fixed;
@@ -31,7 +30,7 @@
             padding-bottom: 0;
             height: 50px;
             width: calc(100%);
-        }}
+        }
 
         .navbar-brand {
             margin-top: -5px;
