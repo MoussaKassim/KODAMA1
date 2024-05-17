@@ -112,7 +112,7 @@
         /* Sidebar Styles */
         #sidebar {
             position: fixed;
-            top: 2.5cm;
+            top: 2.9cm;
             bottom: 2cm;
             left: 9.5cm;
             width: 180%;
