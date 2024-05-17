@@ -279,7 +279,7 @@
                                 href="https://moussakassim.github.io/Metabolomic-data/">Metabolomic
                                 data</a>
                             <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Single_cell_RNA_seq.md">Single
+                                href="https://moussakassim.github.io/Single-cell-Data/">Single
                                 cell RNA seq data</a>
                             <a class="dropdown-item"
                                 href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
