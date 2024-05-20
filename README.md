@@ -244,7 +244,27 @@
     margin-bottom: 20px;
 }
 
+/* Styles for specific screen sizes */
 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Add any specific styles for small devices here */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Add any specific styles for medium devices here */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Add any specific styles for large devices here */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Add any specific styles for extra large devices here */
+}
     </style>
 </head>
 
