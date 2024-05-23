@@ -280,7 +280,7 @@
                                 href="https://moussakassim.github.io/Single-cell-Data/">Single
                                 cell RNA seq data</a>
                             <a class="dropdown-item"
-                                href="https://github.com/tkcaccia/KODAMA/blob/main/docs/Spatial%20_transcriptomic.md">Spatial
+                                href="https://moussakassim.github.io/Spatial-Transcriptomics/">Spatial
                                 Transcriptomic data</a>
                         </div>
                     </li>
