@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Zheng Li" />
+
+<meta name="date" content="2022-06-12" />
+
+<title>Mouse hypothalamus data by MERFISH (Moffitt et al., 2018)</title>
+
+<script src="site_libs/header-attrs-2.12.1/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BASS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="about.html">Software tutorial</a>
+</li>
+<li>
+  <a href="simu.html">Simulation</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Real data analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="STARmap.html">STARmap (Wang et al., 2018)</a>
+    </li>
+    <li>
+      <a href="MERFISH.html">MERFISH (Moffitt et al., 2018)</a>
+    </li>
+    <li>
+      <a href="DLPFC.html">DLPFC (Maynard et al., 2021)</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/zhengli09//BASS-analysis">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Mouse hypothalamus data by MERFISH (Moffitt
+et al., 2018)</h1>
+<h4 class="author">Zheng Li</h4>
+<h4 class="date">2022-06-12</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-06-12
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>BASS-analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed0code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(0)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed0code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(0)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomzhengli09BASSanalysistree829d10c5addeb411ad5deb4dea9f3ff3e8d79d97targetblank829d10ca">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/zhengli09//BASS-analysis/tree/829d10c5addeb411ad5deb4dea9f3ff3e8d79d97" target="_blank">829d10c</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomzhengli09BASSanalysistree829d10c5addeb411ad5deb4dea9f3ff3e8d79d97targetblank829d10ca"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/zhengli09//BASS-analysis/tree/829d10c5addeb411ad5deb4dea9f3ff3e8d79d97" target="_blank">829d10c</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+working directory clean
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/MERFISH.Rmd</code>) and HTML
+(<code>docs/MERFISH.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/829d10c5addeb411ad5deb4dea9f3ff3e8d79d97/analysis/MERFISH.Rmd" target="_blank">829d10c</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-06-12
+</td>
+<td>
+Update real data analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/67aecc1b77b3c5af9b21c713d8abf11da6dc6954/docs/MERFISH.html" target="_blank">67aecc1</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-03-05
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/8f34a273f0fb57b1f526da9124ac879aca87974f/analysis/MERFISH.Rmd" target="_blank">8f34a27</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-03-05
+</td>
+<td>
+Add MERFISH analysis
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Here, we apply BASS to analyze the spatial transcriptomic data that
+measured the mouse preoptic region of hypothalamus by the MERFISH
+technology from <a
+href="https://www.science.org/doi/10.1126/science.aau5324">Moffitt et
+al., 2018</a>. We focus on the tissue sections Bregma -0.04, -0.09,
+-0.14, -0.19, and -0.24 mm from a consecutive brain hypothalamic region
+of animal 1. The original data can be downloaded from <a
+href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.8t8s248">here</a>.
+We excluded five blank control genes and excluded cells that were
+annotated to be the “Ambiguous” class as they were identified as
+putative doublets. Finally, we retained the same set of 155 genes
+measured on 5,488 (Bregma -0.04 mm), 5,557 (Bregma -0.09 mm), 5,926
+(Bregma -0.14 mm), 5,803 (Bregma -0.19 mm), and 5,543 (Bregma -0.24 mm)
+cells along with their centroid coordiates for the downstream analysis.
+We manually annotated the five samples with spatial domain labels,
+allowing us to quantitatively evaluate different methods with ARI.
+There, the manual annotation of spatial domains was based on the spatial
+expression of marker genes and the histology diagram of the mouse brain
+from the <a href="https://mouse.brain-map.org/static/atlas">Allen brain
+atlas</a>. The processed data and manual annotations can be found at the
+<a
+href="https://github.com/zhengli09/BASS-Analysis/tree/master/data">data
+directory</a>. For detailed usage of all the functions, please refer to
+the software tutorial section.</p>
+<pre class="r"><code>library(BASS)
+library(Seurat)
+library(tidyverse)
+load(&quot;data/MERFISH_Animal1.RData&quot;) # cnts_mult info_mult</code></pre>
+</div>
+<div id="load-data-and-set-hyper-parameters" class="section level1">
+<h1>Load data and set hyper-parameters</h1>
+<pre class="r"><code>smps &lt;- c(&quot;-0.04&quot;, &quot;-0.09&quot;, &quot;-0.14&quot;, &quot;-0.19&quot;, &quot;-0.24&quot;)
+cnts &lt;- cnts_mult[smps] # a list of gene expression count matrices
+xys &lt;- lapply(info_mult[smps], function(info.i){
+  info.i$x &lt;- info.i$x - min(info.i$x)
+  info.i$y &lt;- info.i$y - min(info.i$y)
+  as.matrix(info.i[, c(&quot;x&quot;, &quot;y&quot;)])
+}) # a list of spatial coordinates matrices
+# hyper-parameters
+C &lt;- 20 # number of cell types
+R &lt;- 8 # number of spatial domains</code></pre>
+</div>
+<div id="run-bass" class="section level1">
+<h1>Run BASS</h1>
+<pre class="r"><code>set.seed(0)
+# Set up BASS object
+BASS &lt;- createBASSObject(cnts, xys, C = C, R = R, beta_method = &quot;SW&quot;)</code></pre>
+<pre><code>***************************************
+  INPUT INFO:
+    - Number of tissue sections: 5 
+    - Number of cells/spots: 5488 5557 5926 5803 5543 
+    - Number of genes: 155 
+    - Potts interaction parameter estimation method: SW 
+      - Estimate Potts interaction parameter with SW algorithm
+  To list all hyper-parameters, Type listAllHyper(BASS_object)
+***************************************</code></pre>
+<pre class="r"><code># Data pre-processing:
+# 1.Library size normalization followed with a log2 transformation
+# 2.Dimension reduction with PCA after standardizing all the genes
+# 3.Batch effect adjustment using the Harmony package
+BASS &lt;- BASS.preprocess(BASS, doLogNormalize = TRUE,
+  doPCA = TRUE, scaleFeature = TRUE, nPC = 20)</code></pre>
+<pre><code>***** Log-normalize gene expression data *****
+***** Exclude genes with 0 expression *****
+***** Reduce data dimension with PCA *****
+***** Correct batch effect with Harmony *****</code></pre>
+<pre class="r"><code># Run BASS algorithm
+BASS &lt;- BASS.run(BASS)</code></pre>
+<pre class="r"><code># The spatial parameter beta has converged
+# after checking the trace plot of beta
+plot(1:BASS@burnin, BASS@samples$beta, xlab = &quot;Iteration&quot;, 
+  ylab = expression(beta), type = &quot;l&quot;)</code></pre>
+<p><img src="figure/MERFISH.Rmd/unnamed-chunk-4-1.png" width="432" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># post-process posterior samples:
+# 1.Adjust for label switching with the ECR-1 algorithm
+# 2.Summarize the posterior samples to obtain the cell type labels, spatial 
+#   domain labels, and cell type proportion matrix estimate
+BASS &lt;- BASS.postprocess(BASS)</code></pre>
+<pre><code>Post-processing...
+done</code></pre>
+<pre class="r"><code>clabels &lt;- BASS@results$c # cell type clusters
+zlabels &lt;- BASS@results$z # spatial domain labels
+pi_est &lt;- BASS@results$pi # cell type composition matrix</code></pre>
+</div>
+<div id="annotate-cell-types" class="section level1">
+<h1>Annotate cell types</h1>
+<pre class="r"><code># Perform DE analysis with Seurat
+cnts_all &lt;- do.call(cbind, cnts)
+seu_obj &lt;- CreateSeuratObject(counts = cnts_all)
+seu_obj &lt;- NormalizeData(seu_obj)
+seu_obj &lt;- ScaleData(seu_obj, features = rownames(seu_obj))</code></pre>
+<pre><code>Centering and scaling data matrix</code></pre>
+<pre class="r"><code>seu_obj &lt;- RunPCA(seu_obj, features = rownames(seu_obj), verbose = F)
+Idents(seu_obj) &lt;- factor(unlist(clabels))
+markers &lt;- FindAllMarkers(seu_obj, only.pos = T, 
+  min.pct = 0, logfc.threshold = 0, verbose = F)
+top5 &lt;- markers %&gt;%
+  group_by(cluster) %&gt;%
+  top_n(n = 5, wt = avg_logFC)
+
+# By checking the top DE genes of each cell type cluster, 
+# we annotate specific cell types for each cluster
+cTypes &lt;- c(
+  &quot;Astro&quot;, &quot;Epen&quot;, &quot;E5&quot;, &quot;I7&quot;, &quot;Endo&quot;,
+  &quot;I6&quot;, &quot;E2&quot;, &quot;I1&quot;, &quot;Mural&quot;, &quot;I4&quot;,
+  &quot;I3&quot;, &quot;I8&quot;, &quot;I5&quot;, &quot;E1&quot;, &quot;E4&quot;,
+  &quot;I2&quot;, &quot;MOD&quot;, &quot;IOD&quot;, &quot;E3&quot;, &quot;Micro&quot;)
+clabels &lt;- lapply(clabels, function(clabels.l){
+  clabels.l &lt;- factor(clabels.l)
+  levels(clabels.l) &lt;- cTypes
+  clabels.l &lt;- factor(clabels.l, levels = c(
+    &quot;E1&quot;, &quot;E2&quot;, &quot;E3&quot;, &quot;E4&quot;, &quot;E5&quot;,
+    &quot;I1&quot;, &quot;I2&quot;, &quot;I3&quot;, &quot;I4&quot;, &quot;I5&quot;, 
+    &quot;I6&quot;, &quot;I7&quot;, &quot;I8&quot;, &quot;MOD&quot;, &quot;IOD&quot;, 
+    &quot;Astro&quot;, &quot;Micro&quot;, &quot;Epen&quot;, &quot;Endo&quot;, &quot;Mural&quot;
+  ))
+})</code></pre>
+<p>
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
+Top DE genes for each cell type cluster </a>
+</p>
+<div id="collapseExample1" class="collapse">
+<div class="card card-body">
+<pre class="r"><code>data.frame(top5)</code></pre>
+<pre><code>            p_val avg_logFC pct.1 pct.2     p_val_adj cluster      gene
+1    0.000000e+00 2.7782123 0.981 0.553  0.000000e+00       1   Aldh1l1
+2    0.000000e+00 2.4264055 0.974 0.531  0.000000e+00       1      Aqp4
+3    0.000000e+00 2.2160414 0.970 0.611  0.000000e+00       1    Cxcl14
+4    0.000000e+00 1.8467514 0.817 0.383  0.000000e+00       1    Pou3f2
+5    0.000000e+00 1.7870323 0.996 0.814  0.000000e+00       1      Mlc1
+6    0.000000e+00 2.7537409 0.991 0.614  0.000000e+00       2     Cd24a
+7    0.000000e+00 2.4077562 0.960 0.414  0.000000e+00       2      Nnat
+8    0.000000e+00 2.3283544 0.903 0.391  0.000000e+00       2     Cckbr
+9    0.000000e+00 2.2676547 0.851 0.265  0.000000e+00       2     Cyr61
+10   0.000000e+00 1.8315003 0.996 0.828  0.000000e+00       2      Mlc1
+11   0.000000e+00 2.4014390 0.956 0.484  0.000000e+00       3    Necab1
+12   0.000000e+00 2.1614759 0.920 0.311  0.000000e+00       3     Ntng1
+13   0.000000e+00 1.8445879 0.996 0.668  0.000000e+00       3   Slc17a6
+14   0.000000e+00 1.4593158 0.684 0.191  0.000000e+00       3       Sp9
+15  1.314658e-173 1.7869902 0.575 0.234 2.037720e-171       3     Ramp3
+16   0.000000e+00 1.5305178 0.557 0.165  0.000000e+00       4       Sp9
+17   0.000000e+00 1.1407105 0.810 0.515  0.000000e+00       4   Col25a1
+18   0.000000e+00 1.1046601 0.954 0.597  0.000000e+00       4       Gda
+19  9.479762e-257 1.1648906 0.426 0.180 1.469363e-254       4      Oxtr
+20  3.368667e-237 1.0359384 0.516 0.260 5.221434e-235       4      Ano3
+21   0.000000e+00 3.9911837 0.992 0.410  0.000000e+00       5   Slco1a4
+22   0.000000e+00 3.6960311 0.992 0.203  0.000000e+00       5       Fn1
+23   0.000000e+00 3.0459345 0.837 0.189  0.000000e+00       5      Klf4
+24   0.000000e+00 2.5213624 0.881 0.280  0.000000e+00       5    Sema3c
+25   0.000000e+00 2.1815637 0.897 0.286  0.000000e+00       5      Rgs5
+26   0.000000e+00 1.8715066 0.614 0.203  0.000000e+00       6   Cyp19a1
+27   0.000000e+00 1.8651110 0.692 0.197  0.000000e+00       6     Greb1
+28   0.000000e+00 1.7621425 0.638 0.198  0.000000e+00       6      Scgn
+29  7.597424e-304 1.7692032 0.471 0.137 1.177601e-301       6     Crhbp
+30  2.126901e-153 2.0296631 0.457 0.198 3.296697e-151       6     Npas1
+31   0.000000e+00 2.6156152 0.713 0.342  0.000000e+00       7       Trh
+32   0.000000e+00 2.5758911 0.936 0.357  0.000000e+00       7     Cbln1
+33   0.000000e+00 1.7611146 0.826 0.341  0.000000e+00       7      Bdnf
+34  2.610651e-259 1.7702424 0.619 0.236 4.046509e-257       7     Crhr2
+35   2.777505e-92 1.5650985 0.665 0.425  4.305133e-90       7       Omp
+36   0.000000e+00 2.5374012 0.931 0.413  0.000000e+00       8       Gal
+37   0.000000e+00 2.1888604 0.871 0.257  0.000000e+00       8   Slc18a2
+38  6.133611e-271 2.2107623 0.929 0.473 9.507096e-269       8        Th
+39  2.216045e-217 2.1569721 0.856 0.397 3.434869e-215       8     Oprd1
+40  5.864085e-127 1.8073287 0.417 0.107 9.089332e-125       8   Slc17a8
+41   0.000000e+00 4.7278809 0.761 0.166  0.000000e+00       9     Myh11
+42   0.000000e+00 3.4807871 0.909 0.304  0.000000e+00       9      Rgs5
+43   0.000000e+00 3.1162781 0.755 0.162  0.000000e+00       9   Adora2a
+44  1.793805e-302 3.2040650 0.570 0.137 2.780397e-300       9      Ace2
+45  7.581840e-284 3.2464802 0.611 0.175 1.175185e-281       9     Lmod1
+46   0.000000e+00 1.9110566 0.879 0.226  0.000000e+00      10      Isl1
+47   0.000000e+00 1.5397982 0.969 0.720  0.000000e+00      10    Amigo2
+48  9.192010e-217 0.9968776 0.683 0.361 1.424762e-214      10    Cartpt
+49  2.044575e-174 1.6683518 0.400 0.144 3.169091e-172      10     Rxfp1
+50  1.714037e-167 0.9873423 0.679 0.409 2.656758e-165      10       Gal
+51   0.000000e+00 1.7965396 0.822 0.362  0.000000e+00      11      Coch
+52   0.000000e+00 1.6496395 0.821 0.480  0.000000e+00      11       Nts
+53   0.000000e+00 1.4586837 0.968 0.474  0.000000e+00      11      Esr1
+54  2.124375e-235 1.0339532 0.654 0.310 3.292781e-233      11     Ntng1
+55  4.314424e-181 1.0187289 0.783 0.526 6.687357e-179      11     Npy2r
+56  5.266962e-206 2.8021821 0.992 0.342 8.163792e-204      12       Vgf
+57  5.224383e-127 1.9437082 0.937 0.381 8.097793e-125      12      Scg2
+58   7.457055e-74 1.0710592 0.962 0.708  1.155844e-71      12      Gad1
+59   9.466820e-56 2.8976912 0.786 0.526  1.467357e-53      12       Crh
+60   7.835512e-25 1.0233969 0.504 0.243  1.214504e-22      12     Ramp3
+61   0.000000e+00 2.0453396 0.711 0.260  0.000000e+00      13     Calcr
+62   0.000000e+00 1.6850038 0.583 0.211  0.000000e+00      13      Brs3
+63   0.000000e+00 1.0776664 0.643 0.299  0.000000e+00      13     Tacr1
+64   0.000000e+00 1.0729585 0.911 0.543  0.000000e+00      13       Pgr
+65  1.937009e-200 1.1731734 0.578 0.318 3.002364e-198      13      Mc4r
+66   0.000000e+00 0.8963277 0.896 0.651  0.000000e+00      14   Slc17a6
+67   0.000000e+00 0.8762328 0.901 0.656  0.000000e+00      14    Gabra1
+68  4.783688e-152 0.9369374 0.490 0.296 7.414716e-150      14     Synpr
+69  2.760338e-132 1.2767034 0.342 0.175 4.278524e-130      14 Serpinb1b
+70   7.445158e-76 1.3243617 0.348 0.221  1.154000e-73      14      Syt2
+71  8.418062e-135 3.0748511 0.955 0.433 1.304800e-132      15       Sst
+72   2.251097e-76 1.5431804 0.621 0.171  3.489200e-74      15     Fezf1
+73   1.019193e-65 1.5683035 0.911 0.588  1.579749e-63      15      Nos1
+74   5.861430e-65 5.0441705 0.701 0.347  9.085217e-63      15       Oxt
+75   1.047668e-40 1.3744857 0.812 0.553  1.623885e-38      15     Cckar
+76   0.000000e+00 2.7425164 0.977 0.244  0.000000e+00      16   Slc18a2
+77   0.000000e+00 1.8303923 0.994 0.364  0.000000e+00      16      Scg2
+78   0.000000e+00 1.5542207 0.984 0.487  0.000000e+00      16      Esr1
+79  3.466184e-266 1.8681695 0.614 0.198 5.372586e-264      16      Egr2
+80  5.834870e-173 1.6237173 0.377 0.103 9.044049e-171      16   Slc17a8
+81   0.000000e+00 4.1205073 0.987 0.225  0.000000e+00      17      Ermn
+82   0.000000e+00 3.6753149 0.995 0.563  0.000000e+00      17      Sgk1
+83   0.000000e+00 3.4092880 0.822 0.148  0.000000e+00      17    Opalin
+84   0.000000e+00 3.4009217 0.999 0.150  0.000000e+00      17       Mbp
+85   0.000000e+00 2.7780301 0.989 0.425  0.000000e+00      17      Gjc3
+86   0.000000e+00 4.2690694 0.998 0.251  0.000000e+00      18    Pdgfra
+87   0.000000e+00 2.4640885 0.965 0.456  0.000000e+00      18     Traf4
+88   0.000000e+00 2.2928015 0.979 0.436  0.000000e+00      18      Gjc3
+89   0.000000e+00 1.7242792 0.982 0.556  0.000000e+00      18      Sox8
+90   0.000000e+00 1.5623249 0.932 0.418  0.000000e+00      18      Sox6
+91   0.000000e+00 3.2518485 0.927 0.157  0.000000e+00      19     Fezf1
+92  1.962912e-284 2.0896526 0.955 0.582 3.042513e-282      19      Nos1
+93  1.324413e-243 1.3266737 0.984 0.672 2.052840e-241      19   Slc17a6
+94  2.642158e-199 1.7937964 0.815 0.370 4.095345e-197      19     Cbln1
+95   1.902726e-85 1.7868655 0.526 0.229  2.949226e-83      19      Syt2
+96   0.000000e+00 4.7368009 0.851 0.324  0.000000e+00      20    Selplg
+97  9.669028e-251 3.7378587 0.482 0.098 1.498699e-248      20      Ebf3
+98  4.106676e-111 1.5094060 0.688 0.403 6.365348e-109      20     Man1a
+99   1.153161e-83 1.2789752 0.728 0.554  1.787399e-81      20      Rgs2
+100  7.518159e-20 1.1842371 0.453 0.390  1.165315e-17      20   Slc15a3</code></pre>
+</div>
+</div>
+</div>
+<div id="visualization" class="section level1">
+<h1>Visualization</h1>
+<p>You can refer to <a
+href="https://github.com/zhengli09/BASS-Analysis/tree/master/code/viz.R">visualization</a>
+for some useful plotting functions or you can write your own code for
+plotting.</p>
+<pre class="r"><code>source(&quot;code/viz.R&quot;)</code></pre>
+<div id="spatial-domains" class="section level2">
+<h2>Spatial domains</h2>
+<pre class="r"><code>zlabels &lt;- lapply(zlabels, function(zlabels.l){
+  zlabels.l &lt;- factor(zlabels.l)
+  levels(zlabels.l) &lt;- c(&quot;BST&quot;, &quot;PV&quot;, &quot;PVT&quot;, &quot;MPN&quot;,
+    &quot;V3&quot;, &quot;fx&quot;, &quot;MPA&quot;, &quot;PVH&quot;)
+  zlabels.l &lt;- factor(zlabels.l, levels = c(&quot;V3&quot;, &quot;BST&quot;,
+    &quot;fx&quot;, &quot;MPA&quot;, &quot;MPN&quot;, &quot;PV&quot;, &quot;PVH&quot;, &quot;PVT&quot;))
+})
+cols &lt;- c(&quot;#669bbc&quot;, &quot;#81b29a&quot;, &quot;#f2cc8f&quot;, &quot;#adc178&quot;,
+  &quot;#dde5b6&quot;, &quot;#a8dadc&quot;, &quot;#e5989b&quot;, &quot;#e07a5f&quot;)
+plotClustersFacet(xys, zlabels, smps, size = 0.2) +
+  scale_color_manual(&quot;Domain&quot;, values = cols) +
+  guides(color = guide_legend(nrow = 1, 
+    override.aes = list(size = 2)))</code></pre>
+<p><img src="figure/MERFISH.Rmd/unnamed-chunk-9-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/67aecc1b77b3c5af9b21c713d8abf11da6dc6954/docs/figure/MERFISH.Rmd/unnamed-chunk-9-1.png" target="_blank">67aecc1</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-03-05
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="cell-types" class="section level2">
+<h2>Cell types</h2>
+<pre class="r"><code>cols &lt;- c(&quot;#98c1d9&quot;, &quot;#2a9d8f&quot;, &quot;#e9c46a&quot;, &quot;#f4a261&quot;, &quot;#e76f51&quot;, 
+  &quot;#e0fbfc&quot;, &quot;#a8dadc&quot;, &quot;#3d5a80&quot;, &quot;#81b29a&quot;, &quot;#e07a5f&quot;, 
+  &quot;#DBC9D8&quot;, &quot;#b388eb&quot;, &quot;#A4277C&quot;, &quot;#BC93B2&quot;, &quot;#0077b6&quot;, 
+  &quot;#bb3e03&quot;, &quot;#ffddd2&quot;, &quot;#f19c79&quot;, &quot;#006d77&quot;, &quot;#6A3569&quot;)
+plotClustersFacet(xys, clabels, smps, size = 0.2) +
+  scale_color_manual(&quot;Type&quot;, values = cols) +
+  guides(color = guide_legend(byrow = T, nrow = 2,
+    override.aes = list(size = 2)))</code></pre>
+<p><img src="figure/MERFISH.Rmd/unnamed-chunk-10-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
+Past versions of unnamed-chunk-10-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-10-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/67aecc1b77b3c5af9b21c713d8abf11da6dc6954/docs/figure/MERFISH.Rmd/unnamed-chunk-10-1.png" target="_blank">67aecc1</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-03-05
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div
+id="spatial-distribution-of-cell-types-on-the-tissue-section-bregma--0.14"
+class="section level2">
+<h2>Spatial distribution of cell types on the tissue section Bregma
+-0.14</h2>
+<pre class="r"><code>library(gghighlight)
+plotCellTypes(xys[[3]], clabels[[3]], cols, ncol = 5, dotsize = 0.5,
+  size = 0.6, alpha = 0.5, stroke = 0)</code></pre>
+<p><img src="figure/MERFISH.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cell-type-compositions-in-each-spatial-domain"
+class="section level2">
+<h2>Cell type compositions in each spatial domain</h2>
+<pre class="r"><code># adjust order of labeling
+pi_est &lt;- pi_est[match(
+  levels(clabels[[1]]), cTypes),
+  c(5,1,6,7,4,2,8,3)]
+colnames(pi_est) &lt;- c(&quot;V3&quot;, &quot;BST&quot;, &quot;fx&quot;, &quot;MPA&quot;, &quot;MPN&quot;, &quot;PV&quot;, &quot;PVH&quot;, &quot;PVT&quot;)
+rownames(pi_est) &lt;- levels(clabels[[1]])
+plotCellTypeCompBar(pi_est, cols, nrow = 4)</code></pre>
+<p><img src="figure/MERFISH.Rmd/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.0 (2022-04-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.5 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
+LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] gghighlight_0.3.2 forcats_0.5.0     stringr_1.4.0     dplyr_1.0.8      
+ [5] purrr_0.3.4       readr_1.3.1       tidyr_1.1.1       tibble_3.1.6     
+ [9] ggplot2_3.3.5     tidyverse_1.3.0   Seurat_3.2.3      BASS_1.1.0       
+[13] GIGrvg_0.5        workflowr_1.7.0  
+
+loaded via a namespace (and not attached):
+  [1] utf8_1.2.2                  reticulate_1.25            
+  [3] tidyselect_1.1.2            htmlwidgets_1.5.1          
+  [5] combinat_0.0-8              grid_4.2.0                 
+  [7] BiocParallel_1.22.0         lpSolve_5.6.15             
+  [9] Rtsne_0.16                  munsell_0.5.0              
+ [11] codetools_0.2-18            ica_1.0-2                  
+ [13] future_1.25.0               miniUI_0.1.1.1             
+ [15] withr_2.4.3                 colorspace_2.0-3           
+ [17] Biobase_2.48.0              highr_0.9                  
+ [19] knitr_1.37                  rstudioapi_0.13            
+ [21] stats4_4.2.0                SingleCellExperiment_1.14.1
+ [23] ROCR_1.0-11                 tensor_1.5                 
+ [25] listenv_0.8.0               labeling_0.4.2             
+ [27] MatrixGenerics_1.4.3        git2r_0.28.0               
+ [29] GenomeInfoDbData_1.2.6      harmony_0.1.0              
+ [31] polyclip_1.10-0             farver_2.1.0               
+ [33] rprojroot_2.0.2             parallelly_1.31.1          
+ [35] vctrs_0.3.8                 generics_0.1.2             
+ [37] xfun_0.29                   R6_2.5.1                   
+ [39] GenomeInfoDb_1.24.2         ggbeeswarm_0.6.0           
+ [41] rsvd_1.0.3                  bitops_1.0-7               
+ [43] spatstat.utils_2.3-1        DelayedArray_0.18.0        
+ [45] assertthat_0.2.1            promises_1.1.1             
+ [47] scales_1.1.1                beeswarm_0.4.0             
+ [49] gtable_0.3.0                globals_0.15.0             
+ [51] processx_3.5.2              goftest_1.2-3              
+ [53] rlang_1.0.1                 splines_4.2.0              
+ [55] lazyeval_0.2.2              broom_0.7.10               
+ [57] yaml_2.3.5                  reshape2_1.4.4             
+ [59] abind_1.4-5                 modelr_0.1.8               
+ [61] backports_1.2.1             httpuv_1.5.4               
+ [63] tools_4.2.0                 ellipsis_0.3.2             
+ [65] jquerylib_0.1.4             RColorBrewer_1.1-2         
+ [67] BiocGenerics_0.38.0         ggridges_0.5.3             
+ [69] Rcpp_1.0.8.3                plyr_1.8.7                 
+ [71] sparseMatrixStats_1.8.0     zlibbioc_1.34.0            
+ [73] RCurl_1.98-1.5              ps_1.6.0                   
+ [75] rpart_4.1.16                deldir_1.0-6               
+ [77] pbapply_1.5-0               viridis_0.5.1              
+ [79] cowplot_1.1.1               S4Vectors_0.30.2           
+ [81] zoo_1.8-10                  SummarizedExperiment_1.22.0
+ [83] haven_2.3.1                 ggrepel_0.9.1              
+ [85] cluster_2.1.3               fs_1.5.2                   
+ [87] magrittr_2.0.2              data.table_1.14.2          
+ [89] scattermore_0.8             lmtest_0.9-40              
+ [91] reprex_0.3.0                RANN_2.6.1                 
+ [93] whisker_0.4                 fitdistrplus_1.1-8         
+ [95] matrixStats_0.61.0          hms_0.5.3                  
+ [97] patchwork_1.1.1             mime_0.12                  
+ [99] evaluate_0.15               xtable_1.8-4               
+[101] mclust_5.4.9                readxl_1.3.1               
+[103] IRanges_2.26.0              gridExtra_2.3              
+[105] compiler_4.2.0              scater_1.16.2              
+[107] KernSmooth_2.23-20          crayon_1.5.0               
+[109] htmltools_0.5.2             mgcv_1.8-40                
+[111] later_1.1.0.1               lubridate_1.7.9            
+[113] DBI_1.1.1                   dbplyr_1.4.4               
+[115] MASS_7.3-57                 Matrix_1.4-1               
+[117] cli_3.2.0                   parallel_4.2.0             
+[119] igraph_1.3.1                GenomicRanges_1.44.0       
+[121] pkgconfig_2.0.3             getPass_0.2-2              
+[123] plotly_4.9.2.1              xml2_1.3.3                 
+[125] vipor_0.4.5                 bslib_0.3.1                
+[127] XVector_0.32.0              rvest_0.3.6                
+[129] callr_3.7.0                 digest_0.6.29              
+[131] sctransform_0.3.3           RcppAnnoy_0.0.19           
+[133] spatstat.data_2.2-0         rmarkdown_2.12.1           
+[135] cellranger_1.1.0            leiden_0.4.2               
+[137] uwot_0.1.11                 DelayedMatrixStats_1.14.3  
+[139] shiny_1.5.0                 lifecycle_1.0.1            
+[141] nlme_3.1-157                jsonlite_1.8.0             
+[143] BiocNeighbors_1.6.0         limma_3.52.0               
+[145] viridisLite_0.4.0           fansi_1.0.2                
+[147] pillar_1.7.0                lattice_0.20-45            
+[149] fastmap_1.1.0               httr_1.4.2                 
+[151] survival_3.3-1              glue_1.6.2                 
+[153] spatstat_1.64-1             label.switching_1.8        
+[155] png_0.1-7                   stringi_1.7.6              
+[157] sass_0.4.1                  blob_1.2.1                 
+[159] BiocSingular_1.4.0          irlba_2.3.3                
+[161] future.apply_1.9.0         </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
