@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Zheng Li" />
+
+<meta name="date" content="2023-04-02" />
+
+<title>Software tutorial</title>
+
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BASS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="about.html">Software tutorial</a>
+</li>
+<li>
+  <a href="simu.html">Simulation</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Real data analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="STARmap.html">STARmap (Wang et al., 2018)</a>
+    </li>
+    <li>
+      <a href="MERFISH.html">MERFISH (Moffitt et al., 2018)</a>
+    </li>
+    <li>
+      <a href="DLPFC.html">DLPFC (Maynard et al., 2021)</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/zhengli09//BASS-analysis">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Software tutorial</h1>
+<h4 class="author">Zheng Li</h4>
+<h4 class="date">2023-04-02</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2023-04-02
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>BASS-analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed0code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(0)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed0code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(0)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomzhengli09BASSanalysistree1398286a41b9a9ae3bc2db565016a53f2f135e7dtargetblank1398286a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/zhengli09//BASS-analysis/tree/1398286a41b9a9ae3bc2db565016a53f2f135e7d" target="_blank">1398286</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomzhengli09BASSanalysistree1398286a41b9a9ae3bc2db565016a53f2f135e7dtargetblank1398286a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/zhengli09//BASS-analysis/tree/1398286a41b9a9ae3bc2db565016a53f2f135e7d" target="_blank">1398286</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+working directory clean
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/about.Rmd</code>) and HTML
+(<code>docs/about.html</code>) files. If you’ve configured a remote Git
+repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
+in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/1398286a41b9a9ae3bc2db565016a53f2f135e7d/analysis/about.Rmd" target="_blank">1398286</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2023-04-02
+</td>
+<td>
+Note on applying BASS to datasets with large N
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/42a20dad9fd58c561fe982f81d160a0cb9b89951/analysis/about.Rmd" target="_blank">42a20da</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-07-09
+</td>
+<td>
+Update tutorial page
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/7be557869312cd98247eaae04d741c575cde8c39/docs/about.html" target="_blank">7be5578</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-07-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/303b57559ce3373f77732fd632a96c4df036f114/docs/about.html" target="_blank">303b575</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-06-12
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/829d10c5addeb411ad5deb4dea9f3ff3e8d79d97/analysis/about.Rmd" target="_blank">829d10c</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-06-12
+</td>
+<td>
+Update real data analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/7d4801a083ae325dcb977e1046d07eb4eaffa263/docs/about.html" target="_blank">7d4801a</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/6a631f82816b7be00b249f66a2288f7a3bd35adf/analysis/about.Rmd" target="_blank">6a631f8</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-06-07
+</td>
+<td>
+Update software introduction and tutorial
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/182beebb01b81150712c13602b2446a0c4405c44/docs/about.html" target="_blank">182beeb</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-03-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/34e84d6065c8b15a6d96cb444f9142b35d6667a3/analysis/about.Rmd" target="_blank">34e84d6</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-03-10
+</td>
+<td>
+Add software tutorial and multi-sample simulation
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/9a685114f1f29bb007c27088adaf8ce2582c56a2/docs/about.html" target="_blank">9a68511</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-02-27
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/4ec8df1262087c7c78f682e56014a7087a756d4f/analysis/about.Rmd" target="_blank">4ec8df1</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-02-27
+</td>
+<td>
+Publish the introduction, simulation analysis and STARmap analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/b2c476b7c59342294dc8304cd5d2f19213f27d43/docs/about.html" target="_blank">b2c476b</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-02-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/zhengli09//BASS-analysis/a6097f45ea3c63efeecda29c8c9305498aed39ee/docs/about.html" target="_blank">a6097f4</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-02-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/zhengli09//BASS-analysis/blob/9f8756a61ff477ed278dcfb8b2682e6c07fac36b/analysis/about.Rmd" target="_blank">9f8756a</a>
+</td>
+<td>
+zhengli09
+</td>
+<td>
+2022-02-06
+</td>
+<td>
+Start workflowr project.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>In this tutorial, we introduce the workflow and core functions of
+BASS to help you get familiar with the BASS package and start analyzing
+your own datasets. Please check the <code>Real data analyses</code>
+sections for examples on how we analyze spatial transcriptomic
+datasets.</p>
+</div>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<p>BASS is implemented as an R (&gt;= 4.0.3) package with underlying
+efficient C++ code interfaced through Rcpp and RcppArmadillo. BASS
+depends on a few other R packages that include GIGrvg, Matrix, harmony,
+label.switching, mclust, Rcpp, RcppArmadillo, RcppDist, SPARK, scran,
+and scater. Please refer to the package <a
+href="https://github.com/zhengli09/BASS/blob/master/DESCRIPTION">DESCRIPTION</a>
+file for details. Dependent packages are supposed to be automatically
+installed while installing BASS. Install the <a
+href="https://github.com/zhengli09/BASS">BASS R package</a> maintained
+in github through the <code>devtools</code> package.</p>
+<pre class="r"><code>if(!require(devtools))
+  install.packages(devtools)
+devtools::install_github(&quot;zhengli09/BASS&quot;)</code></pre>
+<pre class="r"><code>library(BASS)</code></pre>
+</div>
+<div id="workflow" class="section level1">
+<h1>Workflow</h1>
+<p>Find the data <a
+href="https://github.com/zhengli09/BASS-Analysis/tree/master/data">here</a>.</p>
+<pre class="r"><code>load(&quot;data/starmap_mpfc.RData&quot;) # starmap_cnts, starmap_info</code></pre>
+<div id="step-1-create-a-bass-object" class="section level2">
+<h2>Step 1: create a BASS object</h2>
+<p>To facilitate all steps of the spatial transcriptomic analysis, we
+wrap up the raw data, processed data, model hyper-parameters, MCMC
+controlling parameters, and model results into an S4 object
+(<code>BASS-class</code>). Check details of the <code>BASS-class</code>
+object by typing <code>help("BASS-class")</code>. Create a BASS object
+to start your analysis with the function <code>createBASSObject</code>.
+There are four required arguments: an L-list of gene expression count
+matrices for L tissue sections (<code>X</code>), an L-list of spatial
+coordinates matrices for L tissue sections (<code>xy</code>), the number
+of cell types (<code>C</code>) and the number of spatial domains
+(<code>R</code>). Check the simulation section of our paper for an
+evaluation of the influence of the specified number of cell
+types/spatial domains on the performance of all methods, and the
+discussion section of our paper for a practical guideline on how to
+select the two hyper-parameters when the truths are unclear. In
+addition, when the purpose of the analysis is solely to detect spatial
+domains, <code>C</code> can be specified to be a relatively large number
+(e.g. <code>C = 20</code>) while exploring <code>R</code>. This ensures
+that the heterogeneity in gene expression can be fully accounted. By
+default, we infer the spatial interaction parameter <span
+class="math inline">\(\beta\)</span> based on the data at hand by
+specifying <code>beta_method = "SW"</code>. However, if you have already
+had a good sense about the value of <span
+class="math inline">\(\beta\)</span> (usually between 1 and 2), you can
+fix this parameter to the value specified by <code>beta</code> and set
+<code>beta_method = "fix"</code>. Check the documentation of
+<code>createBASSObject</code> for further details.</p>
+<p>Notes:<br />
+The BASS software currently implements a stopping rule to automatically
+determine the number of MCMC samples required for inferring <span
+class="math inline">\(\beta\)</span>. In particular, we calculate the
+mean of the sampled <span class="math inline">\(\beta\)</span> in every
+100 iterations and stop sampling if the difference of the consecutive
+two means is below a certain threshold (<code>tol = 0.001</code> by
+default). Such stopping rule can help improve the computational
+efficiency and works well in almost all cases. In cases where the
+default number of MCMC iterations (2000) is not sufficient to reach the
+stopping threshold, we have incorporated a warning message into the
+software to encourage users to manually inspect the trace plot of <span
+class="math inline">\(\beta\)</span> to determine if a larger number of
+burn-in iterations is needed. Check the supplementary figure of our
+paper for examples of well-behaved trace plots.</p>
+<pre class="r"><code># gene expression count data
+cnts &lt;- starmap_cnts
+# spatial coordinates
+xy &lt;- lapply(starmap_info, function(info.i){
+  as.matrix(info.i[, c(&quot;x&quot;, &quot;y&quot;)])
+})
+BASS &lt;- createBASSObject(cnts, xy, C = 15, R = 4, beta_method = &quot;SW&quot;)</code></pre>
+<pre><code>***************************************
+  INPUT INFO:
+    - Number of tissue sections: 3 
+    - Number of cells/spots: 1049 1053 1088 
+    - Number of genes: 166 
+    - Potts interaction parameter estimation method: SW 
+      - Estimate Potts interaction parameter with SW algorithm
+  To list all hyper-parameters, Type listAllHyper(BASS_object)
+***************************************</code></pre>
+<p>You can check all the hyper-parameters that BASS uses with the
+function <code>listAllHyper</code>.</p>
+<pre class="r"><code>listAllHyper(BASS)</code></pre>
+<pre><code>***************************************
+  Please refer to the paper for details of the paramters
+  ALL HYPER-PARAMETERS:
+    - Number of cell types C: 15
+    - Number of spatial domains R: 4
+    - Initialization method: kmeans
+    - Scale matrix of the inverse-Wishart prior Psi0: 1I
+    - Degrees of freedom of the inverse-Wishart prior n0: 1
+    - Number of MCMC burn-in iterations: 2000
+    - Number of MCMC posterior samples: 5000
+    - Potts interaction parameter estimation approach: SW
+    - Number of burn-in interations in Potts sampling: 10
+    - Number of Potts samples to approximate the partition ratio: 10
+    - Step size of a uniform random walk: 0.1
+    - Threshold of convergence for beta: 0.001
+    - Concentration parameter of the Dirichlet prior alpha0: 1
+    - Minimum number of neighbors for each cell/spot based on the Euclidean distance: 4
+***************************************</code></pre>
+</div>
+<div id="step-2-pre-process-the-gene-expression-data"
+class="section level2">
+<h2>Step 2: pre-process the gene expression data</h2>
+<p>We pre-process the raw gene expression data stored at the
+<code>BASS@X</code> slot and store the processed data at the
+<code>BASS@X_run</code> slot for running the following BASS algorithm.
+We have provided a function <code>BASS.preprocess</code> to automate the
+pre-processing steps, where we combine cells/spots across all L tissue
+sections, conduct library size normalization followed by a
+log2-transformation (after adding a pseudo-count of 1), select feature
+genes, perform dimension reduction with PCA on the normalized expression
+matrix to extract J low-dimensional expression features, and perform
+batch effect adjustment with <a
+href="https://www.nature.com/articles/s41592-019-0619-0">Harmony</a> to
+align expression data from different tissue sections. Users can also
+pre-process the gene expression data by themselves and store the
+processed data to the <code>BASS@X_run</code> slot. Check the
+documentation of <code>BASS.preprocess</code> for further details and
+various other controls.</p>
+<pre class="r"><code>BASS &lt;- BASS.preprocess(BASS)</code></pre>
+</div>
+<div id="step-3-run-the-bass-algorithm" class="section level2">
+<h2>Step 3: run the BASS algorithm</h2>
+<p>Run the Gibbs sampling algorithm in combination with the
+Metropolis-Hastings algorithm to sample all the parameters specified in
+the BASS model. Posterior samples of all the parameters are stored in
+the <code>BASS@samples</code> slot and you can find a detailed
+description of what has been stored in <code>BASS@samples</code> by
+typing <code>help("BASS-class")</code>. Check the documentation of
+<code>BASS.run</code> for further details.</p>
+<pre class="r"><code>BASS &lt;- BASS.run(BASS)</code></pre>
+</div>
+<div id="step-4-post-process-the-posterior-sampling-results"
+class="section level2">
+<h2>Step 4: post-process the posterior sampling results</h2>
+<p>Post-process the posterior sampling results with the function
+<code>BASS.postprocess</code>. There, we address the label switching
+issue associated with the sampling of cell type labels and spatial
+domain labels based on the iterative version 1 of the equivalence class
+representation (ECR) algorithm implemented in the <a
+href="https://www.jstatsoft.org/article/view/v069c01">label.switching</a>
+package. In addition, we summarize posterior samples and obtain final
+estimates of cell type labels, spatial domain labels, and cell type
+composition in each spatial domain. The resulting estimates are stored
+in the <code>BASS@results</code> slot. Check the documentation of
+<code>BASS.postprocess</code> for further details.</p>
+<p>Notes:<br />
+ECR-1 algorithm can be computationally intense when the sample size,
+number of posterior samples, specified number of cell types, or
+specified number of spatial domains is large. We provide the option,
+<code>adjustLS = FALSE</code>, to directly obtain final estimates of the
+cell type labels and spatial domain labels as the mode of their
+posterior samples without adjusting for label switching. Such approach
+can help improve the computational efficiency and the resulting
+estimates are reasonably good.</p>
+<pre class="r"><code>BASS &lt;- BASS.postprocess(BASS)</code></pre>
+</div>
+<div id="note-on-applying-bass-to-datasets-with-large-n-100k"
+class="section level2">
+<h2>Note on applying BASS to datasets with large N (~100k)</h2>
+<p>To reduce the potential computational burden, we recommend setting
+the <code>beta_method</code> to be <code>fix</code> for running the BASS
+algorithm and setting <code>adjustLS = FALSE</code> during
+post-processing. This should allow BASS to be finished within a
+reasonable amount of time.</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.3 (2023-03-15)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
+LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] BASS_1.1.0.016  GIGrvg_0.7      workflowr_1.7.0
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.10      compiler_4.2.3   pillar_1.8.1     bslib_0.3.1     
+ [5] later_1.3.0      git2r_0.31.0     jquerylib_0.1.4  tools_4.2.3     
+ [9] getPass_0.2-2    mclust_6.0.0     digest_0.6.31    jsonlite_1.8.4  
+[13] evaluate_0.20    lifecycle_1.0.3  tibble_3.2.0     pkgconfig_2.0.3 
+[17] rlang_1.1.0      cli_3.6.0        rstudioapi_0.14  yaml_2.3.7      
+[21] xfun_0.38        fastmap_1.1.1    httr_1.4.5       stringr_1.5.0   
+[25] knitr_1.37       fs_1.6.1         vctrs_0.5.2      sass_0.4.5      
+[29] rprojroot_2.0.3  glue_1.6.2       R6_2.5.1         processx_3.8.0  
+[33] fansi_1.0.4      rmarkdown_2.20   callr_3.7.3      magrittr_2.0.3  
+[37] whisker_0.4.1    ps_1.7.2         promises_1.2.0.1 htmltools_0.5.2 
+[41] httpuv_1.6.9     utf8_1.2.3       stringi_1.7.12  </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
