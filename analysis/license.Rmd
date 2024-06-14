@@ -1,0 +1,11 @@
+---
+title: "License"
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+ The software is distributed under the 
+ [GNU General](https://www.gnu.org/licenses/gpl-3.0.html) Public License.
